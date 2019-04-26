@@ -1,14 +1,603 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/forecasting_PDE/PDE_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/Qro-cg-1.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecasting_PDE/pde_model_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/animate.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figs/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_domain/Qro-cg-1.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_domain/domain_density.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_domain/rand_uk_cg_3/rand_uk_cg_3.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/core_param_map.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/job_script.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/job_script_readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/000.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/001.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/002.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/003.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/004.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/005.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/006.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/007.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/008.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/009.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/010.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/011.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/012.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/013.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/014.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/015.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/016.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/017.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/018.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/019.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/020.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/021.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/022.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/023.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/024.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/025.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/026.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/027.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/028.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/029.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/030.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/031.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/032.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/033.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/034.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/035.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/036.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/037.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/038.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/039.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/040.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/041.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/042.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/043.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/044.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/045.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/046.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/047.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/048.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/049.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/050.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/051.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/052.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/053.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/054.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/055.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/056.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/057.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/058.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/059.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/060.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/061.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/062.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/063.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/064.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/065.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/066.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/067.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/068.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/069.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/070.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/071.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/072.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/073.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/074.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/075.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/076.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/077.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/078.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/079.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/080.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/081.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/082.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/083.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/084.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/085.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/086.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/087.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/088.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/089.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/090.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/091.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/092.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/093.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/094.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/095.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/096.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/097.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/098.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/099.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_generator/parameter_mapping/100.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_phase.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mkdir.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/epi_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output_data/lattice/25-04-2019-En_size-1-diffusion-coefficient-matching/eff_vel/025.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output_data/lattice/25-04-2019-En_size-1-diffusion-coefficient-matching/percolation/025.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output_data/lattice/25-04-2019-En_size-1-diffusion-coefficient-matching/runtime/025.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output_data/lattice/lattice_readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output_data/plots.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output_data/test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_plot_arc3.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/hpc_subgrid_model$diffusion_mapping.coverage" NAME="diffusion_mapping Coverage Results" MODIFIED="1556273551272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping" />
+    <SUITE FILE_PATH="coverage/hpc_subgrid_model$pde_model_main.coverage" NAME="pde_model_main Coverage Results" MODIFIED="1556277959370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/forecasting_PDE" />
+    <SUITE FILE_PATH="coverage/hpc_subgrid_model$domain_density.coverage" NAME="domain_density Coverage Results" MODIFIED="1556270336044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/input_domain" />
+    <SUITE FILE_PATH="coverage/hpc_subgrid_model$plots.coverage" NAME="plots Coverage Results" MODIFIED="1556271049569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/output_data" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="13763648">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="npy" value="1" />
+          <entry key="py" value="15" />
+          <entry key="sh" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="Python" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="42" />
+          <entry key="py" value="5735" />
+          <entry key="sh" value="60" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="102" />
+          <entry key="Python" value="5735" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/forecasting_PDE/pde_model_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="78" selection-start-line="16" selection-start-column="78" selection-end-line="16" selection-end-column="78" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <marker date="1556278065178" expanded="true" signature="990:1380" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="539">
+              <caret line="57" column="26" lean-forward="true" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <marker date="1556276565971" expanded="true" signature="148:153" ph="..." />
+                <marker date="1556276565971" expanded="true" signature="148:1351" ph="..." />
+                <marker date="1556276565971" expanded="true" signature="1369:2191" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/job_generator/job_script.py" />
+        <option value="$PROJECT_DIR$/main_phase.py" />
+        <option value="$PROJECT_DIR$/phase_plot_arc3.sh" />
+        <option value="$PROJECT_DIR$/output_data/plots.py" />
+        <option value="$PROJECT_DIR$/output_data/phase_space_plots.py" />
+        <option value="$PROJECT_DIR$/phase_space_gen/animate.sh" />
+        <option value="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping.py" />
+        <option value="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/__init__.py" />
+        <option value="$PROJECT_DIR$/phase_space_gen/main_phase.py" />
+        <option value="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" />
+        <option value="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py" />
+        <option value="$PROJECT_DIR$/forecasting_PDE/PDE_model/__init__.py" />
+        <option value="$PROJECT_DIR$/forecasting_PDE/pde_model_main.py" />
+        <option value="$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
+              <item name="forecasting_PDE" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
+              <item name="forecasting_PDE" type="462c0819:PsiDirectoryNode" />
+              <item name="PDE_model" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.pde_model_main">
+    <configuration name="diffusion_mapping" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="hpc-subgrid-model" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="domain_density" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="hpc-subgrid-model" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/input_domain" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/input_domain/domain_density.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pde_model_main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="hpc-subgrid-model" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/forecasting_PDE" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/forecasting_PDE/pde_model_main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plots" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="hpc-subgrid-model" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/output_data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/output_data/phase_space_plots.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.plots" />
+      <item itemvalue="Python.domain_density" />
+      <item itemvalue="Python.pde_model_main" />
+      <item itemvalue="Python.diffusion_mapping" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.pde_model_main" />
+        <item itemvalue="Python.diffusion_mapping" />
+        <item itemvalue="Python.plots" />
+        <item itemvalue="Python.domain_density" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="" />
+      <created>1556206822497</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1556206822497</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25239617" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32953367" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32953367" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" anchor="right" x="-1680" y="594" width="1680" height="1027" id="SciView" order="3" type="FLOATING" visible="true" weight="0.32960597" />
+      <window_info anchor="right" id="R Graphics" order="4" />
+      <window_info anchor="right" id="R Packages" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/input_domain/domain_density.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_phase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="20" selection-start-line="20" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job_generator/job_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output_data/phase_space_plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_plot_arc3.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/phase_plot_arc3.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/animate.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/model/epi_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="327" selection-start-line="327" selection-end-line="328" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/main_phase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="59" column="69" lean-forward="true" selection-start-line="59" selection-start-column="69" selection-end-line="59" selection-end-column="69" />
+          <folding>
+            <element signature="e#61#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="80" selection-start-line="3" selection-start-column="80" selection-end-line="3" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/Qro-cg-1.npy">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="57" column="26" lean-forward="true" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1556276565971" expanded="true" signature="148:153" ph="..." />
+            <marker date="1556276565971" expanded="true" signature="148:1351" ph="..." />
+            <marker date="1556276565971" expanded="true" signature="1369:2191" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecasting_PDE/PDE_model/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecasting_PDE/pde_model_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="78" selection-start-line="16" selection-start-column="78" selection-end-line="16" selection-end-column="78" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1556278065178" expanded="true" signature="990:1380" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
