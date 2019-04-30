@@ -11,7 +11,7 @@
 hpc_switch=0
 ensemble_size=1
 data_type="lattice" # ["lattice", "channel"]
-sim_name="--tensor-Phase-space-v1"
+sim_name="-phase_vel-km-yr"
 
 ###########__________Run script__________#############
 if [ "$hpc_switch" == 1 ]

@@ -32,42 +32,41 @@ def main(settings, parameters):
     param_dim = settings["param_dim"]
     domain_type = settings["domain_type"]
     core_id = save_label(job_id, param_dim)
-    # get core id - used to save output and get input parameters
-    # get parameters in phase spacer
+    # GET core id - used to save output and get input parameters
+    # GET parameters in phase spacer
     random_phase_space = False
     if random_phase_space:
-        # load in random phase elements to distribute hpc runtime load equally
+        # GENERATE random phase elements to distribute hpc runtime load equally
+        # DEFINE core_jobs : index mappings to rho and beta space
         core_jobs_id = os.getcwd() + '/job_generator/parameter_mapping/' + core_id + '.npy'
         core_jobs = np.load(core_jobs_id).astype(int)
     else:
-        # other wise generate uniform phase space
+        # GENERATE uniform phase space
+        #   DEFINE core_jobs : index mappings to rho and beta space
         core_jobs = np.zeros(shape=[param_dim, 2]).astype(int)
         core_jobs[:, 0], core_jobs[:, 1] = range(param_dim), range(param_dim)
-    # #### Set parameter jobs to be ran by hpc core #### #
 
+    # #### Set parameter jobs to be ran by hpc core #### #
     if domain_type == "rand_uk_cg_3" or domain_type == "lattice" or domain_type == "channel":
         # DEFINE:
-        # betas in [0, 1] : on a uniform scale between 0 and 1
-        # rhos in [0, 0.4] : this is scale of density values on the L. Hill data
-        # todo : be aware that the rho values might need smoothing for pde model to work...
+        #   betas in [0, 1] : on a uniform scale between 0 and 1
+        #   rhos in [0, 0.4] : this is scale of density values on the L. Hill data
         rhos, betas = np.linspace(0, 0.4, param_dim), np.linspace(0, 1, param_dim)
+        # APPLY index mappings to either generate random OR uniform phase space orderings
         rhos, betas = rhos[core_jobs[:, 0]], betas[core_jobs[:, 1]]
         sigmas = np.arange(1, param_dim + 1, 1)
         L = parameters["L"]
-        # generate domain structures
-        if "rand" in domain_type.split("_"):
-            ''
-            # fill in if want to use
-        elif domain_type == "lattice":
+        # GENERATE domain structures
+        if domain_type == "lattice":
             domain = np.random.uniform(0, 1, size=(L, L))
         elif domain_type == "channel":
             size = np.array([0.33*L, L]).astype(int)
             domain = np.random.uniform(0, 1, size=size)
 
     if job_id == 1:
-        # write all parameters to file
+        # WRITE all parameters to file
         save_meta_data(settings, parameters, output_path)
-    # return jobs in a single array
+    # RETURN jobs in a single array
     return domain, core_id, rhos, betas, sigmas, parameters
 
 

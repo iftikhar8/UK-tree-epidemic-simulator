@@ -51,8 +51,6 @@ def main(params, diffusion_map):
     save_path = os.getcwd() + '/output_data/dat_2_anim/'
     dim = params["dim"]
     epi_c = params["epi_c"]
-
-
     # DEFINE the UK and regions infected at time t=0
     uk = np.zeros(dim)
     span_x, span_y = [epi_c[1]-epi_c[0], epi_c[3]-epi_c[2]]

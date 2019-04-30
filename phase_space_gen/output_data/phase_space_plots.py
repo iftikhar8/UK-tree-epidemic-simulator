@@ -27,9 +27,9 @@ def tensor_phase_plot(data_arr, label):
         plt.colorbar(im)
         plt.show()
 
-def enemble_generator(path, label, show):
+def enemble_generator(path, label, show, dim):
     # Generate ensemble average phase space tensor from a directory of repeats
-    tensor_phase_space = np.zeros((10,)*3)
+    tensor_phase_space = np.zeros((dim,)*3)
     for i, sim_i in enumerate(sorted(os.listdir(path))):
         dat_load = np.load(path + '/' + sim_i)
         tensor_phase_space = tensor_phase_space + dat_load
@@ -43,15 +43,15 @@ def enemble_generator(path, label, show):
     np.save(name, tensor_phase_space)
 
 
-sim_names = {0: '/25-04-2019-En_size-1-diffusion-coefficient-matching',
-             1: '/25-04-2019-En_size-1--tensor-Phase-space-v1'}
-
-metrics = {0: '/percolation', 1: "/eff_vel", 2: "/runtime"}
+sim_names = {0: '/30-04-2019-En_size-1-phase_vel-km-yr'}
+metrics = {0: '/vel_km_yr', 1: "/mortality"}
 if 1:
     # PLOT phase space
-    domain_type, sim , metric = ['/lattice', sim_names[1], metrics[0]]
+    lattice_dim = 5
+    domain_type, sim , metric = ['/lattice', sim_names[0], metrics[0]]
     path_2_sim = os.getcwd() + domain_type + sim + metric
-    enemble_generator(path=path_2_sim, label=metric, show=False)
+    enemble_generator(path=path_2_sim, label=metric, show=False, dim=lattice_dim)
 
 
-
+dat = np.load('/Users/py13jh/PycharmProjects/hpc-subgrid-model/phase_space_gen/output_data/vel_km_yr-en-size-0.npy')
+print(dat)
