@@ -42,16 +42,14 @@ def enemble_generator(path, label, show, dim):
     name = os.getcwd() + label + '-en-size-' + str(i)
     np.save(name, tensor_phase_space)
 
-
 sim_names = {0: '/30-04-2019-En_size-1-phase_vel-km-yr'}
 metrics = {0: '/vel_km_yr', 1: "/mortality"}
 if 1:
     # PLOT phase space
-    lattice_dim = 5
+    lattice_dim = 10
     domain_type, sim , metric = ['/lattice', sim_names[0], metrics[0]]
     path_2_sim = os.getcwd() + domain_type + sim + metric
     enemble_generator(path=path_2_sim, label=metric, show=False, dim=lattice_dim)
-
 
 dat = np.load('/Users/py13jh/PycharmProjects/hpc-subgrid-model/phase_space_gen/output_data/vel_km_yr-en-size-0.npy')
 print(dat)

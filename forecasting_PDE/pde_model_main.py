@@ -9,11 +9,11 @@ from PDE_model import pde_model
 # we can make beta_space more complicated in future.
 
 beta_space = np.linspace(0, 1, 10)
-beta = beta_space[5]
-L, beta = [3, beta]
+beta = beta_space[4]
+L, beta = [10, beta]
 # GENERATE diffusion map based on input of L, beta and a domain (in this case a map of abundance)
 diffusion_map = diffusion_mapping.main(L, beta)
 
-params = {"T": 100, "dim":np.shape(diffusion_map), "epi_c": [850, 860, 350, 360]}
+params = {"T": 500, "dim":np.shape(diffusion_map), "epi_c": [850, 860, 350, 360]}
 pde_model.main(params, diffusion_map)
 

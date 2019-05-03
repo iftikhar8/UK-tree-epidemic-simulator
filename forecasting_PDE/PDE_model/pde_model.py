@@ -17,7 +17,7 @@ def finite_difference_sim(dim, params, diffusion_map, uk, saves):
                 # stencil operation
                 uk[i, j] = uk[i, j] + diff_ij + growth_ij
                 # CHECK for any errors.
-                if uk[i, j] > 1:
+                if np.isinf(uk[i, j]):
                     stop = True
                     print('uk_ij = ', uk[i, j])
                     print('diff constant ij', diffusion_map[i, j])
@@ -42,8 +42,8 @@ def finite_difference_sim(dim, params, diffusion_map, uk, saves):
 
             name = saves[1] + 'dat-' + save_label
             np.save(name, uk)
-            if stop:
-                sys.exit()
+        if time_step == params["T"]-1:
+            np.save(saves[1]+'-diff_map', diffusion_map)
 
     return uk
 
@@ -51,23 +51,28 @@ def main(params, diffusion_map):
     save_path = os.getcwd() + '/output_data/dat_2_anim/'
     dim = params["dim"]
     epi_c = params["epi_c"]
+
     # DEFINE the UK and regions infected at time t=0
     uk = np.zeros(dim)
     span_x, span_y = [epi_c[1]-epi_c[0], epi_c[3]-epi_c[2]]
     num_inf_sites = span_x*span_y
     inf_sites = np.random.randint(0, 2, size=num_inf_sites).reshape([span_x, span_y])
     uk[epi_c[0]:epi_c[1], epi_c[2]:epi_c[3]] = inf_sites
+
     # DEFINE partial region inside full map - for code-testing
-    partial = True
+    partial, plot_init = False, True
     if partial:
-        x0, x1, y0, y1 = [800, 900, 300, 400]
+        x0, x1, y0, y1 = [700, 900, 200, 400]
         params["dim"] = [x1-x0, y1-y0]
         uk, diffusion_map = uk[x0:x1, y0:y1], diffusion_map[x0:x1, y0:y1]
+        if plot_init:
+            import matplotlib.pyplot as plt
+            im = plt.imshow(diffusion_map)
+            plt.colorbar(im)
+            plt.show()
 
     # BEGIN simulation:
     finite_difference_sim(dim, params, diffusion_map, uk, saves=[True, save_path])
-
-
-    sys.exit()
+    return
 if __name__ == '__main__':
       main(params, diffusion_map)

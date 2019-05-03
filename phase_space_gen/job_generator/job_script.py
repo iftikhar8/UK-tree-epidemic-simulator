@@ -54,7 +54,7 @@ def main(settings, parameters):
         rhos, betas = np.linspace(0, 0.4, param_dim), np.linspace(0, 1, param_dim)
         # APPLY index mappings to either generate random OR uniform phase space orderings
         rhos, betas = rhos[core_jobs[:, 0]], betas[core_jobs[:, 1]]
-        sigmas = np.arange(1, param_dim + 1, 1)
+        sigmas = np.linspace(0, 50, param_dim)
         L = parameters["L"]
         # GENERATE domain structures
         if domain_type == "lattice":

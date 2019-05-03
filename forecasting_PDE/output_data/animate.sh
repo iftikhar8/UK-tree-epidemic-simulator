@@ -7,10 +7,10 @@ rate2=30
 python3 animate.py
 
 # convert images to MP4 file
-ffmpeg -r $rate1 -start_number 0 -i frames_2_anim/img-%05d.png -c:v libx264 -r $rate2 -pix_fmt yuv420p sim_anim.mp4
+ffmpeg -r $rate1 -start_number 0 -i frames_2_anim/img-%05d.png -c:v libx264 -r $rate2 -pix_fmt yuv420p sim-anim.mp4
 
 # remove temp data
-rm -rf frames_2_anim/0*
-rm -rf dat_2_anim/0*
+# rm -rf frames_2_anim/img*
+rm -rf dat_2_anim/dat*
 
 echo "animation complete"
