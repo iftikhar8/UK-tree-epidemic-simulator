@@ -7,9 +7,9 @@
 # hpc_mode | flips between local machine and HPC
 # sim_name | input a string to append to the output file to identify simulation runs
 
-hpc_switch=1
+hpc_switch=0
 data_type="lattice" # ["lattice", "channel"]
-sim_name="-vel-km-day"
+sim_name="-vel-km-day-test"
 
 ###########__________Run script__________#############
 if [ "$hpc_switch" == 1 ]

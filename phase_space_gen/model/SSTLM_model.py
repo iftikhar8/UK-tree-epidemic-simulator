@@ -244,8 +244,8 @@ def main(settings, parameters, domain):
                 p.percolation = 1
             mean_d_metric[time_step], max_d_metric[time_step] = mean_d, max_d
             if max_d > 95:
-                print('reached boarder of lattice')
                 in_progress = False
+                p.percolation = 1
         # Advance time by one step
         time_step += 1
 
@@ -263,7 +263,6 @@ def main(settings, parameters, domain):
         time_yrs = time_step/365
         max_d = max_d_metric.max()*5/1000
         velocity_km_day = max_d/time_step
-        print('vel (m/day) ', max_d/time_step)
         if settings["plt_tseries"]:
             plt_tseries = Plots.plot_tseries
             saves = False
