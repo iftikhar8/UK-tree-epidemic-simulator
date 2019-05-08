@@ -15,12 +15,14 @@ in_arr = sys.argv
 job_id, date, time, domain_type, name = in_arr[1:]
 output_path = os.getcwd() + '/output_data/' + domain_type + '/' + date + name + '/'
 # Store system settings in a dictionary
+
 # felling[1, 2, 3] = [On\Off, radial extent, density reduction]
 # metrics :[eff, d, P, chi, t]
-settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "job_id": job_id, "param_dim": 10,
-            "metrics": ["d", "t"], "plt_tseries": False,
-            "save_figs": False, "dyn_plts": [False, 1, True], "anim": False, "BCD3": False,
-            "felling": [False, "40_50", 0.50], "individual": False}
+# param_dim : [L, Beta, Rho]
+
+settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "job_id": job_id,
+            "param_dim": [10, 10, 100], "metrics": ["d", "t"], "plt_tseries": False, "save_figs": False,
+            "dyn_plts": [False, 1, True], "anim": False, "BCD3": False, "individual": False}
 
 parameters = {"time": 10, "time_horizon": 365, "t_init": [5, 6], "L": 200}
 
@@ -40,9 +42,13 @@ parameters = {"time": 10, "time_horizon": 365, "t_init": [5, 6], "L": 200}
 
 job_arr = job_script.main(settings, parameters)
 domain, core_id, rhos, betas, sigmas, parameters = job_arr
+
 if 0:
     # RUN individual simulation and animation
-    parameters["rho"], parameters['beta'], parameters["sigma"] = [0.01, 0.5, 50]
+    parameters["rho"] = 0.001
+    parameters['beta'] = betas[1]
+    parameters["sigma"] = sigmas[9]
+    # SET simulation settings
     settings["dyn_plts"], settings["plt_tseries"], settings["individual"] = [True, 1, True], True, True
     # START simulation
     print('In progress..')
@@ -55,23 +61,27 @@ if 0:
     print("velocity = ", velocity_km_yr, '(km/yr)')
 
 elif 1:
-    # RUN multi-phase-space simulations and save in array
+    # GET 3D velocity phase space from parameters {L, beta, rho}
     # DEFINE tensor_arr : [i, j, k]
-    # i : sigma,
-    # j: rho,
-    # k: beta
+    # i size 10  : sigma
+    # j size 10  : beta
+    # k size 100 : rho
     import time
-    mortality = np.zeros((settings["param_dim"],) * 3)
-    velocity_km_day = np.zeros((settings["param_dim"],) * 3)
+    dim = settings["param_dim"]
+    mortality = np.zeros(shape=[dim[0], dim[1], dim[2]])
+    velocity_km_day = np.zeros(shape=[dim[0], dim[1], dim[2]])
     t0 = time.clock()
     print("Start time: ", datetime.datetime.now(), ' |  sim : ', str(job_id))
     for i, sigma in enumerate(sigmas):
-        print(i, '/', settings["param_dim"])
+        # ITERATE dispersal kernel
+        print('Sigma : ', i, ' / ', settings["param_dim"][0])
         parameters["sigma"] = sigma
-        for j, rho in enumerate(rhos):
-            parameters["rho"] = rho
-            for k, beta in enumerate(betas):
-                parameters["beta"] = beta
+        for j, beta in enumerate(betas):
+            # ITERATE infection rates
+            parameters["beta"] = beta
+            for k, rho in enumerate(rhos):
+                # ITERATE through density values
+                parameters["rho"] = rho
                 num_removed, velocity = SSTLM_model.main(settings, parameters, domain)
                 mortality[i, j, k] = num_removed
                 velocity_km_day[i, j, k] = velocity

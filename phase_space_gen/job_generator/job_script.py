@@ -26,43 +26,28 @@ def save_label(job_id, param_dim):
 
 
 def main(settings, parameters):
-    # get job parameters
+    # GET job parameters
     job_id = int(settings["job_id"])
     output_path = settings["out_path"]
     param_dim = settings["param_dim"]
     domain_type = settings["domain_type"]
     core_id = save_label(job_id, param_dim)
-    # GET core id - used to save output and get input parameters
-    # GET parameters in phase spacer
-    random_phase_space = False
-    if random_phase_space:
-        # GENERATE random phase elements to distribute hpc runtime load equally
-        # DEFINE core_jobs : index mappings to rho and beta space
-        core_jobs_id = os.getcwd() + '/job_generator/parameter_mapping/' + core_id + '.npy'
-        core_jobs = np.load(core_jobs_id).astype(int)
-    else:
-        # GENERATE uniform phase space
-        #   DEFINE core_jobs : index mappings to rho and beta space
-        core_jobs = np.zeros(shape=[param_dim, 2]).astype(int)
-        core_jobs[:, 0], core_jobs[:, 1] = range(param_dim), range(param_dim)
-
-    # #### Set parameter jobs to be ran by hpc core #### #
-    if domain_type == "rand_uk_cg_3" or domain_type == "lattice" or domain_type == "channel":
-        # DEFINE:
-        #   betas in [0, 1] : on a uniform scale between 0 and 1
-        #   rhos in [0, 0.4] : this is scale of density values on the L. Hill data
-        rhos, betas = np.linspace(0, 0.4, param_dim), np.linspace(0, 1, param_dim)
-        # APPLY index mappings to either generate random OR uniform phase space orderings
-        rhos, betas = rhos[core_jobs[:, 0]], betas[core_jobs[:, 1]]
-        sigmas = np.linspace(0, 50, param_dim)
-        L = parameters["L"]
-        # GENERATE domain structures
-        if domain_type == "lattice":
-            domain = np.random.uniform(0, 1, size=(L, L))
-        elif domain_type == "channel":
-            size = np.array([0.33*L, L]).astype(int)
-            domain = np.random.uniform(0, 1, size=size)
-
+    # GENERATE phase space
+    # - sigmas in [1, 50] OR [5m,...,250m] dispersal distance
+    # - betas in [0, 1] : 10 values on a uniform scale between 0 and 1 pr
+    # - rhos in [0.001, 0.099] : 100 values
+    # - upper bound density is 0.099 , there are 6,000 grid-points above this density out of 220,000. Above this value
+    # - results are negated for now.
+    domain = np.load(os.getcwd() + '/input_domain/Qro-cg-1.npy')
+    density_range = np.unique(domain.round(1))
+    density_range = np.delete(density_range, np.where(np.isnan(density_range))).astype(float)
+    rhos = density_range[0:100]*0.01
+    sigmas = np.arange(5, 55, int((50/param_dim[0])))
+    betas = np.linspace(0, 1, param_dim[1])
+    domain_size = parameters["L"]
+    # GENERATE domain structures
+    assert domain_type == "lattice"
+    domain = np.random.uniform(0, 1, size=(domain_size, domain_size))
     if job_id == 1:
         # WRITE all parameters to file
         save_meta_data(settings, parameters, output_path)

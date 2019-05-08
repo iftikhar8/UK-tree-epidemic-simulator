@@ -60,16 +60,20 @@ def main(params, diffusion_map):
     uk[epi_c[0]:epi_c[1], epi_c[2]:epi_c[3]] = inf_sites
 
     # DEFINE partial region inside full map - for code-testing
-    partial, plot_init = False, True
-    if partial:
+    partial, plot_init = True, False
+    if params["partial"]:
         x0, x1, y0, y1 = [700, 900, 200, 400]
         params["dim"] = [x1-x0, y1-y0]
         uk, diffusion_map = uk[x0:x1, y0:y1], diffusion_map[x0:x1, y0:y1]
         if plot_init:
             import matplotlib.pyplot as plt
-            im = plt.imshow(diffusion_map)
+            fig, ax = plt.subplots()
+            im = ax.imshow(diffusion_map)
+            name = 'diif-map-L-' + str(params["L"]) + 'b-' + str(params["b"].round(2)) + '.png'
             plt.colorbar(im)
+            plt.savefig(name)
             plt.show()
+            sys.exit('Done...')
 
     # BEGIN simulation:
     finite_difference_sim(dim, params, diffusion_map, uk, saves=[True, save_path])

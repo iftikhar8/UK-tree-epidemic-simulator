@@ -1,0 +1,3 @@
+From the integer values of L - 0,1,..,N. We get the average distance (units = lattice points) 
+
+An integer value of i gives average distance of i units...
