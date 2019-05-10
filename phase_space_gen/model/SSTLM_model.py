@@ -260,7 +260,6 @@ def main(settings, parameters, domain):
         # 1. get max distance reached in km
         # 2. convert time elapsed in years
         # 3. calculate max velocity estimate
-        time_yrs = time_step/365
         max_d = max_d_metric.max()*5/1000
         velocity_km_day = max_d/time_step
         if settings["plt_tseries"]:
