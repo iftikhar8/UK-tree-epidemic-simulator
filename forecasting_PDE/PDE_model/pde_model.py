@@ -3,7 +3,6 @@ import sys, os
 
 
 def finite_difference_sim(dim, params, diffusion_map, uk, saves):
-    import matplotlib.pyplot as plt
     alpha, dim, T = 1, params["dim"], params["T"]
     stop = False
     for time_step in range(T):

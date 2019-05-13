@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import os, sys, time
 from diffusion_mapping import diffusion_mapping
 from PDE_model import pde_model

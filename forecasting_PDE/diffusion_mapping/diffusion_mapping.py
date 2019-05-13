@@ -1,6 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 import os, sys
 
 
@@ -41,7 +39,6 @@ def diffusion_mapping(domain, rho_space, phase_constants, plots):
     # v = 2 * sqrt(u) --> u = v^2 / 4
     diffusion_map = np.square(velocity_map) / 4
     if plots:
-        import matplotlib.pyplot as plt
         print("Plotting phase maps over UK:")
         fig, ax = plt.subplots(figsize=(7.5, 7.5))
         im = ax.imshow(velocity_map)
