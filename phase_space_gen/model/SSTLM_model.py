@@ -156,11 +156,22 @@ class Plots(object):
         import matplotlib.pyplot as plt
         fig, ax = plt.subplots()
         ax.set_title(str(T))
-        im = ax.imshow(np.array(I > 0).astype(int), cmap=plt.get_cmap('binary'))
+        dat = np.array(I > 0).astype(int)
+        im = ax.imshow(dat, cmap=plt.get_cmap('binary'))
         #ax.imshow(I, cmap=plt.get_cmap('jet'), alpha=0.5)
         cax = plt.colorbar(im)
         cax.set_ticks([0, 1])
         cax.set_ticklabels(['R-S', 'I'])
+        if T == 10:
+            np.save('I_time_10', I)
+            np.save('S_time_10,', S)
+            np.save('R_time_10', R)
+            print('saved 10')
+        if T == 15:
+            np.save('I_time_15', I)
+            np.save('S_time_15', S)
+            np.save('R_time_15', R)
+            print('saved 15')
         if saves:
             if T < 10:
                 T = '000' + str(T)
@@ -170,6 +181,7 @@ class Plots(object):
                 T = '0' + str(T)
             elif T >= 1000:
                 T = str(T)
+
             plt.savefig(os.getcwd() + '/figs/temp_frames/' + T)
             plt.close()
         return

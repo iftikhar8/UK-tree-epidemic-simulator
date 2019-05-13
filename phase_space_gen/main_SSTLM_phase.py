@@ -43,11 +43,11 @@ parameters = {"time": 10, "time_horizon": 365, "t_init": [5, 6], "L": 200}
 job_arr = job_script.main(settings, parameters)
 domain, core_id, rhos, betas, sigmas, parameters = job_arr
 
-if 0:
+if 1:
     # RUN individual simulation and animation
-    parameters["rho"] = 0.001
-    parameters['beta'] = betas[1]
-    parameters["sigma"] = sigmas[9]
+    parameters["rho"] = 0.099
+    parameters['beta'] = betas[5]
+    parameters["sigma"] = sigmas[2]
     # SET simulation settings
     settings["dyn_plts"], settings["plt_tseries"], settings["individual"] = [True, 1, True], True, True
     # START simulation
@@ -60,7 +60,7 @@ if 0:
     print("velocity = ", velocity_km_day, '(km/day)')
     print("velocity = ", velocity_km_yr, '(km/yr)')
 
-elif 1:
+elif 0:
     # GET 3D velocity phase space from parameters {L, beta, rho}
     # DEFINE tensor_arr : [i, j, k]
     # i size 10  : sigma

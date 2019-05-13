@@ -2,21 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/py13jh.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figure_gen.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/max-diff-map.png" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/max-diff-map.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/max-vel-map.png" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/max-vel-map.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/animate.py" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/output_data/animate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/max-diff-map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/max-vel-map.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/animate.sh" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/output_data/animate.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/dat_2_anim/-diff_map.npy" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/output_data/dat_2_anim/-diff_map.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-10-b-10.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-10-b-10.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/10yr-L-150m-b-1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-0-b-10.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-0-b-2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-0-b-5.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-10-b-10.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-10-b-2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-10-b-5.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-5-b-10.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-5-b-2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-5-b-5.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/2yr-L-125m-b-05.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/2yr-L-250m-b-01.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/2yr-L-250m-b-10.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/2yr-L-250m-b-5.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/2yr-L-5m-b-5.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/y1-L-5m-b-5.mp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/forecasting_PDE/pde_model_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/pde_model_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/Figure_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase_space_gen/model/SSTLM_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/model/SSTLM_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/vel_km_day-en-size-1.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +40,9 @@
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$L_calibrate.coverage" NAME="L_calibrate Coverage Results" MODIFIED="1556616361344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/L_calibrate" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$diffusion_mapping.coverage" NAME="diffusion_mapping Coverage Results" MODIFIED="1556891819875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$phase_space_plots.coverage" NAME="phase_space_plots Coverage Results" MODIFIED="1557489776638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/output_data" />
+    <SUITE FILE_PATH="coverage/hpc_subgrid_model$figure_gen.coverage" NAME="figure_gen Coverage Results" MODIFIED="1557750758351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$pde_model_main.coverage" NAME="pde_model_main Coverage Results" MODIFIED="1556891984430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/forecasting_PDE" />
+    <SUITE FILE_PATH="coverage/hpc_subgrid_model$raster_load.coverage" NAME="raster_load Coverage Results" MODIFIED="1557752685016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../domain_generator" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$domain_density.coverage" NAME="domain_density Coverage Results" MODIFIED="1556270336044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/input_domain" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$plots.coverage" NAME="plots Coverage Results" MODIFIED="1556271049569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/output_data" />
   </component>
@@ -51,46 +64,46 @@
     <session id="13763648">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="3" />
-          <entry key="project.open.time.6" value="3" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.open.time.6" value="4" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="npy" value="2" />
-          <entry key="png" value="25" />
+          <entry key="npy" value="4" />
+          <entry key="png" value="40" />
           <entry key="pstat" value="1" />
-          <entry key="py" value="87" />
-          <entry key="sh" value="19" />
+          <entry key="py" value="105" />
+          <entry key="sh" value="22" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="25" />
-          <entry key="PLAIN_TEXT" value="22" />
+          <entry key="Image" value="40" />
+          <entry key="PLAIN_TEXT" value="27" />
           <entry key="Profiler Session" value="1" />
-          <entry key="Python" value="87" />
+          <entry key="Python" value="105" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="142" />
           <entry key="dummy" value="64" />
-          <entry key="py" value="24136" />
-          <entry key="sh" value="376" />
+          <entry key="py" value="29968" />
+          <entry key="sh" value="474" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="440" />
-          <entry key="Python" value="24278" />
+          <entry key="PLAIN_TEXT" value="538" />
+          <entry key="Python" value="30110" />
         </counts>
       </usages-collector>
     </session>
@@ -100,17 +113,41 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/forecasting_PDE/pde_model_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py">
+        <entry file="file://$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="133">
+              <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+              <folding>
+                <element signature="e#61#79#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/forecasting_PDE/run_main_FKPP.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -132,6 +169,7 @@
       <find>size</find>
       <find>ensem</find>
       <find>ensemble</find>
+      <find>sys.ex</find>
     </findStrings>
     <replaceStrings>
       <replace>save_label</replace>
@@ -161,15 +199,18 @@
         <option value="$PROJECT_DIR$/phase_space_gen/main_phase.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/model/SSTLM.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/mkdir.py" />
-        <option value="$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py" />
-        <option value="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" />
-        <option value="$PROJECT_DIR$/phase_space_gen/model/SSTLM_model.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py" />
         <option value="$PROJECT_DIR$/forecasting_PDE/output_data/animate.sh" />
         <option value="$PROJECT_DIR$/forecasting_PDE/output_data/animate.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" />
-        <option value="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py" />
         <option value="$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py" />
+        <option value="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" />
+        <option value="$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py" />
+        <option value="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py" />
+        <option value="$PROJECT_DIR$/phase_space_gen/model/SSTLM_model.py" />
+        <option value="$PROJECT_DIR$/figure_gen.py" />
+        <option value="$PROJECT_DIR$/../domain_generator/raster_load.py" />
+        <option value="$PROJECT_DIR$/forecasting_PDE/run_main_FKPP.sh" />
         <option value="$PROJECT_DIR$/forecasting_PDE/pde_model_main.py" />
       </list>
     </option>
@@ -180,8 +221,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1920" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="954" />
     <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
@@ -207,11 +248,6 @@
               <item name="forecasting_PDE" type="462c0819:PsiDirectoryNode" />
               <item name="diffusion_mapping" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
-              <item name="phase_space_gen" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -226,13 +262,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/phase_space_gen/output_data/lattice" />
-      <recent name="$PROJECT_DIR$/forecasting_PDE/output_data/simulations" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/latex_data" />
       <recent name="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/latex_figs" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/phase_space_gen/latex_data" />
+      <recent name="$PROJECT_DIR$/phase_space_gen/" />
+      <recent name="$PROJECT_DIR$/phase_space_gen/output_data/lattice" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -247,7 +286,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.phase_space_plots">
+  <component name="RunManager" selected="Python.raster_load">
     <configuration name="SSTLM_model" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="hpc-subgrid-model" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -270,7 +309,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="animate" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="figure_gen" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="hpc-subgrid-model" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -278,34 +317,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/forecasting_PDE/output_data" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/forecasting_PDE/output_data/animate.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="diffusion_mapping" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="hpc-subgrid-model" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/figure_gen.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -358,20 +375,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="raster_load" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="hpc-subgrid-model" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../domain_generator" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../domain_generator/raster_load.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.pde_model_main" />
-      <item itemvalue="Python.diffusion_mapping" />
-      <item itemvalue="Python.animate" />
       <item itemvalue="Python.phase_space_plots" />
       <item itemvalue="Python.SSTLM_model" />
+      <item itemvalue="Python.figure_gen" />
+      <item itemvalue="Python.raster_load" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.raster_load" />
+        <item itemvalue="Python.figure_gen" />
         <item itemvalue="Python.phase_space_plots" />
         <item itemvalue="Python.SSTLM_model" />
         <item itemvalue="Python.pde_model_main" />
-        <item itemvalue="Python.diffusion_mapping" />
-        <item itemvalue="Python.animate" />
       </list>
     </recent_temporary>
   </component>
@@ -389,15 +428,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17305644" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20021299" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32857144" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33861387" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32772276" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34851485" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -411,7 +450,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" x="-29" y="-1025" width="1680" height="884" id="SciView" order="3" weight="0.27316293" />
+      <window_info anchor="right" x="-29" y="-1025" width="1680" height="884" id="SciView" order="3" weight="0.4877529" />
       <window_info anchor="right" id="R Graphics" order="4" weight="0.32967034" />
       <window_info anchor="right" id="R Packages" order="5" weight="0.32967034" />
       <window_info anchor="right" id="Database" order="6" weight="0.32967034" />
@@ -425,26 +464,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/input_domain/domain_density.py" />
-    <entry file="file://$PROJECT_DIR$/main_phase.py" />
-    <entry file="file://$PROJECT_DIR$/job_generator/job_script.py" />
-    <entry file="file://$PROJECT_DIR$/output_data/phase_space_plots.py" />
-    <entry file="file://$PROJECT_DIR$/phase_plot_arc3.sh" />
-    <entry file="file://$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/Qro-cg-1.npy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forecasting_PDE/PDE_model/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0004.png" />
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0117.png" />
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0199.png" />
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0290.png" />
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0389.png" />
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0396.png" />
     <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0404.png" />
     <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0417.png" />
     <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0418.png" />
@@ -490,34 +509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="26" column="73" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/model/SSTLM_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="252" column="56" selection-start-line="252" selection-start-column="56" selection-end-line="252" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/forecasting_PDE/max-diff-map.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -542,33 +533,141 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
           <caret line="39" column="35" lean-forward="true" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-          <folding>
-            <element signature="e#2118#2374#0" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forecasting_PDE/max-vel-map.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py">
+    <entry file="file://$PROJECT_DIR$/forecasting_PDE/diffusion_map_test.npy">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/Figure_1.png" />
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0001.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0000.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0015.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0010.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0014.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0012.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0007.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0002.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/model/SSTLM_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="88" column="85" selection-start-line="88" selection-start-column="85" selection-end-line="88" selection-end-column="85" />
+        <state relative-caret-position="241">
+          <caret line="154" column="50" selection-start-line="154" selection-start-column="50" selection-end-line="154" selection-end-column="50" />
+          <folding>
+            <element signature="e#393#5212#0" />
+            <element signature="e#5280#6414#0" />
+            <element signature="e#6468#6596#0" />
+            <element signature="e#6788#7254#0" />
+            <element signature="e#7315#8212#0" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/latex_figs/Velocity_map.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latex_figs/SSTLM-evolution.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latex_data/Qro-cg-1.npy">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../domain_generator/raster_load.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latex_figs/FKPP-10yr-immingham-L-125-b-05.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latex_figs/FKPP-10yr-immingham-L-125-b-05.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="165">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/figure_gen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="124" column="37" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#216#1209#0" />
+            <element signature="e#1250#3490#0" />
+            <marker date="1557751476934" expanded="true" signature="3566:4635" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="24" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecasting_PDE/run_main_FKPP.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="44" column="6" lean-forward="true" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+          <folding>
+            <element signature="e#61#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forecasting_PDE/pde_model_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -10,7 +10,7 @@ python3 animate.py
 ffmpeg -r $rate1 -start_number 0 -i frames_2_anim/img-%05d.png -c:v libx264 -r $rate2 -pix_fmt yuv420p sim-anim.mp4
 
 # remove temp data
-rm -rf frames_2_anim/img*
-rm -rf dat_2_anim/dat*
+# rm -rf frames_2_anim/img*
+# rm -rf dat_2_anim/dat*
 
 echo "animation complete"

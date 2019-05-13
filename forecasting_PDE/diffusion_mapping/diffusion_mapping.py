@@ -40,23 +40,21 @@ def diffusion_mapping(domain, rho_space, phase_constants, plots):
     # this relies on the metric used to capture the progression...
     # v = 2 * sqrt(u) --> u = v^2 / 4
     diffusion_map = np.square(velocity_map) / 4
-    # zero_points = np.unique(diffusion_map)[1]
-    # diffusion_map = np.where(diffusion_map == zero_points, 0, diffusion_map)
     if plots:
         import matplotlib.pyplot as plt
-        import seaborn as sns
+        print("Plotting phase maps over UK:")
         fig, ax = plt.subplots(figsize=(7.5, 7.5))
         im = ax.imshow(velocity_map)
         plt.colorbar(im)
         plt.show()
         plt.close()
-
         fig, ax = plt.subplots(figsize=(7.5, 7.5))
         im = ax.imshow(diffusion_map)
         plt.colorbar(im)
         plt.show()
         plt.close()
-        print("Dead tree tot: ", np.sum(velocity_map))
+        np.save('velocity_map', velocity_map)
+        np.save('diffusion_map', diffusion_map)
         sys.exit()
 
     return diffusion_map
