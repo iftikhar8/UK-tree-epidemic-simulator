@@ -40,17 +40,25 @@ def finite_difference_sim(dim, params, diffusion_map, uk, saves):
                 save_label = '0' + str(time_step)
             if time_step > 10000:
                 save_label = str(time_step)
-            name = saves[1] + 'dat-' + save_label
+            name = saves[1] + '/dat-' + save_label
             np.save(name, uk)
+
         if time_step == params["T"]-1:
-            np.save(saves[1]+'-diff_map', diffusion_map)
+            np.save(saves[1]+'/-diff_map', diffusion_map)
     return uk
 
 def main(params, diffusion_map):
-    save_path = os.getcwd() + '/output_data/dat_2_anim/'
+    save_path = os.getcwd() + '/output_data/'
+    path_dir_list = os.listdir(save_path)
+    name = params["sim_name"] + "-data"
+    if name in path_dir_list:
+        sys.exit("ERROR: simulation % already exists! " % name)
+    else:
+        os.mkdir(save_path+name)
+
+    save_path = save_path + '/' + name
     dim = params["dim"]
     epi_c = params["epi_c"]
-
     # DEFINE the UK and regions infected at time t=0
     uk = np.zeros(dim)
     span_x, span_y = [epi_c[1]-epi_c[0], epi_c[3]-epi_c[2]]
@@ -59,6 +67,7 @@ def main(params, diffusion_map):
     uk[epi_c[0]:epi_c[1], epi_c[2]:epi_c[3]] = inf_sites
 
     # DEFINE partial region inside full map - for code-testing
+    # - exit after use ...
     if params["partial"][0]:
         x0, x1, y0, y1 = params["partial"][1]
         params["dim"] = [x1-x0, y1-y0]
@@ -76,7 +85,7 @@ def main(params, diffusion_map):
 
     # IF true plot the initial epicenter of disease
     # - useful for calibration
-
+    # - exit after use ...
     if params["plt_epi"]:
         import matplotlib.pyplot as plt
         domain = np.load(os.getcwd() + '/diffusion_mapping/Qro-cg-1.npy')

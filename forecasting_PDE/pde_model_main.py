@@ -11,25 +11,23 @@ from PDE_model import pde_model
 
 in_arr = sys.argv
 name, L_index, beta_index = in_arr[1:]
-
 beta_space = np.linspace(0, 1, 10)
 L_space = np.arange(5, 55, 5)
-
-print('Name: ', 'L-' + str(5*L_space[int(L_index)]) + '-b-' + str(beta_space[int(beta_index)].round(2)))
+sim_name = 'L-' + str(5*L_space[int(L_index)]) + 'm-b-' + beta_index
+print('Name: ', sim_name)
 # GENERATE diffusion map based on input of L, beta and a domain (in this case a map of abundance)
 # - epi_center : point of disease introduction
 # - port of Immingham = [560, 570, 455, 465]
-diffusion_map = diffusion_mapping.main(int(L_index), beta_space[beta_index])
-params = {"T": 365*10, "dim": np.shape(diffusion_map), "epi_c": [560, 570, 455, 465], "plt_epi": False,
-          "partial": [False, [700, 900, 200, 400]], 'L': L_index, 'b': beta_space[beta_index]}
+diffusion_map = diffusion_mapping.main(int(L_index), beta_space[int(beta_index)])
+params = {"T": 20, "dim": np.shape(diffusion_map), "epi_c": [560, 570, 455, 465], "plt_epi": False,
+          "partial": [True,  [700, 900, 200, 400]], 'L': L_index, 'b': beta_space[int(beta_index)],
+          "sim_name": sim_name}
 
 t_0 = time.time()
-time.sleep(10)
-t_1 = time.time()
-print(t_1 - t_0)
-sys.exit()
 pde_model.main(params, diffusion_map)
-
+t_1 = time.time()
+t = (t_1 - t_0) / 60
+print("Time elapsed: ", t, ' (mins)')
 # todo make functional on HPC
 
 # todo 1. save data too file with given name

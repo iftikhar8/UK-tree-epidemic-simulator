@@ -2,32 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/figure_gen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/max-diff-map.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/max-vel-map.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/animate.sh" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/output_data/animate.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/10yr-L-150m-b-1.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-0-b-10.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-0-b-2.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-0-b-5.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-10-b-10.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-10-b-2.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-10-b-5.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-5-b-10.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-5-b-2.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/1yr-L-5-b-5.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/2yr-L-125m-b-05.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/2yr-L-250m-b-01.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/2yr-L-250m-b-10.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/2yr-L-250m-b-5.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/2yr-L-5m-b-5.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/simulations/y1-L-5m-b-5.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/output_data/dat_2_anim/-diff_map.npy" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/output_data/dat_2_anim/-diff_map.npy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forecasting_PDE/pde_model_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/pde_model_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/Figure_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/model/SSTLM_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/model/SSTLM_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecasting_PDE/run_main_FKPP.sh" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/run_main_FKPP.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +57,7 @@
           <entry key="npy" value="4" />
           <entry key="png" value="40" />
           <entry key="pstat" value="1" />
-          <entry key="py" value="105" />
+          <entry key="py" value="107" />
           <entry key="sh" value="22" />
           <entry key="txt" value="1" />
         </counts>
@@ -89,32 +67,32 @@
           <entry key="Image" value="40" />
           <entry key="PLAIN_TEXT" value="27" />
           <entry key="Profiler Session" value="1" />
-          <entry key="Python" value="105" />
+          <entry key="Python" value="107" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="142" />
           <entry key="dummy" value="64" />
-          <entry key="py" value="29968" />
-          <entry key="sh" value="474" />
+          <entry key="py" value="30565" />
+          <entry key="sh" value="477" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="538" />
-          <entry key="Python" value="30110" />
+          <entry key="PLAIN_TEXT" value="541" />
+          <entry key="Python" value="30707" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/forecasting_PDE/pde_model_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="330">
+              <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -123,27 +101,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py">
+        <entry file="file://$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+            <state relative-caret-position="193">
+              <caret line="61" column="47" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
-              <folding>
-                <element signature="e#61#79#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/forecasting_PDE/run_main_FKPP.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
@@ -203,15 +169,15 @@
         <option value="$PROJECT_DIR$/forecasting_PDE/output_data/animate.sh" />
         <option value="$PROJECT_DIR$/forecasting_PDE/output_data/animate.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" />
-        <option value="$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" />
         <option value="$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py" />
         <option value="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/model/SSTLM_model.py" />
         <option value="$PROJECT_DIR$/figure_gen.py" />
         <option value="$PROJECT_DIR$/../domain_generator/raster_load.py" />
-        <option value="$PROJECT_DIR$/forecasting_PDE/run_main_FKPP.sh" />
+        <option value="$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py" />
         <option value="$PROJECT_DIR$/forecasting_PDE/pde_model_main.py" />
+        <option value="$PROJECT_DIR$/forecasting_PDE/run_main_FKPP.sh" />
       </list>
     </option>
   </component>
@@ -246,7 +212,13 @@
               <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
               <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
               <item name="forecasting_PDE" type="462c0819:PsiDirectoryNode" />
-              <item name="diffusion_mapping" type="462c0819:PsiDirectoryNode" />
+              <item name="output_data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
+              <item name="forecasting_PDE" type="462c0819:PsiDirectoryNode" />
+              <item name="PDE_model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -603,13 +575,6 @@
     <entry file="file://$PROJECT_DIR$/latex_figs/FKPP-10yr-immingham-L-125-b-05.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/figure_gen.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -627,13 +592,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="17" column="24" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forecasting_PDE/run_main_FKPP.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -656,18 +614,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+        <state relative-caret-position="608">
+          <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecasting_PDE/PDE_model/pde_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="61" column="47" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forecasting_PDE/pde_model_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="330">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecasting_PDE/run_main_FKPP.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
         </state>
       </provider>
     </entry>

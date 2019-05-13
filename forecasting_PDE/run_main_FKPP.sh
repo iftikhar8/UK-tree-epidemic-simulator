@@ -9,7 +9,7 @@
 
 hpc_switch=0
 sim_name="10yr-L-1-b-01"
-L=0
+L=1
 beta=1
 
 ###########__________Run script__________#############
