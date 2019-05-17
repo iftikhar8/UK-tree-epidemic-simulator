@@ -33,7 +33,7 @@ def main(settings, parameters):
     domain_type = settings["domain_type"]
     core_id = save_label(job_id, param_dim)
     # GENERATE phase space
-    # - sigmas in [1, 50] OR [5m,...,250m] dispersal distance
+    # - sigmas in [1, 5, 10,..., 50] OR [5m,...,250m] dispersal distance
     # - betas in [0, 1] : 10 values on a uniform scale between 0 and 1 pr
     # - rhos in [0.001, 0.099] : 100 values
     # - upper bound density is 0.099 , there are 6,000 grid-points above this density out of 220,000. Above this value
@@ -41,8 +41,10 @@ def main(settings, parameters):
     domain = np.load(os.getcwd() + '/input_domain/Qro-cg-1.npy')
     density_range = np.unique(domain.round(1))
     density_range = np.delete(density_range, np.where(np.isnan(density_range))).astype(float)
+    # take the first 100 values of the density range [0.0,...,0.099]
     rhos = density_range[0:100]*0.01
-    sigmas = np.arange(5, 55, int((50/param_dim[0])))
+    sigmas = np.arange(0, 55, int((50/param_dim[0])))
+    sigmas[0] = 1
     betas = np.linspace(0, 1, param_dim[1])
     domain_size = parameters["L"]
     # GENERATE domain structures

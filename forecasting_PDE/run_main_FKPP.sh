@@ -9,8 +9,8 @@
 
 hpc_switch=0
 sim_name="10yr-L-1-b-01"
-L=1
-beta=1
+L=9
+beta=9
 
 ###########__________Run script__________#############
 if [ "$hpc_switch" == 1 ]

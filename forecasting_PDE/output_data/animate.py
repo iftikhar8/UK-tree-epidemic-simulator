@@ -3,7 +3,8 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 import numpy as np
 import os, sys
 
-path = os.getcwd() + '/dat_2_anim/'
+name = input('Enter name of folder to animate: ')
+path = os.getcwd() + '/' + name + '/'
 files = sorted(os.listdir(path))
 diffusion_map = files[0]
 diffusion_map = np.load(os.path.join(path, diffusion_map))

@@ -74,8 +74,8 @@ class Sim_Init(object):
                 # shuffle domain
                 tree_dist = np.where(domain < parameters["rho"], 1, 0)
                 tree_dist[0], tree_dist[-1], tree_dist[:, 0], tree_dist[:, -1] = [0, 0, 0, 0]
-                tree_dist[epi_cx:epi_cx + inf_r, epi_cy:epi_cy + inf_r] = 0
-                infected[epi_cx:epi_cx + inf_r, epi_cy:epi_cy + inf_r] = 1
+                tree_dist[epi_cx, epi_cy] = 0
+                infected[epi_cx, epi_cy] = 1
                 epi_c = [epi_cx, epi_cy]
             elif domain_type == "channel":
                 dim = np.array([0.33*L, L], dtype=int)
@@ -154,24 +154,41 @@ class Plots(object):
 
     def plot_frame(self, S, I, R, T, saves, name):
         import matplotlib.pyplot as plt
+        import matplotlib.colors as colors
+        # DEFINE basic three color map for S I R
+        # grey: (.5, .5, .5, .25)
+        cmap = colors.ListedColormap(['white', (.5, .5, .5, .25), 'red', 'blue'])
+        bounds = [0, 1, 2, 3, 4]
+        norm = colors.BoundaryNorm(bounds, cmap.N, clip=True)
+        # All Removed cells = 3
+        R = R * 3
+        # All Infected cells = 2
+        I = 2 * np.array(I > 0).astype(int)
+        # All Susceptible cells = 1
+        # All empty cells = 0
+
         fig, ax = plt.subplots()
-        ax.set_title(str(T))
-        dat = np.array(I > 0).astype(int)
-        im = ax.imshow(dat, cmap=plt.get_cmap('binary'))
-        #ax.imshow(I, cmap=plt.get_cmap('jet'), alpha=0.5)
+        im = ax.imshow(S + I + R, cmap=cmap, norm=norm)
         cax = plt.colorbar(im)
-        cax.set_ticks([0, 1])
-        cax.set_ticklabels(['R-S', 'I'])
-        if T == 10:
-            np.save('I_time_10', I)
-            np.save('S_time_10,', S)
-            np.save('R_time_10', R)
-            print('saved 10')
-        if T == 15:
-            np.save('I_time_15', I)
-            np.save('S_time_15', S)
-            np.save('R_time_15', R)
-            print('saved 15')
+        cax.set_ticks([0, 1, 2, 3])
+        cax.set_ticklabels([r'$\emptyset$', 'S (tree)', 'I (infected)', 'R (dead)'])
+        ax.set_title(str(T) + ' (days)')
+        ax.grid(True)
+        ax.set_xticklabels([])
+        ax.set_yticklabels([])
+
+        if 0:
+            # Save frames 10 and 15 to plot representation of SSTLM in tex file
+            if T == 10:
+                np.save('I_time_10', I)
+                np.save('S_time_10,', S)
+                np.save('R_time_10', R)
+                print('saved 10')
+            if T == 15:
+                np.save('I_time_15', I)
+                np.save('S_time_15', S)
+                np.save('R_time_15', R)
+                print('saved 15')
         if saves:
             if T < 10:
                 T = '000' + str(T)
@@ -186,7 +203,9 @@ class Plots(object):
             plt.close()
         return
 
+
 def main(settings, parameters, domain):
+    from scipy.ndimage import gaussian_filter
     np.random.seed()
     # p : parameters | holds all domain structures.
     p = Sim_Init(settings, parameters, domain)
@@ -208,11 +227,11 @@ def main(settings, parameters, domain):
     # Each time-step take as days
     # Each grid point take as 20m and lattice size as 2(km^2)
     while in_progress:
-        from scipy.ndimage import gaussian_filter
         if p_out:
             print("Step: ", time_step)
         # sigma jump kernel : measure for how far disease probabilities spread.
-        potential_infected = gaussian_filter(p.infected, sigma=p.sigma) * p.beta_dist
+        # for all infected cells, blur each infected cell of unit size to given standard deviation
+        potential_infected = gaussian_filter(p.infected, sigma=p.sigma, truncate=3.0) * p.beta_dist
         rand = np.random.uniform(0, 1, size=p.dim)
         # New infected cells, initialised with value 2 --> T (inclusive)
         new_infected = 2 * np.array(potential_infected > rand).astype(int) * p.susceptible
@@ -232,10 +251,14 @@ def main(settings, parameters, domain):
         #  check boundary conditions
         if num_infected == 0:
             # BCD1
+            if dyn_plts[0]:
+                print('& END: disease dies out...')
             in_progress = False
             break
         if time_step == p.time_f:
             # BCD2
+            if dyn_plts[0]:
+                print('& END: set time elapsed...')
             in_progress = False
             break
 
@@ -254,8 +277,10 @@ def main(settings, parameters, domain):
                 # when average infectious distance is equal to the lattice boundary, stop sim
                 in_progress = False
                 p.percolation = 1
+                print('& END: mean distance greater hit boundary')
             mean_d_metric[time_step], max_d_metric[time_step] = mean_d, max_d
-            if max_d > 95:
+            if max_d > p.dim[0]/2 - 1:
+                print('& END: max distance hit boundary')
                 in_progress = False
                 p.percolation = 1
         # Advance time by one step

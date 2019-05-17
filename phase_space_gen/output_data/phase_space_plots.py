@@ -11,7 +11,7 @@ import numpy as np
 
 def tensor_phase_plot(data_arr, max_value):
     # load in specific array
-    extent = [0, 0.4, 0, 1]
+    extent = [0, 0.099, 0, 1]
     dat_flat = data_arr.flatten()
     nan_ind = np.where(np.isnan(dat_flat))
     dat_flat = np.delete(dat_flat, nan_ind)
@@ -20,12 +20,16 @@ def tensor_phase_plot(data_arr, max_value):
         fig, ax = plt.subplots()
         data_slice = data_arr[i]
         im = ax.imshow(data_slice * 365, origin='lower', extent=extent, clim=[0, max_value*365])
-        ax.set_xlabel(r'$\rho$ ($hectares/km^2$)')
+        ax.set_xlabel(r'$\rho$ (occupational tree density)')
         ax.set_ylabel(r'$\beta$')
-        ax.set_aspect(0.5)
-        plt.title(r'Velocity $km/years$, $\sigma = $' + str(distance[i]))
-        plt.colorbar(im)
+        ax.set_xticks(np.linspace(0, 0.099, 5).round(2))
+        ax.set_aspect(0.099)
+        plt.title(r'$\sigma = $' + str(distance[i]) + '(m)')
+        cbar = plt.colorbar(im, ax=ax)
+        cbar.set_label(r'$km/year)$', labelpad=-20, y=1.05, rotation=0)
+        plt.savefig(os.getcwd() + '/plot_figs/'+str(distance[i]))
         plt.show()
+
 
 def enemble_generator(path, label, show, dim):
     # GENERATE ensemble average phase space tensor
@@ -74,7 +78,7 @@ metrics = {0: '/vel_km_day', 1: "/mortality"}
 if 1:
     # PLOT & SAVE phase-space tensor
     lattice_dim = 10
-    sim, metric = [sim_names[1], metrics[1]]
+    sim, metric = [sim_names[1], metrics[0]]
     path_2_sim = os.getcwd() + sim + metric
     enemble_generator(path=path_2_sim, label=metric, show=True, dim=lattice_dim)
 

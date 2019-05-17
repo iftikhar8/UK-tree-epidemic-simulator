@@ -4,28 +4,18 @@ import sys, os
 
 def finite_difference_sim(dim, params, diffusion_map, uk, saves):
     alpha, dim, T = 1, params["dim"], params["T"]
-    stop = False
     for time_step in range(T):
         print("Time step: ", time_step)
         for i in range(dim[0] - 2):
-            # rows in array
             for j in range(dim[1] - 2):
-                # cols in array
+                # D: diffusion coefficient for land region - represents how likely to infect neighbouring region
+                # diff_ij: diffusion component of PDE model
+                # growth_ij: growth component of PDE model
                 D = diffusion_map[i, j]
-                diff_ij = D * (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j])
-                growth_ij = 1 * uk[i, j] * (1 - uk[i, j])
-                # stencil operation
+                diff_ij = D * (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j]) * (1 - uk[i, j])
+                growth_ij = 0.5 * uk[i, j] * (1 - uk[i, j])
+                # uk: resultant output: SUM {Growth + diffusion}
                 uk[i, j] = uk[i, j] + diff_ij + growth_ij
-                # CHECK for any errors.
-                if np.isinf(uk[i, j]):
-                    stop = True
-                    print('uk_ij = ', uk[i, j])
-                    print('diff constant ij', diffusion_map[i, j])
-                    print('diff comp', diff_ij)
-                    print('growth comp', growth_ij)
-                    print('problem coords = ', i, j)
-                    print('ij, i+1, i-1, j+1, j-1 respect')
-                    print(uk[i+1, j], uk[i-1, j], uk[i, j-1], uk[i, j+1])
 
         # SAVE frame to file
         if saves[0]:
@@ -49,7 +39,10 @@ def finite_difference_sim(dim, params, diffusion_map, uk, saves):
 def main(params, diffusion_map):
     save_path = os.getcwd() + '/output_data/'
     path_dir_list = os.listdir(save_path)
-    name = params["sim_name"] + "-data"
+    if params["partial"]:
+        name = name = params["sim_name"] + "-partial-data"
+    else:
+        name = params["sim_name"] + "-data"
     if name in path_dir_list:
         sys.exit("ERROR: simulation % already exists! " % name)
     else:
@@ -57,13 +50,16 @@ def main(params, diffusion_map):
 
     save_path = save_path + '/' + name
     dim = params["dim"]
-    epi_c = params["epi_c"]
-    # DEFINE the UK and regions infected at time t=0
     uk = np.zeros(dim)
-    span_x, span_y = [epi_c[1]-epi_c[0], epi_c[3]-epi_c[2]]
-    num_inf_sites = span_x*span_y
-    inf_sites = np.random.randint(0, 2, size=num_inf_sites).reshape([span_x, span_y])
-    uk[epi_c[0]:epi_c[1], epi_c[2]:epi_c[3]] = inf_sites
+    # DEFINE the UK and regions infected at time t=0
+    if not params["partial"]:
+        # whole uk domain
+        epi_c = params["epi_c"]
+        span_x, span_y = [epi_c[1]-epi_c[0], epi_c[3]-epi_c[2]]
+        num_inf_sites = span_x*span_y
+        # infected sites start with value of 1 (maximum infected level)
+        inf_sites = np.random.randint(0, 2, size=num_inf_sites).reshape([span_x, span_y])
+        uk[epi_c[0]:epi_c[1], epi_c[2]:epi_c[3]] = inf_sites
 
     # DEFINE partial region inside full map - for code-testing
     # - exit after use ...
@@ -71,14 +67,20 @@ def main(params, diffusion_map):
         x0, x1, y0, y1 = params["partial"][1]
         params["dim"] = [x1-x0, y1-y0]
         uk, diffusion_map = uk[x0:x1, y0:y1], diffusion_map[x0:x1, y0:y1]
+        # DEFINE epicenter and infected points
+        epi_c = [55, 60, 100, 105]
+        span_x, span_y = [epi_c[1]-epi_c[0], epi_c[3]-epi_c[2]]
+        num_inf_sites = span_x*span_y
+        # infected sites start with value of 1 (maximum infected level)
+        inf_sites = np.random.randint(0, 2, size=num_inf_sites).reshape([span_x, span_y])
+        uk[epi_c[0]:epi_c[1], epi_c[2]:epi_c[3]] = inf_sites
+        # PLOT diffusion map and uk
         plot_init = False
         if plot_init:
             import matplotlib.pyplot as plt
-            fig, ax = plt.subplots()
-            im = ax.imshow(diffusion_map)
-            name = 'diif-map-L-' + str(params["L"]) + 'b-' + str(params["b"].round(2)) + '.png'
-            plt.colorbar(im)
-            plt.savefig(name)
+            fig, ax = plt.subplots(ncols=2)
+            ax[0].imshow(diffusion_map, origin='lower')
+            ax[1].imshow(uk, origin='lower')
             plt.show()
             sys.exit('Done...')
 

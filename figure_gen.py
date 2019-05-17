@@ -59,20 +59,14 @@ def subgird():
     cmap = colors.ListedColormap([(.5, .5, .5, .25), 'green', 'red', 'blue'])
     bounds = [0, 1, 2, 3,4]
     norm = colors.BoundaryNorm(bounds, cmap.N, clip=True)
-
-
     R_1 = R_1.astype(float)*3
     R_2 = R_2.astype(float)*3
-
     I_1 = np.where(I_1 > 0, 2,0)
     I_2 = np.where(I_2 > 0, 2, 0)
-
-
     fig, [ax1, ax2] = plt.subplots(nrows=2, figsize=(10, 10))
 
     im = ax1.imshow(S_1 + I_1 + R_1, cmap=cmap, norm=norm, origin='lower', interpolation='none')
     ax2.imshow(S_2 + I_2 + R_2, cmap=cmap, norm=norm, origin='lower', interpolation='none')
-
     ax1.set_title(r'$1km^2$ (in hectare grids) : $\rho = 0.099$')
     ax1.grid(True)
     ax1.set_xticklabels([])
@@ -84,14 +78,12 @@ def subgird():
     cbar.set_ticklabels([r'$\emptyset$', 'S (tree)', 'I', 'R (dead)'])
 
     cbar.set_ticks(bounds)
-
     ax2.grid(True)
     ax2.set_xticklabels([])
     ax2.set_yticklabels([])
 
     ax1.set_xticks(np.arange(0, 200, 20))
     ax1.set_yticks(np.arange(0, 200, 20))
-
     ax2.set_xticks(np.arange(0, 200, 20))
     ax2.set_yticks(np.arange(0, 200, 20))
     ax2.set_xlabel('')
@@ -99,14 +91,11 @@ def subgird():
     ax1.text(10, 185, 'T = 10', bbox={'facecolor': 'white', 'pad': 10})
     ax2.text(10, 185, 'T = 15', bbox={'facecolor': 'white', 'pad': 10})
 
-    plt.savefig('SSTLM-evolution', bbox_inches='tight')
+    # plt.savefig('SSTLM-evolution', bbox_inches='tight')
     plt.show()
-
-
-    sys.exit()
+    return
 
 def results(data):
-    import matplotlib.gridspec as gridspec
     dir = os.listdir(os.getcwd() + '/latex_data')
     names = []
     for file in dir:
@@ -135,7 +124,8 @@ def results(data):
         ax.set_yticklabels([])
         ax.set_title(r'Year : ' + years[i])
 
-    plt.savefig('FKPP-10yr-immingham-L-250-b-1', bbox_inches='tight')
+
+    plt.savefig('FKPP-10yr-immingham-L-50-b-02', bbox_inches='tight')
     plt.show()
     plt.close()
 
@@ -152,5 +142,5 @@ if off_on[0]:
 
 if off_on[1]:
     # generate results 3x3 PDE evolution
-    data_set = "L-125-b-05"
+    data_set = "L-50-b-02"
     results(data_set)

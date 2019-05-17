@@ -18,7 +18,7 @@ print('Name: ', sim_name)
 # - epi_center : point of disease introduction
 # - port of Immingham = [560, 570, 455, 465]
 diffusion_map = diffusion_mapping.main(int(L_index), beta_space[int(beta_index)])
-params = {"T": 20, "dim": np.shape(diffusion_map), "epi_c": [560, 570, 455, 465], "plt_epi": False,
+params = {"T": 100, "dim": np.shape(diffusion_map), "epi_c": [560, 570, 455, 465], "plt_epi": False,
           "partial": [True,  [700, 900, 200, 400]], 'L': L_index, 'b': beta_space[int(beta_index)],
           "sim_name": sim_name}
 
@@ -26,9 +26,5 @@ t_0 = time.time()
 pde_model.main(params, diffusion_map)
 t_1 = time.time()
 t = (t_1 - t_0) / 60
+# Print time elapsed in minutes.
 print("Time elapsed: ", t, ' (mins)')
-# todo make functional on HPC
-
-# todo 1. save data too file with given name
-# todo 2. input L and beta index
-# todo 3. compress file ? might be quicker

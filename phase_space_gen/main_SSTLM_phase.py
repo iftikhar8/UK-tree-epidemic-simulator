@@ -24,7 +24,7 @@ settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "
             "param_dim": [10, 10, 100], "metrics": ["d", "t"], "plt_tseries": False, "save_figs": False,
             "dyn_plts": [False, 1, True], "anim": False, "BCD3": False, "individual": False}
 
-parameters = {"time": 10, "time_horizon": 365, "t_init": [5, 6], "L": 200}
+parameters = {"time": 100, "time_horizon": 730, "t_init": [5, 6], "L": 10}
 
 # ____________________  DEFINE parameters# ____________________ #
 #
@@ -45,9 +45,11 @@ domain, core_id, rhos, betas, sigmas, parameters = job_arr
 
 if 1:
     # RUN individual simulation and animation
-    parameters["rho"] = 0.099
-    parameters['beta'] = betas[5]
-    parameters["sigma"] = sigmas[2]
+    parameters["rho"] = 0.75
+    parameters['beta'] = 0.25
+    parameters["time"] = 365
+    parameters["sigma"] = 10
+    print("Running: r-", parameters["rho"], "-b-", parameters["beta"], "-L-", parameters["sigma"]*5, '(m)')
     # SET simulation settings
     settings["dyn_plts"], settings["plt_tseries"], settings["individual"] = [True, 1, True], True, True
     # START simulation
