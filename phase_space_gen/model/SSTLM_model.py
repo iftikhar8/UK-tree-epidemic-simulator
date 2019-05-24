@@ -16,120 +16,56 @@ class Sim_Init(object):
     def __init__(self, settings, parameters, domain):
         domain_type = settings["domain_type"]
         inf_r: int = 3  # Radius of initial infected cluster
-        # Qro : get a map of oak trees over the uk and threshold to get a map of susceptible regions over the UK
-        # rand_uk : get a random homogeneous map of susceptible regions over the UK
-        # cg resolution: Qro_n where n is the resolution
-        if "Qro" in domain_type.split('_') or "rand" in domain_type.split('_'):
-            if "Qro" in domain_type.split('_'):
-                dim = np.shape(domain)
-                infected = np.zeros(dim)
-                felling = settings["felling"]
-                if felling[0]:
-                    # if felling is true, a small ring around the epi-center is reduced in density
-                    bufferzone_r, density_reduction = felling[1:]
-                    felling_zone = np.load(os.getcwd() + '/input_domain/' + domain_type + '/fellzone_map_' +
-                                           bufferzone_r + '.npy')
-                    felling_zone = np.where(felling_zone == 1, density_reduction, 1)
-                    domain = domain * felling_zone
-                else:
-                    # no felling on map
-                    pass
-                parameters["rho"] = 1.5
-                empty_ind = np.where(domain <= parameters["rho"])
-                tree_ind = np.where(domain > parameters["rho"])
-                tree_dist = np.zeros(dim)
-                tree_dist[empty_ind] = 0
-                tree_dist[tree_ind] = 1
-                population = len(tree_ind[0])
-
-            elif "rand" in domain_type.split('_'):
-                domain = np.load(os.getcwd() + '/input_domain/' + domain_type + '/' + domain_type + '.npy')
-                dim = np.shape(domain)
-                infected = np.zeros(dim)
-                rand_ar = np.random.uniform(0, 1, size=dim)
-                domain = domain * rand_ar
-                tree_dist = np.where(domain <= 1 - parameters['rho'], 0, 1)
-                population = len(np.where(tree_dist == 1)[0])
-            # Choose an epicentre in the south east/london area. This is the largest cluster of predicted Oak trees
-            if domain_type.split('_')[-1] == str(3):
-                epi_cx, epi_cy = [260, 145]
-            elif domain_type.split('_')[-1] == str(1):
-                epi_cx, epi_cy = [800, 477]
-            infected[epi_cx:epi_cx + inf_r, epi_cy:epi_cy + inf_r] = 1
-            tree_dist[epi_cx:epi_cx + inf_r, epi_cy:epi_cy + inf_r] = 0
-            epi_c = [epi_cx, epi_cy]
-            # pecolation is undefined on a complicated geometry
-            percolation = None
-
-        # lattice : a simple square lattice of binary values 1's and 0's
-        # channel: a channel geometry to neglect any geometrical artifacts
-        elif domain_type == "lattice" or domain_type == "channel":
-            # Lattice dim = LxL or 1.5Lx0.33L
-            L = parameters["L"]
-            domain = np.random.permutation(domain)
-            if domain_type == "lattice":
-                dim = [L, L]
-                epi_cx, epi_cy = int(dim[0] / 2), int(dim[1] / 2)
-                infected = np.zeros(dim)
-                # shuffle domain
-                tree_dist = np.where(domain < parameters["rho"], 1, 0)
-                tree_dist[0], tree_dist[-1], tree_dist[:, 0], tree_dist[:, -1] = [0, 0, 0, 0]
-                tree_dist[epi_cx, epi_cy] = 0
-                infected[epi_cx, epi_cy] = 1
-                epi_c = [epi_cx, epi_cy]
-            elif domain_type == "channel":
-                dim = np.array([0.33*L, L], dtype=int)
-                epi_c = 1
-                infected = np.zeros(dim)
-                tree_dist = np.where(domain < parameters["rho"], 1, 0)
-                tree_dist[:, 0:2], tree_dist[:, -1] = [0, 0]
-                infected[:, 1] = 1
-
-            percolation = 0
-            population = np.shape(tree_dist)[0]*np.shape(tree_dist)[1]
-
-        mu = parameters['time'] + 1
+        # lattice : a simple square lattice of binary values 1's and 0'
+        # -- 1 : tree state
+        # -- 0 : empty state
+        size = parameters["L"]
+        domain = np.random.permutation(domain)
+        dim = [size, size]
+        epi_cx, epi_cy = int(dim[0] / 2), int(dim[1] / 2)
+        infected = np.zeros(dim)
+        # shuffle domain
+        tree_dist = np.where(domain < parameters["rho"], 1, 0)
+        tree_dist[0], tree_dist[-1], tree_dist[:, 0], tree_dist[:, -1] = [0, 0, 0, 0]
+        tree_dist[epi_cx, epi_cy] = 0
+        infected[epi_cx, epi_cy] = 1
+        epi_c = [epi_cx, epi_cy]
+        population = np.shape(tree_dist)[0]*np.shape(tree_dist)[1]
+        mu = parameters['l_time'] + 1
         beta_value = parameters['beta']
-        self.time_f = parameters["time_horizon"]
-        self.sigma = parameters["sigma"]
+        # INIT parameters
         self.dim = dim
-        self.survival_times = np.ones(dim) * mu
-        self.beta_dist = beta_value * np.ones(dim)
+        self.epi_c = epi_c
+        self.beta = beta_value
+        self.infected = infected
         self.population = population
         self.rho = parameters['rho']
-        self.epi_c = epi_c
         self.removed = np.zeros(dim)
         self.susceptible = tree_dist
-        self.infected = infected
-        # classes of metrics - normalised, un-normalised, mean_d, max_d, mode_
-        self.eff_metric = np.zeros(parameters["time_horizon"])
-        self.mean_d = np.zeros(parameters["time_horizon"])
+        self.sigma = parameters["sigma"]
+        self.survival_times = np.ones(dim) * mu
+        self.time_f = parameters["time_horizon"]
+        self.beta_distribution = beta_value * np.ones(dim)
+        self.pre_factor = 2 * np.pi * parameters["sigma"] ** 2
+        # INIT distance matrix
+        x, y = np.arange(0, dim[0]), np.arange(0, dim[1])
+        x_arr, y_arr = np.meshgrid(x, y)
+        self.x_arr = x_arr
+        self.y_arr = y_arr
+        # INIT metrics
+        self.percolation = 0
         self.mean_d = np.zeros(parameters["time_horizon"])
         self.max_d = np.zeros(parameters["time_horizon"])
-        self.percolation = percolation
         return
 
-    def dist_map(self, settings, dim, tree_dist_, epi_c):
-        domain_type = settings["domain_type"]
-        if "Qro" in domain_type.split('_') or "rand_uk_cg_3" in domain_type.split('_'):
-            long, lat = np.arange(0, 3 * dim[0], 3), np.arange(0, 3 * dim[1], 3)
-            latitude_ar, longitude_ar = np.meshgrid(lat, long)
-            latitude_ar, longitude_ar = latitude_ar - 3 * epi_c[1], longitude_ar - 3 * epi_c[0]
-            dist_map = np.sqrt(np.square(longitude_ar) + np.square(latitude_ar))
-        elif settings["domain_type"] == "lattice":
-            # if square lattice
-            long, lat = np.arange(0, dim[0]), np.arange(0, dim[1])
-            latitude_ar, longitude_ar = np.meshgrid(lat, long)
-            latitude_ar, longitude_ar = latitude_ar - epi_c[1], longitude_ar - epi_c[0]
-            dist_map = np.sqrt(np.square(longitude_ar) + np.square(latitude_ar))
-        elif settings["domain_type"] == "channel":
-            # for channel, calculate the horizontal distance ONLY
-            long, lat = np.arange(0, dim[0]), np.arange(0, dim[1])
-            latitude_ar, longitude_ar = np.meshgrid(lat, long)
-            dist_map = latitude_ar
+    def dist_map(self, x_arr, y_arr, coord):
+        # todo : be mindful of coord[0 or 1]
+        latitude_ar, longitude_ar = x_arr - coord[0], y_arr - coord[1]
+        dist_map = np.sqrt(np.square(longitude_ar) + np.square(latitude_ar))
         return dist_map
 
-    def r_metrics(self, inf_ind, dist_map):
+    def d_metrics(self, inf_ind, dist_map):
+        # return mean and max distance travelled by pathogen
         distances = dist_map[inf_ind]
         mean_d = np.average(distances)
         max_d = max(distances)
@@ -166,13 +102,14 @@ class Plots(object):
         I = 2 * np.array(I > 0).astype(int)
         # All Susceptible cells = 1
         # All empty cells = 0
-
         fig, ax = plt.subplots()
         im = ax.imshow(S + I + R, cmap=cmap, norm=norm)
         cax = plt.colorbar(im)
         cax.set_ticks([0, 1, 2, 3])
         cax.set_ticklabels([r'$\emptyset$', 'S (tree)', 'I (infected)', 'R (dead)'])
         ax.set_title(str(T) + ' (days)')
+        ax.set_xticks(range(0, 400, 20))
+        ax.set_yticks(range(0, 400, 20))
         ax.grid(True)
         ax.set_xticklabels([])
         ax.set_yticklabels([])
@@ -203,26 +140,22 @@ class Plots(object):
             plt.close()
         return
 
-
 def main(settings, parameters, domain):
     from scipy.ndimage import gaussian_filter
     np.random.seed()
-    # p : parameters | holds all domain structures.
+    # p : hold all parameters
+    # -- epi_dist_map | a map of distance away from epicenter, used to work out distance travelled by pathogen
+    # -- mean_d_metric | an array used to hold the mean infectious distance
+    # -- max_d_metric | an array used to hold the maximum distance travelled by infected tree wave
+    # -- gauss_filter | the function to model pathogen dispersal over short-medium distances
+    # -- pre_factor | this is used 'un'-normalise kernel as to make every dispersal factor start from value 1.0
     p = Sim_Init(settings, parameters, domain)
-    dist_map = p.dist_map(settings, p.dim, p.susceptible, p.epi_c)
-    metrics = settings["metrics"]
-    eff, d = [False, False]
-    if "eff" in metrics:
-        # effective velocity metric measure | grad{sqrt{N}}
-        eff_metric = p.eff_metric
-        eff = True
-    if "d" in metrics:
-        mean_d_metric = p.mean_d
-        max_d_metric = p.max_d
-        d = True
-
+    epi_dist_map = p.dist_map(x_arr=p.x_arr, y_arr=p.y_arr, coord=p.epi_c)
+    mean_d_metric = p.mean_d
+    max_d_metric = p.max_d
     in_progress, time_step, p_out = 1, 0, settings["individual"]
-    dyn_plts = settings["dyn_plts"]
+    dyn_plots = settings["dyn_plts"]
+
     # ________________Run Algorithm________________ #
     # Each time-step take as days
     # Each grid point take as 20m and lattice size as 2(km^2)
@@ -231,7 +164,8 @@ def main(settings, parameters, domain):
             print("Step: ", time_step)
         # sigma jump kernel : measure for how far disease probabilities spread.
         # for all infected cells, blur each infected cell of unit size to given standard deviation
-        potential_infected = gaussian_filter(p.infected, sigma=p.sigma, truncate=3.0) * p.beta_dist
+        potential_infected = p.pre_factor * gaussian_filter(p.infected, sigma=p.sigma)
+        potential_infected = potential_infected * p.beta_distribution
         rand = np.random.uniform(0, 1, size=p.dim)
         # New infected cells, initialised with value 2 --> T (inclusive)
         new_infected = 2 * np.array(potential_infected > rand).astype(int) * p.susceptible
@@ -248,69 +182,66 @@ def main(settings, parameters, domain):
         # GET metrics
         infected_ind = np.where(p.infected > 0)
         num_infected = len(infected_ind[0])
-        #  check boundary conditions
+        #  CHECK boundary conditions
         if num_infected == 0:
-            # BCD1
-            if dyn_plts[0]:
+            # BCD1 : disease dies, percolation = False
+            if dyn_plots[0]:
                 print('& END: disease dies out...')
             in_progress = False
             break
+
         if time_step == p.time_f:
             # BCD2
-            if dyn_plts[0]:
+            if dyn_plots[0]:
                 print('& END: set time elapsed...')
             in_progress = False
             break
 
-        if dyn_plts[0]:
+        if dyn_plots[0]:
             # GENERATE simulations progression from T=0
             name = '_b_' + str(parameters["beta"]) + "_r_" + str(parameters["rho"])
-            if time_step % dyn_plts[1] == 0:
-                Plots.plot_frame(None, S=p.susceptible, I=p.infected, R=p.removed, T=time_step, saves=dyn_plts[2],
+            if time_step % dyn_plots[1] == 0:
+                Plots.plot_frame(None, S=p.susceptible, I=p.infected, R=p.removed, T=time_step, saves=dyn_plots[2],
                                  name=name)
-        if d:
-            # explicit radial measures:
-            # : mean, median, max
-            mean_d, max_d = p.r_metrics(inf_ind=infected_ind, dist_map=dist_map)
-            if mean_d > p.dim[0]/2:
-                # DEFINE a proxy for percolation
-                # when average infectious distance is equal to the lattice boundary, stop sim
-                in_progress = False
-                p.percolation = 1
-                print('& END: mean distance greater hit boundary')
-            mean_d_metric[time_step], max_d_metric[time_step] = mean_d, max_d
-            if max_d > p.dim[0]/2 - 1:
-                print('& END: max distance hit boundary')
-                in_progress = False
-                p.percolation = 1
+        # GET distances travelled by pathogen
+        #  -- using mean & max
+        #  -- p.d_metrics: calculate the average and mean distance travelled by pathogen
+        mean_d, max_d = p.d_metrics(inf_ind=infected_ind, dist_map=epi_dist_map)
+        mean_d_metric[time_step], max_d_metric[time_step] = mean_d, max_d
+        if max_d > p.dim[0]/2 - 2:
+            # If distance exceeds boundary then take as percolation
+            print('& END: max distance hit boundary')
+            in_progress = False
+            p.percolation = 1
+
         # Advance time by one step
         time_step += 1
 
     # ________________End Algorithm________________ #
-    # __________Collect metric time series________________ #
+    # ________ Collect metrics and time series______ #
+
     parameters["end_tstep"] = time_step
-    t_init, t_trans = parameters["t_init"]
-    if d:
-        # from sub-grid size and time step calibration,
-        # workout average velocity in km/years of infectious propagation velocity
-        # sub-grid size = 5(m) per point grid size 25m^2, domain size = [200, 200]
-        # 1. get max distance reached in km
-        # 2. convert time elapsed in years
-        # 3. calculate max velocity estimate
-        max_d = max_d_metric.max()*5/1000
-        velocity_km_day = max_d/time_step
-        if settings["plt_tseries"]:
-            plt_tseries = Plots.plot_tseries
-            saves = False
-            label = {'title': "mean d distance", 'xlabel': 'time', 'ylabel': 'distance'}
-            plt_tseries(1, metric=mean_d_metric[0:time_step-1], parameters=parameters, labels=label, saves=saves)
-            label = {'title': "max d", 'xlabel': 'time', 'ylabel': 'distance'}
-            plt_tseries(1, metric=max_d_metric[:time_step-1], parameters=parameters, labels=label, saves=saves)
+    # from sub-grid size and time step calibration,
+    # workout average velocity in km/years of infectious propagation velocity
+    # sub-grid size = 5(m) per point grid size 25m^2, domain size = [200, 200]
+    # 1. get max distance reached in km
+    # 2. convert time elapsed in years
+    # 3. calculate max velocity estimate
+    max_d = max_d_metric.max()*5/1000
+    velocity_km_day = max_d/time_step
+    if settings["plt_tseries"]:
+        # GENERATE time series plots
+        plt_tseries = Plots.plot_tseries
+        saves = False
+        label = {'title': "mean d distance", 'xlabel': 'time', 'ylabel': 'distance'}
+        plt_tseries(1, metric=mean_d_metric[0:time_step-1], parameters=parameters, labels=label, saves=saves)
+        label = {'title': "max d", 'xlabel': 'time', 'ylabel': 'distance'}
+        plt_tseries(1, metric=max_d_metric[:time_step-1], parameters=parameters, labels=label, saves=saves)
 
     # number of tree deaths in 1km / 2
     # (divide by 4 to normalise the 2kmx2km grid proxy)
     num_removed = len(np.where(p.removed == 1)[0])
-    return num_removed, velocity_km_day
+    return num_removed, velocity_km_day, p.percolation
 
 if __name__ == "__main__":
     main(param)

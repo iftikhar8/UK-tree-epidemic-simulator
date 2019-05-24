@@ -1,7 +1,8 @@
+import sys, os
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter
-import sys, os
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
 def pr_phase(T_arr, beta_arr, pr_space):
@@ -65,8 +66,6 @@ def beta_vs_pr():
     plt.savefig(os.getcwd() + '/temp_figs/01')
     plt.show()
 
-
-
 T_arr = np.arange(100, 365, 1)
 beta_arr = np.linspace(0, 0.015, 100)
 pr_space = np.zeros(shape=[len(T_arr), len(beta_arr)])
@@ -80,42 +79,87 @@ if 0:
     # plot the chance of transitioning into S category changes as a function of distance from the infected cell
     beta_vs_pr()
 
-if 1:
-    L = 30
-    epi = int(L/2)
-    r = 1
-    # BETA RANGE: [0.001, 0.015]
-    # SIGMA RANGE: [1, 50] x5(m)
-    beta = 0.4
-    sigma = 1
-    T = 365
+if 0:
+    # Generate probability with distance for L factor
+    L = 200
+    sigma = 20.0
+    beta = 1.0
+    repeats = 100000
     density = 0.1
-    domain = np.zeros(shape=(L, L))
-    domain[0] = 1
-    beta_arr = np.ones(shape=(L, L))*beta
-    L_arr = gaussian_filter(domain, sigma=sigma)
+    epi = int(L/2)
+    life_time = 1
+    # data fields
+    percolation, R_0 = False, False
+    b_arr = np.ones(shape=(L, L)) * beta
 
+    R_0s = np.zeros(repeats)
+    if not R_0:
+        # DO NOT work out R_0, only a pr map
+        sum_array = np.zeros(shape=(L, L))
 
-    life_time = 365
-    repeats = 10
-    ensemble = np.zeros(repeats)
-
-    for i in range(repeats):
-        R_0 = np.zeros(life_time)
-        susceptible = np.array((np.random.uniform(0, 1, size=(L, L)) < density), dtype=float)
-        plt.imshow(susceptible)
-        plt.show()
-        sys.exit()
+    for repeat in range(repeats):
+        if R_0:
+            sum_array = np.zeros(shape=(L, L))
+        if repeat % 100 == 0:
+            print('Repeat: ', repeat)
+        # work out R_0 over an ensemble:
+        s_arr = np.array(np.random.uniform(0, 1, size=(L, L)) < density, dtype=float)
         for t in range(life_time):
-            L_potential = (L_arr > np.random.uniform(0, 1, size=(L, L))).astype(float)
-            B_potential = (beta_arr > np.random.uniform(0, 1, size=(L, L))).astype(float)
-            infected = L_potential * B_potential * susceptible
-            num_infected = len(np.where(infected == 1)[0])
-            R_0[t] = num_infected
-        print("num inf", np.sum(R_0))
-        ensemble[i] = np.sum(R_0)
-    print('average = ', np.average(ensemble))
+            # define infected array
+            # define random matrix for each time step
+            rand = np.random.uniform(0, 1, size=(L, L))
+            I0_arr = np.zeros(shape=(L, L))
+            I0_arr[epi, epi] = 1
+            if percolation:
+                I0_arr = np.roll(I0_arr, 1, axis=0) + np.roll(I0_arr, -1, axis=0) + \
+                         + np.roll(I0_arr, 1, axis=1) + np.roll(I0_arr, -1, axis=1)
+                I_arr = np.array(I0_arr*beta > rand)
+                I_arr[epi, epi] = 0
+                I_arr = I_arr * s_arr
+                sum_array = sum_array + I_arr
 
+            if not percolation:
+                # blur infected and times by infection rate
+                I0_arr = gaussian_filter(I0_arr, sigma=sigma, truncate=3.0) * beta
+                I_arr = np.array(I0_arr > rand, dtype=float)
+                I_arr[epi, epi] = 0
+                I_arr = I_arr * s_arr
+                sum_array = sum_array + I_arr
+
+            # count number of new infectious cases per time step
+            infect_ind = np.where(I_arr == 1)
+            s_arr[infect_ind] = 0
+
+        # record the number of infections for each life time
+        if R_0:
+            R0 = np.sum(np.array(sum_array > 0).astype(float))
+            print("R0: ", R0)
+            R_0s[repeat] = R0
+
+    if R_0:
+        print("average R0 = ", np.average(R_0s))
+    fig, ax = plt.subplots()
+    pr_map = sum_array/(repeat+1)
+    # pr-map-L20-r1-b1.npy
+    name = input('ENTER A NAME: ')
+    np.save(name, pr_map)
+
+extent = [-100, 100, -100, 100]
+name = "pr-map-L50-r1-b1-D200"
+pr_map = np.load(os.getcwd() + '/' + name + '.npy')
+fig, ax = plt.subplots(figsize=(6, 6))
+
+divider = make_axes_locatable(ax)
+im = plt.imshow(pr_map, plt.get_cmap('jet'), extent=extent)
+cax = divider.append_axes("bottom", size="2%", pad=0.5)
+cbar = plt.colorbar(im, cax=cax, orientation='horizontal')
+cbar.set_label(r"$Pr(S \rightarrow I)$")
+cbar.ax.set_xticklabels(np.unique(pr_map).round(5), rotation=50)
+
+ax.set_xlabel('horizontal distance epicenter')
+ax.set_ylabel('vertical distance epicenter')
+plt.savefig(name, bbox_inches='tight')
+plt.show()
 
 
 

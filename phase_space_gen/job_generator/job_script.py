@@ -41,11 +41,14 @@ def main(settings, parameters):
     domain = np.load(os.getcwd() + '/input_domain/Qro-cg-1.npy')
     density_range = np.unique(domain.round(1))
     density_range = np.delete(density_range, np.where(np.isnan(density_range))).astype(float)
-    # take the first 100 values of the density range [0.0,...,0.099]
-    rhos = density_range[0:100]*0.01
-    sigmas = np.arange(0, 55, int((50/param_dim[0])))
-    sigmas[0] = 1
-    betas = np.linspace(0, 1, param_dim[1])
+    # take the first 100 values of the density range [0.0,...,0.099
+    # rhos = density_range[0:100]*0.01
+    # betas = np.linspace(0, 1, param_dim[1])
+    # todo mindful of values...
+    rhos = np.array([0.001, 0.025, 0.05, 0.075, 0.1])
+    sigmas = np.array([1, 5, 10, 15, 20])
+    betas = np.linspace(0.001, 0.1, 100)
+
     domain_size = parameters["L"]
     # GENERATE domain structures
     assert domain_type == "lattice"

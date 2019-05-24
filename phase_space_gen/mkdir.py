@@ -19,7 +19,7 @@ try:
         # create sub directories
         # storing the distribution of mortality and average velocities in tensor formal
         os.mkdir(output_path + sim_path)
-        dir_names = ["mortality",  "vel_km_day"]
+        dir_names = ["mortality",  "vel_km_day", "percolation"]
         for dir in dir_names:
             os.mkdir(output_path + sim_path + '/' + dir + '/')
 except:

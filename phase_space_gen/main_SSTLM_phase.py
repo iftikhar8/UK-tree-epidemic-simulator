@@ -21,10 +21,10 @@ output_path = os.getcwd() + '/output_data/' + domain_type + '/' + date + name + 
 # param_dim : [L, Beta, Rho]
 
 settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "job_id": job_id,
-            "param_dim": [10, 10, 100], "metrics": ["d", "t"], "plt_tseries": False, "save_figs": False,
+            "param_dim": [5, 100, 5], "plt_tseries": False, "save_figs": False,
             "dyn_plts": [False, 1, True], "anim": False, "BCD3": False, "individual": False}
 
-parameters = {"time": 100, "time_horizon": 730, "t_init": [5, 6], "L": 10}
+parameters = {"l_time": 100, "time_horizon": 100, "t_init": [5, 6], "L": 400}
 
 # ____________________  DEFINE parameters# ____________________ #
 #
@@ -32,9 +32,6 @@ parameters = {"time": 100, "time_horizon": 730, "t_init": [5, 6], "L": 10}
 # core_id: each separate hpc core saves using this label/id
 # rhos, betas, sigmas:  the phase space values
 # L : lattice dimension, take as 200x200 representing a 1km^2 grid
-#   [ 0. 5.56 11.11 16.67 22.22 27.78 33.33 38.89 44.44 50.]
-#   [ 0. 27.8 55.55  83.35 111.1  138.9  166.65 194.45 222.2 250.] (m)
-
 # sub-grid size : each lattice point is taken as 5x5 (m)
 # epicenter : located in centroid position
 # time_horizon:= 365 days, each time-step in the simulation represents one day
@@ -43,35 +40,39 @@ parameters = {"time": 100, "time_horizon": 730, "t_init": [5, 6], "L": 10}
 job_arr = job_script.main(settings, parameters)
 domain, core_id, rhos, betas, sigmas, parameters = job_arr
 
-if 1:
+if 0:
     # RUN individual simulation and animation
-    parameters["rho"] = 0.75
-    parameters['beta'] = 0.25
-    parameters["time"] = 365
-    parameters["sigma"] = 10
-    print("Running: r-", parameters["rho"], "-b-", parameters["beta"], "-L-", parameters["sigma"]*5, '(m)')
-    # SET simulation settings
+    parameters["rho"] = .01
+    parameters['beta'] = .00005
+    parameters["l_time"] = 100
+    parameters["sigma"] = 20
+    parameters["time_horizon"] = 365
+    # SET individual realisation --> True
     settings["dyn_plts"], settings["plt_tseries"], settings["individual"] = [True, 1, True], True, True
-    # START simulation
     print('In progress..')
+    print("Running: r-", parameters["rho"], "-b-", parameters["beta"], "-L-", parameters["sigma"] * 5, '(m)')
     Results = SSTLM_model.main(settings, parameters, domain)
-    mortality, velocity_km_day = Results
-    print('..finished')
+    mortality, velocity_km_day, percolation = Results
     velocity_km_yr = velocity_km_day * 365
+    print('..finished')
     print('mortality = ', mortality)
-    print("velocity = ", velocity_km_day, '(km/day)')
+    print("velocit0 = ", velocity_km_day, '(km/day)')
     print("velocity = ", velocity_km_yr, '(km/yr)')
+    print("percolation = ", percolation)
 
-elif 0:
+elif 1:
     # GET 3D velocity phase space from parameters {L, beta, rho}
     # DEFINE tensor_arr : [i, j, k]
     # i size 10  : sigma
     # j size 10  : beta
     # k size 100 : rho
     import time
+    # todo : put default rhos back in before figuring out PDE model constants
+    # todo : rhos[5  values 0.001 - 0.1], sigma[5 values 1-20 ], beta[100 values 0.001 - .1]
     dim = settings["param_dim"]
     mortality = np.zeros(shape=[dim[0], dim[1], dim[2]])
     velocity_km_day = np.zeros(shape=[dim[0], dim[1], dim[2]])
+    percolation_pr = np.zeros(shape=[dim[0], dim[1], dim[2]])
     t0 = time.clock()
     print("Start time: ", datetime.datetime.now(), ' |  sim : ', str(job_id))
     for i, sigma in enumerate(sigmas):
@@ -82,15 +83,18 @@ elif 0:
             # ITERATE infection rates
             parameters["beta"] = beta
             for k, rho in enumerate(rhos):
+                print('i j k', i, j, k)
                 # ITERATE through density values
                 parameters["rho"] = rho
-                num_removed, velocity = SSTLM_model.main(settings, parameters, domain)
+                num_removed, velocity, percolation = SSTLM_model.main(settings, parameters, domain)
                 mortality[i, j, k] = num_removed
                 velocity_km_day[i, j, k] = velocity
+                percolation_pr[i, j, k] = percolation
 
     # save results as tensor-phase-space arrays
     np.save(output_path + "/mortality/" + core_id, mortality)
     np.save(output_path + "/vel_km_day/" + core_id, velocity_km_day)
+    np.save(output_path + "/percolation/" + core_id, percolation_pr)
     tf = time.clock() - t0
     tf = np.float64(tf / 60)
     print('End time: ', datetime.datetime.now(), ' |  sim : ', str(job_id))
