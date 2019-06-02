@@ -9,7 +9,7 @@
 
 hpc_switch=0
 data_type="lattice" # ["lattice", "channel"]
-sim_name="-100beta-value-test"
+sim_name="ps-r-100-b-100-L-4-en-100"
 
 ###########__________Run script__________#############
 if [ "$hpc_switch" == 1 ]

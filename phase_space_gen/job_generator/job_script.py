@@ -26,36 +26,34 @@ def save_label(job_id, param_dim):
 
 
 def main(settings, parameters):
-    # GET job parameters
-    job_id = int(settings["job_id"])
-    output_path = settings["out_path"]
-    param_dim = settings["param_dim"]
-    domain_type = settings["domain_type"]
-    core_id = save_label(job_id, param_dim)
     # GENERATE phase space
-    # - sigmas in [1, 5, 10,..., 50] OR [5m,...,250m] dispersal distance
-    # - betas in [0, 1] : 10 values on a uniform scale between 0 and 1 pr
-    # - rhos in [0.001, 0.099] : 100 values
+    # - sigmas in [1, 5, 10, 15] OR [5m,...75m] dispersal distance
+    # - betas in [0.001, 0.100] : 100 values
+    # - rhos in [0.001, 0.100] : 100 values
     # - upper bound density is 0.099 , there are 6,000 grid-points above this density out of 220,000. Above this value
-    # - results are negated for now.
-    domain = np.load(os.getcwd() + '/input_domain/Qro-cg-1.npy')
-    density_range = np.unique(domain.round(1))
-    density_range = np.delete(density_range, np.where(np.isnan(density_range))).astype(float)
-    # take the first 100 values of the density range [0.0,...,0.099
-    # rhos = density_range[0:100]*0.01
-    # betas = np.linspace(0, 1, param_dim[1])
-    # todo mindful of values...
-    rhos = np.array([0.001, 0.025, 0.05, 0.075, 0.1])
-    sigmas = np.array([1, 5, 10, 15, 20])
-    betas = np.linspace(0.001, 0.1, 100)
+    # INSERT LOWER CODE, TO WORK OUT DENITY RANGEs
+    if 0:
+        domain = np.load(os.getcwd() + '/input_domain/Qro-cg-1.npy')
+        density_range = np.unique(domain.round(1))
+        rhos = np.delete(density_range, np.where(np.isnan(density_range))).astype(float)
+    else:
+        rhos = np.linspace(0.001, 0.100, 100)
 
+    sigmas = np.array([1, 5, 10, 15])
+    betas = np.linspace(0.001, 0.100, 100)
     domain_size = parameters["L"]
-    # GENERATE domain structures
+    domain_type = settings["domain_type"]
     assert domain_type == "lattice"
+    job_id = int(settings["job_id"])
     domain = np.random.uniform(0, 1, size=(domain_size, domain_size))
     if job_id == 1:
         # WRITE all parameters to file
+        output_path = settings["out_path"]
         save_meta_data(settings, parameters, output_path)
+
+    param_dim = [len(sigmas), len(betas), len(rhos)]
+    core_id = save_label(job_id, param_dim)
+    parameters["param_dim"] = param_dim
     # RETURN jobs in a single array
     return domain, core_id, rhos, betas, sigmas, parameters
 

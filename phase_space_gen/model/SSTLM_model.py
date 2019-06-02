@@ -165,6 +165,7 @@ def main(settings, parameters, domain):
         # sigma jump kernel : measure for how far disease probabilities spread.
         # for all infected cells, blur each infected cell of unit size to given standard deviation
         potential_infected = p.pre_factor * gaussian_filter(p.infected, sigma=p.sigma)
+        potential_infected = np.where(potential_infected >= 1, 1, potential_infected)
         potential_infected = potential_infected * p.beta_distribution
         rand = np.random.uniform(0, 1, size=p.dim)
         # New infected cells, initialised with value 2 --> T (inclusive)

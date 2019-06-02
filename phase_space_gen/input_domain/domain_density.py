@@ -4,7 +4,7 @@ import os, sys
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-dat = np.load(os.getcwd() + '/Qro-cg-1.npy')
+dat = np.load(os.getcwd() + '/Qro-cg-1_ps.npy')
 
 
 # convert data to density

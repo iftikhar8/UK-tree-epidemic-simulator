@@ -89,7 +89,7 @@ def main(params, diffusion_map):
     # - exit after use ...
     if params["plt_epi"]:
         import matplotlib.pyplot as plt
-        domain = np.load(os.getcwd() + '/diffusion_mapping/Qro-cg-1.npy')
+        domain = np.load(os.getcwd() + '/diffusion_mapping/Qro-cg-1_ps.npy')
         fig, ax = plt.subplots(figsize=(10, 10))
         ax.imshow(100*uk + domain)
         plt.show()

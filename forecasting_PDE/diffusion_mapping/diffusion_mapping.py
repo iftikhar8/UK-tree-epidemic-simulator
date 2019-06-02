@@ -64,7 +64,7 @@ def main(L, beta):
                   '/diffusion_mapping/phase-3d-mortalityy-En-100-v2.npy']
     phase_3d = np.load(os.getcwd() + phase_name[0])
     # LOAD domain map
-    domain_name = '/diffusion_mapping/Qro-cg-1.npy'
+    domain_name = '/diffusion_mapping/Qro-cg-1_ps.npy'
     domain = np.load(os.getcwd() + domain_name)
     # convert to density map hectares/km^2 --> density x 0.01.
     domain = 0.01 * domain

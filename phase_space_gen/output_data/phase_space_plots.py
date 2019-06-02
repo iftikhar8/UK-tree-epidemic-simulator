@@ -37,21 +37,20 @@ def plot_line(slice, phase_space_tensor):
     rhos = np.array([0.001, 0.025, 0.05, 0.075, 0.1])
     betas = np.linspace(0.001, 0.1, 100)
     sigmas = np.array([1, 5, 10, 15, 20])
-    if 0:
-        fig, ax = plt.subplots()
-        im = ax.imshow(arr, origin='lower')
-        plt.colorbar(im)
-        ax.set_aspect(0.05)
-        ax.set_xlabel(r'$\rho$ value ')
-        ax.set_ylabel(r'$\beta$ value')
-        plt.show()
+    arr_total = np.zeros(shape=[5, 100])
+    fig, ax = plt.subplots()
     for rho_i in range(np.shape(arr)[1]):
         beta_line = arr[:, rho_i]
-        plt.plot(betas, beta_line, label=r'$\rho$ =' + str(rhos[rho_i]))
-        plt.title(r'$\ell = $' + str(sigmas[slice]))
-        plt.xlabel(r'$\beta$')
+        ax.plot(betas, beta_line, label=r'$\rho$ =' + str(rhos[rho_i]), alpha=0.5)
+        ax.scatter(betas, beta_line, s=1, marker='x')
+        ax.set_title(r'$\ell = $' + str(sigmas[slice]))
+        arr_total[rho_i] = beta_line
+    ax.set_xlabel(r'$\beta$')
+    ax.set_ylabel(r'velocity ($km$ $year^{-1}$)')
+    ax.grid(alpha=0.5)
     plt.legend()
     plt.show()
+    np.save(str(slice), beta_line)
 
 
 def ensemble_generator(path,dim, show_2D, show_1D):
@@ -76,10 +75,8 @@ def ensemble_generator(path,dim, show_2D, show_1D):
         slices_2_plot = [0, 1, 2, 3, 4]
         for slice in slices_2_plot:
             plot_line(slice, tensor_phase_space)
-
-
     # SAVE results to .npy file to be used in diffusion mapping in PDE forecasting
-    name = 'phase-3d-en-' + str(i+1) + '-x'
+    name = 'ps-100beta-en-' + str(i+1) + '-x'
     if name + '.npy' in os.listdir(os.getcwd()):
         print('Error: file already exits, change name!')
         pass
@@ -96,13 +93,22 @@ def combine_ensemble(sim_names):
     tensor_phase_plot(dat, max_value=dat.max())
     np.save(name, dat)
 
+def single_line_plot(path, dim):
+    tensor_phase_space = np.zeros(shape=dim)
+    for i, sim_i in enumerate(sorted(os.listdir(path))):
+        dat_load = np.load(path + '/' + sim_i)
+        tensor_phase_space = tensor_phase_space + dat_load
+
+    print(tensor_phase_space)
+
 
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
 sim_names = {0: '/lattice/08-05-2019-vel-km-day-V2',
              1: '/lattice/08-05-2019-vel-km-day-V3',
              2: '/lattice/24-05-2019-vel-km-day-V2',
-             3: '/lattice/24-05-2019-100beta-value-test'}
+             3: '/lattice/24-05-2019-100beta-value-test',
+             4: '/lattice/24-05-2019-r-5-L-5-b-100-rep-100'}
 
 # 2. ensemble_names : used to combine different ensembles
 ensemble_names = {0: '/phase-3d-km-day-En-100-v1.npy',
@@ -112,11 +118,12 @@ metrics = {0: '/vel_km_day', 1: "/mortality", 2: "/percolation"}
 
 if 1:
     # PLOT & SAVE phase-space tensor
-    sim, metric = [sim_names[3], metrics[0]]
+    sim, metric = [sim_names[2], metrics[0]]
     path_2_sim = os.getcwd() + sim + metric
     # phase_dim : [sigma, beta, rho]
     phase_dim = [5, 100, 5]
-    ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=True)
+    ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0)
+
 
 if 0:
     # COMBINE different ensembles

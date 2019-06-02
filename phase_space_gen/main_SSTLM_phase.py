@@ -21,8 +21,8 @@ output_path = os.getcwd() + '/output_data/' + domain_type + '/' + date + name + 
 # param_dim : [L, Beta, Rho]
 
 settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "job_id": job_id,
-            "param_dim": [5, 100, 5], "plt_tseries": False, "save_figs": False,
-            "dyn_plts": [False, 1, True], "anim": False, "BCD3": False, "individual": False}
+            "plt_tseries": False, "save_figs": False, "dyn_plts": [False, 1, True], "anim": False,
+            "BCD3": False, "individual": False}
 
 parameters = {"l_time": 100, "time_horizon": 100, "t_init": [5, 6], "L": 400}
 
@@ -43,9 +43,9 @@ domain, core_id, rhos, betas, sigmas, parameters = job_arr
 if 0:
     # RUN individual simulation and animation
     parameters["rho"] = .01
-    parameters['beta'] = .00005
+    parameters['beta'] = .10
     parameters["l_time"] = 100
-    parameters["sigma"] = 20
+    parameters["sigma"] = 5
     parameters["time_horizon"] = 365
     # SET individual realisation --> True
     settings["dyn_plts"], settings["plt_tseries"], settings["individual"] = [True, 1, True], True, True
@@ -67,9 +67,7 @@ elif 1:
     # j size 10  : beta
     # k size 100 : rho
     import time
-    # todo : put default rhos back in before figuring out PDE model constants
-    # todo : rhos[5  values 0.001 - 0.1], sigma[5 values 1-20 ], beta[100 values 0.001 - .1]
-    dim = settings["param_dim"]
+    dim = parameters["param_dim"]
     mortality = np.zeros(shape=[dim[0], dim[1], dim[2]])
     velocity_km_day = np.zeros(shape=[dim[0], dim[1], dim[2]])
     percolation_pr = np.zeros(shape=[dim[0], dim[1], dim[2]])
@@ -77,13 +75,12 @@ elif 1:
     print("Start time: ", datetime.datetime.now(), ' |  sim : ', str(job_id))
     for i, sigma in enumerate(sigmas):
         # ITERATE dispersal kernel
-        print('Sigma : ', i, ' / ', settings["param_dim"][0])
+        print('Sigma : ', i, ' / ', parameters["param_dim"][0])
         parameters["sigma"] = sigma
         for j, beta in enumerate(betas):
             # ITERATE infection rates
             parameters["beta"] = beta
             for k, rho in enumerate(rhos):
-                print('i j k', i, j, k)
                 # ITERATE through density values
                 parameters["rho"] = rho
                 num_removed, velocity, percolation = SSTLM_model.main(settings, parameters, domain)

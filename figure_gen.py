@@ -6,7 +6,7 @@ import numpy as np
 import os, sys
 
 def vel_map():
-    domain = np.load(os.getcwd() + '/phase_space_gen/input_domain/Qro-cg-1.npy')
+    domain = np.load(os.getcwd() + '/phase_space_gen/input_domain/Qro-cg-1_ps.npy')
     vel_map = np.load(os.getcwd() + '/forecasting_PDE/velocity_map_test.npy')
     diff_map = np.load(os.getcwd() + '/forecasting_PDE/diffusion_map_test.npy')
     vel_pase = np.load(os.getcwd() + '/forecasting_PDE/diffusion_mapping/vel_km_day_en_size-200.npy')
@@ -123,7 +123,7 @@ def results(data):
     sys.exit('saved fig fkpp 10 yr')
 
 
-def gaussian_kernels_inbuilt():
+def gaussian_kernels_inbuilt1D():
     from scipy.ndimage import gaussian_filter
     sigmas = np.array([1, 2, 3, 4, 5, 10, 15, 20])
     size = 100
@@ -145,16 +145,18 @@ def gaussian_kernels_inbuilt():
     plt.savefig("Gaussian-blurring")
     plt.show()
 
+
 def gaussian_kernels_custom1D():
-    sigmas = np.array([1, 2, 3, 4, 5, 10, 15, 20])
+    sigmas = np.array([5, 10, 15, 20])
     size = 100
     distance = np.linspace(0.0, 100, size)
     infected = np.ones(size)
-    fig, ax = plt.subplots(figsize=(15, 15))
+    fig, ax = plt.subplots(figsize=(5, 5))
     for sigma in sigmas:
         gauss_blur_factor = np.exp(-1 * np.square(distance) / (2*(sigma**2)))
         blurred = infected * gauss_blur_factor
-        ax.plot(distance, blurred, label=r'$\sigma =$' + str(sigma))
+        ax.plot(distance, blurred, label=r'$\ell =$' + str(sigma), alpha=0.5)
+        ax.scatter(distance, blurred, s=2.5, marker='x')
 
     plt.xlabel("Distance (m)")
     plt.ylabel(r'$G(x))$')
@@ -165,9 +167,11 @@ def gaussian_kernels_custom1D():
     plt.show()
     sys.exit('exit gaussian kernel 1d saved')
 
+
 def gassian_kernel2D(xarr, yarr, sigma):
     d_arr = (np.square(xarr) + np.square(yarr))
     return np.exp(-1 * d_arr/(2 * sigma**2))
+
 
 def gaussian_blur2D():
     sigmas = np.array([5, 10, 15, 20])
@@ -178,25 +182,30 @@ def gaussian_blur2D():
     x_arr, y_arr = x_arr-size / 2, y_arr-size / 2
 
     extent = [-100, 100, -100, 100]
-    fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(15, 15))
+    fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(7.5, 7.5))
     for i, sigma in enumerate(sigmas):
         row, col = coords[i]
         im = ax[row, col].imshow(gassian_kernel2D(xarr=x_arr, yarr=y_arr, sigma=sigma), cmap=plt.get_cmap("inferno"),
                        extent=extent)
         ax[row, col].set_title(r'$\sigma = $' + str(sigma) + r' $\beta = 1.0$')
     fig.subplots_adjust(left=0.1)
-    cbar_ax = fig.add_axes([0.93, 0.1, 0.03, 0.8])
+    cbar_ax = fig.add_axes([0.915, 0.1, 0.03, 0.8])
     cbar = fig.colorbar(im, cax=cbar_ax)
+
+    ax[0, 1].set_yticks([])
+    ax[1, 1].set_yticks([])
+    ax[0, 0].set_xticks([])
+    ax[0, 1].set_xticks([])
     plt.savefig('test')
     plt.show()
     sys.exit('figure pr map saved')
 
+
 def gaussian_blur2D_inbuilt():
     from scipy.ndimage import gaussian_filter
-
-    infected = [[50, 200, 350], [50, 200, 350]]
+    infected = [[100, 150, 200], [100, 150, 200]]
     size = 400
-    sigmas = [5, 10, 15, 20]
+    sigmas = [5, 10, 15, 20, 50, 100]
     arr = np.zeros(shape=[size, size])
     arr[infected] = 1
     for sigma in sigmas:
@@ -208,7 +217,108 @@ def gaussian_blur2D_inbuilt():
     sys.exit('blurred 2D exit')
 
 
+def transition_prs(sigma, betas, rho, infected, x1, x2, double):
+        fig, ax = plt.subplots()
 
+        for beta in betas:
+            g_xy_1 = np.exp(-1 * np.square(x1)/(2 * sigma ** 2))
+            p_infected_1 = beta * rho * g_xy_1
+            ax.plot(x1, p_infected_1, label=r'$\beta = $' + str(beta), alpha=0.25)
+            ax.scatter(x1, p_infected_1, s=0.75, marker='x')
+
+            if double:
+                g_xy_2 = np.exp(-1 * np.square(x2)/(2 * sigma ** 2))
+                p_infected_2 = beta * rho * g_xy_2
+                ax.plot(x1, p_infected_2, label='x=2 infected', alpha=0.25)
+                ax.scatter(x1, p_infected_2, s=0.75, marker='x')
+                ax.plot(x1, p_infected_1 + p_infected_2, label='superpostion', alpha=0.25)
+                ax.scatter(x1, p_infected_1 + p_infected_2, s=0.75, marker='x')
+
+        ax.grid(True)
+        ax.set_xlabel('x distance')
+        ax.set_ylabel(r'$Pr(S \rightarrow I$)')
+        plt.legend()
+        plt.title(r'$\rho$ = ' + str(rho) + ',' + r' $\ell$ = ' + str(sigma))
+        plt.savefig('beta_vs_distance_single')
+        plt.show()
+        sys.exit('plot infection pr')
+
+
+def phase_space_beta():
+    data = np.load(os.getcwd() + '/latex/latex_data/ps-100-beta-en-100.npy')
+    data = data * 365
+    rhos = np.array([0.001, 0.025, 0.05, 0.075, 0.1])
+    betas = np.linspace(0.001, 0.1, 100)
+    sigmas = np.array([1, 5, 10, 15, 20])
+    coords = [(0, 0), (0, 1), (1, 0), (1, 1)]
+    fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(10, 10))
+    for slice in range(4):
+        # slice in dispersal range \ell
+        arr = data[slice]
+        coord = coords[slice]
+        for rho_i in range(np.shape(arr)[1]):
+            # slice through rho parameter
+            beta_line = arr[:, rho_i]
+            ax[coord[0], coord[1]].plot(betas, beta_line, alpha=0.5, linewidth=1)
+            ax[coord[0], coord[1]].scatter(betas, beta_line, s=2, marker='x')
+            ax[coord[0], coord[1]].set_title(r'$\ell = $' + str(sigmas[slice]))
+            ax[coord[0], coord[1]].grid(alpha=0.5)
+
+    ax[1, 0].set_xlabel(r'$\beta$')
+    ax[1, 1].set_xlabel(r'$\beta$')
+
+    ax[0, 0].set_ylabel(r'velocity ($km$ $year^{-1}$)')
+    ax[1, 0].set_ylabel(r'velocity ($km$ $year^{-1}$)')
+
+    ax[0, 0].set_xticklabels([])
+    ax[0, 1].set_xticklabels([])
+
+
+    plt.savefig('beta-phase-space', bbox_to_inches='tight')
+    plt.show()
+
+def R0():
+    # plot the number of secondary cases per time step
+    comp_r0 = np.load(os.getcwd()+'/latex/latex_data/R0-LT_L_10_r_010_b_0-10_en_10000.npy')
+    sigmas = np.arange(0, 15, 1)
+    betas = np.linspace(0, 1, 10)
+    analytic_r0 = np.zeros(len(sigmas))
+    beta, rho = 0.1, 0.1
+    for sigma in sigmas:
+        r0 = beta * rho * 2 * np.pi * sigma**2
+        analytic_r0[sigma] = r0
+    fig, ax = plt.subplots()
+    ax.plot(betas, comp_r0, alpha=0.75, label='computational')
+    #ax.plot(sigmas, analytic_r0, alpha=0.8, color='r', linewidth=0.45)
+    #ax.scatter(sigmas, analytic_r0, color='r', marker='x', alpha=0.75, label='analytic')
+    ax.set_xlabel(r'Dispersal kernel ($\ell$)')
+    ax.set_title(r'$R_0$ from $T=0 \rightarrow\ T=1$, ($10^2$ repeats)')
+    ax.set_ylabel(r'$R_0\ time^{-1}$')
+    ax.grid(True)
+    plt.legend()
+    plt.savefig('b_01_r_01_comp-vs-analytic_pr')
+    plt.show()
+
+def R0_x4():
+    names = ['R0-LT_L_01_en_100.npy', 'R0-LT_L_5_en_100.npy',
+             'R0-LT_L_10_en_100.npy', 'R0-LT_L_15_en_100.npy']
+    labels = ['1', '5', '10', '15']
+    betas = np.linspace(0, 1, 10)
+
+    fig, ax = plt.subplots()
+    for i, name in enumerate(names):
+        data = np.load(os.getcwd() + '/latex/latex_data/' + name)
+        # ax[coords[i][0], coords[i][1]].plot(data)
+        ax.plot(betas, data, label= '$\ell = $' + labels[i], alpha=0.75)
+        ax.scatter(betas, data, marker='x', s=10)
+
+    ax.set_title(r'$\rho = 0.10\ |\ T=100$ for N=100 repeats')
+    ax.set_ylabel(r'$R_0$')
+    ax.set_xlabel(r'$\beta$')
+    plt.grid(True)
+    plt.legend()
+    plt.savefig('R_0_vs_Beta')
+    plt.show()
 
 off_on = [False, True]
 
@@ -225,8 +335,29 @@ if off_on[0]:
     data_set = "L-50-b-02"
     results(data_set)
 
-if off_on[1]:
-    # generate plot of gaussian kernels
+if off_on[0]:
+    # generate plot of gaussian kernels with distance for \ell
+    gaussian_blur2D()
     # gaussian_kernels_custom1D()
-    gaussian_blur2D_inbuilt()
 
+if off_on[0]:
+    # generate a plot of infection probability per time
+    x_lim = 5
+    size = 100
+    target = 1
+    sigma = 1
+    betas = [1, 0.5, 0.25, 0.1]
+    rho = 1
+    infected = 0
+    d_1 = np.linspace(0, x_lim, size) - 1
+    d_2 = d_1 - 2
+    transition_prs(sigma=sigma, betas=betas, rho=rho, infected=infected, x1=d_1, x2=d_2, double=False)
+
+if off_on[0]:
+    # generate phase space plot of velocity km/year for 5 rho values and 100 beta values
+    phase_space_beta()
+
+if off_on[1]:
+    # plot analytic vs comp R0 comparison
+    #  R0()
+    R0_x4()
