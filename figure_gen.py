@@ -320,6 +320,46 @@ def R0_x4():
     plt.savefig('R_0_vs_Beta')
     plt.show()
 
+def Phase_space_gen():
+    name, metric = 'ps-kmYr-b-100-r-100-L-4-en-100.npy', 'vel'
+    ps_tensor = np.load(os.getcwd() + '/latex/latex_data/' + name)
+    if metric == 'vel':
+        ps_tensor = ps_tensor * 365
+        label = r'$km\ yr^{-1}$'
+    else:
+        label = 'percolation probability'
+        pass
+
+    max = np.max(ps_tensor)
+    fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(8.0, 7.5))
+    coords = [(0, 0), (0, 1), (1, 0), (1, 1)]
+    extent = [0, 0.1, 0, 0.1]
+    xy_axis = np.linspace(0, 0.1, 6)
+    kernels = ['1', '5', '10', '15']
+    for i in range(4):
+        data = ps_tensor[i]
+        ax[coords[i][0], coords[i][1]].set_title(r'$\ell = $' + kernels[i])
+        im = ax[coords[i][0], coords[i][1]].imshow(data, clim=[0, max], origin='lower', cmap=plt.get_cmap('inferno'),
+                                                   extent=extent)
+
+    plt.subplots_adjust(bottom=0.1, right=0.8, top=0.9)
+    #ax[0, 0].set_xticklabels(xy_axis, rotation=45)
+    #ax[0, 1].set_xticklabels(xy_axis, rotation=45)
+    #ax[0, 1].set_xticks([])
+    ax[0, 0].set_ylabel(r'$\beta$')
+    ax[1, 0].set_ylabel(r'$\beta$')
+    ax[1, 0].set_xlabel(r'$\rho$')
+    ax[1, 1].set_xlabel(r'$\rho$')
+
+
+    cax = fig.add_axes([0.85, 0.1, 0.04, 0.79])
+    cbar = fig.colorbar(im, cax=cax, orientation='vertical')
+    cbar.set_ticklabels(np.arange(0, max, 10))
+    cbar.set_label(label)
+    plt.savefig('ps_km_year_r-100-b-100-L-4', bbox_to_inches='tight')
+    plt.show()
+
+
 off_on = [False, True]
 
 if off_on[0]:
@@ -357,7 +397,11 @@ if off_on[0]:
     # generate phase space plot of velocity km/year for 5 rho values and 100 beta values
     phase_space_beta()
 
-if off_on[1]:
+if off_on[0]:
     # plot analytic vs comp R0 comparison
     #  R0()
     R0_x4()
+
+if off_on[1]:
+    # PLOT km velocity phase-space
+    Phase_space_gen()

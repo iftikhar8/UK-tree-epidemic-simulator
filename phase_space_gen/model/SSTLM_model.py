@@ -185,18 +185,26 @@ def main(settings, parameters, domain):
         num_infected = len(infected_ind[0])
         #  CHECK boundary conditions
         if num_infected == 0:
-            # BCD1 : disease dies, percolation = False
-            if dyn_plots[0]:
-                print('& END: disease dies out...')
+            # BCD1 : disease dies, percolation taken as negative percolation
             in_progress = False
+            p.percolation = -1
             break
 
         if time_step == p.time_f:
-            # BCD2
-            if dyn_plots[0]:
-                print('& END: set time elapsed...')
+            # BCD2: disease survives but travels slowly, taken as neutral percolation
             in_progress = False
+            p.percolation = 0
             break
+
+        # GET distances travelled by pathogen
+        #  -- using mean & max
+        #  -- p.d_metrics: calculate the average and mean distance travelled by pathogen
+        mean_d, max_d = p.d_metrics(inf_ind=infected_ind, dist_map=epi_dist_map)
+        mean_d_metric[time_step], max_d_metric[time_step] = mean_d, max_d
+        if max_d > p.dim[0]/2 - 2:
+            # If distance exceeds boundary then take as positive percolation
+            in_progress = False
+            p.percolation = 1
 
         if dyn_plots[0]:
             # GENERATE simulations progression from T=0
@@ -204,18 +212,9 @@ def main(settings, parameters, domain):
             if time_step % dyn_plots[1] == 0:
                 Plots.plot_frame(None, S=p.susceptible, I=p.infected, R=p.removed, T=time_step, saves=dyn_plots[2],
                                  name=name)
-        # GET distances travelled by pathogen
-        #  -- using mean & max
-        #  -- p.d_metrics: calculate the average and mean distance travelled by pathogen
-        mean_d, max_d = p.d_metrics(inf_ind=infected_ind, dist_map=epi_dist_map)
-        mean_d_metric[time_step], max_d_metric[time_step] = mean_d, max_d
-        if max_d > p.dim[0]/2 - 2:
-            # If distance exceeds boundary then take as percolation
-            print('& END: max distance hit boundary')
-            in_progress = False
-            p.percolation = 1
 
-        # Advance time by one step
+        # ITERATION COMPLETE
+        # -- advance time by one step
         time_step += 1
 
     # ________________End Algorithm________________ #
@@ -242,6 +241,7 @@ def main(settings, parameters, domain):
     # number of tree deaths in 1km / 2
     # (divide by 4 to normalise the 2kmx2km grid proxy)
     num_removed = len(np.where(p.removed == 1)[0])
+
     return num_removed, velocity_km_day, p.percolation
 
 if __name__ == "__main__":

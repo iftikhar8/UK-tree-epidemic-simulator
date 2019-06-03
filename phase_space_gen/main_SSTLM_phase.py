@@ -24,7 +24,7 @@ settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "
             "plt_tseries": False, "save_figs": False, "dyn_plts": [False, 1, True], "anim": False,
             "BCD3": False, "individual": False}
 
-parameters = {"l_time": 100, "time_horizon": 100, "t_init": [5, 6], "L": 400}
+parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 400}
 
 # ____________________  DEFINE parameters# ____________________ #
 #
@@ -43,10 +43,10 @@ domain, core_id, rhos, betas, sigmas, parameters = job_arr
 if 0:
     # RUN individual simulation and animation
     parameters["rho"] = .01
-    parameters['beta'] = .10
+    parameters['beta'] = .005
     parameters["l_time"] = 100
     parameters["sigma"] = 5
-    parameters["time_horizon"] = 365
+    parameters["time_horizon"] = 3650
     # SET individual realisation --> True
     settings["dyn_plts"], settings["plt_tseries"], settings["individual"] = [True, 1, True], True, True
     print('In progress..')

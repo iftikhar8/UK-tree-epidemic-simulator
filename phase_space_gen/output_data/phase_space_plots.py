@@ -1,31 +1,34 @@
 """
-This code can generate a phase-space-tensor :  {L, rho, beta}
+This code can generate a phase-space-tensor :  {L, beta, rho}
 the phase space values are then used in "forecasting_PDE" directory
 to generate diffusion constants dependant on L,beta, and the land region rho_ij.
 """
-
 
 import os, sys
 import matplotlib.pyplot as plt
 import numpy as np
 
 
-def tensor_phase_plot(data_arr, max_value):
+def tensor_phase_plot(data_arr, metric):
     # load in specific array
     extent = [0, 0.099, 0.001, 0.1]
     dat_flat = data_arr.flatten()
     nan_ind = np.where(np.isnan(dat_flat))
     dat_flat = np.delete(dat_flat, nan_ind)
-    distance = np.arange(5, 55, 5) * 5
+    distance = [1, 5, 10, 15]
+    max_ = np.max(data_arr)
+    if metric == "vel":
+        data_arr = data_arr * 365
+
     for i in range(np.shape(data_arr)[0]):
         fig, ax = plt.subplots()
         data_slice = data_arr[i]
-        im = ax.imshow(data_slice * 365, origin='lower', extent=extent, clim=[0, max_value*365])
+        im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[0, max_], cmap=plt.get_cmap('inferno'))
         ax.set_xlabel(r'$\rho$ (occupational tree density)')
         ax.set_ylabel(r'$\beta$')
         ax.set_xticks(np.linspace(0, 0.099, 5).round(2))
         #ax.set_aspect(0.099)
-        plt.title(r'$\sigma = $' + str(distance[i]) + '(m)')
+        plt.title(r'$\ell = $' + str(distance[i]))
         cbar = plt.colorbar(im, ax=ax)
         cbar.set_label(r'$km/year)$', labelpad=-20, y=1.05, rotation=0)
         plt.savefig(os.getcwd() + '/plot_figs/'+str(distance[i]))
@@ -59,16 +62,16 @@ def ensemble_generator(path,dim, show_2D, show_1D):
     # - sum all results then divide by the number of independent simulations
     tensor_phase_space = np.zeros(shape=dim)
     for i, sim_i in enumerate(sorted(os.listdir(path))):
+        # FIND sum of all data files
         dat_load = np.load(path + '/' + sim_i)
         tensor_phase_space = tensor_phase_space + dat_load
-    # where nans give zero velocity
-    tensor_phase_space = np.where(np.isnan(tensor_phase_space), 0, tensor_phase_space)
+    # FIND average
     tensor_phase_space = tensor_phase_space / (i+1)
     if show_2D:
-        # PLOT ensemble average 2D phase
+        # PLOT ensemble average of 2D phase
         max_ = tensor_phase_space.max()
         print('Maximum dispersal distance : ', max_)
-        tensor_phase_plot(data_arr=tensor_phase_space, max_value=max_)
+        tensor_phase_plot(data_arr=tensor_phase_space, metric="Perc")
 
     if show_1D:
         # PLOT ensemble average 1D phase
@@ -76,7 +79,7 @@ def ensemble_generator(path,dim, show_2D, show_1D):
         for slice in slices_2_plot:
             plot_line(slice, tensor_phase_space)
     # SAVE results to .npy file to be used in diffusion mapping in PDE forecasting
-    name = 'ps-100beta-en-' + str(i+1) + '-x'
+    name = 'ps-MORT-b-100-r-100-L-4-en-' + str(i+1)
     if name + '.npy' in os.listdir(os.getcwd()):
         print('Error: file already exits, change name!')
         pass
@@ -108,7 +111,8 @@ sim_names = {0: '/lattice/08-05-2019-vel-km-day-V2',
              1: '/lattice/08-05-2019-vel-km-day-V3',
              2: '/lattice/24-05-2019-vel-km-day-V2',
              3: '/lattice/24-05-2019-100beta-value-test',
-             4: '/lattice/24-05-2019-r-5-L-5-b-100-rep-100'}
+             4: '/lattice/24-05-2019-r-5-L-5-b-100-rep-100',
+             5: '/lattice/02-06-2019ps-r-100-b-100-L-4-en-100'}
 
 # 2. ensemble_names : used to combine different ensembles
 ensemble_names = {0: '/phase-3d-km-day-En-100-v1.npy',
@@ -118,10 +122,10 @@ metrics = {0: '/vel_km_day', 1: "/mortality", 2: "/percolation"}
 
 if 1:
     # PLOT & SAVE phase-space tensor
-    sim, metric = [sim_names[2], metrics[0]]
+    sim, metric = [sim_names[5], metrics[1]]
     path_2_sim = os.getcwd() + sim + metric
     # phase_dim : [sigma, beta, rho]
-    phase_dim = [5, 100, 5]
+    phase_dim = [4, 100, 100]
     ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0)
 
 
