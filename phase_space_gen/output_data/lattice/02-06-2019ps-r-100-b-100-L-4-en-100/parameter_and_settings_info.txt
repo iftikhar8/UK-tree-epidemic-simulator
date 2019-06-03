@@ -1,0 +1,17 @@
+______Parameter settings_______
+l_time:100
+time_horizon:100
+t_init:[5, 6]
+L:400
+
+______Simulation parameters_______
+out_path:/nobackup/py13jh/hpc-subgrid-model/phase_space_gen/output_data/lattice/02-06-2019ps-r-100-b-100-L-4-en-100/
+domain_type:lattice
+date:02-06-2019
+job_id:1
+plt_tseries:False
+save_figs:False
+dyn_plts:[False, 1, True]
+anim:False
+BCD3:False
+individual:False
