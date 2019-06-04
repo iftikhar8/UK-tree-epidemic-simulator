@@ -39,7 +39,7 @@ def main(settings, parameters):
     else:
         rhos = np.linspace(0.001, 0.100, 100)
 
-    sigmas = np.array([1, 5, 10, 15])
+    sigmas = np.array([2, 3, 4])
     betas = np.linspace(0.001, 0.100, 100)
     domain_size = parameters["L"]
     domain_type = settings["domain_type"]

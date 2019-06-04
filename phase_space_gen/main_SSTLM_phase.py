@@ -39,7 +39,7 @@ parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 400}
 job_arr = job_script.main(settings, parameters)
 domain, core_id, rhos, betas, sigmas, parameters = job_arr
 
-if 1:
+if 0:
     # RUN individual simulation and animation
     parameters["rho"] = 1.0
     parameters['beta'] = 1.0
@@ -59,7 +59,7 @@ if 1:
     print("velocity = ", velocity_km_yr, '(km/yr)')
     print("percolation = ", percolation)
 
-elif 0:
+elif 1:
     # GET 3D velocity phase space from parameters {L, beta, rho}
     # DEFINE tensor_arr : [i, j, k]
     # i size 10  : sigma

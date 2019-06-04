@@ -16,11 +16,13 @@ def tensor_phase_plot(data_arr, label):
     nan_ind = np.where(np.isnan(dat_flat))
     dat_flat = np.delete(dat_flat, nan_ind)
     distance = [1, 5, 10, 15]
-    max_ = np.max(data_arr)
+
     for i in range(np.shape(data_arr)[0]):
         fig, ax = plt.subplots()
         data_slice = data_arr[i]
-        im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[0, max_], cmap=plt.get_cmap('inferno'))
+        max_ = np.max(data_slice)
+        min_ = np.min(data_slice)
+        im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[min_, max_], cmap=plt.get_cmap('jet'))
         ax.set_xlabel(r'$\rho$ (occupational tree density)')
         ax.set_ylabel(r'$\beta$')
         ax.set_xticks(np.linspace(0, 0.099, 5).round(2))
@@ -67,7 +69,7 @@ def ensemble_generator(path,dim, show_2D, show_1D):
         label = r"Mortality (# deaths)"
         save_label = "mortality"
     if "vel_km_day" in path:
-        label = r"Velocity ($km\ yr^{-1$}) "
+        label = r"Velocity ($km\ yr^{-1}$) "
         tensor_phase_space= 365 * tensor_phase_space
         save_label = "vel"
     if "percolation" in path:
@@ -75,8 +77,6 @@ def ensemble_generator(path,dim, show_2D, show_1D):
         save_label = "perc"
     if show_2D:
         # PLOT ensemble average of 2D phase
-        max_ = tensor_phase_space.max()
-        print('Maximum dispersal distance : ', max_)
         tensor_phase_plot(data_arr=tensor_phase_space, label=label)
 
     if show_1D:
@@ -109,7 +109,8 @@ sim_names = {0: '/lattice/08-05-2019-vel-km-day-V2',
              2: '/lattice/24-05-2019-vel-km-day-V2',
              3: '/lattice/24-05-2019-100beta-value-test',
              4: '/lattice/24-05-2019-r-5-L-5-b-100-rep-100',
-             5: '/lattice/02-06-2019ps-r-100-b-100-L-4-en-100'}
+             5: '/lattice/02-06-2019ps-r-100-b-100-L-4-en-100',
+             6: '/lattice/03-06-2019ps-r-100-b-100-L-4-en-100'}
 
 # 2. ensemble_names : used to combine different ensembles
 ensemble_names = {0: '/phase-3d-km-day-En-100-v1.npy',
@@ -119,12 +120,11 @@ metrics = {0: '/vel_km_day', 1: "/mortality", 2: "/percolation"}
 
 if 1:
     # PLOT & SAVE phase-space tensor
-    sim, metric = [sim_names[5], metrics[1]]
+    sim, metric = [sim_names[6], metrics[0]]
     path_2_sim = os.getcwd() + sim + metric
     # phase_dim : [sigma, beta, rho]
     phase_dim = [4, 100, 100]
     ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0)
-
 
 if 0:
     # COMBINE different ensembles
