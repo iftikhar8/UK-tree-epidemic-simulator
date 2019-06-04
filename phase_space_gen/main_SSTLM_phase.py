@@ -16,7 +16,6 @@ job_id, date, time, domain_type, name = in_arr[1:]
 output_path = os.getcwd() + '/output_data/' + domain_type + '/' + date + name + '/'
 # Store system settings in a dictionary
 
-# felling[1, 2, 3] = [On\Off, radial extent, density reduction]
 # metrics :[eff, d, P, chi, t]
 # param_dim : [L, Beta, Rho]
 
@@ -40,10 +39,10 @@ parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 400}
 job_arr = job_script.main(settings, parameters)
 domain, core_id, rhos, betas, sigmas, parameters = job_arr
 
-if 0:
+if 1:
     # RUN individual simulation and animation
-    parameters["rho"] = .01
-    parameters['beta'] = .005
+    parameters["rho"] = 1.0
+    parameters['beta'] = 1.0
     parameters["l_time"] = 100
     parameters["sigma"] = 5
     parameters["time_horizon"] = 3650
@@ -60,7 +59,7 @@ if 0:
     print("velocity = ", velocity_km_yr, '(km/yr)')
     print("percolation = ", percolation)
 
-elif 1:
+elif 0:
     # GET 3D velocity phase space from parameters {L, beta, rho}
     # DEFINE tensor_arr : [i, j, k]
     # i size 10  : sigma

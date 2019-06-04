@@ -7,8 +7,8 @@
 # hpc_mode | flips between local machine and HPC
 # sim_name | input a string to append to the output file to identify simulation runs
 
-hpc_switch=1
-data_type="lattice" # ["lattice", "channel"]
+hpc_switch=0
+data_type="lattice" # ["lattice", "channel", "Qro"]
 sim_name="ps-r-100-b-100-L-4-en-100"
 
 ###########__________Run script__________#############

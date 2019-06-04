@@ -43,9 +43,13 @@ def main(settings, parameters):
     betas = np.linspace(0.001, 0.100, 100)
     domain_size = parameters["L"]
     domain_type = settings["domain_type"]
-    assert domain_type == "lattice"
     job_id = int(settings["job_id"])
-    domain = np.random.uniform(0, 1, size=(domain_size, domain_size))
+    if domain_type == "lattice":
+        print("lattice")
+        domain = np.random.uniform(0, 1, size=(domain_size, domain_size))
+    elif domain_type == "Qro":
+        print("qro")
+        domain = np.load(os.getcwd() + '/input_domain/Qro-cg-10.npy')
     if job_id == 1:
         # WRITE all parameters to file
         output_path = settings["out_path"]

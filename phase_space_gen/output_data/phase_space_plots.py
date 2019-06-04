@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def tensor_phase_plot(data_arr, metric):
+def tensor_phase_plot(data_arr, label):
     # load in specific array
     extent = [0, 0.099, 0.001, 0.1]
     dat_flat = data_arr.flatten()
@@ -17,9 +17,6 @@ def tensor_phase_plot(data_arr, metric):
     dat_flat = np.delete(dat_flat, nan_ind)
     distance = [1, 5, 10, 15]
     max_ = np.max(data_arr)
-    if metric == "vel":
-        data_arr = data_arr * 365
-
     for i in range(np.shape(data_arr)[0]):
         fig, ax = plt.subplots()
         data_slice = data_arr[i]
@@ -27,10 +24,9 @@ def tensor_phase_plot(data_arr, metric):
         ax.set_xlabel(r'$\rho$ (occupational tree density)')
         ax.set_ylabel(r'$\beta$')
         ax.set_xticks(np.linspace(0, 0.099, 5).round(2))
-        #ax.set_aspect(0.099)
         plt.title(r'$\ell = $' + str(distance[i]))
         cbar = plt.colorbar(im, ax=ax)
-        cbar.set_label(r'$km/year)$', labelpad=-20, y=1.05, rotation=0)
+        cbar.set_label(label, labelpad=-20, y=1.05, rotation=0)
         plt.savefig(os.getcwd() + '/plot_figs/'+str(distance[i]))
         plt.show()
 
@@ -67,11 +63,21 @@ def ensemble_generator(path,dim, show_2D, show_1D):
         tensor_phase_space = tensor_phase_space + dat_load
     # FIND average
     tensor_phase_space = tensor_phase_space / (i+1)
+    if "mortality" in path:
+        label = r"Mortality (# deaths)"
+        save_label = "mortality"
+    if "vel_km_day" in path:
+        label = r"Velocity ($km\ yr^{-1$}) "
+        tensor_phase_space= 365 * tensor_phase_space
+        save_label = "vel"
+    if "percolation" in path:
+        label = r"Percolation (probability)"
+        save_label = "perc"
     if show_2D:
         # PLOT ensemble average of 2D phase
         max_ = tensor_phase_space.max()
         print('Maximum dispersal distance : ', max_)
-        tensor_phase_plot(data_arr=tensor_phase_space, metric="Perc")
+        tensor_phase_plot(data_arr=tensor_phase_space, label=label)
 
     if show_1D:
         # PLOT ensemble average 1D phase
@@ -79,22 +85,13 @@ def ensemble_generator(path,dim, show_2D, show_1D):
         for slice in slices_2_plot:
             plot_line(slice, tensor_phase_space)
     # SAVE results to .npy file to be used in diffusion mapping in PDE forecasting
-    name = 'ps-MORT-b-100-r-100-L-4-en-' + str(i+1)
+    name = 'ps-b-100-r-100-L-4-en-' + str(i+1) + "-" + save_label
     if name + '.npy' in os.listdir(os.getcwd()):
         print('Error: file already exits, change name!')
         pass
     else:
         np.save(os.path.join(os.getcwd(), name), tensor_phase_space)
 
-def combine_ensemble(sim_names):
-    dat = np.zeros(shape=[10, 10, 100])
-    name = 'phase-3d-vel-km-en-200'
-    for i in range(len(sim_names)):
-        dat = dat + np.load(os.getcwd()+ensemble_names[i])
-
-    dat = dat / 2
-    tensor_phase_plot(dat, max_value=dat.max())
-    np.save(name, dat)
 
 def single_line_plot(path, dim):
     tensor_phase_space = np.zeros(shape=dim)

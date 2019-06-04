@@ -19,10 +19,13 @@ class Sim_Init(object):
         # lattice : a simple square lattice of binary values 1's and 0'
         # -- 1 : tree state
         # -- 0 : empty state
-        size = parameters["L"]
-        domain = np.random.permutation(domain)
-        dim = [size, size]
-        epi_cx, epi_cy = int(dim[0] / 2), int(dim[1] / 2)
+        dim = np.shape(domain)
+
+        if domain_type == "lattice":
+            size = parameters["L"]
+            domain = np.random.permutation(domain)
+            epi_cx, epi_cy = int(dim[0] / 2), int(dim[1] / 2)
+
         infected = np.zeros(dim)
         # shuffle domain
         tree_dist = np.where(domain < parameters["rho"], 1, 0)

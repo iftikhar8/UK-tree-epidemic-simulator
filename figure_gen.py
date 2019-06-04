@@ -321,14 +321,16 @@ def R0_x4():
     plt.show()
 
 def Phase_space_gen():
-    name, metric = 'ps-kmYr-b-100-r-100-L-4-en-100.npy', 'vel'
+    name = 'ps-b-100-r-100-L-4-en-100-mortality.npy'
+    metric = input("CHOOSE TYPE [vel, mort, perc] : ")
     ps_tensor = np.load(os.getcwd() + '/latex/latex_data/' + name)
     if metric == 'vel':
         ps_tensor = ps_tensor * 365
         label = r'$km\ yr^{-1}$'
-    else:
+    if metric == "perc":
         label = 'percolation probability'
-        pass
+    if metric == "mort":
+        label = "mortality (# deaths)"
 
     max = np.max(ps_tensor)
     fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(8.0, 7.5))
@@ -356,7 +358,7 @@ def Phase_space_gen():
     cbar = fig.colorbar(im, cax=cax, orientation='vertical')
     cbar.set_ticklabels(np.arange(0, max, 10))
     cbar.set_label(label)
-    plt.savefig('ps_km_year_r-100-b-100-L-4', bbox_to_inches='tight')
+    plt.savefig('ps_r-100-b-100-L-4-'+metric, bbox_to_inches='tight')
     plt.show()
 
 
