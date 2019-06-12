@@ -300,20 +300,20 @@ def R0():
     plt.show()
 
 def R0_x4():
-    names = ['R0-LT_L_01_en_100.npy', 'R0-LT_L_5_en_100.npy',
-             'R0-LT_L_10_en_100.npy', 'R0-LT_L_15_en_100.npy']
+    names = ['R0-LT_L_01_r_010_b_0-10_en_100.npy', 'R0-LT_L_05_r_010_b_0-10_en_100.npy',
+             'R0-LT_L_10_r_010_b_0-10_en_100.npy', 'R0-LT_L_15_r_010_b_0-10_en_100.npy']
     labels = ['1', '5', '10', '15']
-    betas = np.linspace(0, 1, 10)
+    betas = np.linspace(0.001, 0.100, 10)
 
     fig, ax = plt.subplots()
     for i, name in enumerate(names):
         data = np.load(os.getcwd() + '/latex/latex_data/' + name)
         # ax[coords[i][0], coords[i][1]].plot(data)
-        ax.plot(betas, data, label= '$\ell = $' + labels[i], alpha=0.75)
+        ax.plot(betas, data, label='$\ell = $' + labels[i], alpha=0.75)
         ax.scatter(betas, data, marker='x', s=10)
-
+    ax.set_yscale('log')
     ax.set_title(r'$\rho = 0.10\ |\ T=100$ for N=100 repeats')
-    ax.set_ylabel(r'$R_0$')
+    ax.set_ylabel(r'$log(R_0)$')
     ax.set_xlabel(r'$\beta$')
     plt.grid(True)
     plt.legend()
@@ -321,15 +321,15 @@ def R0_x4():
     plt.show()
 
 def Phase_space_gen():
-    name = 'ps-b-100-r-100-L-4-en-100-mortality.npy'
-    metric = input("CHOOSE TYPE [vel, mort, perc] : ")
+    metric = input("CHOOSE TYPE [vel, mortality, perc] : ")
+    name = 'ps-b-100-r-100-L-4-en-100-' + metric+ '.npy'
+
     ps_tensor = np.load(os.getcwd() + '/latex/latex_data/' + name)
     if metric == 'vel':
-        ps_tensor = ps_tensor * 365
         label = r'$km\ yr^{-1}$'
     if metric == "perc":
         label = 'percolation probability'
-    if metric == "mort":
+    if metric == "mortality":
         label = "mortality (# deaths)"
 
     max = np.max(ps_tensor)
@@ -399,11 +399,11 @@ if off_on[0]:
     # generate phase space plot of velocity km/year for 5 rho values and 100 beta values
     phase_space_beta()
 
-if off_on[0]:
+if off_on[1]:
     # plot analytic vs comp R0 comparison
     #  R0()
     R0_x4()
 
-if off_on[1]:
+if off_on[0]:
     # PLOT km velocity phase-space
     Phase_space_gen()

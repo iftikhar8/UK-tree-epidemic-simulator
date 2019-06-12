@@ -58,7 +58,7 @@ def propagation_algorithm(sigma, beta, rho, l_time, size, infected_sites, target
 
         R_0_arr[repeat] = np.sum(sum_new_infected)
 
-    return np.sum(sum_new_infected), np.sum(Pr_av), np.std(R_0_arr)
+    return np.average(R_0_arr), np.sum(Pr_av), np.std(R_0_arr)
 
 
 size = 100
@@ -76,10 +76,10 @@ if 1:
     # test R0 finder over an ensemble
     repeats = 100
     rho = .10
-    sigma = 15
+    sigma = 1
     l_time = 100
     array_size = 10
-    betas = np.linspace(0, 1.0, array_size)
+    betas = np.linspace(0, .10, array_size)
     # sigmas = np.arange(0, 15, 1)
     R0_LT_arr = np.zeros(shape=array_size)
     Error_arr = np.zeros(shape=array_size)
@@ -91,7 +91,8 @@ if 1:
         R0_LT_arr[i] = R_0_arr
         Error_arr[i] = std
         print('R0 average = ', R_0_av)
-    np.save(os.getcwd() + "/R0-LT_L_15_r_010_b_0-10_en_100", R0_LT_arr)
+
+    np.save(os.getcwd() + "/R0-LT_L_01_r_010_b_0-10_en_100", R0_LT_arr)
     error_bars = np.array([Error_arr/2, Error_arr/2])
     plt.scatter(betas, R0_LT_arr, color='r')
     plt.errorbar(betas, R0_LT_arr, yerr=error_bars, alpha=0.5)

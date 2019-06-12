@@ -37,10 +37,10 @@ def main(settings, parameters):
         density_range = np.unique(domain.round(1))
         rhos = np.delete(density_range, np.where(np.isnan(density_range))).astype(float)
     else:
-        rhos = np.linspace(0.001, 0.100, 100)
+        rhos = np.linspace(0.001, 0.100, 20)
 
-    sigmas = np.array([2, 3, 4])
-    betas = np.linspace(0.001, 0.100, 100)
+    sigmas = np.array([1, 2, 3, 4])
+    betas = np.linspace(0.001, 1.0, 20)
     domain_size = parameters["L"]
     domain_type = settings["domain_type"]
     job_id = int(settings["job_id"])

@@ -74,6 +74,34 @@ class Sim_Init(object):
         max_d = max(distances)
         return mean_d, max_d
 
+    def get_new_infected(self, p_infected, susceptible, sigma, beta, dim):
+        from scipy.ndimage import gaussian_filter
+        pre_factor = (np.sqrt(2 * np.pi) * sigma) ** 2
+        # GET All infected cells as 1's
+        # -- infected field increases in time so have to reduce to a 1
+        p_infected = np.array(p_infected > 0).astype(float)
+        infected_ind = np.where(p_infected == 1)
+        num_infected = len(infected_ind[0])
+        # MAKE tensor : field
+        # -- n infected trees : therefore n slices through xy plane
+        # -- each slice (z axis) is the probability field of a single tree
+        pot_infect_field = np.zeros(shape=(num_infected, dim[0], dim[1]))
+        susceptible_field = np.zeros(shape=(num_infected, dim[0], dim[1]))
+        array_id = np.empty(shape=num_infected)
+        for i in range(num_infected):
+            # scales with the the size of N
+            array_id[i] = str(i)
+            pot_infect_field[i, infected_ind[0][i], infected_ind[1][i]] = 1
+            # susceptible_field[i] = susceptible
+
+        # APPLY gaussian filter to field tensor in x,y axis
+        blurred_field = pre_factor * gaussian_filter(pot_infect_field, sigma=[0, sigma, sigma], truncate=3.0)
+        blurred_field = blurred_field * beta
+        rand_field = np.random.uniform(0, 1, size=(num_infected, dim[0], dim[1]))
+        new_infected = np.array(blurred_field > rand_field).astype(int)
+        overlap = np.sum(new_infected, axis=0)
+        return np.array(overlap >= 1).astype(int) * susceptible
+
 class Plots(object):
     # Plotting class
     # t_series: end of sim velocity results
@@ -91,7 +119,7 @@ class Plots(object):
         plt.show()
         return
 
-    def plot_frame(self, S, I, R, T, saves, name):
+    def plot_frame(self, S, I, R, T, saves, name, dim):
         import matplotlib.pyplot as plt
         import matplotlib.colors as colors
         # DEFINE basic three color map for S I R
@@ -111,8 +139,8 @@ class Plots(object):
         cax.set_ticks([0, 1, 2, 3])
         cax.set_ticklabels([r'$\emptyset$', 'S (tree)', 'I (infected)', 'R (dead)'])
         ax.set_title(str(T) + ' (days)')
-        ax.set_xticks(range(0, 400, 20))
-        ax.set_yticks(range(0, 400, 20))
+        ax.set_xticks(range(0, dim[0], 20))
+        ax.set_yticks(range(0, dim[1], 20))
         ax.grid(True)
         ax.set_xticklabels([])
         ax.set_yticklabels([])
@@ -158,7 +186,6 @@ def main(settings, parameters, domain):
     max_d_metric = p.max_d
     in_progress, time_step, p_out = 1, 0, settings["individual"]
     dyn_plots = settings["dyn_plts"]
-
     # ________________Run Algorithm________________ #
     # Each time-step take as days
     # Each grid point take as 20m and lattice size as 2(km^2)
@@ -167,12 +194,9 @@ def main(settings, parameters, domain):
             print("Step: ", time_step)
         # sigma jump kernel : measure for how far disease probabilities spread.
         # for all infected cells, blur each infected cell of unit size to given standard deviation
-        potential_infected = p.pre_factor * gaussian_filter(p.infected, sigma=p.sigma)
-        potential_infected = np.where(potential_infected >= 1, 1, potential_infected)
-        potential_infected = potential_infected * p.beta_distribution
-        rand = np.random.uniform(0, 1, size=p.dim)
+        new_infected = 2 * p.get_new_infected(p_infected=p.infected, susceptible=p.susceptible, sigma=p.sigma, beta=p.beta,
+                                              dim=p.dim)
         # New infected cells, initialised with value 2 --> T (inclusive)
-        new_infected = 2 * np.array(potential_infected > rand).astype(int) * p.susceptible
         # Transition to INFECTED class
         p.infected = p.infected + (p.infected > 0) + new_infected
         # Transition to REMOVED class
@@ -214,7 +238,7 @@ def main(settings, parameters, domain):
             name = '_b_' + str(parameters["beta"]) + "_r_" + str(parameters["rho"])
             if time_step % dyn_plots[1] == 0:
                 Plots.plot_frame(None, S=p.susceptible, I=p.infected, R=p.removed, T=time_step, saves=dyn_plots[2],
-                                 name=name)
+                                 name=name, dim=p.dim)
 
         # ITERATION COMPLETE
         # -- advance time by one step
