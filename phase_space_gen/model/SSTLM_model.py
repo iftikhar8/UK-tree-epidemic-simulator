@@ -198,13 +198,14 @@ def main(settings, parameters, domain):
         if 1:
             new_infected = 2 * p.get_new_infected(p_infected=p.infected, susceptible=p.susceptible, sigma=p.sigma,
                                                   beta=p.beta, dim=p.dim)
+            tseries_name = '-correct'
 
         if 0:
             potential_infected = p.pre_factor * gaussian_filter(p.infected, sigma=p.sigma)
             potential_infected = potential_infected * p.beta_distribution
             rand = np.random.uniform(0, 1, size=p.dim)
             new_infected = 2 * np.array(potential_infected > rand).astype(int) * p.susceptible
-
+            tseries_name = '-incorrect'
 
         # New infected cells, initialised with value 2 --> T (inclusive)
         # Transition to INFECTED class
@@ -261,21 +262,35 @@ def main(settings, parameters, domain):
     # from sub-grid size and time step calibration,
     # workout average velocity in km/years of infectious propagation velocity
     # sub-grid size = 100m^2, domain size = [100, 100]
-    # 1. get max distance reached in km
-    max_distance = max_d_metric.max()*0.10
     if settings["plt_tseries"]:
         # GENERATE time series plots
         plt_tseries = Plots.plot_tseries
-        saves = False
-        label = {'title': "mean d distance", 'xlabel': 'time', 'ylabel': 'distance'}
-        plt_tseries(1, metric=mean_d_metric[0:time_step-1], parameters=parameters, labels=label, saves=saves)
-        label = {'title': "max d", 'xlabel': 'time', 'ylabel': 'distance'}
-        plt_tseries(1, metric=max_d_metric[:time_step-1], parameters=parameters, labels=label, saves=saves)
+        saves = True
+        max_d_metric = max_d_metric[0:time_step-1]
+        mean_d_metric = mean_d_metric[0:time_step - 1]
+        if saves:
+            name = 'b_' + str(parameters["beta"]).replace('.', '-') + '_r_' + str(parameters["rho"]).replace('.', '-') + \
+                   '_L_' + str(parameters["sigma"]).replace('.', '-') + tseries_name
 
+            np.save('max_d_' + name, max_d_metric)
+            # np.save('mean_d_' + name, mean_d_metric)
+
+        label = {'title': "mean d distance", 'xlabel': 'days', 'ylabel': 'distance (km)'}
+        plt_tseries(1, metric=mean_d_metric, parameters=parameters, labels=label, saves=saves)
+
+        label = {'title': "mean d velocity", 'xlabel': 'days', 'ylabel': 'distance (km/day)'}
+        plt_tseries(1, metric=np.gradient(mean_d_metric), parameters=parameters, labels=label, saves=saves)
+
+        label = {'title': "max d distance", 'xlabel': 'days', 'ylabel': 'distance (km)'}
+        plt_tseries(1, metric=max_d_metric, parameters=parameters, labels=label, saves=saves)
+
+        label = {'title': "max d velocity", 'xlabel': 'days', 'ylabel': 'distance (km/day)'}
+        plt_tseries(1, metric=np.gradient(max_d_metric), parameters=parameters, labels=label, saves=saves)
+
+    max_distance = max_d_metric.max()
     # number of tree deaths in 1km / 2
     # (divide by 4 to normalise the 2kmx2km grid proxy)
     num_removed = len(np.where(p.removed == 1)[0])
-
     return num_removed, max_distance, time_step, p.percolation
 
 if __name__ == "__main__":

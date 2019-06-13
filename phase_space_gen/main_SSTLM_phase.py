@@ -23,7 +23,7 @@ settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "
             "plt_tseries": False, "save_figs": False, "dyn_plts": [False, 1, True], "anim": False,
             "BCD3": False, "individual": False}
 
-parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 100}
+parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 300}
 
 # ____________________  DEFINE parameters# ____________________ #
 #
@@ -39,27 +39,30 @@ parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 100}
 job_arr = job_script.main(settings, parameters)
 domain, core_id, rhos, betas, sigmas, parameters = job_arr
 ensemble_switch = [False, True]
-if ensemble_switch[0]:
+if ensemble_switch[1]:
     # RUN individual simulation and animation
     parameters["rho"] = .10
-    parameters['beta'] = 0.0125
-    parameters["l_time"] = 50.0
-    parameters["sigma"] = 5.0
+    parameters['beta'] = 0.75
+    parameters["l_time"] = 10.0
+    parameters["sigma"] = 2.0
     parameters["time_horizon"] = 3650
     # SET individual realisation --> True
     settings["dyn_plts"], settings["plt_tseries"], settings["individual"] = [True, 1, True], True, True
     print('In progress..')
     print("Running: r-", parameters["rho"], "-b-", parameters["beta"], "-L-", parameters["sigma"] * 100, '(m)')
     Results = SSTLM_model.main(settings, parameters, domain)
-    mortality, velocity_km_day, percolation = Results
-    velocity_km_yr = velocity_km_day * 365
+    mortality, max_d, run_time, percolation = Results
+    max_d_km = max_d * 0.1
+    velocity_km_day = (max_d_km / run_time)
     print('..finished')
     print('mortality = ', mortality)
-    print("velocit0 = ", velocity_km_day, '(km/day)')
-    print("velocity = ", velocity_km_yr, '(km/yr)')
+    print('max distaace :  ', max_d_km, '(km)')
+    print('time taken : ', run_time, ' (days)')
+    print("velocit0 = ", velocity_km_day, ' (km/day)')
+    print("velocity = ", velocity_km_day * 365, ' (km/year)')
     print("percolation = ", percolation)
 
-elif ensemble_switch[1]:
+elif ensemble_switch[0]:
     # GET 3D velocity phase space from parameters {L, beta, rho}
     # DEFINE tensor_arr : [i, j, k]
     # i size : sigma

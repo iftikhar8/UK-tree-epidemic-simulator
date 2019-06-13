@@ -277,6 +277,7 @@ def phase_space_beta():
     plt.savefig('beta-phase-space', bbox_to_inches='tight')
     plt.show()
 
+
 def R0():
     # plot the number of secondary cases per time step
     comp_r0 = np.load(os.getcwd()+'/latex/latex_data/R0-LT_L_10_r_010_b_0-10_en_10000.npy')
@@ -299,6 +300,7 @@ def R0():
     plt.savefig('b_01_r_01_comp-vs-analytic_pr')
     plt.show()
 
+
 def R0_x4():
     names = ['R0-LT_L_01_r_010_b_0-10_en_100.npy', 'R0-LT_L_05_r_010_b_0-10_en_100.npy',
              'R0-LT_L_10_r_010_b_0-10_en_100.npy', 'R0-LT_L_15_r_010_b_0-10_en_100.npy']
@@ -319,6 +321,7 @@ def R0_x4():
     plt.legend()
     plt.savefig('R_0_vs_Beta')
     plt.show()
+
 
 def Phase_space_gen():
     metric = input("CHOOSE TYPE [vel, mortality, perc] : ")
@@ -362,6 +365,40 @@ def Phase_space_gen():
     plt.show()
 
 
+def vel_tsereis_comparision():
+    names = ['mean_d_b_0-99_r_0-1_L_2-0-correct', 'max_d_b_0-99_r_0-1_L_2-0-correct',
+             'mean_d_b_0-99_r_0-1_L_2-0-incorrect', 'max_d_b_0-99_r_0-1_L_2-0-incorrect']
+
+    labels = ['mean d (correced)', 'max d (corrected)', 'mean d (wrong)', 'max d (wrong)']
+
+    fig, ax = plt.subplots()
+    ls = ('-', '--', '-', '--')
+    color =('b', 'b', 'r', 'r')
+
+    for i, name in enumerate(names):
+        data_set = np.load(os.getcwd() + '/latex/latex_data/' + name + '.npy') * 0.1
+        ax.plot(data_set, label=labels[i], linestyle=ls[i], alpha=0.5, c=color[i])
+
+    ax.set_title(r'Time series: $\rho = 0.10\ \beta = 1.0\ \ell = 2.0$')
+    ax.set_xlabel(r'Time (days)')
+    ax.set_ylabel(r'Distance (km)')
+    plt.legend()
+    plt.grid(alpha=0.50)
+    plt.show()
+
+    fig, ax = plt.subplots()
+    ls = ('-', '--', '-', '--')
+    for i, name in enumerate(names):
+        data_set = np.load(os.getcwd() + '/latex/latex_data/' + name + '.npy') * 0.1
+        ax.plot(np.gradient(data_set), label=labels[i], linestyle=ls[i], alpha=0.5)
+
+    ax.set_title(r'Time series: $\rho = 0.10\ \beta = 1.0\ \ell = 2.0$')
+    ax.set_xlabel(r'Time (days)')
+    ax.set_ylabel(r'Distance (km/day)')
+    plt.legend()
+    plt.grid(alpha=0.50)
+    plt.show()
+
 off_on = [False, True]
 
 if off_on[0]:
@@ -399,7 +436,7 @@ if off_on[0]:
     # generate phase space plot of velocity km/year for 5 rho values and 100 beta values
     phase_space_beta()
 
-if off_on[1]:
+if off_on[0]:
     # plot analytic vs comp R0 comparison
     #  R0()
     R0_x4()
@@ -407,3 +444,6 @@ if off_on[1]:
 if off_on[0]:
     # PLOT km velocity phase-space
     Phase_space_gen()
+
+if off_on[1]:
+    vel_tsereis_comparision()
