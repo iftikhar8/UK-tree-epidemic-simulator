@@ -38,18 +38,18 @@ parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 100}
 
 job_arr = job_script.main(settings, parameters)
 domain, core_id, rhos, betas, sigmas, parameters = job_arr
-
-if 0:
+ensemble_switch = [False, True]
+if ensemble_switch[0]:
     # RUN individual simulation and animation
-    parameters["rho"] = .50
-    parameters['beta'] = .50
-    parameters["l_time"] = 10.0
-    parameters["sigma"] = 1.0
+    parameters["rho"] = .10
+    parameters['beta'] = 0.0125
+    parameters["l_time"] = 50.0
+    parameters["sigma"] = 5.0
     parameters["time_horizon"] = 3650
     # SET individual realisation --> True
     settings["dyn_plts"], settings["plt_tseries"], settings["individual"] = [True, 1, True], True, True
     print('In progress..')
-    print("Running: r-", parameters["rho"], "-b-", parameters["beta"], "-L-", parameters["sigma"] * 5, '(m)')
+    print("Running: r-", parameters["rho"], "-b-", parameters["beta"], "-L-", parameters["sigma"] * 100, '(m)')
     Results = SSTLM_model.main(settings, parameters, domain)
     mortality, velocity_km_day, percolation = Results
     velocity_km_yr = velocity_km_day * 365
@@ -59,17 +59,19 @@ if 0:
     print("velocity = ", velocity_km_yr, '(km/yr)')
     print("percolation = ", percolation)
 
-elif 1:
+elif ensemble_switch[1]:
     # GET 3D velocity phase space from parameters {L, beta, rho}
     # DEFINE tensor_arr : [i, j, k]
-    # i size 10  : sigma
-    # j size 10  : beta
-    # k size 100 : rho
+    # i size : sigma
+    # j size : beta
+    # k size : rho
     import time
     dim = parameters["param_dim"]
     mortality = np.zeros(shape=[dim[0], dim[1], dim[2]])
-    velocity_km_day = np.zeros(shape=[dim[0], dim[1], dim[2]])
+    max_distances = np.zeros(shape=[dim[0], dim[1], dim[2]])
+    run_times = np.zeros(shape=[dim[0], dim[1], dim[2]])
     percolation_pr = np.zeros(shape=[dim[0], dim[1], dim[2]])
+    # START ensemble simulation
     t0 = time.clock()
     print("Start time: ", datetime.datetime.now(), ' |  sim : ', str(job_id))
     for i, sigma in enumerate(sigmas):
@@ -82,14 +84,16 @@ elif 1:
             for k, rho in enumerate(rhos):
                 # ITERATE through density values
                 parameters["rho"] = rho
-                num_removed, velocity, percolation = SSTLM_model.main(settings, parameters, domain)
+                num_removed, max_d, run_time,  percolation = SSTLM_model.main(settings, parameters, domain)
                 mortality[i, j, k] = num_removed
-                velocity_km_day[i, j, k] = velocity
+                max_distances[i, j, k] = max_d
+                run_times[i, j, k] = run_time
                 percolation_pr[i, j, k] = percolation
 
     # save results as tensor-phase-space arrays
     np.save(output_path + "/mortality/" + core_id, mortality)
-    np.save(output_path + "/vel_km_day/" + core_id, velocity_km_day)
+    np.save(output_path + "/max_distance_km/" + core_id, max_distances)
+    np.save(output_path + "/run_time/" + core_id, run_time)
     np.save(output_path + "/percolation/" + core_id, percolation_pr)
     tf = time.clock() - t0
     tf = np.float64(tf / 60)

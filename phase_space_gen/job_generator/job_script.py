@@ -32,15 +32,10 @@ def main(settings, parameters):
     # - rhos in [0.001, 0.100] : 100 values
     # - upper bound density is 0.099 , there are 6,000 grid-points above this density out of 220,000. Above this value
     # INSERT LOWER CODE, TO WORK OUT DENITY RANGEs
-    if 0:
-        domain = np.load(os.getcwd() + '/input_domain/Qro-cg-1_beta_ps_line.npy')
-        density_range = np.unique(domain.round(1))
-        rhos = np.delete(density_range, np.where(np.isnan(density_range))).astype(float)
-    else:
-        rhos = np.linspace(0.001, 0.100, 20)
 
-    sigmas = np.array([1, 2, 3, 4])
-    betas = np.linspace(0.001, 1.0, 20)
+    rhos = np.linspace(0.001, 0.100, 5)
+    sigmas = np.array([1, 2,])
+    betas = np.linspace(0.001, 1.0, 5)
     domain_size = parameters["L"]
     domain_type = settings["domain_type"]
     job_id = int(settings["job_id"])

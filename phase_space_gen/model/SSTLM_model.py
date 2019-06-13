@@ -194,8 +194,18 @@ def main(settings, parameters, domain):
             print("Step: ", time_step)
         # sigma jump kernel : measure for how far disease probabilities spread.
         # for all infected cells, blur each infected cell of unit size to given standard deviation
-        new_infected = 2 * p.get_new_infected(p_infected=p.infected, susceptible=p.susceptible, sigma=p.sigma, beta=p.beta,
-                                              dim=p.dim)
+
+        if 1:
+            new_infected = 2 * p.get_new_infected(p_infected=p.infected, susceptible=p.susceptible, sigma=p.sigma,
+                                                  beta=p.beta, dim=p.dim)
+
+        if 0:
+            potential_infected = p.pre_factor * gaussian_filter(p.infected, sigma=p.sigma)
+            potential_infected = potential_infected * p.beta_distribution
+            rand = np.random.uniform(0, 1, size=p.dim)
+            new_infected = 2 * np.array(potential_infected > rand).astype(int) * p.susceptible
+
+
         # New infected cells, initialised with value 2 --> T (inclusive)
         # Transition to INFECTED class
         p.infected = p.infected + (p.infected > 0) + new_infected
@@ -250,12 +260,9 @@ def main(settings, parameters, domain):
     parameters["end_tstep"] = time_step
     # from sub-grid size and time step calibration,
     # workout average velocity in km/years of infectious propagation velocity
-    # sub-grid size = 5(m) per point grid size 25m^2, domain size = [200, 200]
+    # sub-grid size = 100m^2, domain size = [100, 100]
     # 1. get max distance reached in km
-    # 2. convert time elapsed in years
-    # 3. calculate max velocity estimate
-    max_d = max_d_metric.max()*5/1000
-    velocity_km_day = max_d/time_step
+    max_distance = max_d_metric.max()*0.10
     if settings["plt_tseries"]:
         # GENERATE time series plots
         plt_tseries = Plots.plot_tseries
@@ -269,7 +276,7 @@ def main(settings, parameters, domain):
     # (divide by 4 to normalise the 2kmx2km grid proxy)
     num_removed = len(np.where(p.removed == 1)[0])
 
-    return num_removed, velocity_km_day, p.percolation
+    return num_removed, max_distance, time_step, p.percolation
 
 if __name__ == "__main__":
     main(param)
