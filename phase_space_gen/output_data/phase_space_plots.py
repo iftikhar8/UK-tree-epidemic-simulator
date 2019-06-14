@@ -14,8 +14,7 @@ def tensor_phase_plot(data_arr, label):
     extent = [0, 1, 0, 1]
     dat_flat = data_arr.flatten()
     nan_ind = np.where(np.isnan(dat_flat))
-    distance = [1, 5, 10, 15]
-
+    distance = ['1', '1.25', '1.5', '1.75', '2']
     for i in range(np.shape(data_arr)[0]):
         fig, ax = plt.subplots()
         data_slice = data_arr[i]
@@ -24,11 +23,11 @@ def tensor_phase_plot(data_arr, label):
         im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[min_, max_], cmap=plt.get_cmap('inferno'))
         ax.set_xlabel(r'$\rho$ (occupational tree density)')
         ax.set_ylabel(r'$\beta$')
-        ax.set_xticks(np.linspace(0, 0.099, 5).round(2))
-        plt.title(r'$\ell = $' + str(distance[i]))
+        ax.set_xticks(np.linspace(0, 1, 5).round(2))
+        plt.title(r'$\ell = $' + distance[i])
         cbar = plt.colorbar(im, ax=ax)
         cbar.set_label(label, labelpad=-20, y=1.05, rotation=0)
-        plt.savefig(os.getcwd() + '/plot_figs/'+str(distance[i]))
+        plt.savefig(os.getcwd() + '/plot_figs/' + str(i))
         plt.show()
 
 def plot_line(slice, phase_space_tensor):
@@ -62,18 +61,24 @@ def ensemble_generator(path,dim, show_2D, show_1D):
         # FIND sum of all data files
         dat_load = np.load(path + '/' + sim_i)
         tensor_phase_space = tensor_phase_space + dat_load
+
     # FIND average
     tensor_phase_space = tensor_phase_space / (i+1)
     if "mortality" in path:
         label = r"Mortality (# deaths)"
         save_label = "mortality"
-    if "vel_km_day" in path:
+    if "max_distance_km" in path:
         label = r"Velocity ($km\ yr^{-1}$) "
-        tensor_phase_space= 365 * tensor_phase_space
+        tensor_phase_space= 0.1 * tensor_phase_space
         save_label = "vel"
     if "percolation" in path:
         label = r"Percolation (probability)"
         save_label = "perc"
+
+    if "run_time" in path:
+        label = r"Run time (days)"
+        save_label = "perc"
+
     if show_2D:
         # PLOT ensemble average of 2D phase
         tensor_phase_plot(data_arr=tensor_phase_space, label=label)
@@ -91,6 +96,8 @@ def ensemble_generator(path,dim, show_2D, show_1D):
     else:
         np.save(os.path.join(os.getcwd(), name), tensor_phase_space)
 
+    return tensor_phase_space
+
 
 def single_line_plot(path, dim):
     tensor_phase_space = np.zeros(shape=dim)
@@ -103,28 +110,28 @@ def single_line_plot(path, dim):
 
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
-sim_names = {0: '/lattice/08-05-2019-vel-km-day-V2',
-             1: '/lattice/08-05-2019-vel-km-day-V3',
-             2: '/lattice/24-05-2019-vel-km-day-V2',
-             3: '/lattice/24-05-2019-100beta-value-test',
-             4: '/lattice/24-05-2019-r-5-L-5-b-100-rep-100',
-             5: '/lattice/02-06-2019ps-r-100-b-100-L-4-en-100',
-             6: '/lattice/03-06-2019ps-r-100-b-100-L-4-en-100',
-             7: '/lattice/12-06-2019ps-pr-corrected-r-20-b-20-L-4-en-100'}
+sim_names = {0: '/lattice/13-06-2019-ps-r-20-b-20-L-5-en-100'}
 
 # 2. ensemble_names : used to combine different ensembles
 ensemble_names = {0: '/phase-3d-km-day-En-100-v1.npy',
                   1: '/phase-3d-km-day-En-100-v2.npy'}
 # 3. the different metrics used
-metrics = {0: '/vel_km_day', 1: "/mortality", 2: "/percolation"}
+metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 2: "/percolation"}
 
 if 1:
     # PLOT & SAVE phase-space tensor
-    sim, metric = [sim_names[7], metrics[0]]
+    sim, metric = [sim_names[0], metrics[0]]
     path_2_sim = os.getcwd() + sim + metric
     # phase_dim : [sigma, beta, rho]
-    phase_dim = [4, 20, 20]
-    ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0)
+    phase_dim = [5, 20, 20]
+    tensor_distance = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0)
+
+
+    sim, metric = [sim_names[0], metrics[1]]
+    path_2_sim = os.getcwd() + sim + metric
+    # phase_dim : [sigma, beta, rho]
+    phase_dim = [5, 20, 20]
+    tensor_runtime = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0)
 
 if 0:
     # COMBINE different ensembles

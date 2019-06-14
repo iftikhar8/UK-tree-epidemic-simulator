@@ -366,38 +366,55 @@ def Phase_space_gen():
 
 
 def vel_tsereis_comparision():
-    names = ['mean_d_b_0-99_r_0-1_L_2-0-correct', 'max_d_b_0-99_r_0-1_L_2-0-correct',
-             'mean_d_b_0-99_r_0-1_L_2-0-incorrect', 'max_d_b_0-99_r_0-1_L_2-0-incorrect']
+    correct_names = ['max_d_b_0-5_r_0-1_L_2-0-correct.npy', 'max_d_b_0-75_r_0-1_L_2-0-correct.npy', 'max_d_b_0-99_r_0-1_L_2-0-correct.npy']
 
-    labels = ['mean d (correced)', 'max d (corrected)', 'mean d (wrong)', 'max d (wrong)']
+    incorrect_names = ['max_d_b_0-5_r_0-1_L_2-0-incorrect.npy', 'max_d_b_0-75_r_0-1_L_2-0-incorrect.npy', 'max_d_b_0-99_r_0-1_L_2-0-incorrect.npy']
 
+    labels = ['0.50','0.75', '1.0']
+    color = ['r', 'g', 'b', 'orange']
     fig, ax = plt.subplots()
-    ls = ('-', '--', '-', '--')
-    color =('b', 'b', 'r', 'r')
 
-    for i, name in enumerate(names):
-        data_set = np.load(os.getcwd() + '/latex/latex_data/' + name + '.npy') * 0.1
-        ax.plot(data_set, label=labels[i], linestyle=ls[i], alpha=0.5, c=color[i])
+    for i in range(len(correct_names)):
+        correct_data_name = correct_names[i]
+        incorrect_data_name = incorrect_names[i]
 
-    ax.set_title(r'Time series: $\rho = 0.10\ \beta = 1.0\ \ell = 2.0$')
+        correct_data = np.load(os.getcwd() + '/latex/latex_data/' + correct_data_name) * 0.1
+        incorrect_data = np.load(os.getcwd() + '/latex/latex_data/' + incorrect_data_name) * 0.1
+
+        ax.plot(correct_data, alpha=0.5, c=color[i], linestyle='--', label=r'$\beta$ = ' + str(labels[i]) + ' (corrected)')
+        ax.plot(incorrect_data, alpha=0.5, c=color[i], linestyle='-', label=r'$\beta$ = ' + str(labels[i]) + ' (wrong)')
+
+
+    ax.set_title(r'Time series distance travelled')
+    ax.set_xlabel(r'Time (days)')
+    ax.set_ylabel(r'Distance (km)')
+    plt.legend()
+    plt.grid(alpha=0.50)
+
+    plt.savefig('tseries_distance_beta_comp')
+    plt.show()
+
+    fig, ax = plt.subplots(figsize=(10, 4))
+
+    for i in range(len(correct_names)):
+        correct_data_name = correct_names[i]
+        incorrect_data_name = incorrect_names[i]
+
+        correct_data = np.load(os.getcwd() + '/latex/latex_data/' + correct_data_name) * 0.1
+        incorrect_data = np.load(os.getcwd() + '/latex/latex_data/' + incorrect_data_name) * 0.1
+
+        ax.plot(np.gradient(correct_data), alpha=0.5, c=color[i], linestyle='--', label=r'$\beta$ = ' + str(labels[i]) + ' (corrected)')
+        ax.plot(np.gradient(incorrect_data), alpha=0.5, c=color[i], linestyle='-', label=r'$\beta$ = ' + str(labels[i]) + ' (wrong)')
+
+    ax.set_title(r'Time series velocity')
     ax.set_xlabel(r'Time (days)')
     ax.set_ylabel(r'Distance (km)')
     plt.legend()
     plt.grid(alpha=0.50)
     plt.show()
+    plt.savefig('tseries_velocity_beta_comp')
 
-    fig, ax = plt.subplots()
-    ls = ('-', '--', '-', '--')
-    for i, name in enumerate(names):
-        data_set = np.load(os.getcwd() + '/latex/latex_data/' + name + '.npy') * 0.1
-        ax.plot(np.gradient(data_set), label=labels[i], linestyle=ls[i], alpha=0.5)
 
-    ax.set_title(r'Time series: $\rho = 0.10\ \beta = 1.0\ \ell = 2.0$')
-    ax.set_xlabel(r'Time (days)')
-    ax.set_ylabel(r'Distance (km/day)')
-    plt.legend()
-    plt.grid(alpha=0.50)
-    plt.show()
 
 off_on = [False, True]
 

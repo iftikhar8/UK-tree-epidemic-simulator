@@ -42,7 +42,7 @@ ensemble_switch = [False, True]
 if ensemble_switch[1]:
     # RUN individual simulation and animation
     parameters["rho"] = .10
-    parameters['beta'] = 0.75
+    parameters['beta'] = 0.50
     parameters["l_time"] = 10.0
     parameters["sigma"] = 2.0
     parameters["time_horizon"] = 3650
@@ -96,7 +96,7 @@ elif ensemble_switch[0]:
     # save results as tensor-phase-space arrays
     np.save(output_path + "/mortality/" + core_id, mortality)
     np.save(output_path + "/max_distance_km/" + core_id, max_distances)
-    np.save(output_path + "/run_time/" + core_id, run_time)
+    np.save(output_path + "/run_time/" + core_id, run_times)
     np.save(output_path + "/percolation/" + core_id, percolation_pr)
     tf = time.clock() - t0
     tf = np.float64(tf / 60)
