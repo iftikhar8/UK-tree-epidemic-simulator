@@ -4,238 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/figure_gen.py" line="252" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/max_d_b_0-25_r_0-1_L_2-0-correct.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/max_d_b_0-25_r_0-1_L_2-0-incorrect.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/max_d_b_0-25_r_0-1_L_2-5-correct.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/max_d_b_0-25_r_0-1_L_2-5-incorrect.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/max_d_b_0-25_r_0-1_L_3-0-correct.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/max_d_b_0-25_r_0-1_L_3-0-incorrect.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/max_d_b_0-5_r_0-1_L_2-0-correct.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/max_d_b_0-5_r_0-1_L_2-0-incorrect.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/max_d_b_0-75_r_0-1_L_2-0-incorrect.npy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/max_d_b_0-99_r_0-1_L_2-0-incorrect.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/figure_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/figure_gen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0000.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0000.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0001.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0001.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0002.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0002.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0003.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0003.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0004.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0004.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0005.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0005.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0006.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0006.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0007.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0007.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0008.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0008.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0009.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0009.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0010.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0010.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0011.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0011.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0012.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0012.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0013.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0013.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0014.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0014.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0015.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0015.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0016.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0016.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0017.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0017.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0018.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0018.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0019.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0019.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0020.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0020.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0021.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0021.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0022.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0022.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0023.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0023.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0024.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0024.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0025.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0025.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0026.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0026.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0027.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0027.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0028.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0028.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0029.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0029.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0030.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0030.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0031.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0031.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0032.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0032.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0033.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0033.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0034.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0034.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0035.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0035.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0036.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0036.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0037.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0037.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0038.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0038.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0039.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0039.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0040.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0040.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0041.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0041.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0042.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0042.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0043.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0043.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0044.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0044.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0045.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0045.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0046.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0046.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0047.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0047.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0048.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0048.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0049.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0049.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0050.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0050.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0051.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0051.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0052.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0052.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0053.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0053.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0054.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0054.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0055.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0055.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0056.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0056.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0057.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0057.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0058.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0058.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0059.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0059.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0060.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0060.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0061.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0061.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0062.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0062.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0063.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0063.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0064.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0064.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0065.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0065.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0066.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0066.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0067.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0067.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0068.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0068.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0069.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0069.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0070.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0070.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0071.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0071.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0072.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0072.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0073.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0073.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0074.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0074.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0075.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0075.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0076.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0076.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0077.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0077.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0078.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0078.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0079.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0079.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0080.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0080.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0081.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0081.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0082.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0082.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0083.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0083.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0084.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0084.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0085.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0085.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0086.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0086.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0087.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0087.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0088.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0088.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0089.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0089.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0090.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0090.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0091.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0091.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0092.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0092.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0093.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0094.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0095.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0096.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0097.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0098.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0099.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0101.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0102.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0103.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0104.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0105.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0106.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0107.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0108.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0109.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0110.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0111.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0112.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0113.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0114.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0115.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0116.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0117.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0118.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0119.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0120.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0121.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0122.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0123.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0124.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0125.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0126.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0127.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0129.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0130.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0131.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0132.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0133.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0134.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0135.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0136.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0137.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0138.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0139.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0140.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0141.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0142.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0143.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0145.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0146.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0147.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0148.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0149.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0151.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0152.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0153.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0154.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0155.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0156.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0157.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0158.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0159.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0160.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0161.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0162.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0163.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0164.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0165.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0166.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0167.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0168.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0169.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0170.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0171.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0172.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0173.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0174.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0175.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0176.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0177.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0178.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0179.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0180.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0181.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0182.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0183.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0184.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0185.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0186.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0187.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0188.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0189.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0190.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0191.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0193.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0194.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0195.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0196.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0197.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0198.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0199.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0200.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0201.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0202.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0203.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0204.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0205.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0206.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/max_d_b_0-75_r_0-1_L_2-0-correct.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/max_d_b_0-75_r_0-1_L_2-0-correct.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/max_d_b_0-99_r_0-1_L_2-0-correct.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/max_d_b_0-99_r_0-1_L_2-0-correct.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/max_d_b_0-99_r_0-1_L_2-0-incorrect.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/10.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/15.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/15.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" afterDir="false" />
-    </list>
+    <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +44,7 @@
     <session id="13763648">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="35" />
+          <entry key="project.closed" value="36" />
           <entry key="project.open.time.0" value="7" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
@@ -336,8 +105,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="89" column="19" lean-forward="true" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
+            <state relative-caret-position="663">
+              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
               <folding>
                 <element signature="e#61#79#0" expanded="true" />
               </folding>
@@ -445,7 +214,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="703" />
     <option name="height" value="1050" />
   </component>
@@ -656,7 +425,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20940171" />
@@ -664,7 +433,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.327551" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23367347" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23367347" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.24752475" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -930,8 +699,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="89" column="19" lean-forward="true" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
+        <state relative-caret-position="663">
+          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
           <folding>
             <element signature="e#61#79#0" expanded="true" />
           </folding>
