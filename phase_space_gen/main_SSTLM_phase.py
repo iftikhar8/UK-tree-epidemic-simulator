@@ -39,7 +39,7 @@ parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 300}
 job_arr = job_script.main(settings, parameters)
 domain, core_id, rhos, betas, sigmas, parameters = job_arr
 ensemble_switch = [False, True]
-if ensemble_switch[1]:
+if ensemble_switch[0]:
     # RUN individual simulation and animation
     parameters["rho"] = .10
     parameters['beta'] = 0.50
@@ -62,7 +62,7 @@ if ensemble_switch[1]:
     print("velocity = ", velocity_km_day * 365, ' (km/year)')
     print("percolation = ", percolation)
 
-elif ensemble_switch[0]:
+elif ensemble_switch[1]:
     # GET 3D velocity phase space from parameters {L, beta, rho}
     # DEFINE tensor_arr : [i, j, k]
     # i size : sigma
