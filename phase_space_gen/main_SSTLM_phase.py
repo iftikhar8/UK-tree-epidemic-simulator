@@ -69,7 +69,7 @@ if 1:
     # j size : beta
     # k size : rho
     import time
-    dim = parameters["param_dim"]
+    dim = parameters["param_dim"] 
     mortality = np.zeros(shape=[dim[0], dim[1], dim[2]])
     max_distances = np.zeros(shape=[dim[0], dim[1], dim[2]])
     run_times = np.zeros(shape=[dim[0], dim[1], dim[2]])

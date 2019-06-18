@@ -31,10 +31,9 @@ def main(settings, parameters):
     # - betas in [0.001, 0.100] : 100 values
     # - rhos in [0.001, 0.100] : 100 values
     # - upper bound density is 0.099 , there are 6,000 grid-points above this density out of 220,000. Above this value
-    sigmas = np.array([1.5])
-    betas = np.array([0.25, 0.50])
     rhos = np.linspace(0.001, 0.100, 100)
-
+    sigmas = np.array([1.0, 1.25, 1.50, 1.75, 2.0 ])
+    betas = np.linspace(0.001, 1.0, 100)
     domain_size = parameters["L"]
     domain_type = settings["domain_type"]
     job_id = int(settings["job_id"])
@@ -49,8 +48,6 @@ def main(settings, parameters):
         output_path = settings["out_path"]
         save_meta_data(settings, parameters, output_path)
 
-    param_dim = [len(sigmas), len(betas), len(rhos)]
-    core_id = save_label(job_id, param_dim)
     parameters["param_dim"] = param_dim
     # RETURN jobs in a single array
     return domain, core_id, rhos, betas, sigmas, parameters

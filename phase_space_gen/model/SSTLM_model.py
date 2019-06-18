@@ -20,7 +20,6 @@ class Sim_Init(object):
         # -- 1 : tree state
         # -- 0 : empty state
         dim = np.shape(domain)
-
         if domain_type == "lattice":
             size = parameters["L"]
             domain = np.random.permutation(domain)
