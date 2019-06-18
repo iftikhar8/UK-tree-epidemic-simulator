@@ -8,9 +8,9 @@
 # sim_name | input a string to append to the output file to identify simulation runs
 
 hpc_switch=0
-sim_name="10yr-L-1-b-01"
-L=9
-beta=9
+sim_name="test"
+L=0
+beta=1
 
 ###########__________Run script__________#############
 if [ "$hpc_switch" == 1 ]

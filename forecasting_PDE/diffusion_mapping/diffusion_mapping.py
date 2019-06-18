@@ -11,7 +11,7 @@ def diffusion_mapping(domain, rho_space, phase_constants, plots):
     for i in range(len(rho_space) - 1):
         rho_boundaries[i] = [rho_space[i], rho_space[i+1]]
     # todo : find a better way of assuming zero velocity from sstlm simulations
-    phase_constants[0:10] = float(0)
+    # phase_constants[0:10] = float(0)
     # GENERATE diffusion map 2D
     for i, row in enumerate(domain):
         for j, col in enumerate(row):
@@ -22,9 +22,9 @@ def diffusion_mapping(domain, rho_space, phase_constants, plots):
             else:
                 # IF land region: map rho_ij to a phase-space value
                 for rho_box in rho_boundaries:
-                    # ITERATE through rho space, if === d_ij ...
-                    # MAP regional density in the UK to a wave-speed for disease propagation
+                    # ITERATE through rho space boundaries $ check against map location
                     grid_boundary = rho_boundaries[rho_box]
+                    # If density in the range interval then set map location i,j == phase-velocity
                     if grid_boundary[0] <= d_ij < grid_boundary[1]:
                         velocity_map[i, j] = phase_constants[rho_box]
                     # CHECK if density bigger than rho space
@@ -40,19 +40,27 @@ def diffusion_mapping(domain, rho_space, phase_constants, plots):
     diffusion_map = np.square(velocity_map) / 4
     if plots:
         print("Plotting phase maps over UK:")
+        import matplotlib.pyplot as plt
+        import seaborn as sns
+
         fig, ax = plt.subplots(figsize=(7.5, 7.5))
         im = ax.imshow(velocity_map)
         plt.colorbar(im)
+        plt.savefig('velocity_map')
         plt.show()
         plt.close()
         fig, ax = plt.subplots(figsize=(7.5, 7.5))
         im = ax.imshow(diffusion_map)
         plt.colorbar(im)
+        plt.savefig('diffusion_map')
         plt.show()
-        plt.close()
+
         np.save('velocity_map', velocity_map)
         np.save('diffusion_map', diffusion_map)
-        sys.exit()
+        fig, ax = plt.subplots()
+        nshape = diffusion_map.shape[0] * diffusion_map.shape[1]
+        sns.distplot(np.reshape(diffusion_map, newshape=nshape), ax=ax, hist=True)
+        plt.show()
 
     return diffusion_map
 
@@ -60,28 +68,27 @@ def diffusion_mapping(domain, rho_space, phase_constants, plots):
 def main(L, beta):
     # LOAD phase constants
     # - choose which data is loaded
-    phase_name = ["/diffusion_mapping/phase-3d-vel-km-en-200.npy",
-                  '/diffusion_mapping/phase-3d-mortalityy-En-100-v2.npy']
-    phase_3d = np.load(os.getcwd() + phase_name[0])
+    phase_name = ["/diffusion_mapping/perc-weighted-b025-050-L1_5.npy"]
+    phase_3d = np.load(os.getcwd() + phase_name[0]) * (1/365)
     # LOAD domain map
-    domain_name = '/diffusion_mapping/Qro-cg-1_ps.npy'
+    domain_name = '/diffusion_mapping/Qro-cg-1.npy'
     domain = np.load(os.getcwd() + domain_name)
     # convert to density map hectares/km^2 --> density x 0.01.
     domain = 0.01 * domain
     # MAP: {L, beta, rho_ij} ---> vel_ij
-    # 1. pick out which value of sigma (or L)
+    # 1. pick out which value of L through axis - 0
     phase_2d = phase_3d[L]
     param_dim = np.shape(phase_2d)
-    # 2. define beta space
-    beta_space = np.linspace(0, 1.0, param_dim[0])
+    # 2. pick out beta line through axis - 1
+    phase_constants = phase_2d[beta]
     # 3. define rho space
     rho_space = np.linspace(0, 0.099, param_dim[1])
-    beta_ind = np.where(beta_space == beta)[0][0]
     # 4. define one rho-line through phase space
     # - these map a velocity in km/day to a tree density which in turn are mapped to land regions over the UK
-    phase_constants = phase_2d[beta_ind]
     # diffusion_mapping: generate diffusion coefficients for each point in space.
-    diffusion_map = diffusion_mapping(domain, rho_space, phase_constants, plots=False)
+    diffusion_map = diffusion_mapping(domain, rho_space, phase_constants, plots=True)
+
+    # todo FIGURE OUT MAPPING!!
     return diffusion_map
 
 

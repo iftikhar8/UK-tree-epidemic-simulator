@@ -11,13 +11,12 @@ from PDE_model import pde_model
 in_arr = sys.argv
 name, L_index, beta_index = in_arr[1:]
 beta_space = np.linspace(0, 1, 10)
-L_space = np.arange(5, 55, 5)
-sim_name = 'L-' + str(5*L_space[int(L_index)]) + 'm-b-' + beta_index
-print('Name: ', sim_name)
+L_space = np.array([1.5])
+sim_name = 'L-' + str(100*L_space[int(L_index)]).replace('.', '_') + 'm-b-' + beta_index
 # GENERATE diffusion map based on input of L, beta and a domain (in this case a map of abundance)
 # - epi_center : point of disease introduction
 # - port of Immingham = [560, 570, 455, 465]
-diffusion_map = diffusion_mapping.main(int(L_index), beta_space[int(beta_index)])
+diffusion_map = diffusion_mapping.main(L=int(L_index), beta=int(beta_index))
 params = {"T": 100, "dim": np.shape(diffusion_map), "epi_c": [560, 570, 455, 465], "plt_epi": False,
           "partial": [True,  [700, 900, 200, 400]], 'L': L_index, 'b': beta_space[int(beta_index)],
           "sim_name": sim_name}

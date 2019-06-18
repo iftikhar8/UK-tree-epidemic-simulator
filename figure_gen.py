@@ -366,11 +366,17 @@ def Phase_space_gen():
 
 
 def vel_tsereis_comparision():
-    correct_names = ['max_d_b_0-5_r_0-1_L_2-0-correct.npy', 'max_d_b_0-75_r_0-1_L_2-0-correct.npy', 'max_d_b_0-99_r_0-1_L_2-0-correct.npy']
+    correct_names = ['max_d_b_0-25_r_0-1_L_2-0-correct.npy', 'max_d_b_0-25_r_0-1_L_2-5-correct.npy', 'max_d_b_0-25_r_0-1_L_3-0-correct.npy']
 
-    incorrect_names = ['max_d_b_0-5_r_0-1_L_2-0-incorrect.npy', 'max_d_b_0-75_r_0-1_L_2-0-incorrect.npy', 'max_d_b_0-99_r_0-1_L_2-0-incorrect.npy']
+    incorrect_names = ['max_d_b_0-25_r_0-1_L_2-0-incorrect.npy', 'max_d_b_0-25_r_0-1_L_2-5-incorrect.npy', 'max_d_b_0-25_r_0-1_L_3-0-incorrect.npy']
 
-    labels = ['0.50','0.75', '1.0']
+    beta = 0
+    ell = 1
+    if beta:
+        labels = [r'$\beta$ = 0.50', r'$\beta$ = 0.75', r'$\beta$ = 1.0']
+    if ell:
+        labels = [r'$\ell$ = 2.0', r'$\ell$ = 2.5', r'$\ell$ = 3.0']
+
     color = ['r', 'g', 'b', 'orange']
     fig, ax = plt.subplots()
 
@@ -381,8 +387,8 @@ def vel_tsereis_comparision():
         correct_data = np.load(os.getcwd() + '/latex/latex_data/' + correct_data_name) * 0.1
         incorrect_data = np.load(os.getcwd() + '/latex/latex_data/' + incorrect_data_name) * 0.1
 
-        ax.plot(correct_data, alpha=0.5, c=color[i], linestyle='--', label=r'$\beta$ = ' + str(labels[i]) + ' (corrected)')
-        ax.plot(incorrect_data, alpha=0.5, c=color[i], linestyle='-', label=r'$\beta$ = ' + str(labels[i]) + ' (wrong)')
+        ax.plot(correct_data, alpha=0.5, c=color[i], linestyle='--', label=str(labels[i]) + ' (corrected)')
+        ax.plot(incorrect_data, alpha=0.5, c=color[i], linestyle='-', label=str(labels[i]) + ' (wrong)')
 
 
     ax.set_title(r'Time series distance travelled')
@@ -391,9 +397,10 @@ def vel_tsereis_comparision():
     plt.legend()
     plt.grid(alpha=0.50)
 
-    plt.savefig('tseries_distance_beta_comp')
+    plt.savefig('tseries_distance_ell_comp')
     plt.show()
 
+    sys.exit()
     fig, ax = plt.subplots(figsize=(10, 4))
 
     for i in range(len(correct_names)):
@@ -403,17 +410,22 @@ def vel_tsereis_comparision():
         correct_data = np.load(os.getcwd() + '/latex/latex_data/' + correct_data_name) * 0.1
         incorrect_data = np.load(os.getcwd() + '/latex/latex_data/' + incorrect_data_name) * 0.1
 
-        ax.plot(np.gradient(correct_data), alpha=0.5, c=color[i], linestyle='--', label=r'$\beta$ = ' + str(labels[i]) + ' (corrected)')
-        ax.plot(np.gradient(incorrect_data), alpha=0.5, c=color[i], linestyle='-', label=r'$\beta$ = ' + str(labels[i]) + ' (wrong)')
+        v_correct = np.gradient(correct_data)
+        v_wrong = np.gradient(incorrect_data)
+
+        ax.plot(v_correct, alpha=0.5, c=color[i], linestyle='--', label=r'$\beta$ = ' + str(labels[i]) + ' (corrected)')
+        #ax.plot(v_wrong, alpha=0.5, c=color[i], linestyle='-', label=r'$\beta$ = ' + str(labels[i]) + ' (wrong)')
+
+        ax.axhline(y=np.average(v_correct), c=color[i])
 
     ax.set_title(r'Time series velocity')
     ax.set_xlabel(r'Time (days)')
-    ax.set_ylabel(r'Distance (km)')
+    ax.set_ylabel(r'Velocity (km/day)')
     plt.legend()
     plt.grid(alpha=0.50)
-    plt.show()
-    plt.savefig('tseries_velocity_beta_comp')
 
+    plt.savefig('tseries_vel_beta_comp')
+    plt.show()
 
 
 off_on = [False, True]

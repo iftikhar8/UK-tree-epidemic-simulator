@@ -23,7 +23,7 @@ settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "
             "plt_tseries": False, "save_figs": False, "dyn_plts": [False, 1, True], "anim": False,
             "BCD3": False, "individual": False}
 
-parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 300}
+parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 100}
 
 # ____________________  DEFINE parameters# ____________________ #
 #
@@ -39,7 +39,7 @@ parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 300}
 job_arr = job_script.main(settings, parameters)
 domain, core_id, rhos, betas, sigmas, parameters = job_arr
 ensemble_switch = [False, True]
-if ensemble_switch[0]:
+if 0:
     # RUN individual simulation and animation
     parameters["rho"] = .10
     parameters['beta'] = 0.50
@@ -62,7 +62,7 @@ if ensemble_switch[0]:
     print("velocity = ", velocity_km_day * 365, ' (km/year)')
     print("percolation = ", percolation)
 
-elif ensemble_switch[1]:
+if 1:
     # GET 3D velocity phase space from parameters {L, beta, rho}
     # DEFINE tensor_arr : [i, j, k]
     # i size : sigma
@@ -93,6 +93,8 @@ elif ensemble_switch[1]:
                 run_times[i, j, k] = run_time
                 percolation_pr[i, j, k] = percolation
 
+    # km conversion = 100m / 1000(m/km) = 0.1
+    max_d_km = max_distances * 0.1
     # save results as tensor-phase-space arrays
     np.save(output_path + "/mortality/" + core_id, mortality)
     np.save(output_path + "/max_distance_km/" + core_id, max_distances)

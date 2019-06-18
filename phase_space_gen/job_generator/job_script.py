@@ -31,11 +31,10 @@ def main(settings, parameters):
     # - betas in [0.001, 0.100] : 100 values
     # - rhos in [0.001, 0.100] : 100 values
     # - upper bound density is 0.099 , there are 6,000 grid-points above this density out of 220,000. Above this value
-    # INSERT LOWER CODE, TO WORK OUT DENITY RANGEs
+    sigmas = np.array([1.5])
+    betas = np.array([0.25, 0.50])
+    rhos = np.linspace(0.001, 0.100, 100)
 
-    rhos = np.linspace(0.001, 0.100, 20)
-    sigmas = np.array([1, 1.25, 1.5, 1.75, 2])
-    betas = np.linspace(0.001, 1.0, 20)
     domain_size = parameters["L"]
     domain_type = settings["domain_type"]
     job_id = int(settings["job_id"])

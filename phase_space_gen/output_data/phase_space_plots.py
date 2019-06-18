@@ -11,7 +11,7 @@ import numpy as np
 
 def tensor_phase_plot(data_arr, label):
     # load in specific array
-    extent = [0, 1, 0, 1]
+    extent = [0, 0.1, 0, 1]
     dat_flat = data_arr.flatten()
     nan_ind = np.where(np.isnan(dat_flat))
     distance = ['1', '1.25', '1.5', '1.75', '2']
@@ -20,14 +20,16 @@ def tensor_phase_plot(data_arr, label):
         data_slice = data_arr[i]
         max_ = np.max(data_slice)
         min_ = np.min(data_slice)
-        im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[min_, max_], cmap=plt.get_cmap('inferno'))
+        im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[min_, max_], cmap=plt.get_cmap('jet'))
         ax.set_xlabel(r'$\rho$ (occupational tree density)')
         ax.set_ylabel(r'$\beta$')
-        ax.set_xticks(np.linspace(0, 1, 5).round(2))
+        ax.set_xticks(np.linspace(0, extent[1], 5).round(2))
+        ax.set_yticks(np.array([0.25, 0.50]))
         plt.title(r'$\ell = $' + distance[i])
         cbar = plt.colorbar(im, ax=ax)
         cbar.set_label(label, labelpad=-20, y=1.05, rotation=0)
         plt.savefig(os.getcwd() + '/plot_figs/' + str(i))
+        ax.set_aspect(extent[1])
         plt.show()
 
 def plot_line(slice, phase_space_tensor):
@@ -52,7 +54,7 @@ def plot_line(slice, phase_space_tensor):
     np.save(str(slice), beta_line)
 
 
-def ensemble_generator(path,dim, show_2D, show_1D):
+def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
     # GENERATE ensemble average phase space tensor
     # - from a directory of repeats
     # - sum all results then divide by the number of independent simulations
@@ -68,8 +70,8 @@ def ensemble_generator(path,dim, show_2D, show_1D):
         label = r"Mortality (# deaths)"
         save_label = "mortality"
     if "max_distance_km" in path:
-        label = r"Velocity ($km\ yr^{-1}$) "
-        tensor_phase_space= 0.1 * tensor_phase_space
+        label = r"max distance travelled ($km$) "
+        tensor_phase_space = 0.1 * tensor_phase_space
         save_label = "vel"
     if "percolation" in path:
         label = r"Percolation (probability)"
@@ -89,50 +91,53 @@ def ensemble_generator(path,dim, show_2D, show_1D):
         for slice in slices_2_plot:
             plot_line(slice, tensor_phase_space)
     # SAVE results to .npy file to be used in diffusion mapping in PDE forecasting
-    name = 'ps-b-100-r-100-L-4-en-' + str(i+1) + "-" + save_label
-    if name + '.npy' in os.listdir(os.getcwd()):
-        print('Error: file already exits, change name!')
-        pass
-    else:
-        np.save(os.path.join(os.getcwd(), name), tensor_phase_space)
-
+    if save_Data:
+        name = 'ps-b-100-r-100-L-4-en-' + str(i+1) + "-" + save_label
+        if name + '.npy' in os.listdir(os.getcwd()):
+            print('Error: file already exits, change name!')
+            pass
+        else:
+            np.save(os.path.join(os.getcwd(), name), tensor_phase_space)
     return tensor_phase_space
 
-
-def single_line_plot(path, dim):
-    tensor_phase_space = np.zeros(shape=dim)
-    for i, sim_i in enumerate(sorted(os.listdir(path))):
-        dat_load = np.load(path + '/' + sim_i)
-        tensor_phase_space = tensor_phase_space + dat_load
-
-    print(tensor_phase_space)
 
 
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
-sim_names = {0: '/lattice/13-06-2019-ps-r-20-b-20-L-5-en-100'}
+sim_names = {0: '/lattice/17-06-2019-ps-r-20-b-20-L-5-local',
+             1: '/lattice/17-06-2019-phase-line-b0_25-L1_5'}
 
-# 2. ensemble_names : used to combine different ensembles
-ensemble_names = {0: '/phase-3d-km-day-En-100-v1.npy',
-                  1: '/phase-3d-km-day-En-100-v2.npy'}
 # 3. the different metrics used
-metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 2: "/percolation"}
+metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
 
 if 1:
     # PLOT & SAVE phase-space tensor
-    sim, metric = [sim_names[0], metrics[0]]
+    # phase_dim : [sigma, beta, rho]
+    # GET distance reached tensor
+    sim, metric = [sim_names[1], metrics[0]]
+    path_2_sim = os.getcwd() + sim + metric
+    phase_dim = [1, 2, 100]
+    tensor_distance = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=0, save_Data=1)
+
+    # GET runtime data
+    sim, metric = [sim_names[1], metrics[1]]
+    path_2_sim = os.getcwd() + sim + metric
+    tensor_runtime = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=0, save_Data=0)
+    # GET velocity data
+    tensor_velocity = tensor_distance / tensor_runtime
+
+    tensor_phase_plot(data_arr=tensor_velocity, label='vel km/yr')
+    # tensor_phase_plot(data_arr=tensor_velocity, label='velocity (km/day)')
+    # GET percolation data
+    sim, metric = [sim_names[1], metrics[2]]
     path_2_sim = os.getcwd() + sim + metric
     # phase_dim : [sigma, beta, rho]
-    phase_dim = [5, 20, 20]
-    tensor_distance = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0)
+
+    tensor_perc = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=0, save_Data=0)
+    tensor_diffusion = tensor_velocity * np.where(tensor_perc < 0, 0, 1) * 365
+
+    np.save('perc-weighted-b025-050-L1_5', tensor_diffusion)
+    tensor_phase_plot(data_arr=tensor_diffusion, label='perc * vel km/yr')
 
 
-    sim, metric = [sim_names[0], metrics[1]]
-    path_2_sim = os.getcwd() + sim + metric
-    # phase_dim : [sigma, beta, rho]
-    phase_dim = [5, 20, 20]
-    tensor_runtime = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0)
 
-if 0:
-    # COMBINE different ensembles
-    combine_ensemble(ensemble_names)
