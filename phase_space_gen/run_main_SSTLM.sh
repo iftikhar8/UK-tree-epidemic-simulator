@@ -9,7 +9,7 @@
 
 hpc_switch=1
 data_type="lattice" # ["lattice", "channel", "Qro"]
-sim_name="-ps-r-20-b-20-L-5-en-100"
+sim_name="-ps-r-10-b-10-L-2-en-100-incorrect"
 
 ###########__________Run script__________#############
 if [ "$hpc_switch" == 1 ]

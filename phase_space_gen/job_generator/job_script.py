@@ -34,7 +34,7 @@ def main(settings, parameters):
     # INSERT LOWER CODE, TO WORK OUT DENITY RANGEs
 
     rhos = np.linspace(0.001, 0.100, 20)
-    sigmas = np.array([1, 1.25, 1.5, 1.75, 2])
+    sigmas = np.array([1.0, 1.25, 1.50, 1.75, 2.0 ])
     betas = np.linspace(0.001, 1.0, 20)
     domain_size = parameters["L"]
     domain_type = settings["domain_type"]
