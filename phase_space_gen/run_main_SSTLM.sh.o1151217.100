@@ -1,0 +1,17 @@
+## Running job 1151217.100 on host dc1s7b3b.arc3.leeds.ac.uk
+##
+## Resources granted:
+##
+## h_vmem = 1G
+## h_rt   = 48:00:00
+## disk   = 1G
+
+Start time:  2019-06-18 13:16:08.440850  |  sim :  100
+Sigma :  0  /  5
+Sigma :  1  /  5
+Sigma :  2  /  5
+Sigma :  3  /  5
+Sigma :  4  /  5
+End time:  2019-06-19 07:31:42.694817  |  sim :  100
+Time taken:  1094.959  (mins)
+Simulations Finished

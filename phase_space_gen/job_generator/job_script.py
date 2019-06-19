@@ -32,17 +32,14 @@ def main(settings, parameters):
     # - rhos in [0.001, 0.100] : 100 values
     # - upper bound density is 0.099 , there are 6,000 grid-points above this density out of 220,000. Above this value
     rhos = np.linspace(0.001, 0.100, 100)
-    sigmas = np.array([1.0, 1.25, 1.50, 1.75, 2.0 ])
+    sigmas = np.array([1.0, 1.25, 1.50, 1.75, 2.0])
     betas = np.linspace(0.001, 1.0, 100)
+    param_dim = [len(sigmas), len(betas), len(rhos)]
     domain_size = parameters["L"]
     domain_type = settings["domain_type"]
     job_id = int(settings["job_id"])
-    if domain_type == "lattice":
-        print("lattice")
-        domain = np.random.uniform(0, 1, size=(domain_size, domain_size))
-    elif domain_type == "Qro":
-        print("qro")
-        domain = np.load(os.getcwd() + '/input_domain/Qro-cg-10.npy')
+    core_id = save_label(job_id, param_dim)
+    domain = np.random.uniform(0, 1, size=(domain_size, domain_size))
     if job_id == 1:
         # WRITE all parameters to file
         output_path = settings["out_path"]
