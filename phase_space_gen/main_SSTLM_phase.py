@@ -38,7 +38,7 @@ in_arr = sys.argv
 job_id, date, time, domain_type, name = in_arr[1:]
 output_path = os.getcwd() + '/output_data/' + domain_type + '/' + date + name + '/'
 settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "job_id": job_id,
-            "plt_tseries": False, "save_figs": False, "dyn_plts": [False, 1, True], "anim": False,
+            "plt_tseries": False, "save_figs": False, "dyn_plots": [False, 1, True], "anim": False,
             "BCD3": False, "individual": False}
 parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 100}
 
@@ -48,34 +48,41 @@ on_off = [False, True]
 
 if on_off[1]:
     """
-    Run this extract to generate animation data or repeat instances of single-parameter-combinations of rho and beta
-    This must be set to off when running on HPC mode.
+    LOCAL mode only:
+    1. Run this extract to generate animation data 
+    2. Set single-parameter-combinations of rho, beta, sigma 
+    3. Repeats, how many time simulation is averaged
     """
+    real_dispersal = float(input('Enter target dispersal distance in (km): '))  # average dispersal distance which could be covered in one day
     lattice_dim = int(input('Enter lattice size: '))  # the number of lattice points
-    modelled_area = float(input('Enter modelled area (km^2): '))  # modelled area the domain covers km^2
-    alpha = modelled_area/lattice_dim  # The models length between lattice points (km/point)
-    target_dispersal = 150  # average dispersal distance in m/day
-    dispersal_lattice_points = target_dispersal / (alpha*1000)  # convert the dispersal distance from (m) to lattice
+    alpha = float(input('Enter lattice constant in (km): '))
+    area = lattice_dim * alpha  # modelled area the domain covers km^2
+    eff_dispersal = real_dispersal / alpha  # convert the dispersal distance from km to computer units
+    eff_dispersal = np.round(eff_dispersal, 3)
+    repeats = 1
+    parameters["alpha"] = alpha
     parameters["rho"] = .10
     parameters['beta'] = 0.50
     parameters["l_time"] = 100.0
-    parameters["sigma"] = dispersal_lattice_points
+    parameters["sigma"] = eff_dispersal
     parameters["L"] = lattice_dim
-    parameters["time_horizon"] = 3650
-    repeats = 1
+    parameters["time_horizon"] = 3650  # SET to 10 years
     mortality_Arr = np.zeros(repeats)
     max_vel_Arr = np.zeros(repeats)
     percolation_Arr = np.zeros(repeats)
     print('In progress..')
     print("Running: rho=", parameters["rho"], " beta=", parameters["beta"])
-    print("dispersal= ", parameters["sigma"], " alpha = ", alpha, " target dispersal = ", target_dispersal, ('m'))
-    label = "-L-" + str(lattice_dim) + "-sigma-" + str(dispersal_lattice_points).replace('.', '-') + "-area-" + \
-            str(modelled_area).replace('.', '-') + '_km2'
-    plot_animations, verbose = [True, True]  # Set TRUE to print outputs and record data for animation
+    print("effective dispersal = ", parameters["sigma"], " alpha = ", alpha,
+          " real dispersal = ", real_dispersal, 'm')
+    label = "-L-" + str(lattice_dim) + "-sigma-" + str(real_dispersal).replace('.', '-') + \
+            "-area-" + str(area).replace('.', '-') + '_km2'
+    animate_individual, verbose = [True, False]  # Set TRUE to print outputs and record data for animation
     for i in range(repeats):
         print('repeat: ', i)
-        if plot_animations:
-            settings["dyn_plts"], settings["plt_tseries"], settings["individual"] = [True, 1, True], True, True
+        if animate_individual:
+            settings["dyn_plts"] = [False, 1, True]  # {0th: On_off, 1st: Frequency, 2nd: Saves}
+            settings["plt_tseries"] = True  # plot end time-series results
+            settings["verbose"] = True  # print information
         Results = SSTLM_model.main(settings, parameters, domain)
         mortality, max_d, run_time, percolation = Results
         max_d_km = max_d * alpha
@@ -83,7 +90,7 @@ if on_off[1]:
         mortality_Arr[i] = mortality
         max_vel_Arr[i] = velocity_km_day
         percolation_Arr[i] = percolation
-        if plot_animations:
+        if verbose:
             print('..finished')
             print('mortality = ', mortality)
             print('max distaace :  ', max_d_km, '(km)')
@@ -92,15 +99,9 @@ if on_off[1]:
             print("velocity = ", velocity_km_day * 365, ' (km/year)')
             print("percolation = ", percolation)
 
-    np.save('max_v_' + label, max_vel_Arr)
-    import matplotlib.pyplot as plt
-    plt.plot(max_vel_Arr)
-    plt.show()
-
-
 if on_off[0]:
     """
-    HPC mode or Local mode. Run this extract to generate phase space over:
+    HPC mode or Local mode. Run this extract to generate phase space over 3D:
     1. dispersal distance
     2. beta (infectivity)
     3. rho (tree density)
