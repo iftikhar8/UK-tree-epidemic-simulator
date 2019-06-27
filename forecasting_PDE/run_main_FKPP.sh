@@ -9,8 +9,8 @@
 
 hpc_switch=0
 sim_name="test"
-L=0
-beta=1
+L=2
+beta=50
 
 ###########__________Run script__________#############
 if [ "$hpc_switch" == 1 ]
@@ -29,6 +29,7 @@ elif [ "$hpc_switch" == 0 ]
 
 # ######## local machine ######### #
        #### Run simulation ####
+
 python3 pde_model_main.py $sim_name $L $beta
 
 fi

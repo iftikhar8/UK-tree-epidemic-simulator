@@ -2,7 +2,7 @@ import numpy as np
 import sys, os
 
 
-def finite_difference_sim(dim, params, diffusion_map, uk, saves):
+def finite_difference_sim(dim, params, diffusion_map, d_diffusion_map, uk, saves):
     alpha, dim, T = 1, params["dim"], params["T"]
     for time_step in range(T):
         print("Time step: ", time_step)
@@ -12,10 +12,12 @@ def finite_difference_sim(dim, params, diffusion_map, uk, saves):
                 # diff_ij: diffusion component of PDE model
                 # growth_ij: growth component of PDE model
                 D = diffusion_map[i, j]
+                d_D = d_diffusion_map[i, j]
                 diff_ij = D * (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j]) * (1 - uk[i, j])
-                growth_ij = 0.5 * uk[i, j] * (1 - uk[i, j])
+                advect_ij = np.square(d_D * (uk[i + 1, j] + uk[i, j + 1] - uk[i - 1, j] - uk[i, j - 1]))
+                growth_ij = 1.5 * uk[i, j] * (1 - uk[i, j])
                 # uk: resultant output: SUM {Growth + diffusion}
-                uk[i, j] = uk[i, j] + diff_ij + growth_ij
+                uk[i, j] = uk[i, j] + diff_ij + growth_ij + advect_ij
 
         # SAVE frame to file
         if saves[0]:
@@ -34,7 +36,9 @@ def finite_difference_sim(dim, params, diffusion_map, uk, saves):
 
         if time_step == params["T"]-1:
             np.save(saves[1]+'/-diff_map', diffusion_map)
+
     return uk
+
 
 def main(params, diffusion_map):
     save_path = os.getcwd() + '/output_data/'
@@ -47,19 +51,18 @@ def main(params, diffusion_map):
         sys.exit("ERROR: simulation % already exists! " % name)
     else:
         os.mkdir(save_path+name)
-
     save_path = save_path + '/' + name
     dim = params["dim"]
     uk = np.zeros(dim)
     # DEFINE the UK and regions infected at time t=0
-    if not params["partial"]:
+    if not params["partial"][0]:
         # whole uk domain
         epi_c = params["epi_c"]
         span_x, span_y = [epi_c[1]-epi_c[0], epi_c[3]-epi_c[2]]
         num_inf_sites = span_x*span_y
         # infected sites start with value of 1 (maximum infected level)
         inf_sites = np.random.randint(0, 2, size=num_inf_sites).reshape([span_x, span_y])
-        uk[epi_c[0]:epi_c[1], epi_c[2]:epi_c[3]] = inf_sites
+        uk[epi_c[0]:epi_c[1], epi_c[2]:epi_c[3]] = 1
 
     # DEFINE partial region inside full map - for code-testing
     # - exit after use ...
@@ -88,15 +91,19 @@ def main(params, diffusion_map):
     # - useful for calibration
     # - exit after use ...
     if params["plt_epi"]:
+        print('triggered epi')
         import matplotlib.pyplot as plt
-        domain = np.load(os.getcwd() + '/diffusion_mapping/Qro-cg-1_ps.npy')
+        domain = np.load(os.getcwd() + '/diffusion_mapping/Qro-cg-10.npy')
         fig, ax = plt.subplots(figsize=(10, 10))
-        ax.imshow(100*uk + domain)
+        ax.imshow(uk)
         plt.show()
         sys.exit()
 
     # BEGIN simulation:
-    finite_difference_sim(dim, params, diffusion_map, uk, saves=[True, save_path])
+    d_diffusion_map = np.gradient(diffusion_map)
+    d_diffusion_map = d_diffusion_map[0] + d_diffusion_map[1]
+
+    finite_difference_sim(dim, params, diffusion_map, d_diffusion_map, uk, saves=[True, save_path])
     return
 if __name__ == '__main__':
       main(params, diffusion_map)

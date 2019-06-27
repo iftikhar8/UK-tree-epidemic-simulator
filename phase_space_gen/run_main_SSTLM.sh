@@ -1,13 +1,13 @@
 #!/bin/bash
 
+# Execute from termial to run the model, either to simulate indiviual realisations locally or ensemble simluations, either on the HPC or locally.
+
 ###########__________Parameters and settings__________#############
 # hpc_switch | choose between hpc or local usage
-# hpc_mode | choose to find phase diagram or large individual probability distributions
-# data | choose between : ["lattice", "rand_uk", "Qro"]
-# hpc_mode | flips between local machine and HPC
 # sim_name | input a string to append to the output file to identify simulation runs
+# data_type | currently set to lattice i.e. simple square homogeneous lattice 
 
-hpc_switch=1
+hpc_switch=0
 data_type="lattice" # ["lattice", "channel", "Qro"]
 sim_name="-ps-r-100-b-100-L-5"
 

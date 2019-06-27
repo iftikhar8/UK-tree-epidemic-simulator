@@ -3,6 +3,9 @@ import os, sys
 
 
 def diffusion_mapping(domain, rho_space, phase_constants, plots):
+    # todo REMOVE THE SORTED...
+    phase_constants = np.array(sorted(phase_constants)) * 100
+    #phase_constants[0:10] = 0
     # map rho values to index of rho
     velocity_map = np.zeros(np.shape(domain))
     rho_boundaries = {}
@@ -10,7 +13,7 @@ def diffusion_mapping(domain, rho_space, phase_constants, plots):
     # DEFINE rho_boundaries : a dictionary with the form {i: [rho_low, rho_high} where is the index in rho-space
     for i in range(len(rho_space) - 1):
         rho_boundaries[i] = [rho_space[i], rho_space[i+1]]
-    # todo : find a better way of assuming zero velocity from sstlm simulations
+
     # phase_constants[0:10] = float(0)
     # GENERATE diffusion map 2D
     for i, row in enumerate(domain):
@@ -37,7 +40,9 @@ def diffusion_mapping(domain, rho_space, phase_constants, plots):
     # CONVERT from velocity to diffusion coefficients for a RD - logistic growth equation
     # this relies on the metric used to capture the progression...
     # v = 2 * sqrt(u) --> u = v^2 / 4
+
     diffusion_map = np.square(velocity_map) / 4
+
     if plots:
         print("Plotting phase maps over UK:")
         import matplotlib.pyplot as plt
@@ -46,12 +51,22 @@ def diffusion_mapping(domain, rho_space, phase_constants, plots):
         fig, ax = plt.subplots(figsize=(7.5, 7.5))
         im = ax.imshow(velocity_map)
         plt.colorbar(im)
+        plt.title('velocity map')
         plt.savefig('velocity_map')
         plt.show()
         plt.close()
+
         fig, ax = plt.subplots(figsize=(7.5, 7.5))
         im = ax.imshow(diffusion_map)
         plt.colorbar(im)
+        plt.title('diffusion map')
+        plt.savefig('diffusion_map')
+        plt.show()
+
+        fig, ax = plt.subplots(figsize=(7.5, 7.5))
+        im = ax.imshow(np.where(diffusion_map == 0, 0 , 1))
+        plt.colorbar(im)
+        plt.title('diffusion trivial - map')
         plt.savefig('diffusion_map')
         plt.show()
 
@@ -60,6 +75,7 @@ def diffusion_mapping(domain, rho_space, phase_constants, plots):
         fig, ax = plt.subplots()
         nshape = diffusion_map.shape[0] * diffusion_map.shape[1]
         sns.distplot(np.reshape(diffusion_map, newshape=nshape), ax=ax, hist=True)
+        plt.title('distribution of diffusion')
         plt.show()
 
     return diffusion_map
@@ -68,7 +84,7 @@ def diffusion_mapping(domain, rho_space, phase_constants, plots):
 def main(L, beta):
     # LOAD phase constants
     # - choose which data is loaded
-    phase_name = ["/diffusion_mapping/perc-weighted-b025-050-L1_5.npy"]
+    phase_name = ["/diffusion_mapping/vel-b-100-r-100-L-5.npy"]
     phase_3d = np.load(os.getcwd() + phase_name[0]) * (1/365)
     # LOAD domain map
     domain_name = '/diffusion_mapping/Qro-cg-1.npy'
@@ -81,13 +97,14 @@ def main(L, beta):
     param_dim = np.shape(phase_2d)
     # 2. pick out beta line through axis - 1
     phase_constants = phase_2d[beta]
+
+
     # 3. define rho space
     rho_space = np.linspace(0, 0.099, param_dim[1])
     # 4. define one rho-line through phase space
     # - these map a velocity in km/day to a tree density which in turn are mapped to land regions over the UK
     # diffusion_mapping: generate diffusion coefficients for each point in space.
-    diffusion_map = diffusion_mapping(domain, rho_space, phase_constants, plots=True)
-
+    diffusion_map = diffusion_mapping(domain, rho_space, phase_constants, plots=False)
     # todo FIGURE OUT MAPPING!!
     return diffusion_map
 
