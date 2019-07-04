@@ -37,16 +37,14 @@ from job_generator import job_script
 in_arr = sys.argv
 job_id, date, time, domain_type, name = in_arr[1:]
 output_path = os.getcwd() + '/output_data/' + domain_type + '/' + date + name + '/'
+
 settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "job_id": job_id,
             "plt_tseries": False, "save_figs": False, "dyn_plots": [False, 1, True], "anim": False,
-            "BCD3": False, "individual": False}
+            "BCD3": False, "individual": False, "verbose": False}
+
 parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 100}
-
-job_arr = job_script.main(settings, parameters)
-domain, core_id, rhos, betas, sigmas, parameters = job_arr
 on_off = [False, True]
-
-if on_off[1]:
+if on_off[0]:
     """
     LOCAL mode only:
     1. Run this extract to generate animation data 
@@ -58,48 +56,59 @@ if on_off[1]:
     alpha = float(input('Enter lattice constant in (km): '))
     area = lattice_dim * alpha  # modelled area the domain covers km^2
     eff_dispersal = real_dispersal / alpha  # convert the dispersal distance from km to computer units
-    eff_dispersal = np.round(eff_dispersal, 3)
-    repeats = 1
+    eff_dispersal = np.round(eff_dispersal, 5)
+    repeats = 100
+    max_d_arr = np.zeros(repeats)
+    run_time_arr = np.zeros(repeats)
+    mortality_arr = np.zeros(repeats)
+    percolation_arr = np.zeros(repeats)
     parameters["alpha"] = alpha
     parameters["rho"] = .10
-    parameters['beta'] = 0.50
+    parameters['beta'] = 0.99
     parameters["l_time"] = 100.0
-    parameters["sigma"] = eff_dispersal
     parameters["L"] = lattice_dim
     parameters["time_horizon"] = 3650  # SET to 10 years
-    mortality_Arr = np.zeros(repeats)
-    max_vel_Arr = np.zeros(repeats)
-    percolation_Arr = np.zeros(repeats)
-    print('In progress..')
+    parameters["sigma"] = eff_dispersal
+    job_arr = job_script.main(settings, parameters)
+    domain, core_id, rhos, betas, sigmas, parameters = job_arr
+    on_off = [False, True]
+    print('In progress...')
     print("Running: rho=", parameters["rho"], " beta=", parameters["beta"])
     print("effective dispersal = ", parameters["sigma"], " alpha = ", alpha,
-          " real dispersal = ", real_dispersal, 'm')
-    label = "-L-" + str(lattice_dim) + "-sigma-" + str(real_dispersal).replace('.', '-') + \
-            "-area-" + str(area).replace('.', '-') + '_km2'
-    animate_individual, verbose = [True, False]  # Set TRUE to print outputs and record data for animation
+          "\n real dispersal = ", real_dispersal, 'm')
+    print("Aerial extent: ", area, ' km')
+    label = "-L-" + str(lattice_dim) + "-alpha-" + str(alpha).replace('.', '_') + "-eff_sigma-" + \
+            str(real_dispersal).replace('.', '_') + "-B-" + str(parameters["beta"]).replace('.', '_')
+    animate_individual = False  # Set TRUE to print outputs and record data for animation
+    settings["verbose"] = False
     for i in range(repeats):
         print('repeat: ', i)
         if animate_individual:
             settings["dyn_plts"] = [False, 1, True]  # {0th: On_off, 1st: Frequency, 2nd: Saves}
-            settings["plt_tseries"] = True  # plot end time-series results
-            settings["verbose"] = True  # print information
+            settings["plt_tseries"] = False  # plot end time-series results
+            settings["verbose"] = False  # print information
         Results = SSTLM_model.main(settings, parameters, domain)
         mortality, max_d, run_time, percolation = Results
-        max_d_km = max_d * alpha
-        velocity_km_day = (max_d_km / run_time)
-        mortality_Arr[i] = mortality
-        max_vel_Arr[i] = velocity_km_day
-        percolation_Arr[i] = percolation
-        if verbose:
+        print(max_d, ' <-- max d')
+        max_d_arr[i] = max_d
+        run_time_arr[i] = run_time
+        mortality_arr[i] = mortality
+        percolation_arr[i] = percolation
+        if animate_individual:
             print('..finished')
             print('mortality = ', mortality)
-            print('max distaace :  ', max_d_km, '(km)')
-            print('time taken : ', run_time, ' (days)')
-            print("velocit0 = ", velocity_km_day, ' (km/day)')
-            print("velocity = ", velocity_km_day * 365, ' (km/year)')
-            print("percolation = ", percolation)
+            print('max distance =  ', max_d, '(km)')
+            print('time taken = ', run_time, ' (days)')
+            print("velocity = ", max_d/run_time, ' (km/t-step)')
+            print("percolation : ", percolation)
 
-if on_off[0]:
+    np.save(label + '-max_d', max_d_arr)
+    np.save(label + '-runtime', run_time_arr)
+
+    # np.save(label + '-mort', mortality_arr)
+    # np.save(label + '-perc', percolation_arr)
+
+if on_off[1]:
     """
     HPC mode or Local mode. Run this extract to generate phase space over 3D:
     1. dispersal distance
@@ -107,6 +116,8 @@ if on_off[0]:
     3. rho (tree density)
     """
     import time
+    job_arr = job_script.main(settings, parameters)
+    domain, core_id, rhos, betas, sigmas, parameters = job_arr
     dim = parameters["param_dim"] 
     mortality = np.zeros(shape=[dim[0], dim[1], dim[2]])
     max_distances = np.zeros(shape=[dim[0], dim[1], dim[2]])

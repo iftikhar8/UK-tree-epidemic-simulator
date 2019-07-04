@@ -18,3 +18,7 @@ This directory stores code responsible for generating an epidemiological phase-s
 
 
  
+improvements:
+
+1. think about local vs hpc, is this the best setup
+2. think about feeding beta and rho ito job_gen

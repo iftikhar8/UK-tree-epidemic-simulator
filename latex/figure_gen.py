@@ -374,30 +374,6 @@ def phase_space_gen():
     plt.show()
 
 
-def domain_beta_calibration():
-    import matplotlib.pyplot as plt
-    dir_name = 'beta_scaled/'
-    path = os.getcwd() + '/latex/latex_data/domain_calibration_data/' + dir_name
-    files = sorted(os.listdir(path))
-    names = [['3.0', '1.0'], ['3.0', '0.50'], ['3.0', '0.25'], ['1.5', '1.0'], ['3.0', '.10']]
-    css = ['brown', 'red', 'orange', 'blue', 'y']
-    opacity = [1, 0.5, 0.5, 1., 0.8]
-    fig, ax = plt.subplots(figsize=(7.5, 5))
-    for i, file in enumerate(files):
-        print(file)
-        data = np.load(path + file) * 365
-        label = r'$\ell = $' + names[i][0] + r',  $\beta =$' + names[i][1]
-        ax.plot(data, label=label, alpha=opacity[i], c=css[i])  #
-        ax.axhline(y=data.mean(), alpha=opacity[i], ls='--', c=css[i]) # c=cs[i]
-    ax.grid(True)
-    ax.set_xlabel('simulation #')
-    ax.set_ylabel(r'velocity $km yr^{-1}$')
-    ax.set_title(r'Simulation final max velocity')
-    plt.legend()
-    plt.savefig('beta-scaled-calibration')
-    plt.show()
-
-
 def domain_size_calibrations():
     import matplotlib.pyplot as plt
     fig, ax = plt.subplots(figsize=(7.5, 5.5))
@@ -408,7 +384,7 @@ def domain_size_calibrations():
     c = 0
     ylim_max = 0
     for calibration in calibrations:
-        path = os.getcwd() + '/latex/latex_data/domain_calibration_data/' + calibration
+        path = os.getcwd() + '/latex/latex_data/model-scaling/' + calibration
         files = os.listdir(path)
         data_arr = np.zeros(len(files))
         var_arr = np.zeros(len(files))
@@ -437,7 +413,52 @@ def domain_size_calibrations():
     plt.savefig(os.getcwd() + '/domain_size_sensitivity')
     plt.show()
 
-# domain_size_calibrations()
-domain_beta_calibration()
+
+def R0_phase():
+    """
+    This shows a re-interpreted beta value vs rho, the phase space of R_0 FOR one infected tree at the origin/
+    """
+    extent = [1., 10.,0, 1.0]
+    data = np.load(os.getcwd()+'/latex/latex_data/R0_data/' + 'b-v-r-R0-en-1000-L-100m.npy')
+    fig, ax = plt.subplots()
+    im = ax.contourf(data.T, origin='lower', cmap=plt.get_cmap('jet'), extent=extent)
+    cbar = plt.colorbar(im)
+    cbar.set_label(r'$R_0$')
+    ax.set_ylabel(r'$\rho$', size=15)
+    ax.set_xlabel(r'$\beta$', size=15)
+    ax.set_title(r'$\alpha = 5 (m),\quad  \tilde{\ell}=20$', size=20)
+    plt.savefig('r0-v_r-b')
+    plt.show()
+    return
 
 
+def R0_line():
+    """
+    Plot single lines showng ell vs R0 can compare different beta values
+    beta = 20
+    rho = 0.25, 0.50, 1.0
+    """
+    path = os.getcwd()+'/latex/latex_data/R0_data/'
+    data_1 = np.load(path + 'r-025-b-20-a-005-en-100.npy')     # rho = 0.5
+    data_2 = np.load(path + 'r-050-b-20-a-005-en-100.npy')
+    data_3 = np.load(path + 'r-1-b-20-a-005-en-100.npy')
+    labels = ['0.25', '0.50', '1.00']
+    data = [data_1, data_2, data_3]
+
+    dispersals = np.array([1, 2, 3, 4, 5, 10, 50, 100, 150, 200, 250, 300]) * 0.001/0.005
+    fig, ax = plt.subplots(figsize=(7.5, 5))
+    c=0
+    for dset in data:
+        plt.errorbar(x=dispersals, y=dset[:, 0], yerr=dset[:, 1], alpha=0.5)
+        plt.scatter(x=dispersals, y=dset[:, 0], s=dset[:, 0]+0.1, label=r'$\rho = $' + labels[c])
+        c += 1
+    ax.set_title(r'$\beta = 20,\ L=200,\ \alpha = 0.005$')
+    ax.set_xlabel(r'effective dispersal $\tilde{\ell}$', size=15)
+    ax.set_ylabel(r'$R_0$', size=15)
+    ax.grid(alpha=0.50)
+    plt.legend()
+    plt.savefig('r0_vs_ell-single-line')
+    plt.show()
+
+
+R0_line()

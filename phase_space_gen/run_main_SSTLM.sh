@@ -7,9 +7,8 @@
 # sim_name | input a string to append to the output file to identify simulation runs
 # data_type | currently set to lattice i.e. simple square homogeneous lattice 
 
-hpc_switch=0
-data_type="lattice" # ["lattice", "channel", "Qro"]
-sim_name="-ps-r-100-b-100-L-5"
+hpc_switch=1
+data_type="lattice"
 
 ###########__________Run script__________#############
 if [ "$hpc_switch" == 1 ]
@@ -22,9 +21,10 @@ date_time=$(date '+%d-%m-%Y %H:%M:%S')
 #$ -l h_rt=48:00:00
 #$ -t 1-100
 
-python3 mkdir.py $date_time $data_type $sim_name
 ######### find epidemiological phase space diagram #########
-python3 main_SSTLM_phase.py  $SGE_TASK_ID $date_time $data_type $sim_name
+sim_name="-HPC"
+python3 mkdir.py $date_time $data_type $sim_name
+python3 main_HPC.py  $SGE_TASK_ID $date_time $data_type $sim_name
 
 elif [ "$hpc_switch" == 0 ]
  then
@@ -32,9 +32,10 @@ elif [ "$hpc_switch" == 0 ]
 
 job_id=25
 date_time=$(date '+%d-%m-%Y %H:%M:%S')
-python3 mkdir.py  $date_time $data_type $sim_name
+sim_name="-LOCAL"
 ######### find epidemiological phase space diagram #########
-python3 main_SSTLM_phase.py $job_id $date_time $data_type $sim_name
+python3 mkdir.py  $date_time $data_type $sim_name
+python3 main_local.py $job_id $date_time $data_type $sim_name
 
 fi
 echo "Simulations Finished"
