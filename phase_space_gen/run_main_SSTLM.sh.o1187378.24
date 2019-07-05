@@ -1,0 +1,18 @@
+## Running job 1187378.24 on host dc1s1b3c.arc3.leeds.ac.uk
+##
+## Resources granted:
+##
+## h_vmem = 1G
+## h_rt   = 48:00:00
+## disk   = 1G
+
+Start time:  2019-07-04 14:54:45.098519  |  sim :  24
+Eff sigma :  0  /  (6,)
+Eff sigma :  1  /  (6,)
+Eff sigma :  2  /  (6,)
+Eff sigma :  3  /  (6,)
+Eff sigma :  4  /  (6,)
+Eff sigma :  5  /  (6,)
+End time:  2019-07-04 16:17:46.392520  |  sim :  24
+Time taken:  83.021  (mins)
+Simulations Finished
