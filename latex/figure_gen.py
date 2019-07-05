@@ -418,15 +418,15 @@ def R0_phase():
     """
     This shows a re-interpreted beta value vs rho, the phase space of R_0 FOR one infected tree at the origin/
     """
-    extent = [1., 10.,0, 1.0]
-    data = np.load(os.getcwd()+'/latex/latex_data/R0_data/' + 'b-v-r-R0-en-1000-L-100m.npy')
+    extent = [1., 10., 0, 1.0]
+    data = np.load(os.getcwd()+'/latex/latex_data/R0_data/' + 'b-v-r-R0-en-1000-L-300m.npy')
     fig, ax = plt.subplots()
     im = ax.contourf(data.T, origin='lower', cmap=plt.get_cmap('jet'), extent=extent)
     cbar = plt.colorbar(im)
     cbar.set_label(r'$R_0$')
     ax.set_ylabel(r'$\rho$', size=15)
     ax.set_xlabel(r'$\beta$', size=15)
-    ax.set_title(r'$\alpha = 5 (m),\quad  \tilde{\ell}=20$', size=20)
+    ax.set_title(r'$\alpha = 5 (m),\quad  \tilde{\ell}=60$', size=20)
     plt.savefig('r0-v_r-b')
     plt.show()
     return
@@ -461,4 +461,4 @@ def R0_line():
     plt.show()
 
 
-R0_line()
+R0_phase()

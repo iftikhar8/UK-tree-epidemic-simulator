@@ -9,7 +9,7 @@ def R0_phase():
     rhos = np.arange(0.1, 1.0, 0.05)  # tree density
     betas = np.arange(1, 10, 0.5)
     alpha = 0.005  # lattice constant in km
-    real_dispersal = 0.200  # target dispersal in km
+    real_dispersal = 0.300  # target dispersal in km
     sigma = real_dispersal/alpha  # effective dispersal in km
     ensemble = 1000
     results = np.zeros(shape=(len(rhos), len(betas)))

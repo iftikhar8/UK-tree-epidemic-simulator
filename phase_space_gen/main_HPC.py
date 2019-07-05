@@ -32,7 +32,7 @@ settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "
             "plt_tseries": False, "save_figs": False, "dyn_plots": [False, 1, True], "anim": False,
             "BCD3": False, "individual": False, "verbose": False}
 
-parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 100}
+parameters = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 200}
 
 """
 HPC mode. Run this extract to generate phase space over 3D:
