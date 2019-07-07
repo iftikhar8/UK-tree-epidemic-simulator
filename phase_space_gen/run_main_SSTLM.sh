@@ -7,7 +7,7 @@
 # sim_name | input a string to append to the output file to identify simulation runs
 # data_type | currently set to lattice i.e. simple square homogeneous lattice 
 
-hpc_switch=1
+hpc_switch=0
 data_type="lattice"
 
 ###########__________Run script__________#############
@@ -17,15 +17,16 @@ if [ "$hpc_switch" == 1 ]
 module load python/3.6.5
 module load python-libs/3.1.0
 date_time=$(date '+%d-%m-%Y %H:%M:%S')
+
 #$ -cwd -V
 #$ -l h_rt=48:00:00
 #$ -t 1-100
 
 ######### find epidemiological phase space diagram #########
 sim_name="-HPC"
-python3 mkdir.py $date_time $data_type $sim_name
-python3 main_HPC.py  $SGE_TASK_ID $date_time $data_type $sim_name
 
+python3 mkdir.py $date_time $data_type $sim_name
+python3 main_HPC.py $SGE_TASK_ID $del $date_time $data_type $sim_name
 elif [ "$hpc_switch" == 0 ]
  then
 # Local machine

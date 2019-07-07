@@ -5,212 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/R0_data/b-v-r-R0-en-1000-L-200m.npy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_test_suite/repoduction_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_test_suite/repoduction_number.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/figure_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/latex/figure_gen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0000.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0000.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0001.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0002.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0002.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0003.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0003.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0004.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0004.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0005.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0005.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0006.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0006.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0007.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0007.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0008.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0008.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0009.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0009.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0010.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0010.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0011.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/figs/temp_frames/0011.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phase_space_gen/main_HPC.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/main_HPC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.100" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.13" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.14" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.16" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.18" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.19" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.20" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.21" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.22" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.23" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.24" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.25" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.26" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.27" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.28" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.29" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.30" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.31" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.33" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.34" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.35" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.36" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.37" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.38" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.39" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.41" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.42" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.43" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.44" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.45" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.46" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.47" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.48" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.49" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.50" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.51" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.52" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.53" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.54" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.55" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.56" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.57" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.58" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.59" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.60" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.61" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.62" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.65" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.66" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.67" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.68" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.69" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.70" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.71" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.73" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.74" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.75" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.76" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.77" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.78" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.79" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.80" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.81" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.82" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.83" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.85" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.89" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.91" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.92" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.93" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.94" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.95" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.96" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.97" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.98" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1187378.99" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.100" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.13" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.14" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.16" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.18" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.19" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.20" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.21" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.22" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.23" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.24" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.25" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.26" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.27" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.28" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.29" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.30" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.31" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.33" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.34" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.35" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.36" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.37" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.38" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.39" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.41" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.42" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.43" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.44" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.45" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.46" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.47" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.48" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.49" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.50" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.51" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.52" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.53" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.54" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.55" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.56" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.57" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.58" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.59" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.60" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.61" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.62" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.65" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.66" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.67" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.68" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.69" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.70" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.71" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.73" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.74" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.75" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.76" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.77" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.78" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.79" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.80" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.81" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.82" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.83" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.85" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.89" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.91" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.92" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.93" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.94" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.95" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.96" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.97" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.98" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1187378.99" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/main_local.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/main_local.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -253,19 +64,19 @@
     <session id="13763648">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="51" />
+          <entry key="project.closed" value="53" />
           <entry key="project.open.time.0" value="11" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.3" value="3" />
           <entry key="project.open.time.4" value="8" />
-          <entry key="project.open.time.5" value="9" />
+          <entry key="project.open.time.5" value="10" />
           <entry key="project.open.time.6" value="14" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="53" />
+          <entry key="project.opened" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -273,52 +84,61 @@
           <entry key="npy" value="41" />
           <entry key="png" value="113" />
           <entry key="pstat" value="1" />
-          <entry key="py" value="341" />
-          <entry key="sh" value="50" />
+          <entry key="py" value="344" />
+          <entry key="sh" value="52" />
           <entry key="txt" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="113" />
-          <entry key="PLAIN_TEXT" value="100" />
+          <entry key="PLAIN_TEXT" value="102" />
           <entry key="Profiler Session" value="1" />
-          <entry key="Python" value="341" />
+          <entry key="Python" value="344" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="1992" />
+          <entry key="Python Console" value="2097" />
           <entry key="dummy" value="117" />
-          <entry key="py" value="105282" />
-          <entry key="sh" value="796" />
+          <entry key="py" value="105361" />
+          <entry key="sh" value="858" />
           <entry key="txt" value="541" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="1454" />
-          <entry key="Python" value="107274" />
+          <entry key="PLAIN_TEXT" value="1516" />
+          <entry key="Python" value="107458" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="678">
-              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="483">
+              <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phase_space_gen/main_HPC.py">
+        <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="60" column="33" lean-forward="true" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+            <state relative-caret-position="135">
+              <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/phase_space_gen/main_local.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="37" column="33" lean-forward="true" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -400,14 +220,14 @@
         <option value="$PROJECT_DIR$/SSTLM_test_suite/propagation_step.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/readme.txt" />
-        <option value="$PROJECT_DIR$/phase_space_gen/main_local.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/model/subgrid_SSTLM.py" />
-        <option value="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" />
         <option value="$PROJECT_DIR$/SSTLM_test_suite/repoduction_number.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" />
         <option value="$PROJECT_DIR$/latex/figure_gen.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/main_HPC.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py" />
+        <option value="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" />
+        <option value="$PROJECT_DIR$/phase_space_gen/main_local.py" />
       </list>
     </option>
   </component>
@@ -441,27 +261,6 @@
               <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
               <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
               <item name="phase_space_gen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
-              <item name="phase_space_gen" type="462c0819:PsiDirectoryNode" />
-              <item name="output_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
-              <item name="phase_space_gen" type="462c0819:PsiDirectoryNode" />
-              <item name="output_data" type="462c0819:PsiDirectoryNode" />
-              <item name="lattice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
-              <item name="phase_space_gen" type="462c0819:PsiDirectoryNode" />
-              <item name="output_data" type="462c0819:PsiDirectoryNode" />
-              <item name="lattice" type="462c0819:PsiDirectoryNode" />
-              <item name="04-07-2019-HPC" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -655,14 +454,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17784877" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16361417" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32475248" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3244898" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.21683168" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.24752475" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -672,13 +470,13 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32673267" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.31428573" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.20510204" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.31428573" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.32959184" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" x="-29" y="-1025" width="1680" height="884" id="SciView" order="3" visible="true" weight="0.24174654" />
+      <window_info anchor="right" x="-29" y="-1025" width="1680" height="884" id="SciView" order="3" weight="0.2771673" />
       <window_info anchor="right" id="R Graphics" order="4" weight="0.32898772" />
       <window_info anchor="right" id="R Packages" order="5" weight="0.32820153" />
       <window_info anchor="right" id="Database" order="6" weight="0.32917705" />
@@ -847,13 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/main_local.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phase_space_gen/model/subgrid_SSTLM.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="488">
@@ -865,13 +656,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -895,9 +679,7 @@
     <entry file="file://$PROJECT_DIR$/phase_space_gen/job_generator/job_script_readme.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/r0-v_r-b.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/r0-v_r-b.png" />
     <entry file="file://$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1419">
@@ -938,15 +720,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/phase_space_gen/main_HPC.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="60" column="33" lean-forward="true" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+        <state relative-caret-position="255">
+          <caret line="52" column="27" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="483">
+          <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/main_local.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="37" column="33" lean-forward="true" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
         </state>
       </provider>
     </entry>

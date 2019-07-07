@@ -56,6 +56,7 @@ print("Start time: ", datetime.datetime.now(), ' |  sim : ', str(job_id))
 for i, eff_disp in enumerate(eff_sigmas):
     # ITERATE dispersal kernel
     print('Eff sigma : ', i, ' / ', eff_sigmas.shape)
+    print('Eff sigma = ', eff_disp)
     parameters["eff_disp"] = eff_disp
     for j, beta in enumerate(betas):
         # ITERATE infection rates
