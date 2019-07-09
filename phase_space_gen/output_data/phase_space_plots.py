@@ -11,7 +11,7 @@ import numpy as np
 
 def tensor_phase_plot(data_arr, label):
     # load in specific array
-    extent = [0, 0.1, 0, 1]
+    extent = [0, 0.1, 1, 50]
     dat_flat = data_arr.flatten()
     nan_ind = np.where(np.isnan(dat_flat))
     distance = ['50m', '100m', '150m', '200m', '250m', '300m']
@@ -28,15 +28,15 @@ def tensor_phase_plot(data_arr, label):
         cbar = plt.colorbar(im, ax=ax)
         cbar.set_label(label, labelpad=-20, y=1.05, rotation=0)
         plt.savefig(os.getcwd() + '/plot_figs/' + str(i))
-        ax.set_aspect(extent[1])
+        ax.set_aspect(0.002)
         plt.show()
 
 def plot_line(slice, phase_space_tensor):
     arr = phase_space_tensor[slice] * 365
     # todo : be mindful of changing beta and rho values...
     rhos = np.array([0.001, 0.025, 0.05, 0.075, 0.1])
-    betas = np.linspace(0.001, 0.1, 100)
     sigmas = np.array([10, 20, 30, 40, 50, 60])
+    betas = np.linspace(0.001, 0.1, 100)
     arr_total = np.zeros(shape=[5, 100])
     fig, ax = plt.subplots()
     for rho_i in range(np.shape(arr)[1]):
@@ -113,11 +113,11 @@ if 1:
     # GET distance reached tensor
     sim_number = 0      # enter the simulate name index
     distance = 1        # load and compute distance plots
-    runtime = 0         # load and compute runtime plots
+    runtime = 1         # load and compute runtime plots
     mortality = 0       # load and compute mortality plots
-    velocity, show_v = 0, 0     # compute velocity and show
+    velocity = 1   # compute velocity and show
     percolation = 0             # load and compute percolation
-    phase_dim = [3, 10, 10]
+    phase_dim = [6, 100, 100]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
     if mortality:
         # GET distance travelled data
@@ -130,21 +130,19 @@ if 1:
         # GET distance travelled data
         sim, metric = [sim_names[sim_number], metrics[0]]
         path_2_sim = os.getcwd() + sim + metric
-        tensor_distance = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0, save_Data=0)
+        tensor_distance = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=0, save_Data=0)
 
     if runtime:
         # GET runtime data
         sim, metric = [sim_names[sim_number], metrics[1]]
         path_2_sim = os.getcwd() + sim + metric
         tensor_runtime = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=0, save_Data=0)
-        np.save(save_name + '-runtime', tensor_runtime)
 
     if velocity:
         # GET velocity data
         tensor_velocity = tensor_distance / tensor_runtime
         np.save(save_name + '-vel', tensor_velocity * 365)
-        if show_v:
-            tensor_phase_plot(data_arr=tensor_velocity * 365, label='vel km/yr')
+        tensor_phase_plot(data_arr=tensor_velocity * 365, label='vel km/yr')
 
     if percolation:
         # GET percolation data

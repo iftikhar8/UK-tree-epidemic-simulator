@@ -9,8 +9,8 @@
 
 hpc_switch=0
 sim_name="test"
-L=2
-beta=50
+L=5 # index of [50, 100, 150, 200, 250, 300]m
+beta=20 #
 
 ###########__________Run script__________#############
 if [ "$hpc_switch" == 1 ]

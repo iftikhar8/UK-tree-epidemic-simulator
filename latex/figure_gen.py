@@ -335,8 +335,8 @@ def phase_space_gen():
     100 values of beta and 100 values of rho with 5 values of dispersal distance.
     """
     metric = 'perc-vel'
-    name = 'ps-b-100-r-100-L-5-perc-vel.npy'
-    ps_tensor = np.load(os.getcwd() + '/latex/latex_data/' + name)
+    name = 'ps-b-100-r-100-L-6-vel.npy'
+    ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-figs/' + name)
     if metric == 'vel':
         label = r'$km\ yr^{-1}$'
     if metric == "perc":
@@ -353,23 +353,24 @@ def phase_space_gen():
     coords = [(0, 0), (0, 1), (1, 0), (1, 1)]
     extent = [0, .10, 0, 1.0]
     xy_axis = np.linspace(0, 0.1, 6)
-    kernels = ['1.25', '1.50', '1.75', '2.0']
+    kernels = ['50m', '100m', '150m', '200m']
     for i in range(4):
         data = ps_tensor[i+1]
         ax[coords[i][0], coords[i][1]].set_title(r'$\ell = $' + kernels[i])
-        im = ax[coords[i][0], coords[i][1]].imshow(data, clim=[0, max], origin='lower', cmap=plt.get_cmap('inferno'),
-                                                   extent=extent)
+        im = ax[coords[i][0], coords[i][1]].contourf(data, clim=[0, max], origin='lower', cmap=plt.get_cmap('inferno'),
+                                                     xtent=extent)
+        cbar = plt.colorbar(im, ax=ax[coords[i][0], coords[i][1]])
         ax[coords[i][0], coords[i][1]].set_aspect('auto')
 
-    plt.subplots_adjust(bottom=0.1, right=0.8, top=0.9)
+    # plt.subplots_adjust(bottom=0.1, right=0.8, top=0.9)
     ax[0, 0].set_ylabel(r'$\beta$')
     ax[1, 0].set_ylabel(r'$\beta$')
     ax[1, 0].set_xlabel(r'$\rho$')
     ax[1, 1].set_xlabel(r'$\rho$')
-    cax = fig.add_axes([0.85, 0.1, 0.04, 0.79])
-    cbar = fig.colorbar(im, cax=cax, orientation='vertical')
-    cbar.set_ticklabels(np.arange(0, max, 10))
-    cbar.set_label(label)
+    # cax = fig.add_axes([0.85, 0.1, 0.04, 0.79])
+    # cbar = fig.colorbar(im, cax=cax, orientation='vertical')
+    # cbar.set_ticklabels(np.arange(0, max, 10))
+    # cbar.set_label(label)
     plt.savefig('ps_r-100-b-100-L-4-' + metric, bbox_to_inches='tight')
     plt.show()
 
@@ -461,4 +462,4 @@ def R0_line():
     plt.show()
 
 
-R0_phase()
+phase_space_gen()

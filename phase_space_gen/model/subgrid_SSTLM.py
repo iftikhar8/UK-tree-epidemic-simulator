@@ -229,8 +229,7 @@ def main(settings, parameters, domain):
         # ITERATION COMPLETE
 
     # ________________End Algorithm________________ #
-
-    ts_max_d = ts_max_d * p.alpha
+    ts_max_d = ts_max_d * p.alpha  # multiply by lattice constant to get a distance in km
     ts_mean_d = ts_mean_d * p.alpha
     max_mean_distance = ts_mean_d.max()  # maximum recorded value of mean distance metric
     max_distance_reached = ts_max_d.max()  # maximum distance reached by the pathogen

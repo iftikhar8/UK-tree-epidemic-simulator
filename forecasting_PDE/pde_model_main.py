@@ -8,15 +8,16 @@ from PDE_model import pde_model
 # L space: [0, 5m, 10, 250m]
 in_arr = sys.argv
 name, L_index, beta_index = in_arr[1:]
-beta_space = np.linspace(0, 1, 100)
-L_space = np.array([1, 1.25, 1.5, 1.75, 2.0])
-sim_name = 'L-' + str(100 * L_space[int(L_index)]).replace('.', '_') + 'm-b-' + beta_index
+beta_space = np.arange(0.5, 50.5, 0.5)
+L_space = np.array([50, 100, 150, 200, 250, 300])
+sim_name = 'L-' + str(L_space[int(L_index)]).replace('.', '_') + 'm-b-' + beta_index
+print("Running: dispersal = " + str(L_space[int(L_index)]) + "(m), Infectvitity =" + str(beta_space[int(beta_index)]))
 # GENERATE diffusion map based on input of L, beta and a domain (in this case a map of abundance)
 # - epi_center : point of disease introduction
 # - port of Immingham = [560, 570, 455, 465]
-diffusion_map = diffusion_mapping.main(L=int(L_index), beta=int(beta_index))
-params = {"T": 1500, "dim": np.shape(diffusion_map), "epi_c": [70, 72, 30, 32], "plt_epi": True,
-          "partial": [False,  [700, 900, 200, 400]], 'L': L_index, 'b': beta_space[int(beta_index)],
+diffusion_map = diffusion_mapping.main(L=int(L_index), beta=int(beta_index), plt_check=True)
+params = {"T": 1500, "dim": np.shape(diffusion_map), "epi_c": [70, 72, 30, 32], "plt_epi": False,
+          "partial": [True,  [700, 900, 200, 400]], 'L': L_index, 'b': beta_space[int(beta_index)],
           "sim_name": sim_name}
 
 t_0 = time.time()
