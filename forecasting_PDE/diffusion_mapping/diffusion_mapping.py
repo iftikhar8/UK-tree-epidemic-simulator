@@ -63,20 +63,15 @@ def diffusion_mapping(domain, rho_space, phase_constants, plots):
         plt.savefig('diffusion_map')
         plt.show()
 
-        fig, ax = plt.subplots(figsize=(7.5, 7.5))
-        im = ax.imshow(np.where(diffusion_map == 0, 0 , 1))
-        plt.colorbar(im)
-        plt.title('diffusion trivial - map')
-        plt.savefig('diffusion_map')
-        plt.show()
-
         np.save('velocity_map', velocity_map)
         np.save('diffusion_map', diffusion_map)
+
         fig, ax = plt.subplots()
         nshape = diffusion_map.shape[0] * diffusion_map.shape[1]
         sns.distplot(np.reshape(diffusion_map, newshape=nshape), ax=ax, hist=True)
         plt.title('distribution of diffusion')
         plt.show()
+        sys.exit()
 
     return diffusion_map
 
@@ -104,7 +99,7 @@ def main(L, beta):
     # 4. define one rho-line through phase space
     # - these map a velocity in km/day to a tree density which in turn are mapped to land regions over the UK
     # diffusion_mapping: generate diffusion coefficients for each point in space.
-    diffusion_map = diffusion_mapping(domain, rho_space, phase_constants, plots=False)
+    diffusion_map = diffusion_mapping(domain, rho_space, phase_constants, plots=True)
     # todo FIGURE OUT MAPPING!!
     return diffusion_map
 

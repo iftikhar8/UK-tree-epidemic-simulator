@@ -7,7 +7,7 @@
 # sim_name | input a string to append to the output file to identify simulation runs
 # data_type | currently set to lattice i.e. simple square homogeneous lattice 
 
-hpc_switch=0
+hpc_switch=1
 data_type="lattice"
 
 ###########__________Run script__________#############

@@ -19,7 +19,6 @@ def tensor_phase_plot(data_arr, label):
         fig, ax = plt.subplots()
         data_slice = data_arr[i]
         max_ = np.max(data_slice)
-        print(max_, i)
         min_ = np.min(data_slice)
         im = ax.contourf(data_slice, origin='lower', extent=extent, clim=[min_, max_], cmap=plt.get_cmap('inferno'))
         ax.set_xlabel(r'$\rho$ (occupational tree density)')
@@ -103,7 +102,7 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
-sim_names = {0: '/lattice/04-07-2019-HPC'}
+sim_names = {0: '/lattice/07-07-2019-HPC'}
 
 # 3. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
@@ -114,11 +113,11 @@ if 1:
     # GET distance reached tensor
     sim_number = 0      # enter the simulate name index
     distance = 1        # load and compute distance plots
-    runtime = 1         # load and compute runtime plots
+    runtime = 0         # load and compute runtime plots
     mortality = 0       # load and compute mortality plots
-    velocity, show_v = 1, 1     # compute velocity and show
+    velocity, show_v = 0, 0     # compute velocity and show
     percolation = 0             # load and compute percolation
-    phase_dim = [6, 100, 100]
+    phase_dim = [3, 10, 10]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
     if mortality:
         # GET distance travelled data
@@ -131,7 +130,7 @@ if 1:
         # GET distance travelled data
         sim, metric = [sim_names[sim_number], metrics[0]]
         path_2_sim = os.getcwd() + sim + metric
-        tensor_distance = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=0, save_Data=0)
+        tensor_distance = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0, save_Data=0)
 
     if runtime:
         # GET runtime data

@@ -15,8 +15,8 @@ sim_name = 'L-' + str(100 * L_space[int(L_index)]).replace('.', '_') + 'm-b-' + 
 # - epi_center : point of disease introduction
 # - port of Immingham = [560, 570, 455, 465]
 diffusion_map = diffusion_mapping.main(L=int(L_index), beta=int(beta_index))
-params = {"T": 1500, "dim": np.shape(diffusion_map), "epi_c": [70, 72, 30, 32], "plt_epi": False,
-          "partial": [True,  [700, 900, 200, 400]], 'L': L_index, 'b': beta_space[int(beta_index)],
+params = {"T": 1500, "dim": np.shape(diffusion_map), "epi_c": [70, 72, 30, 32], "plt_epi": True,
+          "partial": [False,  [700, 900, 200, 400]], 'L': L_index, 'b': beta_space[int(beta_index)],
           "sim_name": sim_name}
 
 t_0 = time.time()

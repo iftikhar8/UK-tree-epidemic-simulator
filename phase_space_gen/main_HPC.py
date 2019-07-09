@@ -70,11 +70,12 @@ for i, eff_disp in enumerate(eff_sigmas):
             run_times[i, j, k] = run_time
             percolation_pr[i, j, k] = percolation
 
-# save results as tensor-phase-space arrays
-np.save(output_path + "/mortality/" + core_id, mortality)
-np.save(output_path + "/max_distance_km/" + core_id, max_distances)
-np.save(output_path + "/run_time/" + core_id, run_times)
-np.save(output_path + "/percolation/" + core_id, percolation_pr)
+    # save results as tensor-phase-space arrays
+    np.save(output_path + "/mortality/" + core_id, mortality)
+    np.save(output_path + "/max_distance_km/" + core_id, max_distances)
+    np.save(output_path + "/run_time/" + core_id, run_times)
+    np.save(output_path + "/percolation/" + core_id, percolation_pr)
+
 tf = time.clock() - t0
 tf = np.float64(tf / 60)
 print('End time: ', datetime.datetime.now(), ' |  sim : ', str(job_id))
