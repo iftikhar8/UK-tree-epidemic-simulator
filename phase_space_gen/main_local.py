@@ -24,13 +24,15 @@ import job_script, subgrid_SSTLM
 
 in_arr = sys.argv
 job_id, date, time, domain_type, name = in_arr[1:]
+print("Running {} simulation".format(name))
 output_path = os.getcwd() + '/output_data/' + domain_type + '/' + date + name + '/'
 settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "job_id": job_id,
             "plt_tseries": False, "save_figs": False, "dyn_plots": [False, 1, True], "anim": False,
             "BCD3": False, "individual": False, "verbose": False}
 
-params = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "real_disp": 0.15}
-individual = True
+params = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6]}
+individual = False
+
 
 if individual:
     settings["dyn_plots"] = [True, 1, True]
@@ -69,47 +71,38 @@ if individual:
 
 
 if not individual:
-    repeats = 20
+    repeats = 10
     name = '-test'
-    params["rho"] = 0.10
-    params["beta"] = 0.60
-    params["L"] = 200
+    L = 200
+    alpha = 5  # lattice constant in (m)
+    beta = 5  # R0 cases per day
+    rho = 0.05 # Tree density at t=0
+    sigma = 25  # dispersal distance in (m)
+    eff_dispersal = sigma/alpha  # dispersal in computer units
+    params["L"] = L
+    params["rho"] = rho
+    params["beta"] = beta
+    params["alpha"] = alpha
+    params["area"] = L * alpha
+    params["eff_disp"] = eff_dispersal
     label = 'L-' + str(params["L"]) + 'en_sz-' + str(repeats) + name
+    time_series_results = np.zeros(shape=(repeats, 1000))
     """
-        Simulate ensemble and save results for analysis:
+        SimuL-200en_sz-10-test-max-distance.npylate ensemble and save results for analysis:
         This code is designed to be changed, use this to generate single lines of how model behaves
     """
     job_arr = job_script.main(settings, params)
-    domain, core_id, rhos, betas, alphas, eff_dispersals, dim_ = job_arr
-    max_d_Arr = np.zeros(shape=[repeats, len(alphas)])
-    run_time_Arr = np.zeros(shape=[repeats, len(alphas)])
-    mortality_Arr = np.zeros(shape=[repeats, len(alphas)])
-    percolation_Arr = np.zeros(shape=[repeats, len(alphas)])
-    print("Running: ensemble simulation")
+    domain, core_id = job_arr[:2]
+    print("Running: ENSEMBLE simulation")
     for i in range(repeats):
+        Results = subgrid_SSTLM.main(settings, params, domain)
+        mortality, max_d, run_time, percolation, dist_tseries = Results
+        time_series_results[i, 0:run_time-1] = dist_tseries
         print('repeat: ', i)
-        max_d_arr = np.zeros(alphas.shape)
-        run_time_arr = np.zeros(alphas.shape)
-        mortality_arr = np.zeros(alphas.shape)
-        percolation_arr = np.zeros(alphas.shape)
-        c = 0
-        for disp_alpha in zip(alphas, eff_dispersals):
-            params["alpha"] = disp_alpha[0]
-            params["eff_disp"] = disp_alpha[1]
-            Results = subgrid_SSTLM.main(settings, params, domain)
-            mortality, max_d, run_time, percolation = Results
-            max_d_arr[c] = max_d
-            run_time_arr[c] = run_time
-            mortality_arr[c] = mortality
-            percolation_arr[c] = percolation
-            c += 1
-        max_d_Arr[i] = max_d_arr
-        run_time_Arr[i] = run_time_arr
-        mortality_Arr[i] = mortality_arr
-        percolation_Arr[i] = percolation_arr
+        print('--Rt = ', run_time)
 
-    np.save(label + '-max_d', max_d_Arr)
-    np.save(label + '-run_t', run_time_Arr)
+    np.save(label + '-max-distance', time_series_results)
+
 
 
 

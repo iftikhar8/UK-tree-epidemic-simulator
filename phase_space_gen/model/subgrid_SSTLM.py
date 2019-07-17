@@ -71,7 +71,7 @@ class SimInit(object):
         """
         from scipy.ndimage import gaussian_filter
         # GET All infected cells as 1's
-        # -- infected field increases in time so have to reduce to a 1
+        # -- infected field increases in time so have to reduce to a value of 1
         p_infected = np.array(p_infected > 0).astype(float)
         infected_ind = np.where(p_infected == 1)
         num_infected = len(infected_ind[0])
@@ -79,30 +79,57 @@ class SimInit(object):
         # -- n infected trees : therefore n slices through xy plane
         # -- each slice (z axis) is the probability field of a single tree
         potential_infected = np.zeros(shape=(num_infected, self.dim[0], self.dim[1]))
-        array_id = np.empty(shape=num_infected)
+        # array_id = np.empty(shape=num_infected) # <-- DEL ME
         for i in range(num_infected):
             # scales with the the size of O(#infected) = N
-            array_id[i] = str(i)
+            # array_id[i] = str(i) # <-- DEL ME
             potential_infected[i, infected_ind[0][i], infected_ind[1][i]] = 1
 
-        # APPLY gaussian filter to field tensor in x,y axis
-        if 0:
-            blurred_field = self.pre_factor * gaussian_filter(potential_infected, sigma=[0, self.eff_disp, self.eff_disp],
-                                                              truncate=3.0)
-        if 1:
-            blurred_field = 1 * gaussian_filter(potential_infected, sigma=[0, self.eff_disp, self.eff_disp],
-                                                              truncate=3.0)
+        # APPLY gaussian filter to field tensor in x,y axis [Pre-factor = 1 i.e. is normalized]
+        blurred_field = 1 * gaussian_filter(potential_infected, sigma=[0, self.eff_disp, self.eff_disp], truncate=3.0)
         blurred_field = self.beta * blurred_field
-        rand_field = np.random.uniform(0, 1, size=(num_infected, self.dim[0], self.dim[1]))
-        new_infected = np.array(blurred_field > rand_field).astype(int)
-        overlap = np.sum(new_infected, axis=0)  # this is the summation of each individual dispersal event\try
-        return np.array(overlap >= 1).astype(int) * susceptible
+
+        if 1:  # second (new) method
+            pr_S_I = np.ones(blurred_field.shape) - blurred_field  # shape = [i,j, k] pr of S --> S transition
+            pr_out = np.ones(pr_S_I[0].shape)   # shape = [k, j] pr in two 2D of S --> I
+            for individual_kernel in pr_S_I:    # work out the probability of ALL combinations os S --> S
+                pr_out = pr_out * individual_kernel
+            pr_out = np.ones(pr_out.shape) - pr_out  # work out the probability of S --> I ie 1 - pr(S --> S)
+            rand_field = np.random.uniform(0, 1, size=(pr_out.shape))  # from individual rules calculate new infected
+            new_infected = np.array(pr_out > rand_field).astype(int) * susceptible
+            new_infected[np.where(new_infected > 0)] = 1
+
+        if 0:  # first method
+            rand_field = np.random.uniform(0, 1, size=(num_infected, self.dim[0], self.dim[1]))
+            new_infected = np.array(blurred_field > rand_field).astype(int)
+            overlap = np.sum(new_infected, axis=0)  # this is the summation of each individual dispersal event\try
+            new_infected = np.array(overlap >= 1).astype(int) * susceptible
+
+        return new_infected
 
 
 class Plots(object):
     def __init__(self, beta, rho):
         self.beta = beta
         self.rho = rho
+
+    def save_settings(self, parameters, settings, output_path):
+        """
+        write simulation details to file
+        :param parameters: parameters used by physical model
+        :param settings: simulation setup and running options (different from physical values.)
+        :param output_path: save txt location
+        :return:
+        """
+        with open(os.path.join(output_path, "parameter_and_settings_info.txt"), "w+") as info_file:
+            info_file.write("______Parameter settings_______" + "\n")
+            for parameter in parameters:
+                info_file.write(parameter + ':' + str(parameters[parameter]) + '\n')
+
+            info_file.write("\n" + "______Simulation parameters_______" + "\n")
+            for setting in settings:
+                info_file.write(setting + ':' + str(settings[setting]) + '\n')
+        return
 
     def save_label(self, step):
         """
@@ -181,32 +208,31 @@ def main(settings, parameters, domain):
             p.percolation = 1
 
         if dyn_plots[0]:  # IF TRUE, generate simulation data progression from T=0 at set intervals
-            name = '_b_' + str(parameters["beta"]) + "_r_" + str(parameters["rho"])
             if time_step % dyn_plots[1] == 0:
                 T = plts.save_label(step=time_step)
-                np.save(os.getcwd() + '/animations_data/raw_data/' + T, np.array([p.susceptible, p.infected,
-                                                                                   p.removed]))
+                save_path = os.getcwd() + '/animations_data/raw_data/'
+                np.save(save_path + T, np.array([p.susceptible, p.infected, p.removed]))
             # GET metric time-series data
+        time_step += 1
 
-
-        time_step += 1  # -- advance time by one step
-        # ITERATION COMPLETE
-
-    # ________________End Algorithm________________ #
+        # __________ITERATION COMPLETE_________ #
+    # ________________END ALGORITHM________________ #
     ts_max_d = ts_max_d * p.alpha  # multiply by lattice constant to get a distance in km
     ts_mean_d = ts_mean_d * p.alpha
     max_mean_distance = ts_mean_d.max()  # maximum recorded value of mean distance metric
     max_distance_reached = ts_max_d.max()  # maximum distance reached by the pathogen
+    ts_mean_d = ts_mean_d[:time_step - 1]
+    ts_max_d = ts_max_d[:time_step - 1]
+    print(ts_max_d.shape, ' 1 len')
     if settings["plt_tseries"]:  # GENERATE time series output plots
         saves = True
         print('Step: ', str(time_step), '  max d = ', max_distance_reached, ' km')
-        plots = Plots(p.beta, p.rho)
-        ts_mean_d = ts_mean_d[:time_step-1]
-        ts_max_d = ts_max_d[:time_step-1]
+        plot_cls = Plots(p.beta, p.rho)
+        plot_cls.save_settings(parameters, settings, save_path)
         label = {'title': "max d distance", 'xlabel': 'days', 'ylabel': 'distance (km)'}
-        plots.plot_tseries(metric=ts_max_d, parameters=parameters, labels=label)
+        plot_cls.plot_tseries(metric=ts_max_d, labels=label)
         label = {'title': "max d velocity", 'xlabel': 'days', 'ylabel': 'distance (km/day)'}
-        plots.plot_tseries(metric=np.gradient(ts_mean_d), parameters=parameters, labels=label)
+        plot_cls.plot_tseries(metric=np.gradient(ts_mean_d), labels=label)
         if saves:
             name = 'b_' + str(parameters["beta"]).replace('.', '-') + '_r_' + str(parameters["rho"]).replace('.', '-') + \
                    '_L_' + str(parameters["eff_disp"]).replace('.', '-')
@@ -216,7 +242,7 @@ def main(settings, parameters, domain):
     # number of tree deaths in 1km / 2
     # (divide by 4 to normalise the 2kmx2km grid proxy)
     num_removed = len(np.where(p.removed == 1)[0])
-    return num_removed, max_distance_reached, time_step, p.percolation
+    return num_removed, max_distance_reached, time_step, p.percolation, ts_max_d
 
 if __name__ == "__main__":
     main(param)

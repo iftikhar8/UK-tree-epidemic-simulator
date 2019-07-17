@@ -24,10 +24,12 @@ R0_arr = np.zeros(t_horizon)
 R0_en_arr = np.zeros(shape=(ensemble, t_horizon))
 epi = int(L/2)
 
+print("rho = {}, beta = {}, ell = {}, L = {}".format(rho, beta, sigma, L))
 # Repeat over an ensemble [i, j] : i) # repeats, j) # steps in simulation=20
 for repeat in range(ensemble):
-    if repeat % 1 == 0:
+    if repeat % 10 == 0:
         print('-rpt-: ', repeat+1, ' / ', ensemble)
+
     susceptible = np.where(np.random.uniform(0, 1, size=(L, L)) < rho, 1, 0)
     infected = np.zeros(susceptible.shape)
     infected[epi, epi], susceptible[epi, epi] = 1, 0

@@ -44,17 +44,19 @@ def main(settings, params):
         output_path = settings["out_path"]
         save_meta_data(settings, params, output_path)
     if "LOCAL/" in settings["out_path"].split('-'):   # LOCAL mode for individual and line sims
-        print('local')
-        rhos = np.array([0.05])  # - tree density in [0.001, 0.100]
-        betas = np.array([15.0])
+        rhos = None
+        betas = None
+        eff_disp = None
+        alpha = None
+        dim_ = None
+
     if "HPC/" in settings["out_path"].split('-'):     # HPC mode of bigger phase-diagram sims
         rhos = np.arange(0.001, 0.101, 0.001)
         betas = np.arange(0.5, 50.5, 0.5)
+        alpha = 0.005  # lattice constant
+        eff_disp = np.array([0.050, 0.100, 0.150, 0.200, 0.250, 0.300]) / alpha # - effective dispersal distance
+        dim_ = np.array([len(eff_disp), len(betas), len(rhos)])
 
-    alpha = 0.005  # - lattice constants
-    eff_disp = np.array([0.050, 0.100, 0.150, 0.200, 0.250, 0.300])/alpha  # - effective dispersal distance
-    dim_ = np.array([len(eff_disp), len(betas), len(rhos)])
-    # dim_ = np.delete(dim_, np.where(dim_ == 1))
     arr_sz = params["L"]
     domain = np.random.uniform(0, 1, size=(arr_sz, arr_sz))
     core_id = save_label(int(settings["job_id"]))

@@ -34,22 +34,16 @@ def t_step(infected, susceptible, sigma, beta, test_cell):
         array_id[i] = str(i)
         pot_infect_field[i, infected_index[0][i], infected_index[1][i]] = 1
 
-    norm = False  # If true have normalised metric
-    if norm:
-        pre_factor = (np.sqrt(2 * np.pi) * sigma) ** 2
-    elif not norm:
-        pre_factor = 1
-
     # APPLY gaussian filter to field tensor in x,y axis
-    blurred_field = pre_factor * gaussian_filter(pot_infect_field, sigma=[0, sigma, sigma], truncate=3.0)
+    blurred_field = gaussian_filter(pot_infect_field, sigma=[0, sigma, sigma], truncate=3.0)
     blurred_field = blurred_field * beta
-
     alt = True
     if alt:  # Calculate transition probabilities via Pr(S-->I) = 1 - RP{1 - P_ij}
         Pr_S_I = np.ones(blurred_field.shape) - blurred_field
         Pr_out = np.ones(Pr_S_I[0].shape)
         for slice in Pr_S_I:
             Pr_out = Pr_out * slice
+
         Pr_out = np.ones(Pr_out.shape) - Pr_out
         rand_field = np.random.uniform(0, 1, size=(Pr_out.shape))
         new_infected = np.array(Pr_out > rand_field).astype(int) * susceptible

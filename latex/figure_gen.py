@@ -5,6 +5,11 @@ from mpl_toolkits.axes_grid1.inset_locator import mark_inset
 import numpy as np
 import os, sys
 
+
+"""
+This script plots and saves all the figures used in the tex file. Simply call the associated function.
+"""
+
 def en_combine(sim_names, out_name):
     """
     This code simply combines multiple three dimensional tensors
@@ -451,6 +456,49 @@ def R0_phase():
     return
 
 
+def time_series_metric():
+    "Plot metric evolution in time"
+    path = os.getcwd() + '/latex/latex_data/time-series-data/'
+    name = 'L-200en_sz-10-test-max-distance.npy'
+    data = np.load(path+name)
+    fig, ax = plt.subplots(figsize=(15, 6), ncols=2, nrows=1)
+    # Axis 0
+    ax[0].set_title(r'Maximum distance curve: $\rho = 0.05,\ \beta = 5,\ \ell=25m$')
+    ax[0].set_xlabel('Time (days)')
+    ax[0].set_ylabel('Distance (m)')
+    color = ['purple', 'red', 'yellow', 'green', 'blue']
+    ax[0].grid(alpha=0.50)
+    #  Axis 1
+    ax[1].set_title(r'Time series velocity curve: $\rho = 0.05,\ \beta = 5,\ \ell=25m$')
+    ax[1].set_xlabel('Time (days)')
+    ax[1].set_ylabel('velocity (m/day)')
+    color = ['purple', 'red', 'yellow', 'green', 'blue']
+    ax[1].grid(alpha=0.50)
+
+    for i, t_series in enumerate(data[::2]):
+        index = np.where(np.gradient(t_series) < 0)[0][0]
+        label1 = r'$d = {} (m),\ t_f = {} (day),\ v = {} m/day$'.format(index, int(t_series[index]),
+                                                                        round(t_series[index]/index))
+        ax[0].plot(t_series[:index], color=color[i], alpha=0.4, label=label1)
+        index = index - 1
+        ax[0].plot([index, index], [0, t_series[index]], color=color[i], alpha=0.3, ls='--')
+        ax[0].plot([0, index], [t_series[index], t_series[index]], color=color[i], alpha=0.3, ls='--')
+
+        av_V = np.gradient(t_series[:index]).mean()
+        label2 = r'$v_{} = {}$'.format('{av}', round(av_V))
+
+        ax[1].plot(np.gradient(t_series[:index]), color=color[i], alpha=0.25)
+        ax[1].scatter(range(index), np.gradient(t_series[:index]), color=color[i], alpha=0.4)
+        ax[1].plot([0, index], [av_V, av_V], label=label2, color=color[i], alpha=0.50)
+
+
+    ax[0].legend()
+    ax[1].legend()
+    plt.savefig('metric_capture')
+    plt.show()
+    return
+
+
 def R0_line():
     """
     Plot single lines showng ell vs R0 can compare different beta values
@@ -481,26 +529,35 @@ def R0_line():
 
 
 def R0_multi_steps():
-    names = ['COMBINED-r-010-b-10-L-5_R0_en.npy']
-    # en_combine(names[1:], out_name='r-010-b-10-L-5_R0_en-combinted')
-    disp = ['50m']
+    """
+    1. This plots R0 over a set number of time-steps showing R0(t)
+    2. Also the offspring distribution Pr(R0_tot)
+    """
+    dir_names = ['en_1']
+    label = [r'$\rho = 0.10,\ \beta = 10,\ \ell = 50m$']
+    colors = ['b']
     path = os.getcwd() + '/latex/latex_data/R0_data/multi_steps/'
-    for i, data_name in enumerate(names):
-        data = np.load(path + data_name)
-        xrange = range(1, data.shape[1]+1)
-        data_av = np.sum(data, axis=0) /data.shape[0]
-        plt.title(r'$\ell = $' + disp[i])
-        plt.scatter(xrange, data_av)
-        plt.plot(xrange, data_av)
-        plt.show()
 
-        R0_dist = np.zeros(data.shape[0])
-        for j, sim in enumerate(data):
-            R0_dist[j] = np.sum(sim)
+    en_all = np.zeros(20)
+    fig, ax = plt.subplots()
+    for i, dir in enumerate(dir_names):
+        en_list = os.listdir(path + dir)
+        for file in sorted(en_list):
+            en_100 = np.load(path + dir + '/' + file)
+            av = en_100.sum(axis=0)/100
+            en_all = en_all + av
 
-        plt.hist(R0_dist, bins=10)
-        plt.show()
+        en_out = en_all/100
+        time = np.arange(0, 20, 1)
+        ax.plot(time, en_out, color=colors[i], label=label[i])
+
+    ax.grid(alpha=0.5)
+    ax.set_xlabel('Time (days)')
+    ax.set_ylabel(r'$average(R0)$ ($day^{-1}$)')
+    ax.set_title(r'R0 for one tree over time : $N=10^4$')
+    plt.legend()
+    plt.show()
+
 
 
 R0_multi_steps()
-

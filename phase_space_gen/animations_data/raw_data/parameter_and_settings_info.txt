@@ -1,0 +1,23 @@
+______Parameter settings_______
+l_time:100
+time_horizon:3650
+t_init:[5, 6]
+real_disp:0.15
+L:200
+alpha:0.005
+rho:0.05
+beta:5
+eff_disp:10.0
+
+______Simulation parameters_______
+out_path:/Users/py13jh/PycharmProjects/hpc-subgrid-model/phase_space_gen/output_data/lattice/17-07-2019-LOCAL/
+domain_type:lattice
+date:17-07-2019
+job_id:25
+plt_tseries:True
+save_figs:False
+dyn_plots:[True, 1, True]
+anim:True
+BCD3:False
+individual:True
+verbose:True
