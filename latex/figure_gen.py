@@ -5,6 +5,24 @@ from mpl_toolkits.axes_grid1.inset_locator import mark_inset
 import numpy as np
 import os, sys
 
+def en_combine(sim_names, out_name):
+    """
+    This code simply combines multiple three dimensional tensors
+    :param sim_names: tuple of names. These are the different ensemble results to be combined into one array
+    :return: none, however, write to disk outputs
+    """
+    path = os.getcwd() + "/latex/latex_data/R0_data/multi_steps/"
+    dim = np.load(path+sim_names[0]+'.npy').shape
+    dat = np.zeros(dim)
+    print(np.load(path+sim_names[0]+'.npy').shape)
+    i = 0
+    for name in sim_names[1:]:
+        en = np.load(path+name+'.npy')
+        en_Av = en.sum(axis=0)/en.shape[0]
+        dat = dat + en_Av
+
+    dat = dat/(i+1)
+    np.save('COMBINED-'+out_name, dat)
 
 def uk_vel_diff_map():
     """
@@ -334,9 +352,9 @@ def phase_space_gen():
     of rho and beta. We can plot multiple metrics over different dimensions. The default setup is
     100 values of beta and 100 values of rho with 5 values of dispersal distance.
     """
-    metric = 'perc-vel'
-    name = 'ps-b-100-r-100-L-6-vel.npy'
-    ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-figs/' + name)
+    metric = 'vel'
+    name = 'COMBINED-ps-b-100-r-100-L-6.npy'
+    ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-animations_data/' + name)
     if metric == 'vel':
         label = r'$km\ yr^{-1}$'
     if metric == "perc":
@@ -351,14 +369,14 @@ def phase_space_gen():
     max = np.max(ps_tensor)
     fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(8.0, 7.5))
     coords = [(0, 0), (0, 1), (1, 0), (1, 1)]
-    extent = [0, .10, 0, 1.0]
+    extent = [0, .10, 0, 50]
     xy_axis = np.linspace(0, 0.1, 6)
-    kernels = ['50m', '100m', '150m', '200m']
+    kernels = ['50m', '100m', '150m', '200m', '300m']
     for i in range(4):
-        data = ps_tensor[i+1]
+        data = ps_tensor[i]
         ax[coords[i][0], coords[i][1]].set_title(r'$\ell = $' + kernels[i])
-        im = ax[coords[i][0], coords[i][1]].contourf(data, clim=[0, max], origin='lower', cmap=plt.get_cmap('inferno'),
-                                                     xtent=extent)
+        im = ax[coords[i][0], coords[i][1]].contourf(data, clim=[0, max], origin='lower',
+                                                     extent=extent)
         cbar = plt.colorbar(im, ax=ax[coords[i][0], coords[i][1]])
         ax[coords[i][0], coords[i][1]].set_aspect('auto')
 
@@ -462,4 +480,27 @@ def R0_line():
     plt.show()
 
 
-phase_space_gen()
+def R0_multi_steps():
+    names = ['COMBINED-r-010-b-10-L-5_R0_en.npy']
+    # en_combine(names[1:], out_name='r-010-b-10-L-5_R0_en-combinted')
+    disp = ['50m']
+    path = os.getcwd() + '/latex/latex_data/R0_data/multi_steps/'
+    for i, data_name in enumerate(names):
+        data = np.load(path + data_name)
+        xrange = range(1, data.shape[1]+1)
+        data_av = np.sum(data, axis=0) /data.shape[0]
+        plt.title(r'$\ell = $' + disp[i])
+        plt.scatter(xrange, data_av)
+        plt.plot(xrange, data_av)
+        plt.show()
+
+        R0_dist = np.zeros(data.shape[0])
+        for j, sim in enumerate(data):
+            R0_dist[j] = np.sum(sim)
+
+        plt.hist(R0_dist, bins=10)
+        plt.show()
+
+
+R0_multi_steps()
+

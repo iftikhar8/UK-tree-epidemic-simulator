@@ -104,8 +104,23 @@ class Plots(object):
         self.beta = beta
         self.rho = rho
 
-    def plot_tseries(self, metric, parameters, labels):
-        rho_str, beta_str = str(parameters["rho"]), str(parameters["beta"])
+    def save_label(self, step):
+        """
+        Use this to save under in %4d format - to be used in animate.sh
+        :param step: current time-step of the simulation
+        :return:
+        """
+        if step < 10:
+            return '000' + str(step)
+        elif step < 100:
+            return '00' + str(step)
+        elif step < 1000:
+            return '0' + str(step)
+        elif step == 1000:
+            return str(step)
+
+    def plot_tseries(self, metric, labels):
+        rho_str, beta_str = str(self.rho), str(self.beta)
         import matplotlib.pyplot as plt
         fig, ax = plt.subplots()
         x = np.arange(0, len(metric), 1)
@@ -116,59 +131,6 @@ class Plots(object):
         ax.set_title(labels["title"])
         plt.show()
         return
-
-    def plot_frame(self, S, I, R, T, saves, name, dim):
-        import matplotlib.pyplot as plt
-        import matplotlib.colors as colors
-        # DEFINE basic three color map for S I R
-        # grey: (.5, .5, .5, .25)
-        cmap = colors.ListedColormap(['white', (.5, .5, .5, .25), 'red', 'blue'])
-        bounds = [0, 1, 2, 3, 4]
-        norm = colors.BoundaryNorm(bounds, cmap.N, clip=True)
-        # All Removed cells = 3
-        R = R * 3
-        # All Infected cells = 2
-        I = 2 * np.array(I > 0).astype(int)
-        # All Susceptible cells = 1
-        # All empty cells = 0
-        fig, ax = plt.subplots()
-        im = ax.imshow(S + I + R, cmap=cmap, norm=norm)
-        cax = plt.colorbar(im)
-        cax.set_ticks([0, 1, 2, 3])
-        cax.set_ticklabels([r'$\emptyset$', 'S (tree)', 'I (infected)', 'R (dead)'])
-        ax.set_title(str(T) + ' (days)')
-        ax.set_xticks(range(0, dim[0], 20))
-        ax.set_yticks(range(0, dim[1], 20))
-        ax.grid(True)
-        ax.set_xticklabels([])
-        ax.set_yticklabels([])
-
-        if 0:
-            # Save frames 10 and 15 to plot representation of SSTLM in tex file
-            if T == 10:
-                np.save('I_time_10', I)
-                np.save('S_time_10,', S)
-                np.save('R_time_10', R)
-                print('saved 10')
-            if T == 15:
-                np.save('I_time_15', I)
-                np.save('S_time_15', S)
-                np.save('R_time_15', R)
-                print('saved 15')
-        if saves:
-            if T < 10:
-                T = '000' + str(T)
-            elif 100 > T >= 10:
-                T = '00' + str(T)
-            elif 1000 > T >= 100:
-                T = '0' + str(T)
-            elif T >= 1000:
-                T = str(T)
-
-            plt.savefig(os.getcwd() + '/figs/temp_frames/' + T)
-            plt.close()
-        return
-
 
 def main(settings, parameters, domain):
     """
@@ -183,6 +145,7 @@ def main(settings, parameters, domain):
     """
     np.random.seed()
     p = SimInit(parameters, domain)  # p : hold all parameters
+    plts = Plots(p.rho, p.beta)
     ts_mean_d, ts_max_d = [p.mean_d, p.max_d]  # arrays used to record time-series
     in_progress, time_step = [True, 0]
     verbose = settings["verbose"]  # control output print-to-screens
@@ -220,8 +183,9 @@ def main(settings, parameters, domain):
         if dyn_plots[0]:  # IF TRUE, generate simulation data progression from T=0 at set intervals
             name = '_b_' + str(parameters["beta"]) + "_r_" + str(parameters["rho"])
             if time_step % dyn_plots[1] == 0:
-                Plots.plot_frame(None, S=p.susceptible, I=p.infected, R=p.removed, T=time_step, saves=dyn_plots[2],
-                                 name=name, dim=p.dim)
+                T = plts.save_label(step=time_step)
+                np.save(os.getcwd() + '/animations_data/raw_data/' + T, np.array([p.susceptible, p.infected,
+                                                                                   p.removed]))
             # GET metric time-series data
 
 

@@ -46,8 +46,8 @@ if individual:
     alpha = float(input('Enter lattice constant in (m): ')) * 0.001
     params["L"] = lattice_dim
     params["alpha"] = alpha
-    params["rho"] = .1
-    params['beta'] = 10./alpha
+    params["rho"] = .050
+    params['beta'] = 5
     params["time_horizon"] = 3650  # SET to 10 years
     area = lattice_dim * alpha  # modelled area the domain covers km^2
     eff_dispersal = real_dispersal / alpha  # convert the dispersal distance from km to computer units

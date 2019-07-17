@@ -9,6 +9,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+def en_combine(sim_names):
+    """
+    This code simply combines multiple three dimensional tensors
+    :param sim_names: tuple of names. These are the different ensemble results to be combined into one array
+    :return: none, however, write to disk outputs
+    """
+    dim = np.load(os.getcwd()+sim_names[0]).shape
+    dat = np.zeros(dim)
+    print(np.load(os.getcwd()+sim_names[0]).shape)
+    i = 0
+    for name in sim_names[1:]:
+        dat = dat + np.load(os.getcwd()+name)
+    dat = dat/(i+1)
+    save_name = "ps-b-" + str(dim[1]) + "-r-" + str(dim[2]) + "-L-" + str(dim[0])
+    np.save('COMBINED-'+save_name, dat)
+
+
 def tensor_phase_plot(data_arr, label):
     # load in specific array
     extent = [0, 0.1, 1, 50]
@@ -62,6 +79,7 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
         # FIND sum of all data files
         dat_load = np.load(path + '/' + sim_i)
         tensor_phase_space = tensor_phase_space + dat_load
+    print('Len: ', len(os.listdir(path)))
 
     # FIND average
     tensor_phase_space = tensor_phase_space / (i+1)
@@ -102,16 +120,18 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
-sim_names = {0: '/lattice/07-07-2019-HPC'}
+sim_names = {0: '/lattice/07-07-2019-HPC',
+             1: '/lattice/09-07-2019-HPC'}
 
 # 3. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
+"phase_space_gen/output_data/lattice/09-07-2019-HPC/max_distance_km"
 
-if 1:
+if 0:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_number = 0      # enter the simulate name index
+    sim_number = 1      # enter the simulate name index
     distance = 1        # load and compute distance plots
     runtime = 1         # load and compute runtime plots
     mortality = 0       # load and compute mortality plots
@@ -141,8 +161,14 @@ if 1:
     if velocity:
         # GET velocity data
         tensor_velocity = tensor_distance / tensor_runtime
-        np.save(save_name + '-vel', tensor_velocity * 365)
+        if save_name + '-vel.npy' in os.listdir(os.getcwd()):
+            print('Warning: file {} alreay in directory'.format(save_name))
+            save_name = save_name + '-vel-V2'
+        else:
+            save_name = save_name + '-vel'
+        np.save(save_name, tensor_velocity * 365)
         tensor_phase_plot(data_arr=tensor_velocity * 365, label='vel km/yr')
+
 
     if percolation:
         # GET percolation data
@@ -157,4 +183,5 @@ if 1:
             tensor_phase_plot(data_arr=tensor_perc_vel, label='perc * vel km/yr')
             np.save(save_name + '-perc-vel', tensor_perc_vel)
 
-
+if 0:
+    en_combine(('/ps-b-100-r-100-L-6-vel.npy', '/ps-b-100-r-100-L-6-vel-V2.npy'))

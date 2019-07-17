@@ -1,0 +1,1 @@
+This directory contains code for studying the SSTLM algorithm step by step. In particular we can calcutate the basic repoduction number of an infectious lattice site. And test the probability of transition against the mathematical model.
