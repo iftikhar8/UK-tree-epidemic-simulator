@@ -533,7 +533,7 @@ def R0_multi_steps():
     1. This plots R0 over a set number of time-steps showing R0(t)
     2. Also the offspring distribution Pr(R0_tot)
     """
-    dir_names = ['en_1']
+    dir_names = ['en_1', 'L_200_en_2']
     label = [r'$\rho = 0.10,\ \beta = 10,\ \ell = 50m$']
     colors = ['b']
     path = os.getcwd() + '/latex/latex_data/R0_data/multi_steps/'

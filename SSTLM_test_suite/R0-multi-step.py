@@ -12,11 +12,11 @@ This is useful to get:
 in_ = sys.argv[1:]
 job_id, date, time, name = in_
 
-L = 100  # lattice size
-rho = np.array([0.10])  # tree density
-beta = np.array([10])
+L = 200  # lattice size
+rho = np.array([0.05])  # tree density
+beta = np.array([5])
 alpha = 0.005  # lattice constant in km
-real_dispersal = 0.050  # target dispersal in km
+real_dispersal = 0.025  # target dispersal in km
 sigma = real_dispersal / alpha  # effective dispersal in km
 t_horizon = 20
 ensemble = 100
