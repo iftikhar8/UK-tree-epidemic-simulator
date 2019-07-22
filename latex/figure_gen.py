@@ -62,9 +62,6 @@ def uk_vel_diff_map():
     plt.show()
 
 
-uk_vel_diff_map()
-
-
 def subgird():
     """
     Plot figures of sub-grid model in time, I: infected field, S: susceptible field
@@ -541,7 +538,7 @@ def R0_multi_steps():
     1. This plots R0 over a set number of time-steps showing R0(t)
     2. Also the offspring distribution Pr(R0_tot)
     """
-    dir_names = ['en_1', 'L_200_en_2']
+    dir_names = ['en_2_22-07-19']
 
     colors = ['black', 'red']
     path = os.getcwd() + '/latex/latex_data/R0_data/multi_steps/'
@@ -584,4 +581,6 @@ def R0_multi_steps():
 
     plt.savefig('off_spring_dist')
     plt.show()
+
+R0_multi_steps()
 

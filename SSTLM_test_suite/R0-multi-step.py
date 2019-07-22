@@ -11,8 +11,6 @@ This is useful to get:
 """
 in_ = sys.argv[1:]
 job_id, date, time, name = in_
-
-
 L = 100     # lattice size
 R0 = 10     # number of initial secondary infected cells given rho = 1
 rho = np.array([0.10])      # tree density

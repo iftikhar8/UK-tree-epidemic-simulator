@@ -46,6 +46,7 @@ def get_new_infected(p_infected, susceptible, sigma, beta, targets):
         print('pr three infected = ', a)
         print('target pr ', b)
         sys.exit('exit')
+
     blurred_field = blurred_field * beta
     rand_field = np.random.uniform(0, 1, size=(num_infected, dim[0], dim[1]))
     new_infected = np.array(blurred_field > rand_field).astype(int)
