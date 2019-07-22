@@ -12,7 +12,7 @@ This is useful to get:
 in_ = sys.argv[1:]
 job_id, date, time, name = in_
 
-L = 200  # lattice size
+L = 100  # lattice size
 rho = np.array([0.05])  # tree density
 beta = np.array([5])
 alpha = 0.005  # lattice constant in km
