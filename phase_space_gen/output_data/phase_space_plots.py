@@ -121,7 +121,8 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
 sim_names = {0: '/lattice/07-07-2019-HPC',
-             1: '/lattice/09-07-2019-HPC'}
+             1: '/lattice/09-07-2019-HPC',
+             2: '/lattice/22-07-2019-HPC-'}
 
 # 3. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
@@ -131,30 +132,30 @@ if 1:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_number = 1      # enter the simulate name index
+    sim_name = 2      # enter the simulate name index
     distance = 1        # load and compute distance plots
     runtime = 1         # load and compute runtime plots
     mortality = 0       # load and compute mortality plots
     velocity = 1   # compute velocity and show
     percolation = 0             # load and compute percolation
-    phase_dim = [6, 100, 100]
+    phase_dim = [4, 5, 5]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
     if mortality:
         # GET distance travelled data
-        sim, metric = [sim_names[sim_number], metrics[2]]
+        sim, metric = [sim_names[sim_name], metrics[2]]
         path_2_sim = os.getcwd() + sim + metric
         tensor_mortality = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=0, save_Data=0)
         np.save(save_name + '-mortality', tensor_mortality)
 
     if distance:
         # GET distance travelled data
-        sim, metric = [sim_names[sim_number], metrics[0]]
+        sim, metric = [sim_names[sim_name], metrics[0]]
         path_2_sim = os.getcwd() + sim + metric
         tensor_distance = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=0, save_Data=0)
 
     if runtime:
         # GET runtime data
-        sim, metric = [sim_names[sim_number], metrics[1]]
+        sim, metric = [sim_names[sim_name], metrics[1]]
         path_2_sim = os.getcwd() + sim + metric
         tensor_runtime = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=0, save_Data=0)
 
@@ -172,7 +173,7 @@ if 1:
 
     if percolation:
         # GET percolation data
-        sim, metric = [sim_names[sim_number], metrics[3]]
+        sim, metric = [sim_names[sim_name], metrics[3]]
         path_2_sim = os.getcwd() + sim + metric
         # phase_dim : [sigma, beta, rho]
         tensor_perc = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0, save_Data=0)

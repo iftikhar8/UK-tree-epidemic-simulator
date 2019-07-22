@@ -43,7 +43,9 @@ HPC mode. Run this extract to generate phase space over 3D:
 
 import time
 job_arr = job_script.main(settings, parameters)
-domain, core_id, rhos, betas, alpha, eff_sigmas, dim_ = job_arr
+domain, core_id, rhos, beta_arr, alpha, eff_sigmas, dim_ = job_arr
+
+sys.exit()
 # dim_ [i: sigmas, j:betas, k:sigmas]
 parameters["alpha"] = alpha
 mortality = np.zeros(shape=dim_)
@@ -58,6 +60,7 @@ for i, eff_disp in enumerate(eff_sigmas):
     print('Eff sigma : ', i, ' / ', eff_sigmas.shape)
     print('Eff sigma = ', eff_disp)
     parameters["eff_disp"] = eff_disp
+    betas = beta_arr[i]  # select appropriate beta array
     for j, beta in enumerate(betas):
         # ITERATE infection rates
         parameters["beta"] = beta

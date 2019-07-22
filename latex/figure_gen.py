@@ -546,7 +546,7 @@ def R0_multi_steps():
     fig, ax = plt.subplots(ncols=2, figsize=(12, 5))
 
     label = [r'$\rho = 0.10,\ \beta = 10,\ \ell = 50m$',
-             r'$\rho = 0.05,\ \beta = 5,\ \ell = 25m$']
+             r'$\rho = 0.10,\ \beta = 20,\ \ell = 25m$']
 
     for i, dir in enumerate(dir_names):
         en_list = os.listdir(path + dir)
@@ -568,7 +568,6 @@ def R0_multi_steps():
         ax[0].set_xlabel('Time (days)')
         ax[0].set_ylabel(r'$average(R0)$ ($day^{-1}$)')
         ax[0].set_title(r'R0 for one tree over time : $N=10^4$')
-
         ax[0].legend()
         sns.distplot(R0_dist, bins=100, kde=True, hist=False, ax=ax[1], color=colors[i]);
         ax[1].grid(True)

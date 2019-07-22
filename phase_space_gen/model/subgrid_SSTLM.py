@@ -96,7 +96,6 @@ class SimInit(object):
         rand_field = np.random.uniform(0, 1, size=pr_out.shape)  # from individual rules calculate new infected
         new_infected = np.array(pr_out > rand_field).astype(int) * susceptible
         new_infected[np.where(new_infected > 0)] = 1
-
         return new_infected
 
 
@@ -211,11 +210,8 @@ def main(settings, parameters, domain):
     # ________________END ALGORITHM________________ #
     ts_max_d = ts_max_d * p.alpha  # multiply by lattice constant to get a distance in km
     ts_mean_d = ts_mean_d * p.alpha
-    max_mean_distance = ts_mean_d.max()  # maximum recorded value of mean distance metric
+    # max_mean_distance = ts_mean_d.max()  # maximum recorded value of mean distance metric
     max_distance_reached = ts_max_d.max()  # maximum distance reached by the pathogen
-    ts_mean_d = ts_mean_d[:time_step - 1]
-    ts_max_d = ts_max_d[:time_step - 1]
-    print(ts_max_d.shape, ' 1 len')
     if settings["plt_tseries"]:  # GENERATE time series output plots
         saves = True
         print('Step: ', str(time_step), '  max d = ', max_distance_reached, ' km')
@@ -234,7 +230,7 @@ def main(settings, parameters, domain):
     # number of tree deaths in 1km / 2
     # (divide by 4 to normalise the 2kmx2km grid proxy)
     num_removed = len(np.where(p.removed == 1)[0])
-    return num_removed, max_distance_reached, time_step, p.percolation, ts_max_d
+    return num_removed, max_distance_reached, time_step, p.percolation
 
 if __name__ == "__main__":
     main(param)
