@@ -39,7 +39,7 @@ class SimInit(object):
         self.time_f = parameters["time_horizon"]  # the time-epoch BCD, simulation stops if runtime exceeds this
         # self.beta_distribution = parameters['beta'] * np.ones(dim)   # array of beta/infectivity values
         self.survival_times = parameters['l_time'] + 1 * np.ones(dim)  # the survival time of each lattice point
-        self.pre_factor = (np.sqrt(2 * np.pi) * parameters["eff_disp"]) ** 2  # the dispersal normalisation constant
+        self.pre_factor = 2 * np.pi * (parameters["eff_disp"]**2)  # the dispersal normalisation constant
         # INIT distance matrix
         x, y = np.arange(0, dim[0]), np.arange(0, dim[1])
         x_arr, y_arr = np.meshgrid(x, y)
@@ -86,24 +86,16 @@ class SimInit(object):
             potential_infected[i, infected_ind[0][i], infected_ind[1][i]] = 1
 
         # APPLY gaussian filter to field tensor in x,y axis [Pre-factor = 1 i.e. is normalized]
-        blurred_field = 1 * gaussian_filter(potential_infected, sigma=[0, self.eff_disp, self.eff_disp], truncate=3.0)
+        blurred_field = self.pre_factor * gaussian_filter(potential_infected, sigma=[0, self.eff_disp, self.eff_disp], truncate=3.0)
         blurred_field = self.beta * blurred_field
-
-        if 1:  # second (new) method
-            pr_S_I = np.ones(blurred_field.shape) - blurred_field  # shape = [i,j, k] pr of S --> S transition
-            pr_out = np.ones(pr_S_I[0].shape)   # shape = [k, j] pr in two 2D of S --> I
-            for individual_kernel in pr_S_I:    # work out the probability of ALL combinations os S --> S
-                pr_out = pr_out * individual_kernel
-            pr_out = np.ones(pr_out.shape) - pr_out  # work out the probability of S --> I ie 1 - pr(S --> S)
-            rand_field = np.random.uniform(0, 1, size=(pr_out.shape))  # from individual rules calculate new infected
-            new_infected = np.array(pr_out > rand_field).astype(int) * susceptible
-            new_infected[np.where(new_infected > 0)] = 1
-
-        if 0:  # first method
-            rand_field = np.random.uniform(0, 1, size=(num_infected, self.dim[0], self.dim[1]))
-            new_infected = np.array(blurred_field > rand_field).astype(int)
-            overlap = np.sum(new_infected, axis=0)  # this is the summation of each individual dispersal event\try
-            new_infected = np.array(overlap >= 1).astype(int) * susceptible
+        pr_S_I = np.ones(blurred_field.shape) - blurred_field  # shape = [i,j, k] pr of S --> S transition
+        pr_out = np.ones(pr_S_I[0].shape)   # shape = [k, j] pr in two 2D of S --> I
+        for individual_kernel in pr_S_I:    # work out the probability of ALL combinations os S --> S
+            pr_out = pr_out * individual_kernel
+        pr_out = np.ones(pr_out.shape) - pr_out  # work out the probability of S --> I ie 1 - pr(S --> S)
+        rand_field = np.random.uniform(0, 1, size=pr_out.shape)  # from individual rules calculate new infected
+        new_infected = np.array(pr_out > rand_field).astype(int) * susceptible
+        new_infected[np.where(new_infected > 0)] = 1
 
         return new_infected
 

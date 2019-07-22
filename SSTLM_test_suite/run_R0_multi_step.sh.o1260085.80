@@ -1,0 +1,20 @@
+## Running job 1260085.80 on host dc1s1b3b.arc3.leeds.ac.uk
+##
+## Resources granted:
+##
+## h_vmem = 1G
+## h_rt   = 48:00:00
+## disk   = 1G
+
+rho = [ 0.1], beta = [ 0.01591549], ell = 10.0, L = 100
+-rpt-:  1  /  10
+-rpt-:  2  /  10
+-rpt-:  3  /  10
+-rpt-:  4  /  10
+-rpt-:  5  /  10
+-rpt-:  6  /  10
+-rpt-:  7  /  10
+-rpt-:  8  /  10
+-rpt-:  9  /  10
+-rpt-:  10  /  10
+Simulations Finished

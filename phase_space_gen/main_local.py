@@ -31,8 +31,7 @@ settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "
             "BCD3": False, "individual": False, "verbose": False}
 
 params = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6]}
-individual = False
-
+individual = True  # IF True: run for animations. If False: run for local-ensemble calculations
 
 if individual:
     settings["dyn_plots"] = [True, 1, True]
@@ -48,12 +47,15 @@ if individual:
     alpha = float(input('Enter lattice constant in (m): ')) * 0.001
     params["L"] = lattice_dim
     params["alpha"] = alpha
-    params["rho"] = .050
-    params['beta'] = 5
+    params["rho"] = .02
     params["time_horizon"] = 3650  # SET to 10 years
     area = lattice_dim * alpha  # modelled area the domain covers km^2
     eff_dispersal = real_dispersal / alpha  # convert the dispersal distance from km to computer units
     eff_dispersal = np.round(eff_dispersal, 5)
+    R0 = 5
+    beta = R0 / (2 * np.pi * eff_dispersal)
+    print(beta)
+    sys.exit()
     params["eff_disp"] = eff_dispersal
     job_arr = job_script.main(settings, params)
     domain = job_arr[0]  # select first element of job-gen only need the domain for individual runs
@@ -61,7 +63,7 @@ if individual:
     print('Area = ', area, 'km^2')
     print('effective disp', eff_dispersal)
     Results = subgrid_SSTLM.main(settings, params, domain)
-    mortality, max_d, run_time, percolation = Results
+    mortality, max_d, run_time, percolation = Results[:-1]
     print("Finished")
     print('Max distance reached = ', max_d, 'km')
     print('Run time = ', run_time, 'days')

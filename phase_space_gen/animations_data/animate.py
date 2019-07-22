@@ -41,9 +41,12 @@ for line in content:
 
 sigma = float(sigma) * float(alpha) * 1000  # calc
 area = str(float(L) * float(alpha))  # calculate physical area of domain
+if '.DS_Store' in files: # get rid of .DS_store file
+    files = files[1:]
 
 for i, frame in enumerate(files[:-1]):
     print('Step: ', i, ' file: ', frame)
+
     # make a color map of fixed colors
     cmap = colors.ListedColormap(['white', 'green'])
     bounds = [0, 1, 2]
