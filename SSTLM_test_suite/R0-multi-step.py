@@ -12,14 +12,17 @@ This is useful to get:
 in_ = sys.argv[1:]
 job_id, date, time, name = in_
 
-L = 200  # lattice size
-rho = np.array([0.05])  # tree density
-beta = np.array([5])
-alpha = 0.005  # lattice constant in km
-real_dispersal = 0.025  # target dispersal in km
-sigma = real_dispersal / alpha  # effective dispersal in km
-t_horizon = 20
-ensemble = 100
+L = 100     # lattice size
+R0 = 10     # number of initial secondary infected cells given rho = 1
+rho = np.array([0.10])      # tree density
+alpha = 0.005       # lattice constant in km
+real_dispersal = 0.050      # target dispersal in km
+sigma = real_dispersal / alpha      # effective dispersal in computer units
+beta_ = R0 / (2 * np.pi * sigma**2)
+beta = np.array([beta_])
+assert beta < 1     # check beta is still probability and physically possible
+t_horizon = 20      # number of time steps to check
+ensemble = 10
 R0_arr = np.zeros(t_horizon)
 R0_en_arr = np.zeros(shape=(ensemble, t_horizon))
 epi = int(L/2)
@@ -27,7 +30,7 @@ epi = int(L/2)
 print("rho = {}, beta = {}, ell = {}, L = {}".format(rho, beta, sigma, L))
 # Repeat over an ensemble [i, j] : i) # repeats, j) # steps in simulation=20
 for repeat in range(ensemble):
-    if repeat % 10 == 0:
+    if repeat % 1 == 0:
         print('-rpt-: ', repeat+1, ' / ', ensemble)
 
     susceptible = np.where(np.random.uniform(0, 1, size=(L, L)) < rho, 1, 0)
@@ -51,4 +54,8 @@ name = id + name + date
 path = os.getcwd() + '/out_data/'
 np.save(path+name, R0_en_arr)
 
+R0_average = R0_en_arr.sum(axis=0) / (repeat + 1)
+plt.plot(R0_average)
+plt.show()
 
+print(R0_en_arr.sum(axis=1))

@@ -13,9 +13,9 @@ def finite_difference_sim(dim, params, diffusion_map, d_diffusion_map, uk, saves
                 # growth_ij: growth component of PDE model
                 D = diffusion_map[i, j]
                 d_D = d_diffusion_map[i, j]
-                diff_ij = D * (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j]) * (1 - uk[i, j])
+                diff_ij = D * (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j])
                 advect_ij = np.square(d_D * (uk[i + 1, j] + uk[i, j + 1] - uk[i - 1, j] - uk[i, j - 1]))
-                growth_ij = 1.5 * uk[i, j] * (1 - uk[i, j])
+                growth_ij = 1 * uk[i, j] * (1 - uk[i, j])
                 # uk: resultant output: SUM {Growth + diffusion}
                 uk[i, j] = uk[i, j] + diff_ij + growth_ij + advect_ij
 

@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import seaborn as sns
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes
 from mpl_toolkits.axes_grid1.inset_locator import mark_inset
 import numpy as np
@@ -9,6 +10,7 @@ import os, sys
 """
 This script plots and saves all the figures used in the tex file. Simply call the associated function.
 """
+
 
 def en_combine(sim_names, out_name):
     """
@@ -29,24 +31,27 @@ def en_combine(sim_names, out_name):
     dat = dat/(i+1)
     np.save('COMBINED-'+out_name, dat)
 
+
 def uk_vel_diff_map():
     """
     Plot the pathogen velocity expected over different regions over the UK
     """
-    domain = np.load(os.getcwd() + '/phase_space_gen/input_domain/Qro-cg-1_ps.npy')
-    vel_map = np.load(os.getcwd() + '/forecasting_PDE/velocity_map_test.npy')
-    diff_map = np.load(os.getcwd() + '/forecasting_PDE/diffusion_map_test.npy')
-    vel_pase = np.load(os.getcwd() + '/forecasting_PDE/diffusion_mapping/vel_km_day_en_size-200.npy')
-    sea = np.where(np.isnan(domain))
-    vel_map[sea] = np.nan
+    domain = np.load(os.getcwd() + '/phase_space_gen/input_domain/Qro-cg-1.npy')
+    # vel_map = np.load(os.getcwd() + '/forecasting_PDE/velocity_map_test.npy')
+    # diff_map = np.load(os.getcwd() + '/forecasting_PDE/diffusion_map_test.npy')
+    # vel_pase = np.load(os.getcwd() + '/forecasting_PDE/diffusion_mapping/vel_km_day_en_size-200.npy')
+    # sea = np.where(np.isnan(domain))
+    # vel_map[sea] = np.nan
     fig, ax = plt.subplots(figsize=(10, 10))
     ax.set_xticks([])
     ax.set_yticks([])
-    im = ax.imshow(vel_map)
+    domain = domain * 0.01
+    domain[np.where(domain > 0.10)] = 0.10
+    im = ax.imshow(domain)
     cbar = plt.colorbar(im)
-    cbar.set_label(r'(km/day)')
+    cbar.set_label(r'Approximate density (%coverage)', size=15)
     axins = zoomed_inset_axes(ax, 20, loc=1)
-    axins.imshow(vel_map)
+    axins.imshow(domain)
     x1, x2, y1, y2 = 420, 430, 800, 810  # specify the limits
     axins.set_xlim(x1, x2)  # apply the x-limits
     axins.set_ylim(y1, y2)  # apply the y-limits
@@ -55,6 +60,9 @@ def uk_vel_diff_map():
     mark_inset(ax, axins, loc1=2, loc2=4, fc="red", color='r')
     plt.savefig('Velocity_map', bbox_inches='tight')
     plt.show()
+
+
+uk_vel_diff_map()
 
 
 def subgird():
@@ -359,7 +367,7 @@ def phase_space_gen():
     """
     metric = 'vel'
     name = 'COMBINED-ps-b-100-r-100-L-6.npy'
-    ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-animations_data/' + name)
+    ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-figs/' + name)
     if metric == 'vel':
         label = r'$km\ yr^{-1}$'
     if metric == "perc":
@@ -393,7 +401,7 @@ def phase_space_gen():
     # cax = fig.add_axes([0.85, 0.1, 0.04, 0.79])
     # cbar = fig.colorbar(im, cax=cax, orientation='vertical')
     # cbar.set_ticklabels(np.arange(0, max, 10))
-    # cbar.set_label(label)
+    cbar.set_label(label)
     plt.savefig('ps_r-100-b-100-L-4-' + metric, bbox_to_inches='tight')
     plt.show()
 
@@ -534,30 +542,46 @@ def R0_multi_steps():
     2. Also the offspring distribution Pr(R0_tot)
     """
     dir_names = ['en_1', 'L_200_en_2']
-    label = [r'$\rho = 0.10,\ \beta = 10,\ \ell = 50m$']
-    colors = ['b']
+
+    colors = ['black', 'red']
     path = os.getcwd() + '/latex/latex_data/R0_data/multi_steps/'
 
-    en_all = np.zeros(20)
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(ncols=2, figsize=(12, 5))
+
+    label = [r'$\rho = 0.10,\ \beta = 10,\ \ell = 50m$',
+             r'$\rho = 0.05,\ \beta = 5,\ \ell = 25m$']
+
     for i, dir in enumerate(dir_names):
         en_list = os.listdir(path + dir)
+        R0_dist = np.zeros(10000)
+        en_all = np.zeros(20)
+        j = 0
         for file in sorted(en_list):
             en_100 = np.load(path + dir + '/' + file)
             av = en_100.sum(axis=0)/100
             en_all = en_all + av
+            for sim in en_100:
+                R0_dist[j] = sim.sum()
+                j += 1
 
         en_out = en_all/100
         time = np.arange(0, 20, 1)
-        ax.plot(time, en_out, color=colors[i], label=label[i])
+        ax[0].plot(time, en_out, color=colors[i], label=label[i])
+        ax[0].grid(alpha=0.5)
+        ax[0].set_xlabel('Time (days)')
+        ax[0].set_ylabel(r'$average(R0)$ ($day^{-1}$)')
+        ax[0].set_title(r'R0 for one tree over time : $N=10^4$')
 
-    ax.grid(alpha=0.5)
-    ax.set_xlabel('Time (days)')
-    ax.set_ylabel(r'$average(R0)$ ($day^{-1}$)')
-    ax.set_title(r'R0 for one tree over time : $N=10^4$')
-    plt.legend()
+        ax[0].legend()
+        sns.distplot(R0_dist, bins=100, kde=True, hist=False, ax=ax[1], color=colors[i]);
+        ax[1].grid(True)
+        ax[1].set_title('Distribution of total R0 over 20 time-steps: $N=10^4$')
+        ax[1].set_xlabel(r"$R0_{}$".format('{total}'))
+        ax[1].set_ylabel(r"$Pr(R0_{})$".format('{total}'))
+        dist_label = ' Av = ' + str(round(R0_dist.mean())) + ' : var = ' + str(round(R0_dist.var(), 2))
+        ax[1].plot([R0_dist.mean(), R0_dist.mean()], [0, 0.162], alpha=0.5, ls='--', label=dist_label, color=colors[i])
+        ax[1].legend()
+
+    plt.savefig('off_spring_dist')
     plt.show()
 
-
-
-R0_multi_steps()

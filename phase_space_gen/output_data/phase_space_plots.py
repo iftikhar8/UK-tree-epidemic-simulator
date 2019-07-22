@@ -127,7 +127,7 @@ sim_names = {0: '/lattice/07-07-2019-HPC',
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
 "phase_space_gen/output_data/lattice/09-07-2019-HPC/max_distance_km"
 
-if 0:
+if 1:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
