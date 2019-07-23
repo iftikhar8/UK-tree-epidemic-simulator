@@ -1,7 +1,7 @@
 import numpy as np
 import os, sys, time
 from diffusion_mapping import diffusion_mapping
-from PDE_model import pde_model
+from model import pde_model
 
 # beta_space : A linear span of 10 values...
 # [0 = 0, 1 = 0.11, 2 = 0.22, 3 = 0.33, 4 = 0.44, 5 = 0.56, 6 = 0.67, 7 = 0.78, 8 = 0.89, 9 = 1.]

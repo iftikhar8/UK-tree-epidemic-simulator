@@ -46,7 +46,7 @@ def main(settings, params):
         save_meta_data(settings, params, output_path)
     if "LOCAL/" in settings["out_path"].split('-'):   # LOCAL mode for individual and line sims
         rhos = None
-        betas = None
+        beta_arr = None
         eff_disp = None
         alpha = None
         dim_ = None
@@ -57,13 +57,13 @@ def main(settings, params):
         beta_arr = np.zeros(shape=[eff_disp.shape[0], rhos.shape[0]])  # hold all beta values < 1
         R0_L, R0_H =[1, 50]  # R0_l(ow) & R0_h(igh) : the lowest and maximum initial reproduction ratios at max density
         for i in range(eff_disp.shape[0]):
-            disp = eff_disp[i]
+            disp = eff_disp[i]  # dispersal value in computer units
             factor = 2 * np.pi * (disp**2)  # Gaussian pre-factor : used to set beta value
-            beta_L, beta_H = [R0_L/factor, R0_H/factor]
+            beta_L, beta_H = [R0_L/factor, R0_H/factor]  # the appropriate probability \in [0, 1] which would give R0's
             beta_arr[i] = np.linspace(beta_L, beta_H, rhos.shape[0])  # Each beta-range changes with dispersal
 
-        dim_ = np.array([eff_disp.shape[0], beta_arr.shape[1], rhos.shape[0]])
-    assert beta_arr.max() < 1  # make sure beta arr is a probability array
+        dim_ = np.array([eff_disp.shape[0], beta_arr.shape[1], rhos.shape[0]])  # phase space dimension
+    assert beta_arr.max() < 1  # make sure beta arr is a probability array \in [0, 1]
     arr_sz = params["L"]
     domain = np.random.uniform(0, 1, size=(arr_sz, arr_sz))
     core_id = save_label(int(settings["job_id"]))

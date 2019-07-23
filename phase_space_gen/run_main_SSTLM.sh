@@ -25,8 +25,7 @@ date_time=$(date '+%d-%m-%Y %H:%M:%S')
 ######### find epidemiological phase space diagram #########
 sim_name="-HPC-"
 python3 mkdir.py $date_time $data_type $sim_name
-SGE_TASK_ID=1
-python3 main_HPC.py $SGE_TASK_ID $date_time $data_type $sim_name
+python3 main.py $SGE_TASK_ID $date_time $data_type $sim_name
 elif [ "$hpc_switch" == 0 ]
  then
 # Local machine
@@ -36,7 +35,7 @@ date_time=$(date '+%d-%m-%Y %H:%M:%S')
 sim_name="-LOCAL-"
 ######### find epidemiological phase space diagram #########
 python3 mkdir.py  $date_time $data_type $sim_name
-python3 main_local.py $job_id $date_time $data_type $sim_name
+python3 main.py $job_id $date_time $data_type $sim_name
 
 fi
 echo "Simulations Finished"
