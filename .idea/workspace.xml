@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/off_spring_dist.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latex/figure_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/latex/figure_gen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latex/latex_figs/ps_r-100-b-100-L-4-vel.png" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_figs/ps_r-100-b-100-L-4-vel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ps_r-100-b-100-L-4-vel.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +26,7 @@
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$main_SSTLM_phase.coverage" NAME="main_SSTLM_phase Coverage Results" MODIFIED="1557918131615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$T_beta_calirate.coverage" NAME="T_beta_calibrate Coverage Results" MODIFIED="1558104962487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/model_calibration_scripts" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$phase_space_plots.coverage" NAME="phase_space_plots Coverage Results" MODIFIED="1563963879005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/output_data" />
-    <SUITE FILE_PATH="coverage/hpc_subgrid_model$figure_gen.coverage" NAME="figure_gen Coverage Results" MODIFIED="1563976815309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/hpc_subgrid_model$figure_gen.coverage" NAME="figure_gen Coverage Results" MODIFIED="1563980465134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$pde_model_main.coverage" NAME="pde_model_main Coverage Results" MODIFIED="1556891984430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/forecasting_PDE" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$raster_load.coverage" NAME="raster_load Coverage Results" MODIFIED="1559683173163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../domain_generator" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$domain_density.coverage" NAME="domain_density Coverage Results" MODIFIED="1558014085888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/input_domain" />
@@ -69,26 +71,26 @@
         <counts>
           <entry key="1" value="1" />
           <entry key="npy" value="54" />
-          <entry key="png" value="115" />
+          <entry key="png" value="116" />
           <entry key="pstat" value="1" />
-          <entry key="py" value="444" />
+          <entry key="py" value="446" />
           <entry key="sh" value="72" />
           <entry key="txt" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="115" />
+          <entry key="Image" value="116" />
           <entry key="PLAIN_TEXT" value="139" />
           <entry key="Profiler Session" value="1" />
-          <entry key="Python" value="444" />
+          <entry key="Python" value="446" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="2234" />
           <entry key="dummy" value="173" />
-          <entry key="py" value="126772" />
+          <entry key="py" value="127135" />
           <entry key="sh" value="1354" />
           <entry key="txt" value="541" />
         </counts>
@@ -96,7 +98,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="2068" />
-          <entry key="Python" value="129006" />
+          <entry key="Python" value="129369" />
         </counts>
       </usages-collector>
     </session>
@@ -106,17 +108,81 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="823">
+              <caret line="66" column="110" selection-start-line="66" selection-start-column="110" selection-end-line="66" selection-end-column="110" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py">
+        <entry file="file://$PROJECT_DIR$/latex/figure_gen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+            <state relative-caret-position="467">
+              <caret line="363" column="7" lean-forward="true" selection-start-line="363" selection-start-column="7" selection-end-line="363" selection-end-column="7" />
+              <folding>
+                <element signature="e#244#354#1" />
+                <element signature="e#398#1033#0" />
+                <element signature="e#398#633#1" />
+                <element signature="e#874#973#0" />
+                <element signature="e#1063#2252#0" />
+                <element signature="e#1063#1149#1" />
+                <element signature="e#1235#1310#0" />
+                <element signature="e#2274#4609#0" />
+                <element signature="e#2274#2369#1" />
+                <element signature="e#2920#3107#0" />
+                <element signature="e#3041#3107#0" />
+                <element signature="e#4635#5877#0" />
+                <element signature="e#4635#4762#1" />
+                <element signature="e#4884#5071#0" />
+                <element signature="e#4970#5071#0" />
+                <element signature="e#5365#5753#0" />
+                <element signature="e#5911#6727#0" />
+                <element signature="e#5911#5967#1" />
+                <element signature="e#6340#6533#0" />
+                <element signature="e#6761#7269#0" />
+                <element signature="e#6761#6818#1" />
+                <element signature="e#7062#7237#0" />
+                <element signature="e#7331#8532#0" />
+                <element signature="e#7331#7535#1" />
+                <element signature="e#7596#8254#0" />
+                <element signature="e#7859#8254#0" />
+                <element signature="e#8563#9807#0" />
+                <element signature="e#8563#8646#1" />
+                <element signature="e#8973#9477#0" />
+                <element signature="e#9119#9477#0" />
+                <element signature="e#9835#10753#0" />
+                <element signature="e#9835#9912#1" />
+                <element signature="e#10170#10240#0" />
+                <element signature="e#10337#10404#0" />
+                <element signature="e#10780#13054#0" />
+                <element signature="e#11374#11862#0" />
+                <element signature="e#12180#12839#0" />
+                <element signature="e#15041#16398#0" />
+                <element signature="e#15391#16092#0" />
+                <element signature="e#15634#15739#0" />
+                <element signature="e#16421#17040#0" />
+                <element signature="e#16421#16543#1" />
+                <element signature="e#17073#18907#0" />
+                <element signature="e#17882#18807#0" />
+                <element signature="e#18929#19985#0" />
+                <element signature="e#18929#19053#1" />
+                <element signature="e#19545#19726#0" />
+                <element signature="e#20014#21811#0" />
+                <element signature="e#20014#20142#1" />
+                <element signature="e#20341#20442#0" />
+                <element signature="e#20492#21760#0" />
+                <element signature="e#20652#20859#0" />
+                <element signature="e#20814#20859#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -221,10 +287,10 @@
         <option value="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/model/subgrid_SSTLM.py" />
-        <option value="$PROJECT_DIR$/latex/figure_gen.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" />
         <option value="$PROJECT_DIR$/phase_space_gen/mkdir.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/main.py" />
+        <option value="$PROJECT_DIR$/latex/figure_gen.py" />
       </list>
     </option>
   </component>
@@ -234,7 +300,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -253,17 +319,6 @@
               <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
               <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
-              <item name="phase_space_gen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
-              <item name="phase_space_gen" type="462c0819:PsiDirectoryNode" />
-              <item name="job_generator" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -279,19 +334,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/old_code" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/latex/latex_data/R0_data/multi_steps" />
-      <recent name="$PROJECT_DIR$/latex/latex_data/R0_data" />
-      <recent name="$PROJECT_DIR$/latex/latex_data" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/latex/latex_data/phase-space-figs" />
       <recent name="$PROJECT_DIR$/latex/latex_data/time-series-data" />
       <recent name="$PROJECT_DIR$/latex/latex_data/R0_data/multi_steps" />
       <recent name="$PROJECT_DIR$/latex/latex_data/R0_data" />
       <recent name="$PROJECT_DIR$/latex/latex_data/model-scaling/alpha-scaling" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/latex/latex_figs" />
+      <recent name="$PROJECT_DIR$/old_code" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/latex/latex_data/R0_data/multi_steps" />
+      <recent name="$PROJECT_DIR$/latex/latex_data/R0_data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -457,10 +512,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1215" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1124" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1832907" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1987061" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -480,7 +535,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" x="-29" y="-1025" width="1680" height="884" id="SciView" order="3" weight="0.7280477" />
+      <window_info anchor="right" x="-29" y="-1025" width="1680" height="884" id="SciView" order="3" weight="0.43345657" />
       <window_info anchor="right" id="R Graphics" order="4" weight="0.328541" />
       <window_info anchor="right" id="R Packages" order="5" weight="0.32820153" />
       <window_info anchor="right" id="Database" order="6" weight="0.3287879" />
@@ -532,9 +587,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/latex/latex_data/model-scaling/alpha-scaling/L-100en_sz-20-test-run_t.npy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/latex/latex_data/R0_data/b-v-r-R0-en-100.npy" />
     <entry file="file://$PROJECT_DIR$/phase_space_gen/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -703,10 +755,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1261657.1">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/mkdir.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latex/latex_figs/ps_r-100-b-100-L-4-vel.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="823">
+          <caret line="66" column="110" selection-start-line="66" selection-start-column="110" selection-end-line="66" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/latex/figure_gen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="390" column="36" selection-start-line="390" selection-start-column="36" selection-end-line="390" selection-end-column="36" />
+        <state relative-caret-position="467">
+          <caret line="363" column="7" lean-forward="true" selection-start-line="363" selection-start-column="7" selection-end-line="363" selection-end-column="7" />
           <folding>
             <element signature="e#244#354#1" />
             <element signature="e#398#1033#0" />
@@ -745,55 +831,23 @@
             <element signature="e#10780#13054#0" />
             <element signature="e#11374#11862#0" />
             <element signature="e#12180#12839#0" />
-            <element signature="e#13084#13368#1" />
-            <element signature="e#15022#16379#0" />
-            <element signature="e#15372#16073#0" />
-            <element signature="e#15615#15720#0" />
-            <element signature="e#16402#17021#0" />
-            <element signature="e#16402#16524#1" />
-            <element signature="e#17054#18888#0" />
-            <element signature="e#17863#18788#0" />
-            <element signature="e#18910#19966#0" />
-            <element signature="e#18910#19034#1" />
-            <element signature="e#19526#19707#0" />
-            <element signature="e#19995#21792#0" />
-            <element signature="e#19995#20123#1" />
-            <element signature="e#20322#20423#0" />
-            <element signature="e#20473#21741#0" />
-            <element signature="e#20633#20840#0" />
-            <element signature="e#20795#20840#0" />
+            <element signature="e#15041#16398#0" />
+            <element signature="e#15391#16092#0" />
+            <element signature="e#15634#15739#0" />
+            <element signature="e#16421#17040#0" />
+            <element signature="e#16421#16543#1" />
+            <element signature="e#17073#18907#0" />
+            <element signature="e#17882#18807#0" />
+            <element signature="e#18929#19985#0" />
+            <element signature="e#18929#19053#1" />
+            <element signature="e#19545#19726#0" />
+            <element signature="e#20014#21811#0" />
+            <element signature="e#20014#20142#1" />
+            <element signature="e#20341#20442#0" />
+            <element signature="e#20492#21760#0" />
+            <element signature="e#20652#20859#0" />
+            <element signature="e#20814#20859#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1261657.1">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/mkdir.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
         </state>
       </provider>
     </entry>

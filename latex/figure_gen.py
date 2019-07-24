@@ -356,7 +356,7 @@ def vel_t_series():
     plt.show()
 
 
-def phase_space_gen():
+def phase_space_gen_4X():
     """
     Generates a map of phase-space, for each slice of sigma there is a two dimensional plane
     of rho and beta. We can plot multiple metrics over different dimensions. The default setup is
@@ -365,11 +365,12 @@ def phase_space_gen():
     metric = 'vel'
     name = 'COMBINED-ps-b-100-r-100-L-6.npy'
     ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-figs/' + name)
+    ps_tensor = np.array([ps_tensor[1],  ps_tensor[3]])
     if metric == 'vel':
         label = r'$km\ yr^{-1}$'
     if metric == "perc":
         label = 'percolation probability'
-    if metric == "mortality":
+    if metric == "moqrtality":
         label = "mortality (# deaths)"
     if metric == "runtime":
         label = "runtime (days)"
@@ -377,32 +378,24 @@ def phase_space_gen():
         label = 'perc vel km yr^{-1}'
 
     max = np.max(ps_tensor)
-    fig, ax = plt.subplots(nrows=2, ncols=1, figsize=(8.0, 7.5))
-    coords = [(0, 0), (0, 1), (1, 0), (1, 1)]
-    extent = [0, .10, 0, 50]
+    fig, ax = plt.subplots(nrows=2, ncols=1, figsize=(4.5, 8))
+    extent = [0, .10, 0, 50]  # rho range & beta range
     xy_axis = np.linspace(0, 0.1, 6)
-    kernels = ['50m', '100m', '150m', '200m', '300m']
-    for i in [0, 1]:
+    kernels = ['100m', '200m']
+    for i in range(2):
         data = ps_tensor[i]
-        ax[coords[i][0], coords[i][1]].set_title(r'$\ell = $' + kernels[i])
-        im = ax[coords[i][0], coords[i][1]].contourf(data, clim=[0, max], origin='lower',
-                                                     extent=extent)
-        cbar = plt.colorbar(im, ax=ax[coords[i][0], coords[i][1]])
-        ax[coords[i][0], coords[i][1]].set_aspect('auto')
-
-    # plt.subplots_adjust(bottom=0.1, right=0.8, top=0.9)
-    ax[0, 0].set_ylabel(r'$R_0$')
-    ax[1, 0].set_ylabel(r'$R_0$')
-    ax[1, 0].set_xlabel(r'$\rho$')
-    ax[1, 1].set_xlabel(r'$\rho$')
-    # cax = fig.add_axes([0.85, 0.1, 0.04, 0.79])
-    # cbar = fig.colorbar(im, cax=cax, orientation='vertical')
-    # cbar.set_ticklabels(np.arange(0, max, 10))
-    cbar.set_label(label)
-    plt.savefig('ps_r-100-b-100-L-4-' + metric, bbox_to_inches='tight')
+        data = np.square(data)/4
+        im = ax[i].contourf(data, origin='lower', extent=extent)
+        ax[i].set_title(r'$\bar{v}_{\rho, R_0}:\ \ \ell = $' + kernels[i])
+        ax[i].set_ylabel(r'$R_0$')
+        ax[i].set_aspect('auto')
+        cbar = plt.colorbar(im, ax=ax[i])
+        cbar.set_label(r"($km yr^{-1}$)")
+    ax[1].set_xlabel(r'$\rho$')
+    plt.savefig('vel_vs_diff_ps_' + metric, bbox_to_inches='tight')
     plt.show()
 
-phase_space_gen()
+phase_space_gen_4X()
 
 def domain_size_calibrations():
     import matplotlib.pyplot as plt

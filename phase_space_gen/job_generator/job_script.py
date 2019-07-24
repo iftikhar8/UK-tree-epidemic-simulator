@@ -46,7 +46,7 @@ def main(settings, params):
         output_path = settings["out_path"]
         save_meta_data(settings, params, output_path)
     # LOCAL mode for individual and line sims
-    if "LCL/" in settings["out_path"].split('-'):
+    if "LCL" in settings["out_path"].split('-'):
         # LCL mode we define group parameters individually in main.py
         rhos = None
         beta_arr = None
@@ -54,7 +54,7 @@ def main(settings, params):
         alpha = None
         dim_ = None
     # HPC mode of bigger phase-diagram sims
-    if "HPC/" in settings["out_path"].split('-'):
+    if "HPC" in settings["out_path"].split('-'):
         rhos = np.linspace(0.001, 0.100, 25)
         alpha = 0.005  # lattice constant
         eff_disp = np.array([0.050, 0.100, 0.150, 0.200]) / alpha  # - effective dispersal distance
