@@ -24,17 +24,17 @@ import job_script, subgrid_SSTLM
 """
 
 in_arr = sys.argv
-job_id, date, time, domain_type, name = in_arr[1:]
-print("Running {} simulation".format(name))
-output_path = os.getcwd() + '/output_data/' + domain_type + '/' + date + name + '/'
+job_id, date, time, domain_type, mode = in_arr[1:]
+print("Running {} simulation".format(mode))
+output_path = os.getcwd() + '/output_data/' + domain_type + '/' + date + '-' + mode + '/'
 params = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 200}  # simulation parameters (physical)
 
 settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "job_id": job_id, "plt_tseries": False,
             "save_figs": False, "dyn_plots": [False, 1, True], "anim": False, "BCD3": False, "individual": False,
-            "verbose": False, "HPC": True, "local_type": None}  # simulation settings (unphysical)
+            "verbose": False, "HPC": None, "local_type": "animation"}  # simulation settings (unphysical)
 
-job_arr = job_script.main(settings, params)  # Get job details
-if settings["HPC"]:
+# HPC mode
+if mode == "HPC":
     """
     HPC mode
     Run this extract to generate phase space over 3D:
@@ -43,7 +43,9 @@ if settings["HPC"]:
     3. dispersal distance & lattice config
     """
     import time
-    domain, core_id, rhos, beta_arr, alpha, eff_sigmas, dim_ = job_arr
+    settings["HPC"] = mode
+    job_arr = job_script.main(settings, params)  # Get job details
+    core_id, rhos, beta_arr, alpha, eff_sigmas, dim_ = job_arr
     # dim_ [i: sigmas, j:betas, k:sigmas]
     params["alpha"] = alpha
     mortality = np.zeros(shape=dim_)
@@ -55,7 +57,7 @@ if settings["HPC"]:
     print("Start time: ", datetime.datetime.now(), ' |  sim : ', str(job_id))
     for i, eff_disp in enumerate(eff_sigmas):
         # ITERATE dispersal kernel
-        print('Eff sigma : ', i, ' / ', eff_sigmas.shape)
+        print(i, ' / ', eff_sigmas.shape)
         print('Eff sigma = ', eff_disp)
         params["eff_disp"] = eff_disp
         betas = beta_arr[i]  # select appropriate beta array
@@ -65,57 +67,60 @@ if settings["HPC"]:
             for k, rho in enumerate(rhos):
                 # ITERATE through density values
                 params["rho"] = rho
-                num_removed, max_d, run_time, percolation = subgrid_SSTLM.main(settings, params, domain)
+                num_removed, max_d, run_time, percolation = subgrid_SSTLM.main(settings, params)
                 mortality[i, j, k] = num_removed
                 max_distances[i, j, k] = max_d
                 run_times[i, j, k] = run_time
                 percolation_pr[i, j, k] = percolation
-
             # save results as tensor-phase-space arrays
             np.save(output_path + "/mortality/" + core_id, mortality)
             np.save(output_path + "/max_distance_km/" + core_id, max_distances)
             np.save(output_path + "/run_time/" + core_id, run_times)
             np.save(output_path + "/percolation/" + core_id, percolation_pr)
 
-
     tf = time.clock() - t0
     tf = np.float64(tf / 60)
     print('End time: ', datetime.datetime.now(), ' |  sim : ', str(job_id))
     print("Time taken: ", tf.round(3), ' (mins)')
 
-if not settings["HPC"]:
-    # Simulations on local machine
-    if settings["local_type"] == "animation":    # individual simulation for animation
-        settings["dyn_plots"] = [True, 1, True]
-        settings["plt_tseries"] = True
-        settings["individual"] = True
-        settings["verbose"] = True
-        settings["anim"] = True
+
+# Simulations on local machine
+elif mode == "LCL":
+    # ["ANIM", "ENS']
+    local_type = 'ANIM'
+    # 1) ANIM: animation mode, 2) ENS: ensemble mode
+    if local_type == "ANIM":    # individual simulation for animation
         lattice_dim = int(input('Enter lattice size: '))  # the number of lattice points
         real_dispersal = float(input('Enter target dispersal distance in (m): ')) * 0.001  # average dispersal distance
         alpha = float(input('Enter lattice constant in (m): ')) * 0.001
-        params["L"] = lattice_dim
-        params["alpha"] = alpha
-        params["rho"] = .02
-        params["time_horizon"] = 3650  # SET to 10 years
+        R0 = float(input('Enter initial-basic-reproduction ratio \in [1, 50]: '))
         area = lattice_dim * alpha  # modelled area the domain covers km^2
         eff_dispersal = real_dispersal / alpha  # convert the dispersal distance from km to computer units
         eff_dispersal = np.round(eff_dispersal, 5)
-        R0 = 5
-        beta = R0 / (2 * np.pi * eff_dispersal)
+        beta = R0 / (2 * np.pi * eff_dispersal**2)
+        rho = 0.02   # typically \in [0.001, 0.100]
+        params["rho"] = rho
+        params["beta"] = beta
+        params["alpha"] = alpha
+        params["L"] = lattice_dim
+        params["L"] = lattice_dim
         params["eff_disp"] = eff_dispersal
+        params["time_horizon"] = 3650  # SET to 10 years
+        settings["anim"] = True
+        settings["verbose"] = True
+        settings["plt_tseries"] = True
+        settings["dyn_plots"] = [True, 1, True]
         job_arr = job_script.main(settings, params)
-        domain = job_arr[0]  # select first element of job-gen only need the domain for individual runs
-        Results = subgrid_SSTLM.main(settings, params, domain)
-        mortality, max_d, run_time, percolation = Results[:-1]
-        print("Finished")
+        Results = subgrid_SSTLM.main(settings, params)
+        mortality, max_d, run_time, percolation = Results
+        print("__Finished__")
         print('Max distance reached = ', max_d, 'km')
         print('Run time = ', run_time, 'days')
-        print('dist/run_time = ',round(max_d/run_time*365, 4), 'km/yr')
+        print('dist/run_time = ', round(max_d/run_time * 365, 4), 'km/yr')
         print('percolation = ', percolation)
         print('tree death = ', mortality)
 
-    if settings["local_type"] == "ensemble":
+    elif settings["local_type"] == "ENS":
         # Simulations on local machine used to get ensemble results.
         repeats = 10
         name = '-test'
@@ -135,11 +140,13 @@ if not settings["HPC"]:
         time_series_results = np.zeros(shape=(repeats, 1000))
         """
         This code is designed to be changed, use this to generate single lines of how model behaves.
+        Use for simple small lines through phase space.
         """
-        domain, core_id = job_arr[:2]
+        job_arr = job_script.main(settings, params)
+        core_id = job_arr[0]
         print("Running: ENSEMBLE simulation")
         for i in range(repeats):
-            Results = subgrid_SSTLM.main(settings, params, domain)
+            Results = subgrid_SSTLM.main(settings, params)
             mortality, max_d, run_time, percolation, dist_tseries = Results
             time_series_results[i, 0:run_time-1] = dist_tseries
             print('repeat: ', i)

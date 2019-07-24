@@ -12,13 +12,14 @@ import sys
 
 
 class SimInit(object):
-    def __init__(self, parameters, domain):
+    def __init__(self, parameters):
         """
         :param parameters: dictionary, keys are strings or parameter names, values are parameter values
         :param domain: array-like, this is the lattice-domain of size n x n, full of floats drawn from a Poison process
         """
+        np.random.seed()
+        domain = np.random.uniform(0, 1, size=(parameters["L"], parameters["L"]))
         dim = domain.shape
-        domain = np.random.permutation(domain)  # shuffle domain to randomise elements after each simulation
         epi_cx, epi_cy = int(dim[0] / 2), int(dim[1] / 2)
         infected = np.zeros(dim)
         tree_dist = np.where(domain < parameters["rho"], 1, 0)
@@ -150,7 +151,7 @@ class Plots(object):
         plt.show()
         return
 
-def main(settings, parameters, domain):
+def main(settings, parameters):
     """
     :param settings: dict, simulation settings controls what type of simulation is run and how
     :param parameters: dict, stores model parameters
@@ -162,7 +163,7 @@ def main(settings, parameters, domain):
                                       lattice boundary and triggered the simulation to end (a threshold type-behaviour).
     """
     np.random.seed()
-    p = SimInit(parameters, domain)  # p : hold all parameters
+    p = SimInit(parameters)  # p : hold all parameters
     plts = Plots(p.rho, p.beta)
     ts_mean_d, ts_max_d = [p.mean_d, p.max_d]  # arrays used to record time-series
     in_progress, time_step = [True, 0]
@@ -208,28 +209,28 @@ def main(settings, parameters, domain):
 
         # __________ITERATION COMPLETE_________ #
     # ________________END ALGORITHM________________ #
+
     ts_max_d = ts_max_d * p.alpha  # multiply by lattice constant to get a distance in km
-    ts_mean_d = ts_mean_d * p.alpha
+    # ts_mean_d = ts_mean_d * p.alpha
     # max_mean_distance = ts_mean_d.max()  # maximum recorded value of mean distance metric
+    ts_max_d = ts_max_d[:time_step]
     max_distance_reached = ts_max_d.max()  # maximum distance reached by the pathogen
     if settings["plt_tseries"]:  # GENERATE time series output plots
-        saves = True
         print('Step: ', str(time_step), '  max d = ', max_distance_reached, ' km')
         plot_cls = Plots(p.beta, p.rho)
         plot_cls.save_settings(parameters, settings, save_path)
         label = {'title': "max d distance", 'xlabel': 'days', 'ylabel': 'distance (km)'}
         plot_cls.plot_tseries(metric=ts_max_d, labels=label)
         label = {'title': "max d velocity", 'xlabel': 'days', 'ylabel': 'distance (km/day)'}
-        plot_cls.plot_tseries(metric=np.gradient(ts_mean_d), labels=label)
+        plot_cls.plot_tseries(metric=np.gradient(ts_max_d), labels=label)
+        saves = False  # True to save time-series data to file
         if saves:
-            name = 'b_' + str(parameters["beta"]).replace('.', '-') + '_r_' + str(parameters["rho"]).replace('.', '-') + \
+            beta = round(parameters["beta"], 2)
+            name = 'b_' + str(beta).replace('.', '-') + '_r_' + str(parameters["rho"]).replace('.', '-') + \
                    '_L_' + str(parameters["eff_disp"]).replace('.', '-')
             np.save('max_d_' + name, ts_max_d)
-            # np.save('mean_d_' + name, mean_d_metric)
 
-    # number of tree deaths in 1km / 2
-    # (divide by 4 to normalise the 2kmx2km grid proxy)
-    num_removed = len(np.where(p.removed == 1)[0])
+    num_removed = len(np.where(p.removed == 1)[0])  # Number of dead trees.
     return num_removed, max_distance_reached, time_step, p.percolation
 
 if __name__ == "__main__":

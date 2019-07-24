@@ -41,16 +41,20 @@ def main(settings, params):
     beta_arr; this array holds all the different beta values used with each dispersal value
     params; updated dictionary of parmaeters used
     """
-    if settings["job_id"] == '1':  # WRITE all parameters to file
+    # WRITE all parameters to file
+    if settings["job_id"] == '1':
         output_path = settings["out_path"]
         save_meta_data(settings, params, output_path)
-    if "LOCAL/" in settings["out_path"].split('-'):   # LOCAL mode for individual and line sims
+    # LOCAL mode for individual and line sims
+    if "LCL/" in settings["out_path"].split('-'):
+        # LCL mode we define group parameters individually in main.py
         rhos = None
         beta_arr = None
         eff_disp = None
         alpha = None
         dim_ = None
-    if "HPC" in settings["out_path"].split('-'):     # HPC mode of bigger phase-diagram sims
+    # HPC mode of bigger phase-diagram sims
+    if "HPC/" in settings["out_path"].split('-'):
         rhos = np.linspace(0.001, 0.100, 25)
         alpha = 0.005  # lattice constant
         eff_disp = np.array([0.050, 0.100, 0.150, 0.200]) / alpha  # - effective dispersal distance
@@ -61,13 +65,11 @@ def main(settings, params):
             factor = 2 * np.pi * (disp**2)  # Gaussian pre-factor : used to set beta value
             beta_L, beta_H = [R0_L/factor, R0_H/factor]  # the appropriate probability \in [0, 1] which would give R0's
             beta_arr[i] = np.linspace(beta_L, beta_H, rhos.shape[0])  # Each beta-range changes with dispersal
-
         dim_ = np.array([eff_disp.shape[0], beta_arr.shape[1], rhos.shape[0]])  # phase space dimension
-    assert beta_arr.max() < 1  # make sure beta arr is a probability array \in [0, 1]
-    arr_sz = params["L"]
-    domain = np.random.uniform(0, 1, size=(arr_sz, arr_sz))
+        assert beta_arr.max() < 1  # make sure beta arr is a probability array \in [0, 1]
+
     core_id = save_label(int(settings["job_id"]))
-    return domain, core_id, rhos, beta_arr, alpha, eff_disp, dim_
+    return core_id, rhos, beta_arr, alpha, eff_disp, dim_
 
 
 if __name__ == "__main__":

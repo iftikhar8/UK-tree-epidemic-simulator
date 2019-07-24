@@ -3,20 +3,22 @@ l_time:100
 time_horizon:3650
 t_init:[5, 6]
 L:200
-alpha:0.005
 rho:0.02
-beta:5
-eff_disp:5.0
+beta:0.17683882565766149
+alpha:0.005
+eff_disp:3.0
 
 ______Simulation parameters_______
-out_path:/Users/py13jh/PycharmProjects/hpc-subgrid-model/phase_space_gen/output_data/lattice/18-07-2019-LOCAL/
+out_path:/Users/py13jh/PycharmProjects/hpc-subgrid-model/phase_space_gen/output_data/lattice/24-07-2019-LCL/
 domain_type:lattice
-date:18-07-2019
+date:24-07-2019
 job_id:25
 plt_tseries:True
 save_figs:False
 dyn_plots:[True, 1, True]
 anim:True
 BCD3:False
-individual:True
+individual:False
 verbose:True
+HPC:None
+local_type:animation

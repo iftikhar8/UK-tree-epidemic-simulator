@@ -48,6 +48,7 @@ def tensor_phase_plot(data_arr, label):
         ax.set_aspect(0.002)
         plt.show()
 
+
 def plot_line(slice, phase_space_tensor):
     arr = phase_space_tensor[slice] * 365
     # todo : be mindful of changing beta and rho values...
@@ -78,6 +79,9 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
     for i, sim_i in enumerate(sorted(os.listdir(path))):
         # FIND sum of all data files
         dat_load = np.load(path + '/' + sim_i)
+        if 'distance' in path.split('_'):
+            plt.imshow(dat_load[-1])
+            plt.show()
         tensor_phase_space = tensor_phase_space + dat_load
     print('Len: ', len(os.listdir(path)))
 
@@ -122,7 +126,7 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 # 1. sim_names : used to generate individual ensemble simulations
 sim_names = {0: '/lattice/07-07-2019-HPC',
              1: '/lattice/09-07-2019-HPC',
-             2: '/lattice/22-07-2019-HPC-'}
+             2: '/lattice/23-07-2019-HPC-'}
 
 # 3. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
@@ -138,7 +142,7 @@ if 1:
     mortality = 0       # load and compute mortality plots
     velocity = 1   # compute velocity and show
     percolation = 0             # load and compute percolation
-    phase_dim = [4, 5, 5]
+    phase_dim = [4, 25, 25]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
     if mortality:
         # GET distance travelled data
