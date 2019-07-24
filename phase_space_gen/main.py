@@ -27,7 +27,7 @@ in_arr = sys.argv
 job_id, date, time, domain_type, name = in_arr[1:]
 print("Running {} simulation".format(name))
 output_path = os.getcwd() + '/output_data/' + domain_type + '/' + date + name + '/'
-params = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6]}  # simulation parameters (physical)
+params = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 200}  # simulation parameters (physical)
 
 settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "job_id": job_id, "plt_tseries": False,
             "save_figs": False, "dyn_plots": [False, 1, True], "anim": False, "BCD3": False, "individual": False,
@@ -76,7 +76,7 @@ if settings["HPC"]:
             np.save(output_path + "/max_distance_km/" + core_id, max_distances)
             np.save(output_path + "/run_time/" + core_id, run_times)
             np.save(output_path + "/percolation/" + core_id, percolation_pr)
-            sys.exit()
+
 
     tf = time.clock() - t0
     tf = np.float64(tf / 60)
