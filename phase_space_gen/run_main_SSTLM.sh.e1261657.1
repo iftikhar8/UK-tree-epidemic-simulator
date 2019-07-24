@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "main.py", line 47, in <module>
+    job_arr = job_script.main(settings, params)  # Get job details
+  File "/nobackup/py13jh/hpc-subgrid-model/phase_space_gen/job_generator/job_script.py", line 47, in main
+    save_meta_data(settings, params, output_path)
+  File "/nobackup/py13jh/hpc-subgrid-model/phase_space_gen/job_generator/job_script.py", line 10, in save_meta_data
+    with open(os.path.join(output_path, "parameter_and_settings_info.txt"), "w+") as info_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/nobackup/py13jh/hpc-subgrid-model/phase_space_gen/output_data/lattice/24-07-2019-HPC/parameter_and_settings_info.txt'
