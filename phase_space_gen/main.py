@@ -26,7 +26,7 @@ import job_script, subgrid_SSTLM
 in_arr = sys.argv
 job_id, date, time, domain_type, mode = in_arr[1:]
 print("Running {} simulation".format(mode))
-output_path = os.getcwd() + '/output_data/' + domain_type + '/' + date + '-' + mode + '/'
+output_path = os.getcwd() + '/output_data/' + domain_type + '/' + date + '-' + mode
 params = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 200}  # simulation parameters (physical)
 
 settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "job_id": job_id, "plt_tseries": False,
