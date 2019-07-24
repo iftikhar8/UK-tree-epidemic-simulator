@@ -377,12 +377,12 @@ def phase_space_gen():
         label = 'perc vel km yr^{-1}'
 
     max = np.max(ps_tensor)
-    fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(8.0, 7.5))
+    fig, ax = plt.subplots(nrows=2, ncols=1, figsize=(8.0, 7.5))
     coords = [(0, 0), (0, 1), (1, 0), (1, 1)]
     extent = [0, .10, 0, 50]
     xy_axis = np.linspace(0, 0.1, 6)
     kernels = ['50m', '100m', '150m', '200m', '300m']
-    for i in range(4):
+    for i in [0, 1]:
         data = ps_tensor[i]
         ax[coords[i][0], coords[i][1]].set_title(r'$\ell = $' + kernels[i])
         im = ax[coords[i][0], coords[i][1]].contourf(data, clim=[0, max], origin='lower',
@@ -391,8 +391,8 @@ def phase_space_gen():
         ax[coords[i][0], coords[i][1]].set_aspect('auto')
 
     # plt.subplots_adjust(bottom=0.1, right=0.8, top=0.9)
-    ax[0, 0].set_ylabel(r'$\beta$')
-    ax[1, 0].set_ylabel(r'$\beta$')
+    ax[0, 0].set_ylabel(r'$R_0$')
+    ax[1, 0].set_ylabel(r'$R_0$')
     ax[1, 0].set_xlabel(r'$\rho$')
     ax[1, 1].set_xlabel(r'$\rho$')
     # cax = fig.add_axes([0.85, 0.1, 0.04, 0.79])
@@ -402,6 +402,7 @@ def phase_space_gen():
     plt.savefig('ps_r-100-b-100-L-4-' + metric, bbox_to_inches='tight')
     plt.show()
 
+phase_space_gen()
 
 def domain_size_calibrations():
     import matplotlib.pyplot as plt
@@ -581,5 +582,4 @@ def R0_multi_steps():
     plt.savefig('off_spring_dist')
     plt.show()
 
-R0_multi_steps()
 

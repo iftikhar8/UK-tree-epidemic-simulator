@@ -8,7 +8,7 @@ date, time, data, name = args[1:]
 
 # Make output directory /Users/py13jh/PycharmProjects/uk_epi_phase/
 output_path = os.getcwd() + '/output_data/' + data + '/'
-sim_path = date + name
+sim_path = date + '-' + name
 
 try:
     if os.path.exists(output_path + sim_path):

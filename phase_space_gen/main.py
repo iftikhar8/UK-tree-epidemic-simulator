@@ -57,7 +57,7 @@ if mode == "HPC":
     print("Start time: ", datetime.datetime.now(), ' |  sim : ', str(job_id))
     for i, eff_disp in enumerate(eff_sigmas):
         # ITERATE dispersal kernel
-        print(i, ' / ', eff_sigmas.shape)
+        print(i, ' / ', eff_sigmas.shape[0])
         print('Eff sigma = ', eff_disp)
         params["eff_disp"] = eff_disp
         betas = beta_arr[i]  # select appropriate beta array
