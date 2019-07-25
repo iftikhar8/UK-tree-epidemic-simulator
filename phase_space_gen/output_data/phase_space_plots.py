@@ -9,6 +9,28 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+def plot_line(slice, phase_space_tensor):
+    arr = phase_space_tensor[slice] * 365
+    # todo : be mindful of changing beta and rho values...
+    rhos = np.array([0.001, 0.025, 0.05, 0.075, 0.1])
+    sigmas = np.array([10, 20, 30, 40, 50, 60])
+    betas = np.linspace(0.001, 0.1, 100)
+    arr_total = np.zeros(shape=[5, 100])
+    fig, ax = plt.subplots()
+    for rho_i in range(np.shape(arr)[1]):
+        beta_line = arr[:, rho_i]
+        ax.plot(betas, beta_line, label=r'$\rho$ =' + str(rhos[rho_i]), alpha=0.5)
+        ax.scatter(betas, beta_line, s=1, marker='x')
+        ax.set_title(r'$\ell = $' + str(sigmas[slice]))
+        arr_total[rho_i] = beta_line
+    ax.set_xlabel(r'$\beta$')
+    ax.set_ylabel(r'velocity ($km$ $year^{-1}$)')
+    ax.grid(alpha=0.5)
+    plt.legend()
+    plt.show()
+    np.save(str(slice), beta_line)
+
+
 def en_combine(sim_names):
     """
     This code simply combines multiple three dimensional tensors
@@ -49,39 +71,24 @@ def tensor_phase_plot(data_arr, label):
         plt.show()
 
 
-def plot_line(slice, phase_space_tensor):
-    arr = phase_space_tensor[slice] * 365
-    # todo : be mindful of changing beta and rho values...
-    rhos = np.array([0.001, 0.025, 0.05, 0.075, 0.1])
-    sigmas = np.array([10, 20, 30, 40, 50, 60])
-    betas = np.linspace(0.001, 0.1, 100)
-    arr_total = np.zeros(shape=[5, 100])
-    fig, ax = plt.subplots()
-    for rho_i in range(np.shape(arr)[1]):
-        beta_line = arr[:, rho_i]
-        ax.plot(betas, beta_line, label=r'$\rho$ =' + str(rhos[rho_i]), alpha=0.5)
-        ax.scatter(betas, beta_line, s=1, marker='x')
-        ax.set_title(r'$\ell = $' + str(sigmas[slice]))
-        arr_total[rho_i] = beta_line
-    ax.set_xlabel(r'$\beta$')
-    ax.set_ylabel(r'velocity ($km$ $year^{-1}$)')
-    ax.grid(alpha=0.5)
-    plt.legend()
-    plt.show()
-    np.save(str(slice), beta_line)
-
-
 def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
     # GENERATE ensemble average phase space tensor
     # - from a directory of repeats
     # - sum all results then divide by the number of independent simulations
     tensor_phase_space = np.zeros(shape=dim)
+    kernel = ['50m', '100m', '150m', '200m']
     for i, sim_i in enumerate(sorted(os.listdir(path))):
         # FIND sum of all data files
         dat_load = np.load(path + '/' + sim_i)
-        if 'distance' in path.split('_'):
-            plt.imshow(dat_load[-1])
-            plt.show()
+        if i == 3:
+            j = 0
+            for slice in dat_load:
+                plt.title('D: ' + kernel[j])
+                im = plt.imshow(slice)
+                plt.colorbar(im)
+                plt.show()
+                j += 1
+            sys.exit()
         tensor_phase_space = tensor_phase_space + dat_load
     print('Len: ', len(os.listdir(path)))
 
@@ -126,7 +133,7 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 # 1. sim_names : used to generate individual ensemble simulations
 sim_names = {0: '/lattice/07-07-2019-HPC',
              1: '/lattice/09-07-2019-HPC',
-             2: '/lattice/23-07-2019-HPC-'}
+             2: '/lattice/24-07-2019-HPC'}
 
 # 3. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
@@ -137,10 +144,10 @@ if 1:
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
     sim_name = 2      # enter the simulate name index
-    distance = 1        # load and compute distance plots
-    runtime = 1         # load and compute runtime plots
+    distance = 0        # load and compute distance plots
+    runtime = 1       # load and compute runtime plots
     mortality = 0       # load and compute mortality plots
-    velocity = 1   # compute velocity and show
+    velocity = 0   # compute velocity and show
     percolation = 0             # load and compute percolation
     phase_dim = [4, 25, 25]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])

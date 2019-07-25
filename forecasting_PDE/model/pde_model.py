@@ -102,7 +102,6 @@ def main(params, diffusion_map):
     # BEGIN simulation:
     d_diffusion_map = np.gradient(diffusion_map)
     d_diffusion_map = d_diffusion_map[0] + d_diffusion_map[1]
-
     finite_difference_sim(dim, params, diffusion_map, d_diffusion_map, uk, saves=[True, save_path])
     return
 if __name__ == '__main__':

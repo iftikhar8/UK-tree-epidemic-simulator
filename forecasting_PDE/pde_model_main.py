@@ -15,7 +15,7 @@ print("Running: dispersal = " + str(L_space[int(L_index)]) + "(m), Infectvitity 
 # GENERATE diffusion map based on input of L, beta and a domain (in this case a map of abundance)
 # - epi_center : point of disease introduction
 # - port of Immingham = [560, 570, 455, 465]
-diffusion_map = diffusion_mapping.main(L=int(L_index), beta=int(beta_index), plt_check=False)
+diffusion_map = diffusion_mapping.main(L=int(L_index), beta=int(beta_index), plt_check=True)
 params = {"T": 1500, "dim": np.shape(diffusion_map), "epi_c": [70, 72, 30, 32], "plt_epi": False,
           "partial": [True,  [700, 900, 200, 400]], 'L': L_index, 'b': beta_space[int(beta_index)],
           "sim_name": sim_name}
