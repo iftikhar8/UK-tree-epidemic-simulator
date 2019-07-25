@@ -22,18 +22,16 @@ date_time=$(date '+%d-%m-%Y %H:%M:%S')
 #$ -l h_rt=48:00:00
 #$ -t 1-10
 
-######### find epidemiological phase space diagram #########
 sim_name="HPC"
 python3 mkdir.py $date_time $data_type $sim_name
 python3 main.py $SGE_TASK_ID $date_time $data_type $sim_name
 elif [ "$hpc_switch" == 0 ]
  then
-# Local machine
 
+################ Local machine ###############
 job_id=25
 date_time=$(date '+%d-%m-%Y %H:%M:%S')
 sim_name="LCL"
-######### find epidemiological phase space diagram #########
 python3 mkdir.py  $date_time $data_type $sim_name
 python3 main.py $job_id $date_time $data_type $sim_name
 

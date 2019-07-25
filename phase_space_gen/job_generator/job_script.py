@@ -46,6 +46,7 @@ def main(settings, params):
         output_path = settings["out_path"]
         save_meta_data(settings, params, output_path)
     # LOCAL mode for individual and line sims
+    print("output path: ", settings["out_path"])
     if "LCL" in settings["out_path"].split('-'):
         # LCL mode we define group parameters individually in main.py
         rhos = None
@@ -55,11 +56,12 @@ def main(settings, params):
         dim_ = None
     # HPC mode of bigger phase-diagram sims
     if "HPC" in settings["out_path"].split('-'):
+        print("Triggered HPC correctly")
         rhos = np.linspace(0.001, 0.100, 25)
         alpha = 0.005  # lattice constant
         eff_disp = np.array([0.050, 0.100, 0.150, 0.200]) / alpha  # - effective dispersal distance
         beta_arr = np.zeros(shape=[eff_disp.shape[0], rhos.shape[0]])  # hold all beta values < 1
-        R0_L, R0_H =[1, 50]  # R0_l(ow) & R0_h(igh) : the lowest and maximum initial reproduction ratios at max density
+        R0_L, R0_H = [1, 50]  # R0_l(ow) & R0_h(igh) : the lowest and maximum initial reproduction ratios at max density
         for i in range(eff_disp.shape[0]):
             disp = eff_disp[i]  # dispersal value in computer units
             factor = 2 * np.pi * (disp**2)  # Gaussian pre-factor : used to set beta value

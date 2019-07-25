@@ -32,7 +32,6 @@ params = {"l_time": 100, "time_horizon": 3650, "t_init": [5, 6], "L": 200}  # si
 settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "job_id": job_id, "plt_tseries": False,
             "save_figs": False, "dyn_plots": [False, 1, True], "anim": False, "BCD3": False, "individual": False,
             "verbose": False, "HPC": None, "local_type": "animation"}  # simulation settings (unphysical)
-
 # HPC mode
 if mode == "HPC":
     """
@@ -64,14 +63,18 @@ if mode == "HPC":
         for j, beta in enumerate(betas):
             # ITERATE infection rates
             params["beta"] = beta
+            print("  Beta : ", round(beta, 3), ' R0: ', beta * 2 * np.pi * eff_disp**2)
             for k, rho in enumerate(rhos):
                 # ITERATE through density values
+                print("     Rho: ", rho)
                 params["rho"] = rho
+                """
                 num_removed, max_d, run_time, percolation = subgrid_SSTLM.main(settings, params)
                 mortality[i, j, k] = num_removed
                 max_distances[i, j, k] = max_d
                 run_times[i, j, k] = run_time
                 percolation_pr[i, j, k] = percolation
+                """
             # save results as tensor-phase-space arrays
             np.save(output_path + "/mortality/" + core_id, mortality)
             np.save(output_path + "/max_distance_km/" + core_id, max_distances)

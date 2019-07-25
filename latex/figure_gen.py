@@ -383,19 +383,19 @@ def phase_space_gen_4X():
     xy_axis = np.linspace(0, 0.1, 6)
     kernels = ['100m', '200m']
     for i in range(2):
-        data = ps_tensor[i]
+        data = ps_tensor[i] / 365
         data = np.square(data)/4
         im = ax[i].contourf(data, origin='lower', extent=extent)
-        ax[i].set_title(r'$\bar{v}_{\rho, R_0}:\ \ \ell = $' + kernels[i])
+        ax[i].set_title(r'$\bar{D}_{\rho, R_0}:\ \ \ell = $' + kernels[i])
         ax[i].set_ylabel(r'$R_0$')
         ax[i].set_aspect('auto')
         cbar = plt.colorbar(im, ax=ax[i])
-        cbar.set_label(r"($km yr^{-1}$)")
+        cbar.set_label(r"($km^2 day^{-1}$)")
     ax[1].set_xlabel(r'$\rho$')
-    plt.savefig('vel_vs_diff_ps_' + metric, bbox_to_inches='tight')
+    plt.savefig('dfff_x2' + metric, bbox_to_inches='tight')
     plt.show()
 
-phase_space_gen_4X()
+# phase_space_gen_4X()
 
 def domain_size_calibrations():
     import matplotlib.pyplot as plt
@@ -533,15 +533,11 @@ def R0_multi_steps():
     2. Also the offspring distribution Pr(R0_tot)
     """
     dir_names = ['en_2_22-07-19']
-
     colors = ['black', 'red']
     path = os.getcwd() + '/latex/latex_data/R0_data/multi_steps/'
-
     fig, ax = plt.subplots(ncols=2, figsize=(12, 5))
-
     label = [r'$\rho = 0.10,\ \beta = 10,\ \ell = 50m$',
              r'$\rho = 0.10,\ \beta = 20,\ \ell = 25m$']
-
     for i, dir in enumerate(dir_names):
         en_list = os.listdir(path + dir)
         R0_dist = np.zeros(10000)
@@ -576,3 +572,4 @@ def R0_multi_steps():
     plt.show()
 
 
+R0_multi_steps()
