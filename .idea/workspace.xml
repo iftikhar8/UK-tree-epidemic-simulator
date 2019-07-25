@@ -5,7 +5,90 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/max_distance_km/001.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/max_distance_km/002.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/max_distance_km/003.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/max_distance_km/004.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/max_distance_km/005.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/max_distance_km/006.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/max_distance_km/007.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/max_distance_km/008.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/max_distance_km/009.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/max_distance_km/010.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/mortality/001.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/mortality/002.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/mortality/003.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/mortality/004.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/mortality/005.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/mortality/006.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/mortality/007.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/mortality/008.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/mortality/009.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/mortality/010.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/parameter_and_settings_info.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/percolation/001.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/percolation/002.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/percolation/003.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/percolation/004.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/percolation/005.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/percolation/006.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/percolation/007.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/percolation/008.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/percolation/009.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/percolation/010.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/run_time/001.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/run_time/002.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/run_time/003.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/run_time/004.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/run_time/005.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/run_time/006.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/run_time/007.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/run_time/008.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/run_time/009.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/24-07-2019-HPC/run_time/010.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/max_distance_km/001.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/max_distance_km/002.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/max_distance_km/003.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/max_distance_km/004.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/max_distance_km/005.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/max_distance_km/006.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/max_distance_km/007.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/max_distance_km/008.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/max_distance_km/009.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/max_distance_km/010.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/mortality/001.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/mortality/002.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/mortality/003.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/mortality/004.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/mortality/005.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/mortality/006.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/mortality/007.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/mortality/008.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/mortality/009.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/mortality/010.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/parameter_and_settings_info.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/percolation/001.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/percolation/002.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/percolation/003.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/percolation/004.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/percolation/005.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/percolation/006.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/percolation/007.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/percolation/008.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/percolation/009.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/percolation/010.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/run_time/001.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/run_time/002.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/run_time/003.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/run_time/004.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/run_time/005.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/run_time/006.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/run_time/007.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/run_time/008.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/run_time/009.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/lattice/25-07-2019-HPC/run_time/010.npy" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +170,7 @@
         <counts>
           <entry key="Python Console" value="2234" />
           <entry key="dummy" value="173" />
-          <entry key="py" value="128111" />
+          <entry key="py" value="128120" />
           <entry key="sh" value="1368" />
           <entry key="txt" value="541" />
         </counts>
@@ -95,7 +178,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="2082" />
-          <entry key="Python" value="130345" />
+          <entry key="Python" value="130354" />
         </counts>
       </usages-collector>
     </session>
@@ -105,8 +188,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/latex/figure_gen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="537" column="52" selection-start-line="537" selection-start-column="52" selection-end-line="537" selection-end-column="52" />
+            <state relative-caret-position="406">
+              <caret line="552" selection-start-line="552" selection-end-line="552" />
               <folding>
                 <element signature="e#244#354#1" />
                 <element signature="e#398#1033#0" />
@@ -157,7 +240,7 @@
         <entry file="file://$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1">
-              <caret line="54" column="36" lean-forward="true" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
+              <caret line="54" column="36" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
               <folding>
                 <element signature="e#334#1119#0" />
                 <element signature="e#319#908#0" />
@@ -167,28 +250,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py">
+        <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="70" column="48" lean-forward="true" selection-start-line="70" selection-start-column="48" selection-end-line="70" selection-end-column="48" />
+            <state relative-caret-position="120">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/phase_space_gen/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
-              <caret line="75" column="35" lean-forward="true" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
+            <state relative-caret-position="383">
+              <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
               <folding>
                 <element signature="e#3740#6885#0" />
               </folding>
@@ -295,11 +369,11 @@
         <option value="$PROJECT_DIR$/forecasting_PDE/pde_model_main.py" />
         <option value="$PROJECT_DIR$/forecasting_PDE/run_main_FKPP.sh" />
         <option value="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping/diffusion_mapping.py" />
-        <option value="$PROJECT_DIR$/latex/figure_gen.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" />
-        <option value="$PROJECT_DIR$/phase_space_gen/main.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" />
+        <option value="$PROJECT_DIR$/latex/figure_gen.py" />
+        <option value="$PROJECT_DIR$/phase_space_gen/main.py" />
       </list>
     </option>
   </component>
@@ -762,10 +836,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/latex/figure_gen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="537" column="52" selection-start-line="537" selection-start-column="52" selection-end-line="537" selection-end-column="52" />
+        <state relative-caret-position="406">
+          <caret line="552" selection-start-line="552" selection-end-line="552" />
           <folding>
             <element signature="e#244#354#1" />
             <element signature="e#398#1033#0" />
@@ -811,27 +899,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="75" column="35" lean-forward="true" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
-          <folding>
-            <element signature="e#3740#6885#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/job_generator/job_script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="70" column="48" lean-forward="true" selection-start-line="70" selection-start-column="48" selection-end-line="70" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1">
-          <caret line="54" column="36" lean-forward="true" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
+          <caret line="54" column="36" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
           <folding>
             <element signature="e#334#1119#0" />
             <element signature="e#319#908#0" />
@@ -839,10 +910,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh">
+    <entry file="file://$PROJECT_DIR$/phase_space_gen/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+        <state relative-caret-position="383">
+          <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+          <folding>
+            <element signature="e#3740#6885#0" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -62,19 +62,15 @@ if mode == "HPC":
         betas = beta_arr[i]  # select appropriate beta array
         for j, beta in enumerate(betas):
             # ITERATE infection rates
-            params["beta"] = beta
-            print("  Beta : ", round(beta, 3), ' R0: ', beta * 2 * np.pi * eff_disp**2)
+            params["beta"] = beta    # print("  Beta : ", round(beta, 3), ' R0: ', beta * 2 * np.pi * eff_disp**2)
             for k, rho in enumerate(rhos):
                 # ITERATE through density values
-                print("     Rho: ", rho)
                 params["rho"] = rho
-                """
                 num_removed, max_d, run_time, percolation = subgrid_SSTLM.main(settings, params)
                 mortality[i, j, k] = num_removed
                 max_distances[i, j, k] = max_d
                 run_times[i, j, k] = run_time
                 percolation_pr[i, j, k] = percolation
-                """
             # save results as tensor-phase-space arrays
             np.save(output_path + "/mortality/" + core_id, mortality)
             np.save(output_path + "/max_distance_km/" + core_id, max_distances)
