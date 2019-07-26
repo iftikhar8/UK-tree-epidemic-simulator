@@ -33,6 +33,8 @@ settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "
             "save_figs": False, "dyn_plots": [False, 1, True], "anim": False, "BCD3": False, "individual": False,
             "verbose": False, "HPC": None, "local_type": "animation"}  # simulation settings (unphysical)
 # HPC mode
+
+
 if mode == "HPC":
     """
     HPC mode
@@ -66,7 +68,9 @@ if mode == "HPC":
             for k, rho in enumerate(rhos):
                 # ITERATE through density values
                 params["rho"] = rho
+                print('running: ', i,j,k)
                 num_removed, max_d, run_time, percolation = subgrid_SSTLM.main(settings, params)
+                print(max_d)
                 mortality[i, j, k] = num_removed
                 max_distances[i, j, k] = max_d
                 run_times[i, j, k] = run_time
