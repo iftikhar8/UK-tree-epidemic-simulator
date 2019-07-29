@@ -1,48 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/latex/figure_gen.py" line="257" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/latex/figure_gen.py" line="255" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/py13jh.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/py13jh.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_test_suite/R0-multi-step.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_test_suite/R0-multi-step.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_test_suite/run_R0_multi_step.sh" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_test_suite/run_R0_multi_step.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/model/pde_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/model/pde_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forecasting_PDE/pde_model_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/forecasting_PDE/pde_model_main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/latex/figure_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/latex/figure_gen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_figs/vell_diff_map.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/animations_data/animate.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/animations_data/animate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/animations_data/raw_data/parameter_and_settings_info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/animations_data/raw_data/parameter_and_settings_info.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/phase_space_plots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/plot_figs/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/output_data/ps-b-25-r-25-L-4-vel-V2.npy" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/output_data/ps-b-25-r-25-L-4-vel-V2.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" beforeDir="false" afterPath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1264552.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1264552.10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1264552.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1264552.3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1264552.4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1264552.5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1264552.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1264552.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1264552.8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.e1264552.9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1264552.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1264552.10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1264552.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1264552.3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1264552.4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1264552.5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1264552.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1264552.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1264552.8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase_space_gen/run_main_SSTLM.sh.o1264552.9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/off_spring_dist.png" beforeDir="false" afterPath="$PROJECT_DIR$/off_spring_dist.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +25,7 @@
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$main_SSTLM_phase.coverage" NAME="main_SSTLM_phase Coverage Results" MODIFIED="1557918131615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$T_beta_calirate.coverage" NAME="T_beta_calibrate Coverage Results" MODIFIED="1558104962487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/model_calibration_scripts" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$phase_space_plots.coverage" NAME="phase_space_plots Coverage Results" MODIFIED="1564155905472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/output_data" />
-    <SUITE FILE_PATH="coverage/hpc_subgrid_model$figure_gen.coverage" NAME="figure_gen Coverage Results" MODIFIED="1564405465252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/hpc_subgrid_model$figure_gen.coverage" NAME="figure_gen Coverage Results" MODIFIED="1564408512345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$pde_model_main.coverage" NAME="pde_model_main Coverage Results" MODIFIED="1556891984430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/forecasting_PDE" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$raster_load.coverage" NAME="raster_load Coverage Results" MODIFIED="1559683173163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../domain_generator" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$domain_density.coverage" NAME="domain_density Coverage Results" MODIFIED="1558014085888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/input_domain" />
@@ -124,7 +89,7 @@
         <counts>
           <entry key="Python Console" value="2234" />
           <entry key="dummy" value="173" />
-          <entry key="py" value="130875" />
+          <entry key="py" value="131197" />
           <entry key="sh" value="1370" />
           <entry key="txt" value="541" />
         </counts>
@@ -132,18 +97,18 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="2084" />
-          <entry key="Python" value="133109" />
+          <entry key="Python" value="133431" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/latex/figure_gen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="605" column="14" selection-start-line="605" selection-start-column="14" selection-end-line="605" selection-end-column="14" />
+            <state relative-caret-position="470">
+              <caret line="597" column="32" lean-forward="true" selection-start-line="597" selection-start-column="32" selection-end-line="597" selection-end-column="32" />
               <folding>
                 <element signature="e#244#354#1" />
                 <element signature="e#398#1033#0" />
@@ -199,18 +164,16 @@
                 <element signature="e#19847#20903#0" />
                 <element signature="e#19847#19971#1" />
                 <element signature="e#20463#20644#0" />
-                <element signature="e#20932#21060#1" />
-                <element signature="e#21256#21357#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SSTLM_test_suite/R0-multi-step.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="56" column="11" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
+            <state relative-caret-position="405">
+              <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -326,8 +289,8 @@
         <option value="$PROJECT_DIR$/phase_space_gen/main.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/animations_data/animate.py" />
         <option value="$PROJECT_DIR$/SSTLM_test_suite/run_R0_multi_step.sh" />
-        <option value="$PROJECT_DIR$/latex/figure_gen.py" />
         <option value="$PROJECT_DIR$/SSTLM_test_suite/R0-multi-step.py" />
+        <option value="$PROJECT_DIR$/latex/figure_gen.py" />
       </list>
     </option>
   </component>
@@ -337,8 +300,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1680" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="834" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -364,7 +327,23 @@
             <path>
               <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
               <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
-              <item name="SSTLM_test_suite" type="462c0819:PsiDirectoryNode" />
+              <item name="latex" type="462c0819:PsiDirectoryNode" />
+              <item name="latex_data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
+              <item name="latex" type="462c0819:PsiDirectoryNode" />
+              <item name="latex_data" type="462c0819:PsiDirectoryNode" />
+              <item name="R0_data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
+              <item name="latex" type="462c0819:PsiDirectoryNode" />
+              <item name="latex_data" type="462c0819:PsiDirectoryNode" />
+              <item name="R0_data" type="462c0819:PsiDirectoryNode" />
+              <item name="multi_steps" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -559,15 +538,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16971917" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16971917" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3237624" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.50061053" side_tool="true" weight="0.20918368" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.50061053" side_tool="true" visible="true" weight="0.20918368" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.24752475" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -582,7 +561,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" x="-29" y="-1025" width="1680" height="884" id="SciView" order="3" visible="true" weight="0.21184371" />
+      <window_info active="true" anchor="right" x="-29" y="-1025" width="1680" height="884" id="SciView" order="3" visible="true" weight="0.5445666" />
       <window_info anchor="right" id="R Graphics" order="4" weight="0.328541" />
       <window_info anchor="right" id="R Packages" order="5" weight="0.32820153" />
       <window_info anchor="right" id="Database" order="6" weight="0.3287879" />
@@ -828,10 +807,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SSTLM_test_suite/R0-multi-step.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/latex/figure_gen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="605" column="14" selection-start-line="605" selection-start-column="14" selection-end-line="605" selection-end-column="14" />
+        <state relative-caret-position="470">
+          <caret line="597" column="32" lean-forward="true" selection-start-line="597" selection-start-column="32" selection-end-line="597" selection-end-column="32" />
           <folding>
             <element signature="e#244#354#1" />
             <element signature="e#398#1033#0" />
@@ -887,16 +873,7 @@
             <element signature="e#19847#20903#0" />
             <element signature="e#19847#19971#1" />
             <element signature="e#20463#20644#0" />
-            <element signature="e#20932#21060#1" />
-            <element signature="e#21256#21357#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SSTLM_test_suite/R0-multi-step.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="56" column="11" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
         </state>
       </provider>
     </entry>

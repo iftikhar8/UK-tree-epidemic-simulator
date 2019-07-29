@@ -6,7 +6,6 @@ from mpl_toolkits.axes_grid1.inset_locator import mark_inset
 import numpy as np
 import os, sys
 
-
 """
 This script plots and saves all the figures used in the tex file. Simply call the associated function.
 """
@@ -19,17 +18,17 @@ def en_combine(sim_names, out_name):
     :return: none, however, write to disk outputs
     """
     path = os.getcwd() + "/latex/latex_data/R0_data/multi_steps/"
-    dim = np.load(path+sim_names[0]+'.npy').shape
+    dim = np.load(path + sim_names[0] + '.npy').shape
     dat = np.zeros(dim)
-    print(np.load(path+sim_names[0]+'.npy').shape)
+    print(np.load(path + sim_names[0] + '.npy').shape)
     i = 0
     for name in sim_names[1:]:
-        en = np.load(path+name+'.npy')
-        en_Av = en.sum(axis=0)/en.shape[0]
+        en = np.load(path + name + '.npy')
+        en_Av = en.sum(axis=0) / en.shape[0]
         dat = dat + en_Av
 
-    dat = dat/(i+1)
-    np.save('COMBINED-'+out_name, dat)
+    dat = dat / (i + 1)
+    np.save('COMBINED-' + out_name, dat)
 
 
 def uk_vel_diff_map():
@@ -86,11 +85,11 @@ def subgird():
     import matplotlib.colors as colors
 
     cmap = colors.ListedColormap([(.5, .5, .5, .25), 'green', 'red', 'blue'])
-    bounds = [0, 1, 2, 3,4]
+    bounds = [0, 1, 2, 3, 4]
     norm = colors.BoundaryNorm(bounds, cmap.N, clip=True)
-    R_1 = R_1.astype(float)*3
-    R_2 = R_2.astype(float)*3
-    I_1 = np.where(I_1 > 0, 2,0)
+    R_1 = R_1.astype(float) * 3
+    R_2 = R_2.astype(float) * 3
+    I_1 = np.where(I_1 > 0, 2, 0)
     I_2 = np.where(I_2 > 0, 2, 0)
     fig, [ax1, ax2] = plt.subplots(nrows=2, figsize=(10, 10))
 
@@ -103,7 +102,7 @@ def subgird():
 
     fig.subplots_adjust(right=0.8)
     cbar_ax = fig.add_axes([0.68, 0.1, 0.03, 0.8])
-    cbar = fig.colorbar(im, cax=cbar_ax,ticks=[0, 1, 2, 3])
+    cbar = fig.colorbar(im, cax=cbar_ax, ticks=[0, 1, 2, 3])
     cbar.set_ticklabels([r'$\emptyset$', 'S (tree)', 'I', 'R (dead)'])
 
     cbar.set_ticks(bounds)
@@ -130,7 +129,7 @@ def PDE_UK_sims():
     Plot simulations of PDE model over the UK based on diffusion coefficients generated in phase-space
     :return:
     """
-    data = "?" # Find data
+    data = "?"  # Find data
     dir = os.listdir(os.getcwd() + '/latex_data')
     names = []
     for file in dir:
@@ -158,7 +157,6 @@ def PDE_UK_sims():
         ax.set_xticklabels([])
         ax.set_yticklabels([])
         ax.set_title(r'Year : ' + years[i])
-
 
     plt.savefig('FKPP-10yr-immingham-L-50-b-02', bbox_inches='tight')
     plt.show()
@@ -204,7 +202,7 @@ def dispersal_factor_2d():
     arr = np.zeros(shape=[size, size])
     arr[infected] = 1
     for sigma in sigmas:
-        pre_factor = 2 * np.pi * sigma**2
+        pre_factor = 2 * np.pi * sigma ** 2
         blurred = pre_factor * gaussian_filter(arr, sigma=sigma)
         im = plt.imshow(blurred)
         plt.colorbar(im)
@@ -224,12 +222,12 @@ def transition_prs(sigma, betas, rho, x1, x2, double):
     """
     fig, ax = plt.subplots()
     for beta in betas:
-        g_xy_1 = np.exp(-1 * np.square(x1)/(2 * sigma ** 2))
+        g_xy_1 = np.exp(-1 * np.square(x1) / (2 * sigma ** 2))
         p_infected_1 = beta * rho * g_xy_1
         ax.plot(x1, p_infected_1, label=r'$\beta = $' + str(beta), alpha=0.25)
         ax.scatter(x1, p_infected_1, s=0.75, marker='x')
         if double:
-            g_xy_2 = np.exp(-1 * np.square(x2)/(2 * sigma ** 2))
+            g_xy_2 = np.exp(-1 * np.square(x2) / (2 * sigma ** 2))
             p_infected_2 = beta * rho * g_xy_2
             ax.plot(x1, p_infected_2, label='x=2 infected', alpha=0.25)
             ax.scatter(x1, p_infected_2, s=0.75, marker='x')
@@ -278,7 +276,6 @@ def phase_space_beta():
     ax[0, 0].set_xticklabels([])
     ax[0, 1].set_xticklabels([])
 
-
     plt.savefig('beta-phase-space', bbox_to_inches='tight')
     plt.show()
 
@@ -288,18 +285,18 @@ def secondary_inf():
     plot the number of secondary cases per time step
     :return:
     """
-    comp_r0 = np.load(os.getcwd()+'/latex/latex_data/R0-LT_L_10_r_010_b_0-10_en_10000.npy')
+    comp_r0 = np.load(os.getcwd() + '/latex/latex_data/R0-LT_L_10_r_010_b_0-10_en_10000.npy')
     sigmas = np.arange(0, 15, 1)
     betas = np.linspace(0, 1, 10)
     analytic_r0 = np.zeros(len(sigmas))
     beta, rho = 0.1, 0.1
     for sigma in sigmas:
-        r0 = beta * rho * 2 * np.pi * sigma**2
+        r0 = beta * rho * 2 * np.pi * sigma ** 2
         analytic_r0[sigma] = r0
     fig, ax = plt.subplots()
     ax.plot(betas, comp_r0, alpha=0.75, label='computational')
-    #ax.plot(sigmas, analytic_r0, alpha=0.8, color='r', linewidth=0.45)
-    #ax.scatter(sigmas, analytic_r0, color='r', marker='x', alpha=0.75, label='analytic')
+    # ax.plot(sigmas, analytic_r0, alpha=0.8, color='r', linewidth=0.45)
+    # ax.scatter(sigmas, analytic_r0, color='r', marker='x', alpha=0.75, label='analytic')
     ax.set_xlabel(r'Dispersal kernel ($\ell$)')
     ax.set_title(r'$R_0$ from $T=0 \rightarrow\ T=1$, ($10^2$ repeats)')
     ax.set_ylabel(r'$R_0\ time^{-1}$')
@@ -310,8 +307,10 @@ def secondary_inf():
 
 
 def vel_t_series():
-    correct_names = ['max_d_b_0-25_r_0-1_L_2-0-correct.npy', 'max_d_b_0-25_r_0-1_L_2-5-correct.npy', 'max_d_b_0-25_r_0-1_L_3-0-correct.npy']
-    incorrect_names = ['max_d_b_0-25_r_0-1_L_2-0-incorrect.npy', 'max_d_b_0-25_r_0-1_L_2-5-incorrect.npy', 'max_d_b_0-25_r_0-1_L_3-0-incorrect.npy']
+    correct_names = ['max_d_b_0-25_r_0-1_L_2-0-correct.npy', 'max_d_b_0-25_r_0-1_L_2-5-correct.npy',
+                     'max_d_b_0-25_r_0-1_L_3-0-correct.npy']
+    incorrect_names = ['max_d_b_0-25_r_0-1_L_2-0-incorrect.npy', 'max_d_b_0-25_r_0-1_L_2-5-incorrect.npy',
+                       'max_d_b_0-25_r_0-1_L_3-0-incorrect.npy']
     beta = 0
     ell = 1
     if beta:
@@ -344,7 +343,7 @@ def vel_t_series():
         v_correct = np.gradient(correct_data)
         v_wrong = np.gradient(incorrect_data)
         ax.plot(v_correct, alpha=0.5, c=color[i], linestyle='--', label=r'$\beta$ = ' + str(labels[i]) + ' (corrected)')
-        #ax.plot(v_wrong, alpha=0.5, c=color[i], linestyle='-', label=r'$\beta$ = ' + str(labels[i]) + ' (wrong)')
+        # ax.plot(v_wrong, alpha=0.5, c=color[i], linestyle='-', label=r'$\beta$ = ' + str(labels[i]) + ' (wrong)')
         ax.axhline(y=np.average(v_correct), c=color[i])
 
     ax.set_title(r'Time series velocity')
@@ -399,7 +398,6 @@ def phase_space_gen_4X():
             ax[i].set_aspect('auto')
             cbar.set_label(r"($km^2 day^{-1}$)")
 
-
     ax[1].set_xlabel(r'$\rho$')
     plt.savefig('dfff_x2' + metric, bbox_to_inches='tight')
     plt.show()
@@ -430,7 +428,6 @@ def phase_line():
     plt.show()
 
 
-
 def domain_size_calibrations():
     import matplotlib.pyplot as plt
     fig, ax = plt.subplots(figsize=(7.5, 5.5))
@@ -446,7 +443,7 @@ def domain_size_calibrations():
         data_arr = np.zeros(len(files))
         var_arr = np.zeros(len(files))
         for i, file in enumerate(sorted(files)):
-            data = np.load(path+file) * 365
+            data = np.load(path + file) * 365
             data_arr[i] = data.mean()
             var_arr[i] = data.std()
 
@@ -476,7 +473,7 @@ def R0_phase():
     This shows a re-interpreted beta value vs rho, the phase space of R_0 FOR one infected tree at the origin/
     """
     extent = [1., 10., 0, 1.0]
-    data = np.load(os.getcwd()+'/latex/latex_data/R0_data/' + 'b-v-r-R0-en-1000-L-300m.npy')
+    data = np.load(os.getcwd() + '/latex/latex_data/R0_data/' + 'b-v-r-R0-en-1000-L-300m.npy')
     fig, ax = plt.subplots()
     im = ax.contourf(data.T, origin='lower', cmap=plt.get_cmap('jet'), extent=extent)
     cbar = plt.colorbar(im)
@@ -493,7 +490,7 @@ def time_series_metric():
     "Plot metric evolution in time"
     path = os.getcwd() + '/latex/latex_data/time-series-data/'
     name = 'L-200en_sz-10-test-max-distance.npy'
-    data = np.load(path+name)
+    data = np.load(path + name)
     fig, ax = plt.subplots(figsize=(15, 6), ncols=2, nrows=1)
     # Axis 0
     ax[0].set_title(r'Maximum distance curve: $\rho = 0.05,\ \beta = 5,\ \ell=25m$')
@@ -511,7 +508,7 @@ def time_series_metric():
     for i, t_series in enumerate(data[::2]):
         index = np.where(np.gradient(t_series) < 0)[0][0]
         label1 = r'$d = {} (m),\ t_f = {} (day),\ v = {} m/day$'.format(index, int(t_series[index]),
-                                                                        round(t_series[index]/index))
+                                                                        round(t_series[index] / index))
         ax[0].plot(t_series[:index], color=color[i], alpha=0.4, label=label1)
         index = index - 1
         ax[0].plot([index, index], [0, t_series[index]], color=color[i], alpha=0.3, ls='--')
@@ -523,7 +520,6 @@ def time_series_metric():
         ax[1].plot(np.gradient(t_series[:index]), color=color[i], alpha=0.25)
         ax[1].scatter(range(index), np.gradient(t_series[:index]), color=color[i], alpha=0.4)
         ax[1].plot([0, index], [av_V, av_V], label=label2, color=color[i], alpha=0.50)
-
 
     ax[0].legend()
     ax[1].legend()
@@ -538,19 +534,19 @@ def R0_line():
     beta = 20
     rho = 0.25, 0.50, 1.0
     """
-    path = os.getcwd()+'/latex/latex_data/R0_data/'
-    data_1 = np.load(path + 'r-025-b-20-a-005-en-100.npy')     # rho = 0.5
+    path = os.getcwd() + '/latex/latex_data/R0_data/'
+    data_1 = np.load(path + 'r-025-b-20-a-005-en-100.npy')  # rho = 0.5
     data_2 = np.load(path + 'r-050-b-20-a-005-en-100.npy')
     data_3 = np.load(path + 'r-1-b-20-a-005-en-100.npy')
     labels = ['0.25', '0.50', '1.00']
     data = [data_1, data_2, data_3]
 
-    dispersals = np.array([1, 2, 3, 4, 5, 10, 50, 100, 150, 200, 250, 300]) * 0.001/0.005
+    dispersals = np.array([1, 2, 3, 4, 5, 10, 50, 100, 150, 200, 250, 300]) * 0.001 / 0.005
     fig, ax = plt.subplots(figsize=(7.5, 5))
-    c=0
+    c = 0
     for dset in data:
         plt.errorbar(x=dispersals, y=dset[:, 0], yerr=dset[:, 1], alpha=0.5)
-        plt.scatter(x=dispersals, y=dset[:, 0], s=dset[:, 0]+0.1, label=r'$\rho = $' + labels[c])
+        plt.scatter(x=dispersals, y=dset[:, 0], s=dset[:, 0] + 0.1, label=r'$\rho = $' + labels[c])
         c += 1
     ax.set_title(r'$\beta = 20,\ L=200,\ \alpha = 0.005$')
     ax.set_xlabel(r'effective dispersal $\tilde{\ell}$', size=15)
@@ -566,7 +562,7 @@ def R0_multi_steps():
     1. This plots R0 over a set number of time-steps showing R0(t)
     2. Also the offspring distribution Pr(R0_tot)
     """
-    dir_names = ['en_2_22-07-19']
+    dir_names = ['en_1', 'L_200_en_2']
     colors = ['black', 'red']
     path = os.getcwd() + '/latex/latex_data/R0_data/multi_steps/'
     fig, ax = plt.subplots(ncols=2, figsize=(12, 5))
@@ -579,30 +575,35 @@ def R0_multi_steps():
         j = 0
         for file in sorted(en_list):
             en_100 = np.load(path + dir + '/' + file)
-            av = en_100.sum(axis=0)/100
+            av = en_100.sum(axis=0) / 100
             en_all = en_all + av
             for sim in en_100:
                 R0_dist[j] = sim.sum()
                 j += 1
 
-        en_out = en_all/100
+        en_out = en_all / 100
         time = np.arange(0, 20, 1)
         ax[0].plot(time, en_out, color=colors[i], label=label[i])
         ax[0].grid(alpha=0.5)
         ax[0].set_xlabel('Time (days)')
-        ax[0].set_ylabel(r'$average(R0)$ ($day^{-1}$)')
-        ax[0].set_title(r'R0 for one tree over time : $N=10^4$')
+        ax[0].set_ylabel(r'$average(R0_{TOT})$ ($day^{-1}$)')
+        ax[0].set_title(r'$R0(t)$ : $N=10^4$')
         ax[0].legend()
-        sns.distplot(R0_dist, bins=100, kde=True, hist=False, ax=ax[1], color=colors[i]);
+        #  sns.distplot(R0_dist, bins=100, kde=True, hist=False, ax=ax[1], color=colors[i])
+        sns.kdeplot(R0_dist, bw=0.3, ax=ax[1])
+        # sns.kdeplot(R0_dist, shade=True, ax=ax[1])
+        print('hello')
+        # ax[1].hist(R0_dist, bins=200, color=colors[i])
         ax[1].grid(True)
-        ax[1].set_title('Distribution of total R0 over 20 time-steps: $N=10^4$')
-        ax[1].set_xlabel(r"$R0_{}$".format('{total}'))
-        ax[1].set_ylabel(r"$Pr(R0_{})$".format('{total}'))
+        ax[1].set_title('Pr(R0) : $N=10^4$')
+        ax[1].set_xlabel(r"Basic reproduction: $\int R0 dt$")
+        ax[1].set_ylabel(r"$Pr(R0)$")
         dist_label = ' Av = ' + str(round(R0_dist.mean())) + ' : var = ' + str(round(R0_dist.var(), 2))
         ax[1].plot([R0_dist.mean(), R0_dist.mean()], [0, 0.162], alpha=0.5, ls='--', label=dist_label, color=colors[i])
         ax[1].legend()
 
     plt.savefig('off_spring_dist')
     plt.show()
+
 
 R0_multi_steps()
