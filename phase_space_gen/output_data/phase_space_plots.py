@@ -76,11 +76,20 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
     # - from a directory of repeats
     # - sum all results then divide by the number of independent simulations
     tensor_phase_space = np.zeros(shape=dim)
-    kernel = ['50m', '100m', '150m', '200m']
+
+    name = sorted(os.listdir(path))[9]
+    print(name)
+    dat_i = np.load(path + '/' + name)
+    for slice in dat_i:
+        im = plt.imshow(slice)
+        plt.colorbar(im)
+        plt.show()
+
     for i, sim_i in enumerate(sorted(os.listdir(path))):
         # FIND sum of all data files
         dat_load = np.load(path + '/' + sim_i)
-        if i == 3:
+        kernel = ['50m', '100m', '150m', '200m']
+        if i == 2:
             j = 0
             for slice in dat_load:
                 plt.title('D: ' + kernel[j])
@@ -133,7 +142,7 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 # 1. sim_names : used to generate individual ensemble simulations
 sim_names = {0: '/lattice/07-07-2019-HPC',
              1: '/lattice/09-07-2019-HPC',
-             2: '/lattice/24-07-2019-HPC'}
+             2: '/lattice/26-07-2019-HPC'}
 
 # 3. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
@@ -144,11 +153,11 @@ if 1:
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
     sim_name = 2      # enter the simulate name index
-    distance = 0        # load and compute distance plots
-    runtime = 1       # load and compute runtime plots
-    mortality = 0       # load and compute mortality plots
-    velocity = 0   # compute velocity and show
-    percolation = 0             # load and compute percolation
+    distance = 1      # load and compute distance plots
+    runtime = 0       # load and compute runtime plots
+    mortality = 0     # load and compute mortality plots
+    velocity = 0      # compute velocity and show
+    percolation = 0   # load and compute percolation
     phase_dim = [4, 25, 25]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
     if mortality:
@@ -162,13 +171,13 @@ if 1:
         # GET distance travelled data
         sim, metric = [sim_names[sim_name], metrics[0]]
         path_2_sim = os.getcwd() + sim + metric
-        tensor_distance = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=0, save_Data=0)
+        tensor_distance = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0, save_Data=0)
 
     if runtime:
         # GET runtime data
         sim, metric = [sim_names[sim_name], metrics[1]]
         path_2_sim = os.getcwd() + sim + metric
-        tensor_runtime = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=0, save_Data=0)
+        tensor_runtime = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0, save_Data=0)
 
     if velocity:
         # GET velocity data

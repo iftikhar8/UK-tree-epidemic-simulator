@@ -365,7 +365,7 @@ def phase_space_gen_4X():
     metric = 'vel'
     name = 'COMBINED-ps-b-100-r-100-L-6.npy'
     ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-figs/' + name)
-    ps_tensor = np.array([ps_tensor[1],  ps_tensor[3]])
+    ps_tensor = ps_tensor[1]
     if metric == 'vel':
         label = r'$km\ yr^{-1}$'
     if metric == "perc":
@@ -378,24 +378,58 @@ def phase_space_gen_4X():
         label = 'perc vel km yr^{-1}'
 
     max = np.max(ps_tensor)
-    fig, ax = plt.subplots(nrows=2, ncols=1, figsize=(4.5, 8))
+    fig, ax = plt.subplots(nrows=2, figsize=(4.5, 8))
     extent = [0, .10, 0, 50]  # rho range & beta range
     xy_axis = np.linspace(0, 0.1, 6)
-    kernels = ['100m', '200m']
+    data = ps_tensor / 365
     for i in range(2):
-        data = ps_tensor[i] / 365
-        data = np.square(data)/4
-        im = ax[i].contourf(data, origin='lower', extent=extent)
-        ax[i].set_title(r'$\bar{D}_{\rho, R_0}:\ \ \ell = $' + kernels[i])
-        ax[i].set_ylabel(r'$R_0$')
-        ax[i].set_aspect('auto')
-        cbar = plt.colorbar(im, ax=ax[i])
-        cbar.set_label(r"($km^2 day^{-1}$)")
+        if i == 0:
+            im = ax[i].contourf(data, origin='lower', extent=extent)
+            cbar = plt.colorbar(im, ax=ax[i])
+            ax[i].set_title(r'$\bar{v}_{\rho, R_0}:\ \ \ell = 100m$')
+            ax[i].set_ylabel(r'$R_0$')
+            ax[i].set_aspect('auto')
+            cbar.set_label(r"($km day^{-1}$)")
+        elif i == 1:
+            data = np.square(data) / 4
+            im = ax[i].contourf(data, origin='lower', extent=extent)
+            cbar = plt.colorbar(im, ax=ax[i])
+            ax[i].set_title(r'$\bar{D}_{\rho, R_0}:\ \ \ell = 100m$')
+            ax[i].set_ylabel(r'$R_0$')
+            ax[i].set_aspect('auto')
+            cbar.set_label(r"($km^2 day^{-1}$)")
+
+
     ax[1].set_xlabel(r'$\rho$')
     plt.savefig('dfff_x2' + metric, bbox_to_inches='tight')
     plt.show()
 
-# phase_space_gen_4X()
+
+def phase_line():
+    name = 'COMBINED-ps-b-100-r-100-L-6.npy'
+    ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-figs/' + name)
+    ps_tensor = np.array([ps_tensor[1], ps_tensor[3], ps_tensor[5]])
+    dispersal = ["100m", "200m", "300m"]
+    R0_str = ["20\ day^{-1}", "30\ day^{-1}"]
+    label_ = r"$\ell = {},\ R_0 = {}$"
+    ioi = (38, 58)  # indicies of interest : R0=[20, 25, 30] --> indices = ['38', '48', '58']
+    fig, ax = plt.subplots(figsize=(8.0, 7.0))
+    color = ['r', 'b', 'g']
+    line_st = ['-', '--']
+    x_rho = np.linspace(0.001, 0.1, ps_tensor[0, 0].shape[0])
+    for i, slice in enumerate(ps_tensor):
+        c = color[i]
+        for j, ind in enumerate(ioi):
+            ax.plot(x_rho, slice[ind], color=c, alpha=0.50, ls=line_st[j], label=label_.format(dispersal[i], R0_str[j]))
+
+    ax.set_xlabel(r'Tree density $\rho$')
+    ax.set_ylabel(r'$\bar{v}\ (km\ yr^{-1})$')
+    plt.grid(alpha=0.5)
+    plt.legend()
+    plt.savefig('phase_lines')
+    plt.show()
+
+
 
 def domain_size_calibrations():
     import matplotlib.pyplot as plt
@@ -570,6 +604,5 @@ def R0_multi_steps():
 
     plt.savefig('off_spring_dist')
     plt.show()
-
 
 R0_multi_steps()

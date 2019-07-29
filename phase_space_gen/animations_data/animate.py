@@ -4,6 +4,7 @@ from matplotlib import colors
 import os, sys
 from scipy.ndimage import gaussian_filter
 from mpl_toolkits.axes_grid1 import make_axes_locatable
+from matplotlib.patches import Circle
 
 """
 This script is called by animate.sh and generates the figures which are animated via ffmpeg.
@@ -32,6 +33,7 @@ for line in content:
         rho = line[1].strip('\n')
     if 'beta' == line[0]:
         beta = line[1].strip('\n')
+        beta = str(round(float(beta), 3))
     if 'eff_disp' == line[0]:
         sigma = line[1].strip('\n')
     if 'L' == line[0]:
@@ -44,6 +46,7 @@ area = str(float(L) * float(alpha))  # calculate physical area of domain
 if '.DS_Store' in files: # get rid of .DS_store file
     files = files[1:]
 
+extent = [-500, 500, -500, 500]
 for i, frame in enumerate(files[:-1]):
     print('Step: ', i, ' file: ', frame)
 
@@ -54,21 +57,23 @@ for i, frame in enumerate(files[:-1]):
     t_step = np.load(path + frame)
     S, I, R = t_step
     I2 = np.zeros(I.shape)
-    I2[np.where(I > 0)] = 1
+    ind = np.where(I > 0)
+    I2[ind] = 1
     kernels = gaussian_filter(input=I2, sigma=5, truncate=3.0)
     #     kernels = np.where(kernels > 0, 1, 0)
     fig, ax = plt.subplots(figsize=(7.5, 7.5))
     title = r'   : $\rho = {0}, \ \ \beta = {1}\ (day^{2}),\ \ \ell = {3} (m),\ \ Area = {4} km^2 $'
     ax.set_title('Day =' + str(i) + title.format(rho, beta, '{-1}', sigma, area))
-    max = 0.105
-    im = ax.contour(kernels/max, cmap=plt.get_cmap('Reds'), vmin=0, vmax=0.105, alpha=0.60)
+    max = 0.10
+    ax.imshow(kernels/max, cmap=plt.get_cmap('Reds'), vmin=0, vmax=0.105, alpha=0.60)
     ax.imshow(S, cmap=cmap, norm=norm, alpha=0.75)
-    ax.contour(I, cmap=plt.get_cmap('Reds'))
-    divider = make_axes_locatable(ax)
-    cax = divider.append_axes("right", size="5%", pad=0.05)
-    cbar = plt.colorbar(im, cax=cax)
-    cbar.set_label('Infectivity levels   (% of max)')
+    for co in zip(ind[0], ind[1]):
+        circ = Circle((co[1], co[0]), 2, alpha=0.5, color='r')
+        ax.add_patch(circ)
+    ax.set_xticks([])
+    ax.set_yticks([])
+    #ax.set_xlabel('Distance from epicenter (m)')
+    #ax.set_ylabel('Distance from epicenter (m)')
     plt.savefig(save_dir + save_nm(i))
     plt.close()
-
 

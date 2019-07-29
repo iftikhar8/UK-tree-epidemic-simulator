@@ -2,22 +2,30 @@ import numpy as np
 import sys, os
 
 
-def finite_difference_sim(dim, params, diffusion_map, d_diffusion_map, uk, saves):
+def finite_difference_sim(dim, params, d_map, d_d_map, uk, saves):
+    """
+    :param dim: domain dimension
+    :param params: physical parameters
+    :param d_map: diffusion map
+    :param d_d_map: differential diffusion map
+    :param uk: uk domain in array
+    :param saves: if True save else don't
+    :return:
+    """
     alpha, dim, T = 1, params["dim"], params["T"]
     for time_step in range(T):
         print("Time step: ", time_step)
         for i in range(dim[0] - 2):
             for j in range(dim[1] - 2):
-                # D: diffusion coefficient for land region - represents how likely to infect neighbouring region
-                # diff_ij: diffusion component of PDE model
-                # growth_ij: growth component of PDE model
-                D = diffusion_map[i, j]
-                d_D = d_diffusion_map[i, j]
-                diff_ij = D * (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j])
-                advect_ij = np.square(d_D * (uk[i + 1, j] + uk[i, j + 1] - uk[i - 1, j] - uk[i, j - 1]))
+                # diff_ij: diffusion component of PDE model: D \grad^2 U)
+                # advection_ij: advection term in PDE:       \grad D \grad U
+                # growth_ij: growth component of PDE model:  \alpha U(x,t)
+                diff_ij = d_map[i, j] * (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j])
+                advection_ij = d_d_map[i, j] * (uk[i + 1, j] + uk[i, j + 1] - uk[i - 1, j] - uk[i, j - 1])
+                # (d_map[i + 1, j] + d_map[i - 1, j] + d_map[i, j + 1] + d_map[i, j - 1])
                 growth_ij = 1 * uk[i, j] * (1 - uk[i, j])
-                # uk: resultant output: SUM {Growth + diffusion}
-                uk[i, j] = uk[i, j] + diff_ij + growth_ij + advect_ij
+                # uk: resultant output: SUM {Growth + diffusion}[1 - U(x, t)]
+                uk[i, j] = uk[i, j] + (diff_ij + growth_ij + advection_ij)
 
         # SAVE frame to file
         if saves[0]:

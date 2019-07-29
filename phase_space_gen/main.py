@@ -101,7 +101,7 @@ elif mode == "LCL":
         eff_dispersal = real_dispersal / alpha  # convert the dispersal distance from km to computer units
         eff_dispersal = np.round(eff_dispersal, 5)
         beta = R0 / (2 * np.pi * eff_dispersal**2)
-        rho = 0.02   # typically \in [0.001, 0.100]
+        rho = 0.01   # typically \in [0.001, 0.100]
         params["rho"] = rho
         params["beta"] = beta
         params["alpha"] = alpha

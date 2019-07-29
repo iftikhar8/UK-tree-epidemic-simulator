@@ -11,27 +11,27 @@ This is useful to get:
 """
 in_ = sys.argv[1:]
 job_id, date, time, name = in_
-L = 100     # lattice size
-R0 = 10     # number of initial secondary infected cells given rho = 1
-rho = np.array([0.10])      # tree density
-alpha = 0.005       # lattice constant in km
+L = 100                      # lattice size
+R0 = 50                     # number of initial secondary infected cells given rho = 1
+rho = np.array([0.01])      # tree density
+alpha = 0.005               # lattice constant in km
 real_dispersal = 0.050      # target dispersal in km
-sigma = real_dispersal / alpha      # effective dispersal in computer units
-beta_ = R0 / (2 * np.pi * sigma**2)
+sigma = real_dispersal / alpha       # effective dispersal in computer units
+beta_ = R0 / (2 * np.pi * sigma**2)  # define without Rho
 beta = np.array([beta_])
-assert beta < 1     # check beta is still probability and physically possible
-t_horizon = 20      # number of time steps to check
-ensemble = 10
-R0_arr = np.zeros(t_horizon)
+assert beta < 1             # check beta is still probability and physically possible
+t_horizon = 20              # number of time steps to check
+ensemble = 100
+
 R0_en_arr = np.zeros(shape=(ensemble, t_horizon))
 epi = int(L/2)
-
 print("rho = {}, beta = {}, ell = {}, L = {}".format(rho, beta, sigma, L))
 # Repeat over an ensemble [i, j] : i) # repeats, j) # steps in simulation=20
 for repeat in range(ensemble):
-    if repeat % 1 == 0:
+    if repeat % 10 == 0:
         print('-rpt-: ', repeat+1, ' / ', ensemble)
 
+    R0_arr = np.zeros(t_horizon)
     susceptible = np.where(np.random.uniform(0, 1, size=(L, L)) < rho, 1, 0)
     infected = np.zeros(susceptible.shape)
     infected[epi, epi], susceptible[epi, epi] = 1, 0
@@ -40,7 +40,8 @@ for repeat in range(ensemble):
                                                 test_cell=[epi, epi])
         R0_arr[step] = R0_test
     R0_en_arr[repeat] = R0_arr
-
+    # next repeat...
+# ___  DONE  ___ #
 
 if int(job_id) < 10:
     id = '000'+job_id
