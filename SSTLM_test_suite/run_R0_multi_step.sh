@@ -2,7 +2,7 @@
 
 
 
-hpc_switch=0
+hpc_switch=1
 date_time=$(date '+%d-%m-%Y %H:%M:%S')
 ###########__________Run script__________#############
     ################ Hpc machine ################

@@ -562,7 +562,8 @@ def R0_multi_steps():
     1. This plots R0 over a set number of time-steps showing R0(t)
     2. Also the offspring distribution Pr(R0_tot)
     """
-    dir_names = ['en_1', 'L_200_en_2']
+    # dir_names = ['en_1', 'L_200_en_2']
+    dir_names = ['l_50_r_01_r0_10']
     colors = ['black', 'red']
     path = os.getcwd() + '/latex/latex_data/R0_data/multi_steps/'
     fig, ax = plt.subplots(ncols=2, figsize=(12, 5))
@@ -571,15 +572,12 @@ def R0_multi_steps():
     for i, dir in enumerate(dir_names):
         en_list = os.listdir(path + dir)
         R0_dist = np.zeros(10000)
-        en_all = np.zeros(20)
+        en_all = np.zeros(20, 10000)
         j = 0
-        for file in sorted(en_list):
+        for j, file in enumerate(sorted(en_list)):
             en_100 = np.load(path + dir + '/' + file)
-            av = en_100.sum(axis=0) / 100
-            en_all = en_all + av
-            for sim in en_100:
-                R0_dist[j] = sim.sum()
-                j += 1
+            
+
 
         en_out = en_all / 100
         time = np.arange(0, 20, 1)
@@ -587,18 +585,18 @@ def R0_multi_steps():
         ax[0].grid(alpha=0.5)
         ax[0].set_xlabel('Time (days)')
         ax[0].set_ylabel(r'$average(R0_{TOT})$ ($day^{-1}$)')
-        ax[0].set_title(r'$R0(t)$ : $N=10^4$')
+        ax[0].set_title(r'$R0(t)$,  ($N=10^4$)')
         ax[0].legend()
         #  sns.distplot(R0_dist, bins=100, kde=True, hist=False, ax=ax[1], color=colors[i])
-        sns.kdeplot(R0_dist, bw=0.3, ax=ax[1])
+        sns.kdeplot(R0_dist, bw=0.5, ax=ax[1])
         # sns.kdeplot(R0_dist, shade=True, ax=ax[1])
         print('hello')
         # ax[1].hist(R0_dist, bins=200, color=colors[i])
         ax[1].grid(True)
-        ax[1].set_title('Pr(R0) : $N=10^4$')
+        ax[1].set_title(r"$Pr : \int R0 dt$,  ($N=10^4$)")
         ax[1].set_xlabel(r"Basic reproduction: $\int R0 dt$")
         ax[1].set_ylabel(r"$Pr(R0)$")
-        dist_label = ' Av = ' + str(round(R0_dist.mean())) + ' : var = ' + str(round(R0_dist.var(), 2))
+        dist_label = ' Av = ' + str(round(R0_dist.mean(), 3)) + ' : var = ' + str(round(R0_dist.var(), 3))
         ax[1].plot([R0_dist.mean(), R0_dist.mean()], [0, 0.162], alpha=0.5, ls='--', label=dist_label, color=colors[i])
         ax[1].legend()
 

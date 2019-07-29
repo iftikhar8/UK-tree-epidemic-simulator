@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_test_suite/R0-multi-step.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_test_suite/R0-multi-step.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_test_suite/run_R0_multi_step.sh" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_test_suite/run_R0_multi_step.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/latex/figure_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/latex/figure_gen.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/off_spring_dist.png" beforeDir="false" afterPath="$PROJECT_DIR$/off_spring_dist.png" afterDir="false" />
     </list>
@@ -25,7 +27,7 @@
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$main_SSTLM_phase.coverage" NAME="main_SSTLM_phase Coverage Results" MODIFIED="1557918131615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$T_beta_calirate.coverage" NAME="T_beta_calibrate Coverage Results" MODIFIED="1558104962487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/model_calibration_scripts" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$phase_space_plots.coverage" NAME="phase_space_plots Coverage Results" MODIFIED="1564155905472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/output_data" />
-    <SUITE FILE_PATH="coverage/hpc_subgrid_model$figure_gen.coverage" NAME="figure_gen Coverage Results" MODIFIED="1564408512345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/hpc_subgrid_model$figure_gen.coverage" NAME="figure_gen Coverage Results" MODIFIED="1564411310840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$pde_model_main.coverage" NAME="pde_model_main Coverage Results" MODIFIED="1556891984430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/forecasting_PDE" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$raster_load.coverage" NAME="raster_load Coverage Results" MODIFIED="1559683173163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../domain_generator" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$domain_density.coverage" NAME="domain_density Coverage Results" MODIFIED="1558014085888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/input_domain" />
@@ -89,7 +91,7 @@
         <counts>
           <entry key="Python Console" value="2234" />
           <entry key="dummy" value="173" />
-          <entry key="py" value="131197" />
+          <entry key="py" value="131312" />
           <entry key="sh" value="1370" />
           <entry key="txt" value="541" />
         </counts>
@@ -97,7 +99,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="2084" />
-          <entry key="Python" value="133431" />
+          <entry key="Python" value="133546" />
         </counts>
       </usages-collector>
     </session>
@@ -107,8 +109,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/latex/figure_gen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="597" column="32" lean-forward="true" selection-start-line="597" selection-start-column="32" selection-end-line="597" selection-end-column="32" />
+            <state relative-caret-position="318">
+              <caret line="574" column="36" lean-forward="true" selection-start-line="574" selection-start-column="36" selection-end-line="574" selection-end-column="36" />
               <folding>
                 <element signature="e#244#354#1" />
                 <element signature="e#398#1033#0" />
@@ -172,8 +174,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SSTLM_test_suite/R0-multi-step.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+            <state relative-caret-position="412">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -345,6 +347,11 @@
               <item name="R0_data" type="462c0819:PsiDirectoryNode" />
               <item name="multi_steps" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
+              <item name="SSTLM_test_suite" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -360,19 +367,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/latex/latex_data/R0_data/multi_steps" />
+      <recent name="$PROJECT_DIR$/latex/latex_figs" />
+      <recent name="$PROJECT_DIR$/old_code" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/latex/latex_data/R0_data" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/latex/latex_data/phase-space-figs" />
       <recent name="$PROJECT_DIR$/latex/latex_data/time-series-data" />
       <recent name="$PROJECT_DIR$/latex/latex_data/R0_data/multi_steps" />
       <recent name="$PROJECT_DIR$/latex/latex_data/R0_data" />
       <recent name="$PROJECT_DIR$/latex/latex_data/model-scaling/alpha-scaling" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/latex/latex_figs" />
-      <recent name="$PROJECT_DIR$/old_code" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/latex/latex_data/R0_data/multi_steps" />
-      <recent name="$PROJECT_DIR$/latex/latex_data/R0_data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -546,7 +553,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3237624" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.50061053" side_tool="true" visible="true" weight="0.20918368" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.50061053" side_tool="true" weight="0.20918368" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.24752475" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -561,7 +568,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" x="-29" y="-1025" width="1680" height="884" id="SciView" order="3" visible="true" weight="0.5445666" />
+      <window_info anchor="right" x="-29" y="-1025" width="1680" height="884" id="SciView" order="3" weight="0.37728938" />
       <window_info anchor="right" id="R Graphics" order="4" weight="0.328541" />
       <window_info anchor="right" id="R Packages" order="5" weight="0.32820153" />
       <window_info anchor="right" id="Database" order="6" weight="0.3287879" />
@@ -809,15 +816,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SSTLM_test_suite/R0-multi-step.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        <state relative-caret-position="412">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/latex/figure_gen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="597" column="32" lean-forward="true" selection-start-line="597" selection-start-column="32" selection-end-line="597" selection-end-column="32" />
+        <state relative-caret-position="318">
+          <caret line="574" column="36" lean-forward="true" selection-start-line="574" selection-start-column="36" selection-end-line="574" selection-end-column="36" />
           <folding>
             <element signature="e#244#354#1" />
             <element signature="e#398#1033#0" />

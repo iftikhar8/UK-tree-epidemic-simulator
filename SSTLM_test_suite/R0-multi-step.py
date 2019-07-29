@@ -12,7 +12,7 @@ This is useful to get:
 in_ = sys.argv[1:]
 job_id, date, time, name = in_
 L = 100                      # lattice size
-R0 = 50                     # number of initial secondary infected cells given rho = 1
+R0 = 10                     # number of initial secondary infected cells given rho = 1
 rho = np.array([0.01])      # tree density
 alpha = 0.005               # lattice constant in km
 real_dispersal = 0.050      # target dispersal in km
@@ -53,9 +53,3 @@ elif int(job_id) == 100:
 name = id + name + date
 path = os.getcwd() + '/out_data/'
 np.save(path+name, R0_en_arr)
-
-R0_average = R0_en_arr.sum(axis=0) / (repeat + 1)
-plt.plot(R0_average)
-plt.show()
-
-print(R0_en_arr.sum(axis=1))
