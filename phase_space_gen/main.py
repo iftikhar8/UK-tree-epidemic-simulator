@@ -58,19 +58,17 @@ if mode == "HPC":
     print("Start time: ", datetime.datetime.now(), ' |  sim : ', str(job_id))
     for i, eff_disp in enumerate(eff_sigmas):
         # ITERATE dispersal kernel
-        print(i, ' / ', eff_sigmas.shape[0])
-        print('Eff sigma = ', eff_disp)
+        print('ell: ', i, ' / ', eff_sigmas.shape[0])
         params["eff_disp"] = eff_disp
-        betas = beta_arr[i]  # select appropriate beta array
+        betas = beta_arr[i]  # select appropriate beta array for dispersal kernel
         for j, beta in enumerate(betas):
             # ITERATE infection rates
+            print('     beta: ', j, ' / ', betas.shape[0])
             params["beta"] = beta    # print("  Beta : ", round(beta, 3), ' R0: ', beta * 2 * np.pi * eff_disp**2)
             for k, rho in enumerate(rhos):
                 # ITERATE through density values
                 params["rho"] = rho
-                print('running: ', i,j,k)
                 num_removed, max_d, run_time, percolation = subgrid_SSTLM.main(settings, params)
-                print(max_d)
                 mortality[i, j, k] = num_removed
                 max_distances[i, j, k] = max_d
                 run_times[i, j, k] = run_time

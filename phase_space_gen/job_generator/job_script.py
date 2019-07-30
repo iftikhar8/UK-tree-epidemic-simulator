@@ -56,17 +56,19 @@ def main(settings, params):
         dim_ = None
     # HPC mode of bigger phase-diagram sims
     if "HPC" in settings["out_path"].split('-'):
-        print("Triggered HPC correctly")
-        rhos = np.linspace(0.001, 0.100, 25)
+        rhos = np.linspace(0.001, 0.100, 50)
         alpha = 0.005  # lattice constant
-        eff_disp = np.array([0.050, 0.100, 0.150, 0.200]) / alpha  # - effective dispersal distance
-        beta_arr = np.zeros(shape=[eff_disp.shape[0], rhos.shape[0]])  # hold all beta values < 1
-        R0_L, R0_H = [1, 50]  # R0_l(ow) & R0_h(igh) : the lowest and maximum initial reproduction ratios at max density
+        eff_disp = np.array([0.100, 0.200, 0.300]) / alpha  # - effective dispersal distance
+        """
+        Below the range of beta values will be calculated as it will change as a function of dispersal distance.
+        """
+        R0_arr = np.array([10, 20, 30])  # R0_the basic reproduction numbers need to be mapped to a Pr(..)
+        beta_arr = np.zeros(shape=[eff_disp.shape[0], R0_arr.shape[0]])  # hold all beta values < 1
         for i in range(eff_disp.shape[0]):
             disp = eff_disp[i]  # dispersal value in computer units
             factor = 2 * np.pi * (disp**2)  # Gaussian pre-factor : used to set beta value
-            beta_L, beta_H = [R0_L/factor, R0_H/factor]  # the appropriate probability \in [0, 1] which would give R0's
-            beta_arr[i] = np.linspace(beta_L, beta_H, rhos.shape[0])  # Each beta-range changes with dispersal
+            beta_arr[i] = R0_arr/factor
+
         dim_ = np.array([eff_disp.shape[0], beta_arr.shape[1], rhos.shape[0]])  # phase space dimension
         assert beta_arr.max() < 1  # make sure beta arr is a probability array \in [0, 1]
 

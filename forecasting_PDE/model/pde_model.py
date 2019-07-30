@@ -21,11 +21,11 @@ def finite_difference_sim(dim, params, d_map, d_d_map, uk, saves):
                 # advection_ij: advection term in PDE:       \grad D \grad U
                 # growth_ij: growth component of PDE model:  \alpha U(x,t)
                 diff_ij = d_map[i, j] * (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j])
-                advection_ij = d_d_map[i, j] * (uk[i + 1, j] + uk[i, j + 1] - uk[i - 1, j] - uk[i, j - 1])
+                #advection_ij = d_d_map[i, j] * (uk[i + 1, j] + uk[i, j + 1] - uk[i - 1, j] - uk[i, j - 1])
                 # (d_map[i + 1, j] + d_map[i - 1, j] + d_map[i, j + 1] + d_map[i, j - 1])
-                growth_ij = 1 * uk[i, j] * (1 - uk[i, j])
+                growth_ij = 1 * uk[i, j]
                 # uk: resultant output: SUM {Growth + diffusion}[1 - U(x, t)]
-                uk[i, j] = uk[i, j] + (diff_ij + growth_ij + advection_ij)
+                uk[i, j] = uk[i, j] + (diff_ij + growth_ij) * (1 - uk[i, j])
 
         # SAVE frame to file
         if saves[0]:
@@ -43,7 +43,7 @@ def finite_difference_sim(dim, params, d_map, d_d_map, uk, saves):
             np.save(name, uk)
 
         if time_step == params["T"]-1:
-            np.save(saves[1]+'/-diff_map', diffusion_map)
+            np.save(saves[1]+'/-diff_map', d_map)
 
     return uk
 

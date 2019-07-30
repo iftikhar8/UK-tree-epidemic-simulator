@@ -563,41 +563,44 @@ def R0_multi_steps():
     2. Also the offspring distribution Pr(R0_tot)
     """
     # dir_names = ['en_1', 'L_200_en_2']
-    dir_names = ['l_50_r_01_r0_10']
-    colors = ['black', 'red']
+    dir_names = ['l_50_r_01_r0_10', 'l_150_r_025_r0_20', 'l_250_r_050_r0_30']  # 'l_50_r_01_r0_10', 'l_250_r_050_r0_30'
+    colors = ['blue', 'orange', 'red']
+    heights = [0.275, 0.15, 0.125]
     path = os.getcwd() + '/latex/latex_data/R0_data/multi_steps/'
-    fig, ax = plt.subplots(ncols=2, figsize=(12, 5))
-    label = [r'$\rho = 0.10,\ \beta = 10,\ \ell = 50m$',
-             r'$\rho = 0.10,\ \beta = 20,\ \ell = 25m$']
+    fig, ax = plt.subplots(ncols=2, figsize=(14, 6))
+    label = [r'$\rho = 0.010,\ \beta = 10,\ \ell = 50m$',
+             r'$\rho = 0.025,\ \beta = 20,\ \ell = 150m$',
+             r'$\rho = 0.050,\ \beta = 30,\ \ell = 250m$']
     for i, dir in enumerate(dir_names):
         en_list = os.listdir(path + dir)
         R0_dist = np.zeros(10000)
-        en_all = np.zeros(20, 10000)
+        en_all = np.zeros(shape=[10000, 20])
         j = 0
         for j, file in enumerate(sorted(en_list)):
             en_100 = np.load(path + dir + '/' + file)
-            
+            en_all[j*100: (j+1)*100] = en_100
 
-
-        en_out = en_all / 100
+        R0_v_t = en_all.sum(axis=0) / 10000
+        R0_dist = en_all.sum(axis=1)
         time = np.arange(0, 20, 1)
-        ax[0].plot(time, en_out, color=colors[i], label=label[i])
+        ax[0].plot(time, R0_v_t, color=colors[i], label=label[i])
         ax[0].grid(alpha=0.5)
-        ax[0].set_xlabel('Time (days)')
-        ax[0].set_ylabel(r'$average(R0_{TOT})$ ($day^{-1}$)')
-        ax[0].set_title(r'$R0(t)$,  ($N=10^4$)')
+        ax[0].set_xlabel('t (days)', size=15)
+        ax[0].set_ylabel(r'$R0(t)$', size=15)
+        ax[0].set_title(r'($N=10^4$)', size=15)
         ax[0].legend()
         #  sns.distplot(R0_dist, bins=100, kde=True, hist=False, ax=ax[1], color=colors[i])
-        sns.kdeplot(R0_dist, bw=0.5, ax=ax[1])
+        sns.kdeplot(R0_dist, bw=0.5, ax=ax[1], color=colors[i],  shade=True)
         # sns.kdeplot(R0_dist, shade=True, ax=ax[1])
         print('hello')
         # ax[1].hist(R0_dist, bins=200, color=colors[i])
         ax[1].grid(True)
-        ax[1].set_title(r"$Pr : \int R0 dt$,  ($N=10^4$)")
-        ax[1].set_xlabel(r"Basic reproduction: $\int R0 dt$")
-        ax[1].set_ylabel(r"$Pr(R0)$")
+        ax[1].set_title(r"($N=10^4$)", size=15)
+        ax[1].set_xlabel(r"Basic reproduction: $\int R0\ dt$", size=15)
+        ax[1].set_ylabel(r"$Pr(\int R0\ dt)$", size=15)
         dist_label = ' Av = ' + str(round(R0_dist.mean(), 3)) + ' : var = ' + str(round(R0_dist.var(), 3))
-        ax[1].plot([R0_dist.mean(), R0_dist.mean()], [0, 0.162], alpha=0.5, ls='--', label=dist_label, color=colors[i])
+        ax[1].plot([R0_dist.mean(), R0_dist.mean()], [0, heights[i]], alpha=0.5, ls='--', label=dist_label,
+                   color=colors[i])
         ax[1].legend()
 
     plt.savefig('off_spring_dist')
