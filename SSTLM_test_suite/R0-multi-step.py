@@ -12,10 +12,10 @@ This is useful to get:
 in_ = sys.argv[1:]
 job_id, date, time, name = in_
 L = 100                      # lattice size
-R0 = 10                     # number of initial secondary infected cells given rho = 1
-rho = np.array([0.01])      # tree density
+R0 = 30                     # number of initial secondary infected cells given rho = 1
+rho = np.array([0.050])      # tree density
 alpha = 0.005               # lattice constant in km
-real_dispersal = 0.050      # target dispersal in km
+real_dispersal = 0.250      # target dispersal in km
 sigma = real_dispersal / alpha       # effective dispersal in computer units
 beta_ = R0 / (2 * np.pi * sigma**2)  # define without Rho
 beta = np.array([beta_])

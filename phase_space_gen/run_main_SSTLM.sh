@@ -20,12 +20,10 @@ date_time=$(date '+%d-%m-%Y %H:%M:%S')
 
 #$ -cwd -V
 #$ -l h_rt=48:00:00
-#$ -t 1-10
+#$ -t 1-100
 
 sim_name="HPC"
 python3 mkdir.py $date_time $data_type $sim_name
-SGE_TASK_ID=1
-
 python3 main.py $SGE_TASK_ID $date_time $data_type $sim_name
 elif [ "$hpc_switch" == 0 ]
  then
