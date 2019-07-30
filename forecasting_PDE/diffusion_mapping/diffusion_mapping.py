@@ -36,7 +36,7 @@ def diffusion_mapping(domain, rho_space, vel_phase_constants, plots):
                     elif rho_boundaries[98][1] < d_ij:
                         velocity_map[i, j] = vel_phase_constants[99]
 
-    diff_map = np.square(velocity_map)/4   # CONVERT from velocity to diffusion coefficients modified FK-equation
+    diff_map = np.square(velocity_map)   # CONVERT from velocity to diffusion coefficients modified FK-equation
     if plots:
         import matplotlib.pyplot as plt
         import seaborn as sns

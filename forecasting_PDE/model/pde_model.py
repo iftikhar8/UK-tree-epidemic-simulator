@@ -45,10 +45,24 @@ def finite_difference_sim(dim, params, d_map, d_d_map, uk, saves):
         if time_step == params["T"]-1:
             np.save(saves[1]+'/-diff_map', d_map)
 
+            with open(os.path.join(saves[1], "parameter_info.txt"), "w+") as info_file:
+                info_file.write("______Parameter settings_______" + "\n")
+                for parameter in params:
+                    info_file.write(parameter + ':' + str(params[parameter]) + '\n')
     return uk
 
 
 def main(params, diffusion_map):
+    """
+    :param params: a dictionary of all simulation parameters used
+    :param diffusion_map: a map of heterogeneous coefficients used in the PDE model
+    :return:
+
+    1. set save path & folder and define data structures
+    2. define partial mapping if True i.e. take a subset of the UK
+    3. define epicenter of the outbreak
+    4. run simulations using Finite difference
+    """
     save_path = os.getcwd() + '/output_data/'
     path_dir_list = os.listdir(save_path)
     if params["partial"]:
@@ -79,37 +93,26 @@ def main(params, diffusion_map):
         params["dim"] = [x1-x0, y1-y0]
         uk, diffusion_map = uk[x0:x1, y0:y1], diffusion_map[x0:x1, y0:y1]
         # DEFINE epicenter and infected points
-        epi_c = [55, 60, 100, 105]
+        epi_c = [57, 60, 90, 93]
         span_x, span_y = [epi_c[1]-epi_c[0], epi_c[3]-epi_c[2]]
         num_inf_sites = span_x*span_y
         # infected sites start with value of 1 (maximum infected level)
         inf_sites = np.random.randint(0, 2, size=num_inf_sites).reshape([span_x, span_y])
         uk[epi_c[0]:epi_c[1], epi_c[2]:epi_c[3]] = inf_sites
-        # PLOT diffusion map and uk
-        plot_init = False
-        if plot_init:
-            import matplotlib.pyplot as plt
-            fig, ax = plt.subplots(ncols=2)
-            ax[0].imshow(diffusion_map, origin='lower')
-            ax[1].imshow(uk, origin='lower')
-            plt.show()
-            sys.exit('Done...')
 
-    # IF true plot the initial epicenter of disease
-    # - useful for calibration
-    # - exit after use ...
+    # IF true plot the initial epicenter of disease - useful for calibration
     if params["plt_epi"]:
-        print('triggered epi')
         import matplotlib.pyplot as plt
-        domain = np.load(os.getcwd() + '/diffusion_mapping/Qro-cg-10.npy')
-        fig, ax = plt.subplots(figsize=(10, 10))
-        ax.imshow(uk)
+        fig, ax = plt.subplots(figsize=(10, 20), ncols=2)
+        ax[0].imshow(uk, origin='lower')
+        ax[1].imshow(diffusion_map, origin='lower')
         plt.show()
-        sys.exit()
+        sys.exit('plt_epi triggered, now exiting...')
 
-    # BEGIN simulation:
     d_diffusion_map = np.gradient(diffusion_map)
     d_diffusion_map = d_diffusion_map[0] + d_diffusion_map[1]
+
+    # ________ BEGIN the finite simulations ________ #
     finite_difference_sim(dim, params, diffusion_map, d_diffusion_map, uk, saves=[True, save_path])
     return
 if __name__ == '__main__':

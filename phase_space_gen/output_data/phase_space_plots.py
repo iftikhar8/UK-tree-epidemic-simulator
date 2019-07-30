@@ -59,7 +59,7 @@ def tensor_phase_plot(data_arr, label):
         data_slice = data_arr[i]
         max_ = np.max(data_slice)
         min_ = np.min(data_slice)
-        im = ax.contourf(data_slice, origin='lower', extent=extent, clim=[min_, max_], cmap=plt.get_cmap('inferno'))
+        im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[min_, max_], cmap=plt.get_cmap('inferno'))
         ax.set_xlabel(r'$\rho$ (occupational tree density)')
         ax.set_ylabel(r'$\beta$')
         ax.set_xticks(np.linspace(0, extent[1], 5).round(2))
@@ -76,28 +76,12 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
     # - from a directory of repeats
     # - sum all results then divide by the number of independent simulations
     tensor_phase_space = np.zeros(shape=dim)
-
     name = sorted(os.listdir(path))[9]
-    print(name)
     dat_i = np.load(path + '/' + name)
-    for slice in dat_i:
-        im = plt.imshow(slice)
-        plt.colorbar(im)
-        plt.show()
-
     for i, sim_i in enumerate(sorted(os.listdir(path))):
         # FIND sum of all data files
         dat_load = np.load(path + '/' + sim_i)
         kernel = ['50m', '100m', '150m', '200m']
-        if i == 2:
-            j = 0
-            for slice in dat_load:
-                plt.title('D: ' + kernel[j])
-                im = plt.imshow(slice)
-                plt.colorbar(im)
-                plt.show()
-                j += 1
-            sys.exit()
         tensor_phase_space = tensor_phase_space + dat_load
     print('Len: ', len(os.listdir(path)))
 
@@ -142,7 +126,7 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 # 1. sim_names : used to generate individual ensemble simulations
 sim_names = {0: '/lattice/07-07-2019-HPC',
              1: '/lattice/09-07-2019-HPC',
-             2: '/lattice/26-07-2019-HPC'}
+             2: '/lattice/30-07-2019-HPC'}
 
 # 3. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
@@ -158,7 +142,7 @@ if 1:
     mortality = 0     # load and compute mortality plots
     velocity = 0      # compute velocity and show
     percolation = 0   # load and compute percolation
-    phase_dim = [4, 25, 25]
+    phase_dim = [3, 3, 50]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
     if mortality:
         # GET distance travelled data
