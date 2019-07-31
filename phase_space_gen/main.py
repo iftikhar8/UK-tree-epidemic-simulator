@@ -33,8 +33,6 @@ settings = {"out_path": output_path, "domain_type": domain_type, "date": date, "
             "save_figs": False, "dyn_plots": [False, 1, True], "anim": False, "BCD3": False, "individual": False,
             "verbose": False, "HPC": None, "local_type": "animation"}  # simulation settings (unphysical)
 # HPC mode
-
-
 if mode == "HPC":
     """
     HPC mode
@@ -85,9 +83,9 @@ if mode == "HPC":
     print("Time taken: ", tf.round(3), ' (mins)')
 
 
-# Simulations on local machine
+# LOCAL MACHINE MODE
 elif mode == "LCL":
-    # ["ANIM", "ENS']
+    # set to either: ["ANIM", "ENS']
     local_type = 'ANIM'
     # 1) ANIM: animation mode, 2) ENS: ensemble mode
     if local_type == "ANIM":    # individual simulation for animation

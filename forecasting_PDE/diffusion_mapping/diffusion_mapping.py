@@ -2,7 +2,7 @@ import numpy as np
 import os, sys
 
 
-def diffusion_mapping(domain, rho_space, vel_phase_constants, plots):
+def diffusion_mapping(domain, rho_space, vel_phase_constants, plt_check):
     """
     :param domain: the data set of tree-data
     :param rho_space: the range of density values for each point in the data set
@@ -37,9 +37,9 @@ def diffusion_mapping(domain, rho_space, vel_phase_constants, plots):
                         velocity_map[i, j] = vel_phase_constants[99]
 
     diff_map = np.square(velocity_map)   # CONVERT from velocity to diffusion coefficients modified FK-equation
-    if plots:
+    diff_map = velocity_map
+    if plt_check:
         import matplotlib.pyplot as plt
-        import seaborn as sns
         """
         Use this extract to plot diffusion and velocity maps. The system will exit after use and is only intended
         to perform a quick check before the simulation is run properly.
@@ -55,10 +55,10 @@ def diffusion_mapping(domain, rho_space, vel_phase_constants, plots):
         fig, ax = plt.subplots(figsize=(7.5, 7.5))
         im = ax.imshow(np.where(diff_map == 0, np.nan, diff_map))
         cbar = plt.colorbar(im)
-        cbar.set_label(r'Diffusion ($km^2\ day^{-1}$)')
+        cbar.set_label(r'Velocity ($km\ day^{-1}$)')
         ax.set_xticks([])
         ax.set_yticks([])
-        ax.set_title(r'Diffusion map: $\ell = 200m,\ R_0=20$')
+        ax.set_title(r'Diffusion map: $\ell = 100m,\ R_0=20$')
         plt.savefig('diffusion_map')
         plt.show()
         np.save('velocity_map', velocity_map)
@@ -83,7 +83,7 @@ def main(L, beta, plt_check):
     # - choose which data is loaded
     phase_name = ["/diffusion_mapping/ps-b-100-r-100-L-6-vel.npy"]
     phase_3d = np.load(os.getcwd() + phase_name[0]) * (1/365)   # data saved in 'phase-plots' as km/year, convert to day
-    domain_name = '/diffusion_mapping/Qro-cg-1.npy'
+    domain_name = '/diffusion_mapping/Fex-cg-1.npy'
     domain = np.load(os.getcwd() + domain_name)     # LOAD domain map
     domain = 0.01 * domain       # convert to density map hectares/km^2 --> density x 0.01.
     phase_2d = phase_3d[L]                                  # 1. pick out which value of L through axis - 0
@@ -93,7 +93,7 @@ def main(L, beta, plt_check):
     """These map a velocity in km/day to a tree density which in turn are mapped to land regions over the UK:
         MAP: {L, beta, rho_ij} ---> vel_ij ---> diff_ij
     """
-    diffusion_map = diffusion_mapping(domain, rho_space, phase_constants, plots=plt_check)
+    diffusion_map = diffusion_mapping(domain, rho_space, phase_constants, plt_check=plt_check)
     return diffusion_map
 
 

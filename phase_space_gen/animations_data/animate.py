@@ -63,7 +63,7 @@ for i, frame in enumerate(files[:-1]):
     #     kernels = np.where(kernels > 0, 1, 0)
     fig, ax = plt.subplots(figsize=(7.5, 7.5))
     title = r'   : $\rho = {0}, \ \ \beta = {1}\ (day^{2}),\ \ \ell = {3} (m),\ \ Area = {4} km^2 $'
-    ax.set_title('Day =' + str(i) + title.format(rho, beta, '{-1}', sigma, area))
+    ax.set_title('Day =' + str(i) + title.format(rho, beta, '{-1}', sigma, area), size=15)
     max = 0.10
     ax.imshow(kernels/max, cmap=plt.get_cmap('Reds'), vmin=0, vmax=0.105, alpha=0.60)
     ax.imshow(S, cmap=cmap, norm=norm, alpha=0.75)

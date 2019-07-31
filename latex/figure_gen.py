@@ -355,7 +355,7 @@ def vel_t_series():
     plt.show()
 
 
-def phase_space_gen_4X():
+def phase_space_gen():
     """
     Generates a map of phase-space, for each slice of sigma there is a two dimensional plane
     of rho and beta. We can plot multiple metrics over different dimensions. The default setup is
@@ -364,7 +364,8 @@ def phase_space_gen_4X():
     metric = 'vel'
     name = 'COMBINED-ps-b-100-r-100-L-6.npy'
     ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-figs/' + name)
-    ps_tensor = ps_tensor[1]
+    ps_tensor = ps_tensor[1]  # select which dispersal distance
+
     if metric == 'vel':
         label = r'$km\ yr^{-1}$'
     if metric == "perc":
@@ -376,53 +377,65 @@ def phase_space_gen_4X():
     if metric == 'perc-vel':
         label = 'perc vel km yr^{-1}'
 
-    max = np.max(ps_tensor)
-    fig, ax = plt.subplots(nrows=2, figsize=(4.5, 8))
+
+    fig, [ax1, ax2] = plt.subplots(figsize=(7.5, 15), nrows=2)
     extent = [0, .10, 0, 50]  # rho range & beta range
     xy_axis = np.linspace(0, 0.1, 6)
     data = ps_tensor / 365
-    for i in range(2):
-        if i == 0:
-            im = ax[i].contourf(data, origin='lower', extent=extent)
-            cbar = plt.colorbar(im, ax=ax[i])
-            ax[i].set_title(r'$\bar{v}_{\rho, R_0}:\ \ \ell = 100m$')
-            ax[i].set_ylabel(r'$R_0$')
-            ax[i].set_aspect('auto')
-            cbar.set_label(r"($km day^{-1}$)")
-        elif i == 1:
-            data = np.square(data) / 4
-            im = ax[i].contourf(data, origin='lower', extent=extent)
-            cbar = plt.colorbar(im, ax=ax[i])
-            ax[i].set_title(r'$\bar{D}_{\rho, R_0}:\ \ \ell = 100m$')
-            ax[i].set_ylabel(r'$R_0$')
-            ax[i].set_aspect('auto')
-            cbar.set_label(r"($km^2 day^{-1}$)")
+    im = ax1.contourf(data * 365, origin='lower', extent=extent)
 
-    ax[1].set_xlabel(r'$\rho$')
+    ax1.set_title(r'$\bar{v}(\rho, R0)\ \ell = 100m$', size=14)
+    ax1.set_ylabel(r'$R_0$', size=14)
+    ax1.set_aspect('auto')
+
+    ax1.set_xlabel(r'$Tree\ density\ (\rho)$', size=14)
+    lbl = r'Line: $R_0 = 20$'
+    ax2.plot(np.linspace(extent[0], extent[1], data.shape[1]), data[40]*365, color='r', label=lbl)
+    ax2.grid(True)
+    ax2.set_ylabel(r'$vel\ km\ yr^{-1}$', size=14)
+    ax2.set_xlabel(r'$Tree\ density\ (\rho)$', size=14)
+    # cbar = plt.colorbar(im, ax=ax1)
+    # cbar.set_label(r"($km yr^{-1}$)", size=14)
+
+    cbaxes = fig.add_axes([0.91, 0.53, 0.03, 0.350])
+    cb = plt.colorbar(im, cax=cbaxes)
+    ax2.legend()
     plt.savefig('dfff_x2' + metric, bbox_to_inches='tight')
     plt.show()
 
+phase_space_gen()
+
+
 
 def phase_line():
-    name = 'COMBINED-ps-b-100-r-100-L-6.npy'
-    ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-figs/' + name)
-    ps_tensor = np.array([ps_tensor[1], ps_tensor[3], ps_tensor[5]])
-    dispersal = ["100m", "200m", "300m"]
-    R0_str = ["20\ day^{-1}", "30\ day^{-1}"]
-    label_ = r"$\ell = {},\ R_0 = {}$"
-    ioi = (38, 58)  # indicies of interest : R0=[20, 25, 30] --> indices = ['38', '48', '58']
-    fig, ax = plt.subplots(figsize=(8.0, 7.0))
-    color = ['r', 'b', 'g']
-    line_st = ['-', '--']
-    x_rho = np.linspace(0.001, 0.1, ps_tensor[0, 0].shape[0])
-    for i, slice in enumerate(ps_tensor):
-        c = color[i]
-        for j, ind in enumerate(ioi):
-            ax.plot(x_rho, slice[ind], color=c, alpha=0.50, ls=line_st[j], label=label_.format(dispersal[i], R0_str[j]))
-
-    ax.set_xlabel(r'Tree density $\rho$')
-    ax.set_ylabel(r'$\bar{v}\ (km\ yr^{-1})$')
-    plt.grid(alpha=0.5)
+    name = 'r-001-010_R0-10-20-30-ell-100-200-300/en200-ps-b-3-r-50-L-3.npy'
+    ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-single-lines/' + name)
+    R0_arr = np.array([10, 20, 30])
+    ell_arr = np.array([100, 200, 300])
+    rho_arr = np.linspace(0.001, 0.100, 50)
+    colors = ['blue','black', 'orange']
+    mk = ['x', 'o', 'o']
+    fig, ax = plt.subplots(figsize=(7.5, 5))
+    for i in range(ps_tensor.shape[0]):
+        disp = ps_tensor[i]
+        disp_lab = str(ell_arr[i])
+        c_ = colors[i]
+        for j in range(disp.shape[0]):
+            print(j)
+            if j == 1:
+                pass
+            else:
+                R0 = disp[j]
+                R0_lab = str(R0_arr[j])
+                lab_Str = r'$\ell = {}m,\ R0 = {}\ day{},\ $'.format(disp_lab, R0_lab, '^{-1}')
+                ax.plot(rho_arr, R0, color=c_, alpha=0.25)
+                ax.scatter(rho_arr, R0, s=20, c=c_, marker=mk[j], label=lab_Str)
+    ax.set_ylabel(r'Velocity  ($km\ yr^{-1}$)')
+    ax.set_xlabel(r'Tree density ($\rho$)')
+    ax.grid(True)
+    ax.set_title(r'$N=200$')
+    ax.set_ylim(0, ps_tensor.max())
+    ax.set_xlim(0, rho_arr[-1])
     plt.legend()
     plt.savefig('phase_lines')
     plt.show()
@@ -493,15 +506,15 @@ def time_series_metric():
     data = np.load(path + name)
     fig, ax = plt.subplots(figsize=(15, 6), ncols=2, nrows=1)
     # Axis 0
-    ax[0].set_title(r'Maximum distance curve: $\rho = 0.05,\ \beta = 5,\ \ell=25m$')
-    ax[0].set_xlabel('Time (days)')
-    ax[0].set_ylabel('Distance (m)')
+    ax[0].set_title(r'Maximum distance curve: $\rho = 0.05,\ \beta = 5,\ \ell=25m$', size=15)
+    ax[0].set_xlabel('Time (days)', size=15)
+    ax[0].set_ylabel('Distance (m)', size=15)
     color = ['purple', 'red', 'yellow', 'green', 'blue']
     ax[0].grid(alpha=0.50)
     #  Axis 1
-    ax[1].set_title(r'Time series velocity curve: $\rho = 0.05,\ \beta = 5,\ \ell=25m$')
-    ax[1].set_xlabel('Time (days)')
-    ax[1].set_ylabel('velocity (m/day)')
+    ax[1].set_title(r'Time series velocity curve: $\rho = 0.05,\ \beta = 5,\ \ell=25m$', size=15)
+    ax[1].set_xlabel('Time (days)', size=15)
+    ax[1].set_ylabel('velocity (m/day)',size=15)
     color = ['purple', 'red', 'yellow', 'green', 'blue']
     ax[1].grid(alpha=0.50)
 
@@ -607,4 +620,3 @@ def R0_multi_steps():
     plt.show()
 
 
-R0_multi_steps()

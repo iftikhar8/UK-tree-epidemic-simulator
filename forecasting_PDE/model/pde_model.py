@@ -20,12 +20,17 @@ def finite_difference_sim(dim, params, d_map, d_d_map, uk, saves):
                 # diff_ij: diffusion component of PDE model: D \grad^2 U)
                 # advection_ij: advection term in PDE:       \grad D \grad U
                 # growth_ij: growth component of PDE model:  \alpha U(x,t)
-                diff_ij = d_map[i, j] * (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j])
-                #advection_ij = d_d_map[i, j] * (uk[i + 1, j] + uk[i, j + 1] - uk[i - 1, j] - uk[i, j - 1])
+                diff_ij = (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j])
+                advection_ij = d_d_map[i, j] * (uk[i + 1, j] + uk[i, j + 1] - uk[i - 1, j] - uk[i, j - 1])
                 # (d_map[i + 1, j] + d_map[i - 1, j] + d_map[i, j + 1] + d_map[i, j - 1])
                 growth_ij = 1 * uk[i, j]
                 # uk: resultant output: SUM {Growth + diffusion}[1 - U(x, t)]
-                uk[i, j] = uk[i, j] + (diff_ij + growth_ij) * (1 - uk[i, j])
+                mod = True
+                if mod:
+                    uk[i, j] = uk[i, j] + d_map[i, j] * (diff_ij + growth_ij) * (1 - uk[i, j])
+                if not mod:
+                    uk[i, j] = uk[i, j] + np.square(d_map[i, j])/4 * diff_ij + advection_ij + (1 - uk[i, j]) * growth_ij
+
 
         # SAVE frame to file
         if saves[0]:
@@ -65,8 +70,8 @@ def main(params, diffusion_map):
     """
     save_path = os.getcwd() + '/output_data/'
     path_dir_list = os.listdir(save_path)
-    if params["partial"]:
-        name = name = params["sim_name"] + "-partial-data"
+    if params["partial"][0]:
+        name = params["sim_name"] + "-partial-data"
     else:
         name = params["sim_name"] + "-data"
     if name in path_dir_list:
@@ -93,7 +98,7 @@ def main(params, diffusion_map):
         params["dim"] = [x1-x0, y1-y0]
         uk, diffusion_map = uk[x0:x1, y0:y1], diffusion_map[x0:x1, y0:y1]
         # DEFINE epicenter and infected points
-        epi_c = [57, 60, 90, 93]
+        epi_c = [48, 52, 48, 52]
         span_x, span_y = [epi_c[1]-epi_c[0], epi_c[3]-epi_c[2]]
         num_inf_sites = span_x*span_y
         # infected sites start with value of 1 (maximum infected level)
@@ -103,11 +108,13 @@ def main(params, diffusion_map):
     # IF true plot the initial epicenter of disease - useful for calibration
     if params["plt_epi"]:
         import matplotlib.pyplot as plt
-        fig, ax = plt.subplots(figsize=(10, 20), ncols=2)
-        ax[0].imshow(uk, origin='lower')
-        ax[1].imshow(diffusion_map, origin='lower')
+
+        fig, ax = plt.subplots()
+        ax.imshow(np.where(uk == 1, 2, 0) + diffusion_map)
+        ax.set_xticks(np.arange(0, uk.shape[1], 100))
+        ax.set_yticks(np.arange(0, uk.shape[0], 100))
         plt.show()
-        sys.exit('plt_epi triggered, now exiting...')
+        sys.exit('Plt epi triggered...')
 
     d_diffusion_map = np.gradient(diffusion_map)
     d_diffusion_map = d_diffusion_map[0] + d_diffusion_map[1]

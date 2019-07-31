@@ -4,14 +4,14 @@ time_horizon:3650
 t_init:[5, 6]
 L:200
 rho:0.01
-beta:0.015915494309189534
+beta:0.03183098861837907
 alpha:0.005
 eff_disp:10.0
 
 ______Simulation parameters_______
-out_path:/Users/py13jh/PycharmProjects/hpc-subgrid-model/phase_space_gen/output_data/lattice/29-07-2019-LCL
+out_path:/Users/py13jh/PycharmProjects/hpc-subgrid-model/phase_space_gen/output_data/lattice/30-07-2019-LCL
 domain_type:lattice
-date:29-07-2019
+date:30-07-2019
 job_id:25
 plt_tseries:True
 save_figs:False

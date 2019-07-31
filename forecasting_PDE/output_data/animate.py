@@ -4,6 +4,11 @@ import numpy as np
 import os, sys
 
 name = input('Enter name of folder to animate: ')
+mod = input('Which form ? (0=fisher, 1=mod) ')
+if 'test' in name.split('_'):
+    Test = True
+
+
 path = os.getcwd() + '/' + name + '/'
 files = sorted(os.listdir(path))[:-1]  # remove last parameters.txt file
 diffusion_map = files[0]
@@ -15,6 +20,7 @@ files = files[2:]
 year_elapsed = 0
 R0 = str(input('Enter R0: '))
 disp = str(input('Enter dispersal kernel in (m): '))
+
 for i, file in enumerate(files):
     print('File:', file, i, ' /', len(files))
     # Get how many years has passed
@@ -26,26 +32,45 @@ for i, file in enumerate(files):
     cmap = plt.get_cmap('inferno')
     dat = np.load(os.path.join(path, file))
     fig, [ax, ax1] = plt.subplots(nrows=2, figsize=(5, 10))
+    if i + 1 == len(files):
+        if Test:
+            ind = np.where(dat > 0.95)
+            x_min, x_max = ind[0].min(), ind[0].max()
+            over_lay = np.zeros(dat.shape)
+            over_lay[:, x_min], over_lay[:, x_max] = np.nan, np.nan
+            dat = dat + over_lay
+            plt.text(0, 1.1, 'distance: ' + str(x_max -x_min) + 'km end-to-end', size=15)
+
     ax.imshow(dat, cmap=cmap)
     ax.imshow(diffusion_map, alpha=0.5, cmap=plt.get_cmap('Greens'))
     ax.set_title(r'$\ell = {}m,\ R0 = {} $:  year '.format(disp, R0) + str(year_elapsed) + ' days = ' + str(i % 365))
-    ax.set_xticks([])
-    ax.set_yticks([])
+    #ax.set_xticks([])
+    #ax.set_yticks([])
     divider = make_axes_locatable(ax1)
     cax = divider.append_axes("bottom", size="5%", pad=0.05)
-    im1 = ax1.imshow(diffusion_map, cmap=plt.get_cmap('plasma'))
-    ax1.set_title('Diffusion map')
+    im1 = ax1.imshow(diffusion_map, cmap=plt.get_cmap('plasma'))  # np.round(diffusion_map, 4)
     ax1.set_xticks([])
     ax1.set_yticks([])
     cbar = plt.colorbar(im1, cax=cax, orientation="horizontal")
-    diff_values = np.unique(diffusion_map.flatten()).round(7)
+    cbar.set_label(r'$\bar{v}(\rho, R0, \ell)\ (km\ day^{-1})$ ')
+    diff_values = np.unique(diffusion_map.flatten()).round(3)
     cbar.ax.set_xticklabels(diff_values, rotation=45)
     name = file.split('.')[0].replace('dat', 'img')
-    equation = r'$\frac{\partial U}{\partial t} = (U + D \nabla^{2} U) (1 - U) $' #
-    plt.text(0, 50, equation, size=13)
+    if int(mod):
+        equation = r'$\frac{\partial U(x,t)}{\partial t} = v(x)( 2U(x,t) + \nabla^{2} U(x,t)) (1 - U(x,t)) $'
+        sz = 13
+    if not int(mod):
+        equation = r'$\frac{\partial U(x,t)}{\partial t} = U(x,t)(1 - U(x,t)) + \nabla D(x) \nabla U(x,t) $ $n  D(x)\nabla^2 U(x,t) $'
+        sz = 9
+
+    plt.text(0, 50, equation, size=sz)
+
     plt.savefig('frames_2_anim/' + name)
-
-
     plt.close()
+
+
+
+
+
 
 
