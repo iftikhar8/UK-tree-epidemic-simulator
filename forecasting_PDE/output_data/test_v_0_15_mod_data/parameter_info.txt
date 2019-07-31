@@ -1,9 +1,0 @@
-______Parameter settings_______
-T:100
-epi_c:[49, 51, 49, 51]
-plt_epi:False
-partial:[False, [800, 900, 300, 400]]
-L:5
-R0:50.0
-dim:(100, 100)
-sim_name:test_v_0_15
