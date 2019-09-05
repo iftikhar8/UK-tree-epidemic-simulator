@@ -163,11 +163,6 @@ elif mode == "LCL":
                 print('--rho: ', rho)
                 print('--run time: ', perc_results[j])
 
-        import matplotlib.pyplot as plt
-        print(perc_results)
-        plt.plot(rhos, perc_results / (i + 1))
-        plt.xlabel(r"$/rho$")
-        plt.show()
         np.save('perc_', perc_results)
 
 
