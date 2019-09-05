@@ -1,0 +1,18 @@
+______Parameter settings_______
+l_time:100
+time_horizon:3650
+L:200
+
+______Simulation parameters_______
+out_path:/Users/py13jh/PycharmProjects/hpc-subgrid-model/SSTLM_main/output_data/05-09-2019-HPC
+date:05-09-2019
+job_id:1
+plt_tseries:False
+save_figs:False
+dyn_plots:[False, 1, True]
+anim:False
+BCD3:False
+individual:False
+verbose:True
+HPC:HPC
+local_type:animation

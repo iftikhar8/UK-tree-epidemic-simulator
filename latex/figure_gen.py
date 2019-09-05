@@ -35,10 +35,10 @@ def uk_vel_diff_map():
     """
     Plot the pathogen velocity expected over different regions over the UK
     """
-    domain = np.load(os.getcwd() + '/phase_space_gen/input_domain/Qro-cg-1.npy')
-    # vel_map = np.load(os.getcwd() + '/forecasting_PDE/velocity_map_test.npy')
-    # diff_map = np.load(os.getcwd() + '/forecasting_PDE/diffusion_map_test.npy')
-    # vel_pase = np.load(os.getcwd() + '/forecasting_PDE/diffusion_mapping/vel_km_day_en_size-200.npy')
+    domain = np.load(os.getcwd() + '/SSTLM_main/input_domain/Qro-cg-1.npy')
+    # vel_map = np.load(os.getcwd() + '/PDE_main/velocity_map_test.npy')
+    # diff_map = np.load(os.getcwd() + '/PDE_main/diffusion_map_test.npy')
+    # vel_pase = np.load(os.getcwd() + '/PDE_main/diffusion_mapping/vel_km_day_en_size-200.npy')
     # sea = np.where(np.isnan(domain))
     # vel_map[sea] = np.nan
     fig, ax = plt.subplots(figsize=(10, 10))
@@ -384,27 +384,25 @@ def phase_space_gen():
     data = ps_tensor / 365
     im = ax1.contourf(data * 365, origin='lower', extent=extent)
 
-    ax1.set_title(r'$\bar{v}(\rho, R0)\ \ell = 100m$', size=14)
-    ax1.set_ylabel(r'$R_0$', size=14)
+    ax1.set_title(r'$\bar{vel}(\rho, R0, \ell = 100m)\ (km\ yr^{-1})$', size=17)
+    ax1.set_ylabel(r'$R_0$', size=20)
     ax1.set_aspect('auto')
 
-    ax1.set_xlabel(r'$Tree\ density\ (\rho)$', size=14)
+    ax1.set_xlabel(r'$Tree\ density\ (\rho)$', size=20)
     lbl = r'Line: $R_0 = 20$'
     ax2.plot(np.linspace(extent[0], extent[1], data.shape[1]), data[40]*365, color='r', label=lbl)
     ax2.grid(True)
-    ax2.set_ylabel(r'$vel\ km\ yr^{-1}$', size=14)
-    ax2.set_xlabel(r'$Tree\ density\ (\rho)$', size=14)
+    ax2.set_ylabel(r'$vel\ km\ yr^{-1}$', size=20)
+    ax2.set_xlabel(r'$Tree\ density\ (\rho)$', size=20)
     # cbar = plt.colorbar(im, ax=ax1)
-    # cbar.set_label(r"($km yr^{-1}$)", size=14)
+
 
     cbaxes = fig.add_axes([0.91, 0.53, 0.03, 0.350])
     cb = plt.colorbar(im, cax=cbaxes)
-    ax2.legend()
-    plt.savefig('dfff_x2' + metric, bbox_to_inches='tight')
+    #cb.set_label(r"($km yr^{-1}$)", size=20)
+    ax2.legend(prop={'size': 20})
+    plt.savefig('dfff_x2' + metric) #bbox_to_inches='tight'
     plt.show()
-
-phase_space_gen()
-
 
 
 def phase_line():
@@ -620,3 +618,66 @@ def R0_multi_steps():
     plt.show()
 
 
+def growth_comp():
+    # Plot all growth rate data
+    rhos = np.arange(0.01, 0.055, 0.005)
+    path = os.getcwd() + '/latex/latex_data/growth_rates/g_rates.npy'
+    t_teries = np.load(path)
+    runtime = t_teries[:, 0]
+    set_num = 6
+    if 0:
+        runtime = runtime[set_num]
+        dat = t_teries[set_num, 1:int(runtime)]
+        arr1, arr2 = dat[:-1], dat[1:]
+        plt.plot(np.log(arr2) - np.log(arr1))
+        plt.show()
+    # A1, A2 = dat[t1], dat[t2]
+    # r = (np.log(A2) - np.log(A1)) / (t2 - t1)
+    # print(A1, A2, ' A')
+    # print(r, 'r')
+
+    for i, dat in enumerate(t_teries):
+        # plot number of infected cells over time:
+        rt = int(runtime[i])
+        label = r'$\rho = $ {}'.format(str(round(rhos[i], 3)))
+        # dat = np.log(dat[1: int(rt) + 1])
+        plt.plot(dat[1:rt], label=label)
+    plt.xlabel('Time step')
+    plt.ylabel('Number of infected')
+    plt.title(r'$R_0$ = ')
+    plt.legend()
+    plt.show()
+
+
+
+def growth_individual():
+    from scipy.optimize import curve_fit
+
+    def exp(x, b):
+        return np.exp(b * x)
+
+    path = os.getcwd() + '/latex/latex_data/growth_rates/g_rates.npy'
+    t_teries = np.load(path)
+    set_ = 5
+    rho = np.arange(0.01, 0.055, 0.005)[set_]
+
+    rt = t_teries[set_, 0]
+    dat_ = t_teries[set_, 1: int(rt)]
+    x = np.arange(int(rt) -1)
+    popt, pcov = curve_fit(exp, x, dat_)
+
+    plt.plot(x, dat_, label='actual')
+    plt.plot(x, exp(x, popt), label='fitted')
+
+
+    plt.title(r'$\rho = $ {}'.format(round(rho, 3)))
+    plt.legend()
+    plt.show()
+
+
+
+    print(popt, 'exp out')
+    print(pcov, 'err')
+
+
+growth_individual()
