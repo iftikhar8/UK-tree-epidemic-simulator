@@ -635,8 +635,6 @@ def growth_comp():
     # r = (np.log(A2) - np.log(A1)) / (t2 - t1)
     # print(A1, A2, ' A')
     # print(r, 'r')
-
-    for i, dat in enumerate(t_teries):
         # plot number of infected cells over time:
         rt = int(runtime[i])
         label = r'$\rho = $ {}'.format(str(round(rhos[i], 3)))
@@ -647,7 +645,6 @@ def growth_comp():
     plt.title(r'$R_0$ = ')
     plt.legend()
     plt.show()
-
 
 
 def growth_individual():
@@ -680,4 +677,13 @@ def growth_individual():
     print(pcov, 'err')
 
 
-growth_individual()
+def sgm_thresh():
+    # sub-grid model thresholds
+    path = os.getcwd() + '/latex/latex_data/SGM_threshold/perc_.npy'
+    perc = np.load(path)
+    plt.plot(np.arange(0.001, 0.010, 0.001), perc)
+    plt.savefig("sgm_perc")
+    plt.show()
+
+
+sgm_thresh()

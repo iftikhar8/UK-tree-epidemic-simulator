@@ -1,38 +1,28 @@
-
 """
 Created on Wed May 30 14:19:32 2018
-@author: py13jh
-Compute either the epidemiological phase space over an ensemble or simulate an individual realisation.
-To run, execute ./run_SSTML.sh in terminal directory
+@author: John Holden
+Compute either the epidemiological parameter space behaviuor over an ensemble or simulate an individual realisation.
+This code can be run on the HPC or local machine for single or ensemble-averages. To run, execute ./run_SSTML.sh in
+terminal directory.
 """
 import numpy as np
-import sys, os
+import sys
+import os
 import datetime
+import time
 sys.path.append(os.getcwd()+'/HPC_jobs')
 sys.path.append(os.getcwd()+'/model')
 import HPC_job_gen, subgrid_SSTLM
 
-"""
-    date; str : the date used to save data
-    domain_type; str : the type of domain currently being simulated
-    output_path; str: the path used to store all the data
-    settings; dict: houses parameters that define the simulation setup, initial conditions and boundary conditions
-    parameters; dict: houses the simulation parameter values
-    job_arr; array : stores which ensemble parameters are to be iterated over
-    beta; float : infectivity-fitting parameter \in [0, 1]
-    rho; float : density parameter \in [0, 0.1]
-    sigma; float : dispersal kernel modelling how far disease can propagate per unit time
-"""
-
-in_arr = sys.argv
-job_id, date, time, mode = in_arr[1:]  # input from sh script.
+in_arr = sys.argv  # input parameters from run_script.sh.
+job_id, date, c_time, mode = in_arr[1:]
 print("Running {} simulation".format(mode))
-output_path = os.getcwd() + '/output_data/' + date + '-' + mode
-params = {"l_time": 100, "time_horizon": 3650, "L": 200}  # simulation parameters
+output_path = os.getcwd() + '/output_data/' + date + '-' + mode  # saving data path
+params = {"l_time": 100, "time_horizon": 3650, "L": 200}  # default simulation parameters
 settings = {"out_path": output_path, "date": date, "job_id": job_id, "plt_tseries": False,
             "save_figs": False, "dyn_plots": [False, 1, True], "anim": False, "BCD3": False, "individual": False,
-            "verbose": False, "HPC": None, "local_type": "animation"}  # simulation settings
-# HPC mode
+            "verbose": False, "HPC": None, "local_type": "animation", "debug_time": True}  # simulation settings
+
 if mode == "HPC":
     """                             ----- HPC mode -----
     Run this extract to generate parameter space of a stochastic sub-grid model of tree disease over 3D: 
@@ -42,11 +32,11 @@ if mode == "HPC":
     This is done using the HPC **arc3@leeds.ac.uk** and the task_array feature. Each core gets the same set 
     of parameters to iterate over and metrics to record. Each core (100) on the HPC will save results in the 
     output_path as 00**.npy, each core saves results in array form. Resutls are analysed in the 'output_data/'
-    folder using 'param_space_plts.py' file.
+    folder using 'param_space_plots.py' file.
     """
-    import time
     settings["HPC"] = mode
-    settings["verbose"] = True
+    settings["verbose"] = False
+    settings["BCD3"] = True
     job_arr = HPC_job_gen.main(settings, params)  # Get job parameters.
     core_id, rhos, R0_arr, alpha, eff_sigmas, dim_ = job_arr
     params["alpha"] = alpha
@@ -89,10 +79,10 @@ if mode == "HPC":
     print("Time taken: ", tf.round(3), ' (mins)')
 
 
-# LOCAL MACHINE MODE
-elif mode == "LCL":
-    local_type = ["ANIM", "ENS"][0]
+elif mode == "LCL":  # LOCAL MACHINE MODE
     # 1) ANIM: animation mode, 2) ENS: ensemble mode <-- chose then run in terminal
+    local_type = ["ANIM", "ENS"][1]
+
     if local_type == "ANIM":  # individual simulation for animation
         R0 = float(input('Enter initial-basic-reproduction ratio \in [1, 50]: '))  # number of secondary infections
         dispersal_ = float(input('Enter target dispersal distance in (m): ')) * 0.001  # average dispersal distance
@@ -101,7 +91,7 @@ elif mode == "LCL":
         area = lattice_dim * alpha  # modelled area the domain covers km^2
         eff_dispersal = dispersal_ / alpha  # convert the dispersal distance from km to computer units
         eff_dispersal = np.round(eff_dispersal, 5)
-        rho = 0.01  # typically \in [0.001, 0.100]
+        rho = 0.10  # typically \in [0.001, 0.100]
         # SET simulation parameters
         params["R0"] = R0
         params["rho"] = rho
@@ -111,7 +101,7 @@ elif mode == "LCL":
         params["time_horizon"] = 1000
         # SET settings & boundary conditions
         settings["anim"] = True
-        settings["BCD3"] = False
+        settings["BCD3"] = True
         settings["verbose"] = True
         settings["plt_tseries"] = True
         settings["dyn_plots"] = [True, 1, True]
@@ -132,14 +122,14 @@ elif mode == "LCL":
         Use for simple small lines through phase space.
         """
         # Simulations on local machine used to get ensemble results.
-        # -- Change this code to find simple ensemble results on Lcl machine
-        repeats = 100
+        # -- Change this code to find simple en`    semble results on Lcl machine
+        repeats = 1
         name = '-threshold'
         L = 200       # Domain size
-        alpha = 5     # lattice constant in (m)
+        alpha = 5           # lattice constant in (m)
         R0 = 5       # R0 cases initial cases per day
         sigma = 50    # dispersal distance in (m)
-        rhos = np.arange(0.001, 0.010, 0.001)  # Tree density at t=0
+        rhos = np.array([0.10 for i in range(10)])  # Tree density at t=0
         eff_dispersal = sigma/alpha  # dispersal in computer units
         params["L"] = L
         params["R0"] = R0
@@ -149,19 +139,29 @@ elif mode == "LCL":
         params["time_horizon"] = 1000
         params["eff_disp"] = eff_dispersal
         settings["BCD3"] = True  # False ==> no percolation BCD
-        settings["verbose"] = True  # print time-step information
+        settings["verbose"] = False  # print time-step information
         label = 'L-' + str(params["L"]) + 'en_sz-' + str(repeats) + name
         perc_results = np.zeros(shape=(rhos.shape[0]))
         print("Running: ENSEMBLE simulation")
+        times = np.zeros(rhos.shape[0])
         for i in range(repeats):
             for j, rho in enumerate(rhos):
+                t0 = time.time()
                 params["rho"] = rho
                 Results = subgrid_SSTLM.main(settings, params)
                 eff_fraction, max_d, run_time, percolation = Results
                 perc_results[j] = perc_results[j] + percolation
+                print(" rho / ", j)
                 print('--percolation: ', percolation)
                 print('--rho: ', rho)
                 print('--run time: ', perc_results[j])
+                t1 = time.time()
+                times[j] = t1 - t0
+                print("tot time --> ", t1 - t0)
+            perc_results = perc_results / (i + 1)
+            import matplotlib.pyplot as plt
+            plt.plot(times)
+            plt.show()
 
         np.save('perc_', perc_results)
 

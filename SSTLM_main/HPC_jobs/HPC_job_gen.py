@@ -41,7 +41,7 @@ def main(settings, params):
         dim_ = None
 
     if "HPC" in settings["out_path"].split('-'):  # HPC mode -- bigger parameter dimension
-        rhos = np.linspace(0.001, 0.010, 10)
+        rhos = np.linspace(0.001, 0.10, 20)
         alpha = 0.005  # lattice constant
         eff_disp = np.array([0.50]) / alpha  # Effective dispersal distance (in computer units not physical units)
         R0_arr = np.array([5])  # Define R0_the basic reproduction number.

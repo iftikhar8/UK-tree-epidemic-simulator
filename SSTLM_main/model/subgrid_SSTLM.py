@@ -5,9 +5,8 @@ Created on Mon Jan 15 15:30:51 2018
 This file is to be called by main_SSTLM_phase.py in the parent directory.
 """
 import numpy as np
-from scipy import stats
+import time
 import os
-import uuid
 import sys
 
 
@@ -42,7 +41,7 @@ class SimInit(object):
         self.pre_factor = 2 * np.pi * (parameters["eff_disp"]**2)  # the dispersal normalisation constant
         self.R0 = parameters["R0"]  # number of expected infectious cases per day @t=0 due to single infected for rho=1
         self.beta = self.R0 / self.pre_factor
-        assert self.beta.max() < 1  # make sure beta arr is a probability array \in [0, 1]
+        assert self.beta < 1  # make sure beta arr is a probability array \in [0, 1]
         # INIT distance matrix
         x, y = np.arange(0, dim[0]), np.arange(0, dim[1])
         x_arr, y_arr = np.meshgrid(x, y)
@@ -55,12 +54,12 @@ class SimInit(object):
         self.percolation = 0  # percolation status
         self.mean_d = np.zeros(parameters["time_horizon"])  # array used to record metric 'mean distance' time series
         self.max_d = np.zeros(parameters["time_horizon"])   # array used to record metric 'max distance' time series
+        self.time_debug = np.zeros(parameters["time_horizon"])
         self.growth = np.zeros(parameters["time_horizon"] + 1)
         self.population_init = len(np.where(tree_dist == 1)[0]) # number of healthy trees at t = 0
 
     def d_metrics(self, inf_ind):
         """
-
         :param inf_ind: array-like, all the indicies of infected coordinates
         :return: mean_d: float, the mean distance of infected points
                  max_d: float, the maximum distance travelled by the pathogen
@@ -126,7 +125,6 @@ class Plots(object):
             info_file.write("\n" + "______Simulation parameters_______" + "\n")
             for setting in settings:
                 info_file.write(setting + ':' + str(settings[setting]) + '\n')
-        return
 
     def save_label(self, step):
         """
@@ -143,7 +141,7 @@ class Plots(object):
         elif step == 1000:
             return str(step)
 
-    def plot_tseries(self, metric, labels, fit, saves):
+    def plot_tseries(self, metric, labels, fit, saves_):
         import matplotlib.pyplot as plt
         """
         Plot the time series of disease progression
@@ -152,6 +150,7 @@ class Plots(object):
         :param fit: if true, metrics will be fitted to a function.
         :return: None
         """
+        save, save_name = saves_
         rho_str, beta_str = str(self.rho), str(round(self.beta, 3))
         fig, ax = plt.subplots()
         x = np.arange(0, len(metric), 1)
@@ -179,12 +178,13 @@ class Plots(object):
         ax.set_title(labels["title"])
         plt.legend()
         plt.grid()
-        if saves:
-            plt.savefig('t_series')
+        if save:
+            plt.savefig(save_name)
         plt.show()
-        return
+
 
 def main(settings, parameters):
+
     """
     The main function which simulates the pathogen spreading. The model comprises a monte carlo simulation
     of non-local dispersal between trees. First a while loop is triggered where the model algorithm is implemented.
@@ -197,12 +197,12 @@ def main(settings, parameters):
              (2) float, max_distance: this is the maximum distance reached by the pathogen
              (3) int, time-step: this is the time-elapsed (in computer units)
              (4) binary, percolation: this is the status which informs the user if the pathogen has travelled to the
-                                      lattice boundary and triggered the simulation to end (a threshold type-behaviour).
+                 lattice boundary and triggered the simulation to end (a threshold type-behaviour).
     """
     np.random.seed()
     p = SimInit(parameters)  # p : hold all parameters
     plts = Plots(p.rho, p.beta)
-    ts_mean_d, ts_max_d, growth_ = [p.mean_d, p.max_d, p.growth]  # arrays used to record time-series
+    ts_mean_d, ts_max_d, growth_, t_debug = [p.mean_d, p.max_d, p.growth, p.time_debug]  # arrays used to record time-series
     in_progress, time_step, num_infected = [True, 0, 1]
     verbose = settings["verbose"]  # control output print-to-screens
     dyn_plots = settings["dyn_plots"]  # control settings to 'dynamic-plots' .png files are generated and saved
@@ -211,6 +211,7 @@ def main(settings, parameters):
     # Each time-step take as days
     while in_progress:
         if verbose:
+            t_0 = time.clock()
             dist = round(ts_max_d.max() * p.alpha,  3)
             print("Step: ", time_step, ' | max d = ', dist, " (m) | Infected = ", num_infected)
         new_infected = 2 * p.get_new_infected(p_infected=p.infected, susceptible=p.susceptible)
@@ -248,26 +249,34 @@ def main(settings, parameters):
                 save_path = os.getcwd() + '/animations_data/raw_data/'
                 np.save(save_path + T, np.array([p.susceptible, p.infected, p.removed]))
             # GET metric time-series data
+
+        if verbose:
+            t_f = time.clock()
+            t_debug[time_step] = t_f - t_0
+            print("Time elapsed in loop: ", t_f - t_0)
+
         time_step += 1
 
         # __________ITERATION COMPLETE_________ #
     # ________________END ALGORITHM________________ #
-
     ts_max_d = ts_max_d * p.alpha  # multiply by lattice constant to get a distance in km
     # uncomment to use mean distance --> # ts_mean_d = ts_mean_d * p.alpha
     ts_max_d = ts_max_d[:time_step]
     max_distance_reached = ts_max_d.max()  # maximum distance reached by the pathogen
     num_infected = growth_[:time_step]  # number of infected individuals over the simulation
+    t_debug = t_debug[:time_step]
     # GENERATE time series output plots over the simulation
     if settings["plt_tseries"]:
-        saves_ = False
         print('Step: ', str(time_step), '  max d = ', max_distance_reached, ' km')
         plot_cls = Plots(p.beta, p.rho)  # Plots module contains plotting functions
         label = {'title': "max d distance", 'xlabel': 'days', 'ylabel': 'distance (km)'}
-        plot_cls.plot_tseries(metric=ts_max_d, labels=label, fit=False, saves=saves_)
+        plot_cls.plot_tseries(metric=ts_max_d, labels=label, fit=False, saves_=[False, None])
         label = {'title': "num infected", 'xlabel': 'days', 'ylabel': '# trees'}
-        plot_cls.plot_tseries(metric=num_infected, labels=label, fit=False, saves=saves_)
-        if saves_:  # IF True, save time-series data to file
+        plot_cls.plot_tseries(metric=num_infected, labels=label, fit=False, saves_=[False, 'num_inf_0'])
+        label = {'title': "computer runtime", 'xlabel': 'step', 'ylabel': 'physical runtime'}
+        plot_cls.plot_tseries(metric=t_debug, labels=label, fit=False, saves_=[False, 'rt_0'])
+        save_tseries = False
+        if save_tseries:  # IF True, save time-series data to file
             plot_cls.save_settings(parameters, settings, save_path)
             beta = round(parameters["beta"], 2)
             name = 'b_' + str(beta).replace('.', '-') + '_r_' + str(parameters["rho"]).replace('.', '-') + \
