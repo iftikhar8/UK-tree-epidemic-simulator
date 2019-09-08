@@ -5,15 +5,208 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/perc_.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/py13jh.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/py13jh.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/HPC_jobs/HPC_job_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_main/HPC_jobs/HPC_job_gen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_main/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/model/subgrid_SSTLM.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_main/model/subgrid_SSTLM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/param_space_plts.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/figure_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/latex/figure_gen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.100" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.11" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.13" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.14" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.15" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.16" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.17" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.18" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.19" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.20" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.21" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.22" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.23" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.24" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.25" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.26" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.27" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.28" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.29" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.30" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.31" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.32" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.33" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.34" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.36" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.37" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.38" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.39" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.40" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.41" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.42" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.43" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.44" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.45" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.46" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.47" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.48" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.49" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.50" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.51" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.52" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.53" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.54" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.55" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.56" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.57" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.58" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.59" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.60" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.61" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.62" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.63" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.65" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.66" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.67" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.68" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.69" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.70" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.71" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.72" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.73" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.74" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.75" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.76" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.77" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.78" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.79" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.80" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.81" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.82" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.83" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.84" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.85" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.86" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.87" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.88" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.89" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.91" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.92" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.93" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.94" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.95" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.96" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.97" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.98" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1392507.99" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.100" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.11" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.13" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.14" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.15" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.16" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.17" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.18" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.19" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.20" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.21" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.22" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.23" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.24" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.25" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.26" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.27" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.28" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.29" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.30" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.31" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.32" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.33" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.34" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.36" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.37" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.38" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.39" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.40" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.41" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.42" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.43" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.44" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.45" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.46" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.47" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.48" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.49" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.50" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.51" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.52" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.53" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.54" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.55" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.56" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.57" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.58" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.59" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.60" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.61" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.62" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.63" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.65" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.66" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.67" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.68" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.69" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.70" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.71" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.72" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.73" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.74" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.75" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.76" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.77" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.78" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.79" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.80" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.81" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.82" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.83" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.84" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.85" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.86" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.87" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.88" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.89" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.91" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.92" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.93" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.94" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.95" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.96" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.97" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.98" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1392507.99" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +221,7 @@
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$diffusion_mapping.coverage" NAME="diffusion_mapping Coverage Results" MODIFIED="1556891819875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/forecasting_PDE/diffusion_mapping" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$L_calibrate.coverage" NAME="L_calibrate Coverage Results" MODIFIED="1557925520122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/L_calibrate" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$R0_sim.coverage" NAME="R0-sim Coverage Results" MODIFIED="1563282143651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SSTLM_test_suite" />
+    <SUITE FILE_PATH="coverage/hpc_subgrid_model$param_space_plots.coverage" NAME="param_space_plots Coverage Results" MODIFIED="1567947526033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SSTLM_main/output_data" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$fisher_test.coverage" NAME="fisher_test Coverage Results" MODIFIED="1567612361808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PDE_test" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$main_SSTLM_phase.coverage" NAME="main_SSTLM_phase Coverage Results" MODIFIED="1557918131615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$pde_comp_test.coverage" NAME="pde_time_series Coverage Results" MODIFIED="1567436318822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PDE_test" />
@@ -61,19 +255,19 @@
     <session id="13763648">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="86" />
+          <entry key="project.closed" value="87" />
           <entry key="project.open.time.0" value="16" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.3" value="4" />
           <entry key="project.open.time.4" value="13" />
-          <entry key="project.open.time.5" value="18" />
+          <entry key="project.open.time.5" value="19" />
           <entry key="project.open.time.6" value="24" />
           <entry key="project.open.time.7" value="6" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="90" />
+          <entry key="project.opened" value="91" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -82,7 +276,7 @@
           <entry key="npy" value="71" />
           <entry key="png" value="142" />
           <entry key="pstat" value="1" />
-          <entry key="py" value="561" />
+          <entry key="py" value="564" />
           <entry key="sh" value="97" />
           <entry key="txt" value="15" />
         </counts>
@@ -92,14 +286,14 @@
           <entry key="Image" value="142" />
           <entry key="PLAIN_TEXT" value="184" />
           <entry key="Profiler Session" value="1" />
-          <entry key="Python" value="561" />
+          <entry key="Python" value="564" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="2592" />
           <entry key="dummy" value="251" />
-          <entry key="py" value="158253" />
+          <entry key="py" value="158611" />
           <entry key="sh" value="1643" />
           <entry key="txt" value="541" />
         </counts>
@@ -107,7 +301,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="2435" />
-          <entry key="Python" value="160845" />
+          <entry key="Python" value="161203" />
         </counts>
       </usages-collector>
     </session>
@@ -115,43 +309,39 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh">
+        <entry file="file://$PROJECT_DIR$/SSTLM_main/mkdir.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+            <state relative-caret-position="90">
+              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SSTLM_main/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SSTLM_main/main.py">
+        <entry file="file://$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="727">
-              <caret line="73" column="76" lean-forward="true" selection-start-line="73" selection-start-column="76" selection-end-line="73" selection-end-column="76" />
+            <state relative-caret-position="301">
+              <caret line="68" column="54" lean-forward="true" selection-start-line="68" selection-start-column="54" selection-end-line="68" selection-end-column="54" />
               <folding>
-                <element signature="e#4051#5609#0" />
-                <element signature="e#5655#7749#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SSTLM_main/HPC_jobs/HPC_job_gen.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="768">
-              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SSTLM_main/model/subgrid_SSTLM.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="254" column="42" lean-forward="true" selection-start-line="254" selection-start-column="42" selection-end-line="254" selection-end-column="42" />
-              <folding>
-                <element signature="e#137#155#0" expanded="true" />
+                <element signature="e#0#211#1" />
+                <element signature="e#213#227#0" expanded="true" />
+                <element signature="e#313#902#0" />
+                <element signature="e#313#548#1" />
+                <element signature="e#3245#3524#0" />
+                <element signature="e#4537#4831#0" />
+                <element signature="e#4858#5092#0" />
+                <element signature="e#5520#5629#0" />
+                <element signature="e#6191#6447#0" />
+                <marker date="1567946130845" expanded="true" signature="1889:1937" ph="..." />
               </folding>
             </state>
           </provider>
@@ -213,7 +403,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/phase_space_gen/main_SSTLM_phase.py" />
         <option value="$PROJECT_DIR$/phase_space_gen/readme.txt" />
         <option value="$PROJECT_DIR$/SSTLM_test_suite/repoduction_number.py" />
         <option value="$PROJECT_DIR$/SSTLM_test_suite/R0-sim.py" />
@@ -261,9 +450,10 @@
         <option value="$PROJECT_DIR$/SSTLM_main/mkdir.py" />
         <option value="$PROJECT_DIR$/latex/figure_gen.py" />
         <option value="$PROJECT_DIR$/SSTLM_main/model/subgrid_SSTLM.py" />
-        <option value="$PROJECT_DIR$/SSTLM_main/main.py" />
         <option value="$PROJECT_DIR$/SSTLM_main/HPC_jobs/HPC_job_gen.py" />
         <option value="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh" />
+        <option value="$PROJECT_DIR$/SSTLM_main/main.py" />
+        <option value="$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py" />
       </list>
     </option>
   </component>
@@ -273,7 +463,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="1027" />
@@ -302,7 +492,7 @@
               <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
               <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
               <item name="SSTLM_main" type="462c0819:PsiDirectoryNode" />
-              <item name="HPC_jobs" type="462c0819:PsiDirectoryNode" />
+              <item name="output_data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -346,29 +536,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.figure_gen">
-    <configuration name="animate (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="hpc-subgrid-model" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/forecasting_PDE/output_data" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/forecasting_PDE/output_data/animate.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.param_space_plots">
     <configuration name="animate" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="hpc-subgrid-model" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -435,6 +603,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="param_space_plots" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="hpc-subgrid-model" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SSTLM_main/output_data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="pde_time_series" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="hpc-subgrid-model" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -459,18 +649,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.figure_gen" />
-      <item itemvalue="Python.animate (1)" />
       <item itemvalue="Python.pde_time_series" />
       <item itemvalue="Python.fisher_test" />
       <item itemvalue="Python.animate" />
+      <item itemvalue="Python.param_space_plots" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.param_space_plots" />
         <item itemvalue="Python.figure_gen" />
         <item itemvalue="Python.animate" />
         <item itemvalue="Python.fisher_test" />
         <item itemvalue="Python.pde_time_series" />
-        <item itemvalue="Python.animate (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -497,15 +687,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1237" height="1080" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4990099" visible="true" weight="0.19497909" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4990099" visible="true" weight="0.12026862" />
       <window_info id="Structure" order="1" sideWeight="0.5009901" side_tool="true" weight="0.12087327" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49699053" weight="0.32277226" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.50300944" side_tool="true" weight="0.3059406" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.50300944" side_tool="true" visible="true" weight="0.30510205" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4986643" weight="0.24693878" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -520,7 +710,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" x="-29" y="-1025" width="1680" height="884" id="SciView" order="3" weight="0.63139015" />
+      <window_info anchor="right" x="-29" y="-1025" width="1680" height="884" id="SciView" order="3" visible="true" weight="0.63125765" />
       <window_info anchor="right" id="R Graphics" order="4" weight="0.328541" />
       <window_info anchor="right" id="R Packages" order="5" weight="0.32769367" />
       <window_info anchor="right" id="Database" order="6" weight="0.32853717" />
@@ -572,13 +762,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///anaconda3/envs/phd/lib/python3.6/site-packages/matplotlib/axes/_axes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="210" column="8" selection-start-line="210" selection-start-column="8" selection-end-line="210" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PDE_test/model/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -705,13 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SSTLM_main/mkdir.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SSTLM_main/animations_data/animate.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -806,25 +982,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sgm_perc.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SSTLM_main/num_inf_0.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SSTLM_main/rt_1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SSTLM_main/rt_0.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SSTLM_main/num_inf_1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/sgm_perc.png" />
+    <entry file="file://$PROJECT_DIR$/SSTLM_main/num_inf_0.png" />
+    <entry file="file://$PROJECT_DIR$/SSTLM_main/rt_1.png" />
+    <entry file="file://$PROJECT_DIR$/SSTLM_main/rt_0.png" />
+    <entry file="file://$PROJECT_DIR$/SSTLM_main/num_inf_1.png" />
     <entry file="file://$PROJECT_DIR$/SSTLM_main/model/subgrid_SSTLM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="254" column="42" lean-forward="true" selection-start-line="254" selection-start-column="42" selection-end-line="254" selection-end-column="42" />
+        <state relative-caret-position="3765">
+          <caret line="254" column="42" selection-start-line="254" selection-start-column="42" selection-end-line="254" selection-end-column="42" />
           <folding>
             <element signature="e#137#155#0" expanded="true" />
           </folding>
@@ -833,8 +999,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SSTLM_main/HPC_jobs/HPC_job_gen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="210">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -845,13 +1011,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SSTLM_main/mkdir.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SSTLM_main/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="727">
-          <caret line="73" column="76" lean-forward="true" selection-start-line="73" selection-start-column="76" selection-end-line="73" selection-end-column="76" />
+        <state relative-caret-position="525">
+          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="68" column="54" lean-forward="true" selection-start-line="68" selection-start-column="54" selection-end-line="68" selection-end-column="54" />
           <folding>
-            <element signature="e#4051#5609#0" />
-            <element signature="e#5655#7749#0" />
+            <element signature="e#0#211#1" />
+            <element signature="e#213#227#0" expanded="true" />
+            <element signature="e#313#902#0" />
+            <element signature="e#313#548#1" />
+            <element signature="e#3245#3524#0" />
+            <element signature="e#4537#4831#0" />
+            <element signature="e#4858#5092#0" />
+            <element signature="e#5520#5629#0" />
+            <element signature="e#6191#6447#0" />
+            <marker date="1567946130845" expanded="true" signature="1889:1937" ph="..." />
           </folding>
         </state>
       </provider>
