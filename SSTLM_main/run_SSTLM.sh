@@ -21,7 +21,7 @@ date_time=$(date '+%d-%m-%Y %H:%M:%S')
 #$ -l h_rt=48:00:00
 #$ -t 1-100
 
-sim_name="HPC_perc"
+sim_name="HPC"
 
 python3 mkdir.py $date_time $sim_name
 python3 main.py $SGE_TASK_ID $date_time $data_type $sim_name

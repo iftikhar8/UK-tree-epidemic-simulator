@@ -24,6 +24,7 @@ settings = {"out_path": output_path, "date": date, "job_id": job_id, "plt_tserie
             "verbose": False, "HPC": None, "local_type": "animation", "debug_time": True}  # simulation settings
 
 if mode == "HPC":
+    print("tig 2")
     """                             ----- HPC mode -----
     Run this extract to generate parameter space of a stochastic sub-grid model of tree disease over 3D: 
     1. rho (tree density)
@@ -66,13 +67,12 @@ if mode == "HPC":
                 max_distances[i, j, k] = max_d
                 run_times[i, j, k] = run_time
                 percolation_pr[i, j, k] = percolation
-                print(" -- P = ", percolation)
-            # save results as tensor-phase-space arrays
-            np.save(output_path + "/mortality/" + core_id, mortality)
-            np.save(output_path + "/max_distance_km/" + core_id, max_distances)
-            np.save(output_path + "/run_time/" + core_id, run_times)
-            np.save(output_path + "/percolation/" + core_id, percolation_pr)
-
+                # save results as tensor-phase-space arrays
+                np.save(output_path + "/mortality/" + core_id, mortality)
+                np.save(output_path + "/max_distance_km/" + core_id, max_distances)
+                np.save(output_path + "/run_time/" + core_id, run_times)
+                np.save(output_path + "/percolation/" + core_id, percolation_pr)
+    
     tf = time.clock() - t0
     tf = np.float64(tf / 60)
     print('End time: ', datetime.datetime.now(), ' |  sim : ', str(job_id))
@@ -80,9 +80,9 @@ if mode == "HPC":
 
 
 elif mode == "LCL":  # LOCAL MACHINE MODE
+    print("trig 3")
     # 1) ANIM: animation mode, 2) ENS: ensemble mode <-- chose then run in terminal
     local_type = ["ANIM", "ENS"][1]
-
     if local_type == "ANIM":  # individual simulation for animation
         R0 = float(input('Enter initial-basic-reproduction ratio \in [1, 50]: '))  # number of secondary infections
         dispersal_ = float(input('Enter target dispersal distance in (m): ')) * 0.001  # average dispersal distance
@@ -150,7 +150,7 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
                 params["rho"] = rho
                 Results = subgrid_SSTLM.main(settings, params)
                 eff_fraction, max_d, run_time, percolation = Results
-                perc_results[j] = perc_results[j] + percolation
+                pearc_results[j] = perc_results[j] + percolation
                 print(" rho / ", j)
                 print('--percolation: ', percolation)
                 print('--rho: ', rho)
@@ -165,6 +165,4 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
 
         np.save('perc_', perc_results)
 
-
-
-
+print("trig 4")
