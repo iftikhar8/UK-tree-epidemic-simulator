@@ -52,8 +52,9 @@ def param_space_2D(data_arr, label):
 
 
 def param_space_1D(data, label):
-
-    plt.plot(data)
+    rhos = np.linspace(0.001, 0.100, 100)
+    plt.plot(rhos, data)
+    plt.xlim(0, 0.02)
     plt.show()
     return
 
@@ -106,7 +107,8 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
-sim_names = {0: '/08-09-2019-HPC'}
+sim_names = {0: '/08-09-2019-HPC-ell-50',
+             1: '/08-09-2019-HPC'}
 
 # 2. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
@@ -117,7 +119,7 @@ if True:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_name = 0      # enter the simulate name index
+    sim_name = 0     # enter the simulate name index
     distance = 0      # load and compute distance plots
     runtime = 0       # load and compute runtime plots
     mortality = 0     # load and compute mortality plots
