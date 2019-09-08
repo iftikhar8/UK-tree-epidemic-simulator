@@ -1,0 +1,19 @@
+## Running job 1392538.50 on host dc3s8b1d.arc3.leeds.ac.uk
+##
+## Resources granted:
+##
+## h_vmem = 1G
+## h_rt   = 48:00:00
+## disk   = 1G
+
+Running HPC simulation
+tig 2
+Start time:  2019-09-08 14:13:25.500509  |  sim :  50
+ell:  0  /  2
+     R0:  0  /  1
+ell:  1  /  2
+     R0:  0  /  1
+End time:  2019-09-08 14:17:41.978453  |  sim :  50
+Time taken:  4.22  (mins)
+trig 4
+Simulations Finished
