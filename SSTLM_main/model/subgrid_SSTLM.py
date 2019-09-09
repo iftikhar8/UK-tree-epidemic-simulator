@@ -226,7 +226,7 @@ def main(settings, parameters):
         #  CHECK boundary conditions (BCDs)
         if num_infected == 0:  # BCD1 : disease dies, sim ends & percolation taken as negative percolation
             in_progress = False
-            p.percolation = -1
+            p.percolation = 0
             break
 
         if time_step == p.time_f:  # BCD2: disease doesnt die but travels slowly & taken as neutral percolation

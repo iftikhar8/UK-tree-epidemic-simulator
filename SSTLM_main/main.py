@@ -67,11 +67,11 @@ if mode == "HPC":
                 max_distances[i, j, k] = max_d
                 run_times[i, j, k] = run_time
                 percolation_pr[i, j, k] = percolation
-                # save results as tensor-phase-space arrays
-                np.save(output_path + "/mortality/" + core_id, mortality)
-                np.save(output_path + "/max_distance_km/" + core_id, max_distances)
-                np.save(output_path + "/run_time/" + core_id, run_times)
-                np.save(output_path + "/percolation/" + core_id, percolation_pr)
+            # save results as tensor-phase-space arrays
+            np.save(output_path + "/mortality/" + core_id, mortality)
+            np.save(output_path + "/max_distance_km/" + core_id, max_distances)
+            np.save(output_path + "/run_time/" + core_id, run_times)
+            np.save(output_path + "/percolation/" + core_id, percolation_pr)
     
     tf = time.clock() - t0
     tf = np.float64(tf / 60)
@@ -80,7 +80,6 @@ if mode == "HPC":
 
 
 elif mode == "LCL":  # LOCAL MACHINE MODE
-    print("trig 3")
     # 1) ANIM: animation mode, 2) ENS: ensemble mode <-- chose then run in terminal
     local_type = ["ANIM", "ENS"][1]
     if local_type == "ANIM":  # individual simulation for animation
@@ -91,7 +90,7 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
         area = lattice_dim * alpha  # modelled area the domain covers km^2
         eff_dispersal = dispersal_ / alpha  # convert the dispersal distance from km to computer units
         eff_dispersal = np.round(eff_dispersal, 5)
-        rho = 0.10  # typically \in [0.001, 0.100]
+        rho = 0.010  # typically \in [0.001, 0.100]
         # SET simulation parameters
         params["R0"] = R0
         params["rho"] = rho
@@ -126,10 +125,10 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
         repeats = 1
         name = '-threshold'
         L = 200       # Domain size
-        alpha = 5           # lattice constant in (m)
-        R0 = 5       # R0 cases initial cases per day
-        sigma = 50    # dispersal distance in (m)
-        rhos = np.array([0.10 for i in range(10)])  # Tree density at t=0
+        alpha = 5     # lattice constant in (m)
+        R0 = 5        # R0 cases initial cases per day
+        sigma = 75    # dispersal distance in (m)
+        rhos = np.arange(0.001, 0.030, 0.001)  # Tree density at t=0
         eff_dispersal = sigma/alpha  # dispersal in computer units
         params["L"] = L
         params["R0"] = R0
@@ -150,19 +149,19 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
                 params["rho"] = rho
                 Results = subgrid_SSTLM.main(settings, params)
                 eff_fraction, max_d, run_time, percolation = Results
-                pearc_results[j] = perc_results[j] + percolation
-                print(" rho / ", j)
+                perc_results[j] = perc_results[j] + percolation
+                print("rho: ", j, ' / ', rhos.shape[0])
+                print('--rho = ', round(rho, 4))
                 print('--percolation: ', percolation)
-                print('--rho: ', rho)
-                print('--run time: ', perc_results[j])
+                print('--sim runtime (days): ', run_time)
                 t1 = time.time()
                 times[j] = t1 - t0
-                print("tot time --> ", t1 - t0)
+                print("--actual runtime time --> ", round(t1 - t0, 4), ' (s)')
             perc_results = perc_results / (i + 1)
             import matplotlib.pyplot as plt
-            plt.plot(times)
+            plt.plot(rhos, perc_results)
             plt.show()
 
-        np.save('perc_', perc_results)
+        label_ = str(sigma) + '_R0_' + str(R0)
+        np.save('perc_ell_' + label_, perc_results)
 
-print("trig 4")
