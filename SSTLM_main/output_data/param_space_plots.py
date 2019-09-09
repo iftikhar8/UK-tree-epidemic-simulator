@@ -26,39 +26,6 @@ def en_combine(sim_names):
     np.save('COMBINED-'+save_name, dat)
 
 
-def param_space_2D(data_arr, label):
-    # load in specific array
-    extent = [0, 0.1, 1, 50]
-    dat_flat = data_arr.flatten()
-    nan_ind = np.where(np.isnan(dat_flat))
-    distance = ['50m', '100m', '150m', '200m', '250m', '300m']
-    for i in range(np.shape(data_arr)[0]):
-        fig, ax = plt.subplots()
-        data_slice = data_arr[i]
-        max_ = np.max(data_slice)
-        min_ = np.min(data_slice)
-        im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[min_, max_], cmap=plt.get_cmap('inferno'))
-        ax.set_xlabel(r'$\rho$ (occupational tree density)')
-        ax.set_ylabel(r'$\beta$')
-        ax.set_xticks(np.linspace(0, extent[1], 5).round(2))
-        plt.title(r'$\ell = $' + distance[i])
-        cbar = plt.colorbar(im, ax=ax)
-        cbar.set_label(label, labelpad=-20, y=1.05, rotation=0)
-        plt.savefig(os.getcwd() + '/plot_figs/' + str(i))
-        ax.set_aspect(0.002)
-        plt.show()
-
-    return
-
-
-def param_space_1D(data, label):
-    rhos = np.linspace(0.001, 0.100, 100)
-    plt.plot(rhos, data)
-    plt.xlim(0, 0.02)
-    plt.show()
-    return
-
-
 def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
     # GENERATE ensemble average phase space tensor
     # - from a directory of repeats
@@ -91,7 +58,7 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
         param_space_2D(data_arr=ensemble_results, label=label)
 
     if show_1D:
-        param_space_1D(data=ensemble_results[0][0], label=label)
+        param_space_1D(data=ensemble_results, label=label)
 
 
     # SAVE results to .npy file to be used in diffusion mapping in PDE forecasting
@@ -105,10 +72,48 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
     return ensemble_results
 
 
+def param_space_2D(data_arr, label):
+    # load in specific array
+    extent = [0, 0.1, 1, 50]
+    dat_flat = data_arr.flatten()
+    nan_ind = np.where(np.isnan(dat_flat))
+    distance = ['50m', '100m', '150m', '200m', '250m', '300m']
+    for i in range(np.shape(data_arr)[0]):
+        fig, ax = plt.subplots()
+        data_slice = data_arr[i]
+        max_ = np.max(data_slice)
+        min_ = np.min(data_slice)
+        im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[min_, max_], cmap=plt.get_cmap('inferno'))
+        ax.set_xlabel(r'$\rho$ (occupational tree density)')
+        ax.set_ylabel(r'$\beta$')
+        ax.set_xticks(np.linspace(0, extent[1], 5).round(2))
+        plt.title(r'$\ell = $' + distance[i])
+        cbar = plt.colorbar(im, ax=ax)
+        cbar.set_label(label, labelpad=-20, y=1.05, rotation=0)
+        plt.savefig(os.getcwd() + '/plot_figs/' + str(i))
+        ax.set_aspect(0.002)
+        plt.show()
+
+    return
+
+
+def param_space_1D(data, label):
+    # Plot lines
+    sigmas = np.arange(10, 55, 5)
+    rhos = np.arange(0.001, 0.031, 0.001)
+    for i, data in enumerate(data):
+        plt.plot(rhos, data[0], label=r'$\ell = ${}'.format(str(sigmas[i])))
+
+    plt.legend()
+    plt.show()
+    return
+
+
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
 sim_names = {0: '/08-09-2019-HPC-ell-50',
-             1: '/08-09-2019-HPC'}
+             1: '/08-09-2019-HPC',
+             2: '/09-09-2019-HPC_ell_10-50'}
 
 # 2. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
@@ -119,13 +124,13 @@ if True:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_name = 0     # enter the simulate name index
+    sim_name = 2     # enter the simulate name index
     distance = 0      # load and compute distance plots
     runtime = 0       # load and compute runtime plots
     mortality = 0     # load and compute mortality plots
     velocity = 0      # compute velocity and show
     percolation = 1   # load and compute percolation
-    phase_dim = [1, 1, 100]
+    phase_dim = [9, 1, 30]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
     if mortality:
         # GET distance travelled data
