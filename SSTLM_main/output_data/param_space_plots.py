@@ -136,7 +136,7 @@ if True:
         # GET distance travelled data
         sim, metric = [sim_names[sim_name], metrics[2]]
         path_2_sim = os.getcwd() + sim + metric
-        tensor_mortality = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0,save_Data=0)
+        tensor_mortality = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, save_Data=0)
         np.save(save_name + '-mortality', tensor_mortality)
 
     if distance:
