@@ -42,8 +42,8 @@ def main(settings, params):
 
     if "HPC" in settings["out_path"].split('-'):  # HPC mode -- bigger parameter dimension
         rhos = np.arange(0.001, 0.031, 0.001)
-        alpha = 0.005  # lattice constant
-        eff_disp = np.arange(10, 55, 5) / alpha  # Effective dispersal distance (in computer units not physical units)
+        alpha = 5  # lattice constant
+        eff_disp = np.array([60, 70, 80, 90, 100]) / alpha  # Effective dispersal distance (in computer units not physical units)
         R0_arr = np.array([5])  # Define R0_the basic reproduction number.
         # -- R0 array maps to a range of beta values. Each dispersal distance (i.e. 0th dimension in parameter space)
         # -- will have a different set of beta-probabilities: beta_arr = [eff_disp, R0_range].
