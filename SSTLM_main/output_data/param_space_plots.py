@@ -99,12 +99,17 @@ def param_space_2D(data_arr, label):
 
 def param_space_1D(data, label):
     # Plot lines
-    sigmas = np.arange(10, 55, 5)
+    sigmas = np.array([20, 30, 40, 50, 60, 70, 80, 90, 100])
     rhos = np.arange(0.001, 0.031, 0.001)
-    for i, data in enumerate(data):
+    for i, data in enumerate(data[:-4]):
         plt.plot(rhos, data[0], label=r'$\ell = ${}'.format(str(sigmas[i])))
 
+    plt.title(r'$R_0 = 5$')
+    plt.ylabel(r'$Percolaiton$')
+    plt.xlabel(r'$\rho$')
     plt.legend()
+    plt.grid(True)
+    plt.savefig('disp_threshold')
     plt.show()
     return
 
@@ -113,7 +118,8 @@ def param_space_1D(data, label):
 # 1. sim_names : used to generate individual ensemble simulations
 sim_names = {0: '/08-09-2019-HPC-ell-50',
              1: '/08-09-2019-HPC',
-             2: '/09-09-2019-HPC_ell_10-50'}
+             2: '/09-09-2019-HPC_ell_10-50',
+             3: '/09-09-2019-HPC_ell_20-100'}
 
 # 2. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
@@ -124,7 +130,7 @@ if True:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_name = 2     # enter the simulate name index
+    sim_name = 3     # enter the simulate name index
     distance = 0      # load and compute distance plots
     runtime = 0       # load and compute runtime plots
     mortality = 0     # load and compute mortality plots
