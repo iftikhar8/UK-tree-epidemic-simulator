@@ -678,25 +678,27 @@ def growth_individual():
 
 
 def sgm_thresh():
-    # sub-grid model thresholds
-    sub_dir = ['dispersal_thresholds/', 'R0_thresholds/'][0]
-    path = os.getcwd() + '/latex/latex_data/SGM_threshold/' + sub_dir
-    files = sorted(os.listdir(path))
-    if sub_dir == 'dispersal_thresholds/':
-        rhos = np.arange(0.001, 0.030, 0.001)
-        param = r'$\ell = ${}'
-        labels = ['15', '20', '25', '30', '40', '50', '75', '100']
-    if sub_dir == 'R0_thresholds/':
-        rhos = np.arange(0.001, 0.021, 0.001)
-        param = r'$R_0 = ${}'
-        labels = ['3', '4', '5', '6', '7']
 
-    for i, file in enumerate(files):
-        perc_data = np.load(path + file)
-        plt.plot(rhos, perc_data, label=param.format(labels[i]))
+    path = os.getcwd() + '/latex/latex_data/SGM_threshold/ps-b-6-r-30-L-2-perc.npy'
+    data = np.load(path)
+    rhos = np.arange(0.001, 0.031, 0.001)
+    print(data.shape)
+    for i, sigma in enumerate(data):
+        if i == 0:
+            st = '--'
+            color = 'r'
+        else:
+            st = '-'
+            color = 'b'
 
-    plt.legend()
+        for R0 in sigma:
+            plt.plot(rhos, R0, ls=st, c=color, alpha=0.5)
+
     plt.show()
+
+
+
+
 
 
 sgm_thresh()

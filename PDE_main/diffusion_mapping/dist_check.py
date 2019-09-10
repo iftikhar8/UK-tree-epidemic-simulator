@@ -13,6 +13,7 @@ tree_dat = tree_dat[:np.where(tree_dat > 0.10)[0][0]]
 
 plt.hist(tree_dat, bins=100)
 plt.xlim(0, 0.03)
+plt.savefig('ash')
 plt.show()
 
 

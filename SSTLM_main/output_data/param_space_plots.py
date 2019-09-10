@@ -90,7 +90,6 @@ def param_space_2D(data_arr, label):
         plt.title(r'$\ell = $' + distance[i])
         cbar = plt.colorbar(im, ax=ax)
         cbar.set_label(label, labelpad=-20, y=1.05, rotation=0)
-        plt.savefig(os.getcwd() + '/plot_figs/' + str(i))
         ax.set_aspect(0.002)
         plt.show()
 
@@ -106,7 +105,7 @@ def param_space_1D(data, label):
 
     plt.title(r'$R_0 = 5$')
     plt.ylabel(r'$Percolaiton$')
-    plt.xlabel(r'$\rho$')
+    plt.xlabel(r'$\rho$ (tree density)')
     plt.legend()
     plt.grid(True)
     plt.savefig('disp_threshold')
@@ -119,7 +118,9 @@ def param_space_1D(data, label):
 sim_names = {0: '/08-09-2019-HPC-ell-50',
              1: '/08-09-2019-HPC',
              2: '/09-09-2019-HPC_ell_10-50',
-             3: '/09-09-2019-HPC_ell_20-100'}
+             3: '/09-09-2019-HPC_ell_20-100',
+             4: '/09-09-2019-HPC-ell-repeats',
+             5: '/09-09-2019-HPC-R0-H_L'}
 
 # 2. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
@@ -130,14 +131,16 @@ if True:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_name = 3     # enter the simulate name index
+    sim_name = 5      # enter the simulate name index
     distance = 0      # load and compute distance plots
     runtime = 0       # load and compute runtime plots
     mortality = 0     # load and compute mortality plots
     velocity = 0      # compute velocity and show
     percolation = 1   # load and compute percolation
-    phase_dim = [9, 1, 30]
+    phase_dim = [2, 6, 30]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
+
+
     if mortality:
         # GET distance travelled data
         sim, metric = [sim_names[sim_name], metrics[2]]
@@ -173,7 +176,7 @@ if True:
         sim, metric = [sim_names[sim_name], metrics[3]]
         path_2_sim = os.getcwd() + sim + metric
         # phase_dim : [sigma, beta, rho]
-        tensor_perc = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=False, show_1D=True, save_Data=0)
+        tensor_perc = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=True, show_1D=False, save_Data=0)
         np.save(save_name + '-perc', tensor_perc)
         if velocity:
             # vel weighted percolation

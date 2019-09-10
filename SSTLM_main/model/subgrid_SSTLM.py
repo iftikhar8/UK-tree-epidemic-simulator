@@ -41,7 +41,17 @@ class SimInit(object):
         self.pre_factor = 2 * np.pi * (parameters["eff_disp"]**2)  # the dispersal normalisation constant
         self.R0 = parameters["R0"]  # number of expected infectious cases per day @t=0 due to single infected for rho=1
         self.beta = self.R0 / self.pre_factor
-        assert self.beta < 1  # make sure beta arr is a probability array \in [0, 1]
+
+        try:
+            assert self.beta < 1  # make sure beta arr is a probability array \in [0, 1]
+        except:
+            print(self.eff_disp, ' disp factor')
+            print(self.R0, ' r0')
+            print(self.pre_factor, ' pre factor')
+            print(self.beta, ' beta')
+            print("Unphysical probability")
+            sys.exit("exting...")
+
         # INIT distance matrix
         x, y = np.arange(0, dim[0]), np.arange(0, dim[1])
         x_arr, y_arr = np.meshgrid(x, y)
@@ -253,28 +263,40 @@ def main(settings, parameters):
         if verbose:
             t_f = time.clock()
             t_debug[time_step] = t_f - t_0
-            print("Time elapsed in loop: ", t_f - t_0)
+            print("Time elapsed in loop: {}".format(round(t_f - t_0, 4)))
 
         time_step += 1
 
         # __________ITERATION COMPLETE_________ #
     # ________________END ALGORITHM________________ #
+    # ts_mean_d = ts_mean_d * p.alpha
+    # ts_mean_d = ts_mean_d[:time_step]
     ts_max_d = ts_max_d * p.alpha  # multiply by lattice constant to get a distance in km
-    # uncomment to use mean distance --> # ts_mean_d = ts_mean_d * p.alpha
     ts_max_d = ts_max_d[:time_step]
-    max_distance_reached = ts_max_d.max()  # maximum distance reached by the pathogen
+    max_d_reached = ts_max_d.max()  # maximum distance reached by the pathogen
+    mean_max_d_reached = ts_mean_d.max()
     num_infected = growth_[:time_step]  # number of infected individuals over the simulation
     t_debug = t_debug[:time_step]
     # GENERATE time series output plots over the simulation
     if settings["plt_tseries"]:
-        print('Step: ', str(time_step), '  max d = ', max_distance_reached, ' km')
+        print('Step: {}, max d = {} (km)'.format(time_step, max_d_reached))
+        print('----: mean max d = {} (km)'.format(mean_max_d_reached))
         plot_cls = Plots(p.beta, p.rho)  # Plots module contains plotting functions
+        # Plot max d metric
         label = {'title': "max d distance", 'xlabel': 'days', 'ylabel': 'distance (km)'}
         plot_cls.plot_tseries(metric=ts_max_d, labels=label, fit=False, saves_=[False, None])
+
+        # Plot mean distance metric (uncomment for use)
+        # label = {'title': "mean d distance", 'xlabel': 'days', 'ylabel': 'distance (km)'}
+        # plot_cls.plot_tseries(metric=ts_mean_d, labels=label, fit=False, saves_=[False, None])
+
+        # Plot number of infected (SIR)
         label = {'title': "num infected", 'xlabel': 'days', 'ylabel': '# trees'}
         plot_cls.plot_tseries(metric=num_infected, labels=label, fit=False, saves_=[False, 'num_inf_0'])
+        # Plot physical computer runtime
         label = {'title': "computer runtime", 'xlabel': 'step', 'ylabel': 'physical runtime'}
         plot_cls.plot_tseries(metric=t_debug, labels=label, fit=False, saves_=[False, 'rt_0'])
+
         save_tseries = False
         if save_tseries:  # IF True, save time-series data to file
             plot_cls.save_settings(parameters, settings, save_path)
@@ -284,8 +306,15 @@ def main(settings, parameters):
             np.save('max_d_' + name, ts_max_d)
 
     num_removed = len(np.where(p.removed == 1)[0])  # Number of dead trees.
-    area_e = (num_infected[-1] + num_removed)
-    return area_e, max_distance_reached, time_step, p.percolation
+    mortality = (num_infected[-1] + num_removed)
+
+    if p.percolation == 1:
+        velocity = max_d_reached / time_step
+
+    elif p.percolation == 0:
+        velocity = 0
+
+    return mortality, velocity, max_d_reached, time_step, p.percolation
 
 if __name__ == "__main__":
     main(param)

@@ -21,19 +21,21 @@ date_time=$(date '+%d-%m-%Y %H:%M:%S')
 #$ -l h_rt=48:00:00
 #$ -t 1-100
 
-sim_name="HPC"
+mode="HPC"
+sim_id="-vel"
 
-python3 mkdir.py $date_time $sim_name
-python3 main.py $SGE_TASK_ID $date_time $data_type $sim_name
+python3 mkdir.py $date_time $mode $sim_id
+python3 main.py $SGE_TASK_ID $date_time $data_type $mode $sim_id
 elif [ "$hpc_switch" == 0 ]
  then
 
 ################ Local machine ###############
 job_id=25
 date_time=$(date '+%d-%m-%Y %H:%M:%S')
-sim_name="LCL"
-python3 mkdir.py  $date_time $data_type $sim_name
-python3 main.py $job_id $date_time $data_type $sim_name
+mode="LCL"
+sim_id="-test"
+python3 mkdir.py  $date_time $data_type $mode $sim_id
+python3 main.py $job_id $date_time $data_type $mode $sim_id
 
 fi
 echo "Simulations Finished"
