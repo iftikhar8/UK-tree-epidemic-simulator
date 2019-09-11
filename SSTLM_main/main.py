@@ -100,15 +100,15 @@ if mode == "HPC":
                     np.save(output_path + "/percolation/" + save_id, percolation_pr)
                     np.save(output_path + "/max_distance_km/" + save_id, max_distances)
 
-
     # RUN partial parameter space in high_resolution:
     # ---- Iterate indices as  ---> [i: ell, j:rho, k:repeats]  # todo run repeat simulations
     elif sim_type == "-high_res":
-        repeats = 2
-        params["R0"] = 5  # basic reproduction values
-        ell_arr = np.array([50]) / alpha  # dispersal values
-        rhos = np.array([0.001, 0.005, 0.010])  # tree density values
+        repeats = 1
+        params["R0"] = 10  # basic reproduction values
+        ell_arr = np.array([200]) / alpha  # dispersal values
+        rhos = np.arange(0.0001, 0.0500, 0.0001)  # tree density values
         velocity_ensemble = np.zeros(shape=[ell_arr.shape[0], rhos.shape[0], repeats])
+        percolation_ensemble = np.zeros(shape=[ell_arr.shape[0], rhos.shape[0], repeats])
         t0 = time.clock()
         for i, ell in enumerate(ell_arr):
             print('ell : {} \ {}'.format(i, ell_arr.shape[0]))
@@ -120,18 +120,20 @@ if mode == "HPC":
                     results = subgrid_SSTLM.main(settings, params)
                     mortality_, velocity_, max_d_, run_time_, percolation_ = results
                     velocity_ensemble[i, j, k] = velocity_
+                    percolation_ensemble[i, j, k] = percolation_
+                # Save results to file as .npy array
                 np.save(output_path + "/velocity/" + save_id, velocity_ensemble)
+                np.save(output_path + "/percolation/" + save_id, percolation_ensemble)
 
     tf = time.clock() - t0
     tf = np.float64(tf / 60)
-    print('End time: ', datetime.datetime.now(), ' |  sim : ', str(job_id))
-    print("Time taken: ", tf.round(3), ' (mins)')
+    print('End time: {} |  sim : {} '.format(datetime.datetime.now(), str(job_id)))
+    print("Time taken: {} (mins)".format(tf.round(3)))
 
 
 elif mode == "LCL":  # LOCAL MACHINE MODE
     # 1) ANIM: animation mode, 2) ENS: ensemble mode <-- chose then run in terminal
-    local_type = ["ANIM", "ENS"][0]
-    if local_type == "ANIM":  # individual simulation for animation
+    if sim_type == "-anim":  # individual simulation for animation
         R0 = float(input('Enter initial-basic-reproduction ratio \in [1, 50]: '))  # number of secondary infections
         dispersal_ = float(input('Enter target dispersal distance in (m): ')) * 0.001  # average dispersal distance
         alpha = 5 * 0.001  # lattice constant
@@ -167,17 +169,17 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
         print('velocity ensemble value = {} (km/yr)'.format(round(velocity_ * 365, 4)))
         sys.exit("exiting...")
 
-    elif local_type == "ENS":
+    elif sim_type == "-ens":
         """
         This code is designed to be changed, use this to generate single lines of how model behaves.
         Use for simple small lines through phase space.
         """
-        R0 = 5        # R0 cases initial cases per day
+        R0 = 10       # R0 cases initial cases per day
         L = 200       # Domain size
         alpha = 5     # lattice constant in (m)
-        sigma = 50    # dispersal distance in (m)
+        sigma = 200   # dispersal distance in (m)
         eff_dispersal = sigma / alpha  # dispersal in computer units
-        rhos = np.arange(0.001, 0.010, 0.001)  # Tree density at t=0
+        rhos = np.arange(0.001, 0.020, 0.001)  # Tree density at t=0
         repeats = 1  # Ensemble size
         params["L"] = L
         params["R0"] = R0
@@ -188,7 +190,7 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
         params["eff_disp"] = eff_dispersal
         settings["BCD3"] = True  # False ==> no percolation BCD
         settings["verbose"] = False  # print time-step information
-        perc_results = np.zeros(shape=(rhos.shape[0]))
+        vel_results = np.zeros(shape=(rhos.shape[0]))
         print("Running: ENSEMBLE simulation")
         times = np.zeros(rhos.shape[0])
         for i in range(repeats):
@@ -197,7 +199,7 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
                 params["rho"] = rho
                 Results = subgrid_SSTLM.main(settings, params)
                 mortality_, velocity_, max_d_, run_time_, percolation_ = Results
-                perc_results[j] = perc_results[j] + percolation_
+                vel_results[j] = vel_results[j] + velocity_
                 print("rho: {} / {}".format(j, rhos.shape[0]))
                 print('--rho = {}'.format(round(rho, 4)))
                 print('--percolation: {}'.format(percolation_))
@@ -205,14 +207,14 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
                 t1 = time.time()
                 times[j] = t1 - t0
                 print("--actual runtime time --> {} (s)".format(round(t1 - t0, 4)))
-            perc_results = perc_results / (i + 1)
+            vel_results = vel_results / (i + 1)
             import matplotlib.pyplot as plt
-            plt.plot(rhos, perc_results)
+            plt.plot(rhos, vel_results)
             plt.show()
 
         if True:
             label_ = str(sigma) + '_R0_' + str(R0)
-            np.save('perc_ell_' + label_, perc_results)
+            np.save('perc_ell_' + label_, vel_results)
 
         sys.exit("exiting...")
 

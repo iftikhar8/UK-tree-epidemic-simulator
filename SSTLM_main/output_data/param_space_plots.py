@@ -52,6 +52,9 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
     if "run_time" in path:
         label = r"Run time (days)"
         save_label = "perc"
+    if "velocity" in path:
+        label = r'$(km\ yr^{-1})$'
+        save_label = "vel"
 
     if show_2D:
         # PLOT ensemble average of 2D phase
@@ -117,7 +120,7 @@ def param_space_1D(data, label):
 sim_names = {0: '/10-09-2019-HPC-vel'}
 
 # 2. the different metrics used
-metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
+metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation", 4: "/velocity"}
 "SSTLM_main/output_data/lattice/09-07-2019-HPC/max_distance_km"
 
 mode = ['param_2d', 'param_1D']
@@ -129,7 +132,7 @@ if True:
     distance = 0      # load and compute distance plots
     runtime = 0       # load and compute runtime plots
     mortality = 0     # load and compute mortality plots
-    velocity = 0      # compute velocity and show
+    velocity = 1      # compute velocity and show
     percolation = 1   # load and compute percolation
     phase_dim = [2, 30, 30]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
@@ -139,31 +142,27 @@ if True:
         # GET distance travelled data
         sim, metric = [sim_names[sim_name], metrics[2]]
         path_2_sim = os.getcwd() + sim + metric
-        tensor_mortality = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, save_Data=0)
+        tensor_mortality = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=0, show_1D=False, save_Data=0)
         np.save(save_name + '-mortality', tensor_mortality)
 
     if distance:
         # GET distance travelled data
         sim, metric = [sim_names[sim_name], metrics[0]]
         path_2_sim = os.getcwd() + sim + metric
-        tensor_distance = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, save_Data=0)
+        tensor_distance = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=False, save_Data=0)
 
     if runtime:
         # GET runtime data
         sim, metric = [sim_names[sim_name], metrics[1]]
         path_2_sim = os.getcwd() + sim + metric
-        tensor_runtime = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, save_Data=0)
+        tensor_runtime = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=False, save_Data=0)
 
     if velocity:
         # GET velocity data
-        tensor_velocity = tensor_distance / tensor_runtime
-        if save_name + '-vel.npy' in os.listdir(os.getcwd()):
-            print('Warning: file {} alreay in directory'.format(save_name))
-            save_name = save_name + '-vel-V2'
-        else:
-            save_name = save_name + '-vel'
-        np.save(save_name, tensor_velocity * 365)
-        param_space_2D(data_arr=tensor_velocity * 365, label='vel km/yr')
+        sim, metric = [sim_names[sim_name], metrics[4]]
+        path_2_sim = os.getcwd() + sim + metric
+        tensor_vel = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=False, save_Data=0)
+        np.save(save_name + '-vel', tensor_vel )
 
     if percolation:
         # GET percolation data
@@ -172,8 +171,3 @@ if True:
         # phase_dim : [sigma, beta, rho]
         tensor_perc = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=True, show_1D=False, save_Data=0)
         np.save(save_name + '-perc', tensor_perc)
-        if velocity:
-            # vel weighted percolation
-            tensor_perc_vel = tensor_velocity * np.where(tensor_perc < 0, 0, 1) * 365
-            param_space_2D(data_arr=tensor_perc_vel, label='perc * vel km/yr')
-            np.save(save_name + '-perc-vel', tensor_perc_vel)

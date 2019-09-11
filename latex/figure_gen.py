@@ -405,6 +405,48 @@ def phase_space_gen():
     plt.show()
 
 
+def subgrid_pspace():
+    # sub-grid parameter space figures:
+    name = "ps-b-30-r-30-L-2-perc.npy"
+    path = os.getcwd() + '/latex/latex_data/sg_pspace/'
+    pspace_arr = np.load(path + name)
+
+    if "vel.npy" in name.split('-'):
+        label = r'($km\ yr^{-1}$)'
+        save = '-vel-'
+        title = 'Wave speed'
+    if "perc.npy" in name.split('-'):
+        label = r'Pr'
+        title = 'Survivability'
+        save = '-perc-'
+
+    rhos = np.arange(0.001, 0.031, 0.001)
+    ells = np.linspace(10, 100, rhos.shape[0])
+    extent = [0, rhos[-1], 0, ells[-1]]
+    R0_label = ['10', '15']
+    for i in range(np.shape(pspace_arr)[0]):
+        fig, ax = plt.subplots()
+        data_slice = pspace_arr[i]
+        # max_ = np.max(data_slice)
+        # min_ = np.min(data_slice)
+        # data_slice = np.where(data_slice < 20, 0, 1)
+        ax.imshow(data_slice, origin='lower', extent=extent, interpolation="spline16", alpha=0.85, cmap=plt.get_cmap('inferno'))
+        im = ax.contour(data_slice, origin='lower', extent=extent, cmap=plt.get_cmap('inferno'))
+        ax.set_xlabel(r'$\rho$ (tree density)')
+        ax.set_ylabel(r'$\ell$ (disrpersal distance)')
+        ax.set_xticks(np.linspace(0, extent[1], 5).round(2))
+        plt.title(title + r': $R_0 = $ {}'.format(R0_label[i]))
+        cbar = plt.colorbar(im, ax=ax)
+        cbar.set_label(label, labelpad=-20, y=1.080, rotation=0)
+        ax.set_aspect("auto")
+        plt.savefig(path + "sg" + save + 'slice-' + str(i))
+        plt.show()
+
+    return
+
+subgrid_pspace()
+
+
 def phase_line():
     name = 'r-001-010_R0-10-20-30-ell-100-200-300/en200-ps-b-3-r-50-L-3.npy'
     ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-single-lines/' + name)
@@ -678,7 +720,7 @@ def growth_individual():
 
 
 def sgm_thresh():
-
+    # single line percolation threhsold of sub-grid model
     path = os.getcwd() + '/latex/latex_data/SGM_threshold/ps-b-6-r-30-L-2-perc.npy'
     data = np.load(path)
     rhos = np.arange(0.001, 0.031, 0.001)
@@ -695,10 +737,4 @@ def sgm_thresh():
             plt.plot(rhos, R0, ls=st, c=color, alpha=0.5)
 
     plt.show()
-
-
-
-
-
-
-sgm_thresh()
+    return
