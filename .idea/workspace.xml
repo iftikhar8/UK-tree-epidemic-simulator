@@ -5,210 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SSTLM_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_main/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/dispersal_threshold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.100" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.13" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.14" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.16" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.18" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.19" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.20" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.21" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.22" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.23" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.24" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.25" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.26" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.27" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.28" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.29" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.30" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.31" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.33" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.34" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.35" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.36" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.37" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.38" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.39" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.41" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.42" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.43" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.44" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.45" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.46" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.47" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.48" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.49" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.50" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.51" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.52" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.53" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.54" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.55" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.56" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.57" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.58" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.59" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.60" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.61" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.62" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.65" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.66" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.67" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.68" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.69" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.70" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.71" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.73" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.74" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.75" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.76" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.77" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.78" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.79" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.80" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.81" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.82" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.83" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.85" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.89" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.91" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.92" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.93" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.94" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.95" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.96" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.97" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.98" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.e1400741.99" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.100" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.13" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.14" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.16" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.18" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.19" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.20" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.21" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.22" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.23" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.24" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.25" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.26" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.27" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.28" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.29" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.30" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.31" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.33" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.34" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.35" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.36" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.37" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.38" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.39" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.41" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.42" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.43" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.44" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.45" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.46" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.47" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.48" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.49" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.50" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.51" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.52" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.53" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.54" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.55" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.56" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.57" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.58" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.59" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.60" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.61" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.62" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.65" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.66" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.67" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.68" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.69" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.70" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.71" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.73" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.74" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.75" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.76" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.77" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.78" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.79" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.80" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.81" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.82" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.83" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.85" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.89" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.91" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.92" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.93" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.94" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.95" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.96" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.97" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.98" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh.o1400741.99" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -299,7 +96,7 @@
         <counts>
           <entry key="Python Console" value="2592" />
           <entry key="dummy" value="251" />
-          <entry key="py" value="165323" />
+          <entry key="py" value="165339" />
           <entry key="sh" value="1819" />
           <entry key="txt" value="541" />
         </counts>
@@ -307,27 +104,27 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="2611" />
-          <entry key="Python" value="167915" />
+          <entry key="Python" value="167931" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SSTLM_main/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+            <state relative-caret-position="-150">
+              <caret line="80" column="29" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="117" column="36" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
+            <state relative-caret-position="112">
+              <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
               <folding>
                 <element signature="e#0#211#1" />
                 <element signature="e#312#901#0" />
@@ -451,8 +248,8 @@
         <option value="$PROJECT_DIR$/SSTLM_main/high_res_param.py" />
         <option value="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh" />
         <option value="$PROJECT_DIR$/PDE_main/diffusion_mapping/dist_check.py" />
-        <option value="$PROJECT_DIR$/SSTLM_main/main.py" />
         <option value="$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py" />
+        <option value="$PROJECT_DIR$/SSTLM_main/main.py" />
       </list>
     </option>
   </component>
@@ -685,10 +482,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1242" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1468" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49813664" visible="true" weight="0.23583333" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49813664" visible="true" weight="0.19845723" />
       <window_info id="Structure" order="1" sideWeight="0.50186336" side_tool="true" weight="0.18690096" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1031,17 +828,10 @@
     <entry file="file://$PROJECT_DIR$/SSTLM_main/output_data/dispersal_threshold.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/SSTLM_main/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="117" column="36" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
+        <state relative-caret-position="112">
+          <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
           <folding>
             <element signature="e#0#211#1" />
             <element signature="e#312#901#0" />
@@ -1056,6 +846,13 @@
             <element signature="e#2198#2475#0" />
             <element signature="e#2325#2390#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SSTLM_main/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150">
+          <caret line="80" column="29" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
         </state>
       </provider>
     </entry>
