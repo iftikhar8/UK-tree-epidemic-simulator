@@ -14,9 +14,9 @@ sys.path.append(os.getcwd()+'/model')
 import subgrid_SSTLM
 
 in_arr = sys.argv  # input parameters from run_script.sh.
-job_id, date, c_time, mode, sim_id = in_arr[1:]
-print("Running {} simulation".format(mode))
-output_path = os.getcwd() + '/output_data/' + date + '-' + mode + sim_id # saving data path
+job_id, date, c_time, mode, sim_type = in_arr[1:]
+print("Running {} simulation, type {}".format(mode, sim_type))
+output_path = os.getcwd() + '/output_data/' + date + '-' + mode + sim_type # saving data path
 params = {"l_time": 100, "time_horizon": 3650, "L": 200}  # default simulation parameters
 settings = {"out_path": output_path, "date": date, "job_id": job_id, "plt_tseries": False,
             "save_figs": False, "dyn_plots": [False, 1, True], "anim": False, "BCD3": False, "individual": False,
@@ -39,10 +39,6 @@ if mode == "HPC":
     # DEFINE parameters
     alpha = 5  # lattice constant
     params["alpha"] = alpha
-    R0_arr = np.array([10, 15])  # Basic reproduction number
-    rhos = np.arange(0.001, 0.005, 0.001)  # Tree density range
-    eff_sigmas = np.linspace(10, 100, rhos.shape[0]) / alpha  # Dispersal distance in comp units (not physical units)
-    dim_ = np.array([R0_arr.shape[0], eff_sigmas.shape[0], rhos.shape[0]])  # parameter space dimension
     if settings["job_id"] == '1':
         # save one copy of parameters & settings in output-directory
         # param output_path; string pointing to saving directory
@@ -62,40 +58,68 @@ if mode == "HPC":
     if 10 <= int(job_id) <= 100:
         save_id = '0' + str(job_id)
 
-    # DEFINE data structures
-    mortality = np.zeros(shape=dim_)
-    run_times = np.zeros(shape=dim_)
-    velocities = np.zeros(shape=dim_)
-    max_distances = np.zeros(shape=dim_)
-    percolation_pr = np.zeros(shape=dim_)
-    # START ensemble simulation
+    # RUN Full parameter space : R0 | \ell | \rho
     # ---- Iterate indices as  ---> [i: dispersal, j:infectivity, k:tree density]
-    t0 = time.clock()
-    print("Start time: ", datetime.datetime.now(), ' |  sim : ', str(job_id))
-    for i, R0 in enumerate(R0_arr):
-        # ITERATE infection rates
-        print('R0: {} / {}'.format(i, R0_arr.shape[0]))
-        params["R0"] = R0
-        for j, eff_disp in enumerate(eff_sigmas):
-            # ITERATE dispersal kernel
-            print('--ell: {} / {}'.format(j, eff_sigmas.shape[0]))
-            params["eff_disp"] = eff_disp
-            for k, rho in enumerate(rhos):
-                # ITERATE through density values
+    if sim_type == "-full_param":
+        R0_arr = np.array([10, 15])  # Basic reproduction number
+        rhos = np.arange(0.001, 0.005, 0.001)  # Tree density range
+        eff_sigmas = np.linspace(10, 100, rhos.shape[0]) / alpha  # Dispersal distance in comp units (not physical)
+        dim_ = np.array([R0_arr.shape[0], eff_sigmas.shape[0], rhos.shape[0]])  # parameter space dimension
+        # DEFINE data structures
+        mortality = np.zeros(shape=dim_)
+        run_times = np.zeros(shape=dim_)
+        velocities = np.zeros(shape=dim_)
+        max_distances = np.zeros(shape=dim_)
+        percolation_pr = np.zeros(shape=dim_)
+        # START ensemble simulation
+        t0 = time.clock()
+        print("Start time: ", datetime.datetime.now(), ' |  sim : ', str(job_id))
+        for i, R0 in enumerate(R0_arr):
+            # ITERATE infection rates
+            print('R0: {} / {}'.format(i, R0_arr.shape[0]))
+            params["R0"] = R0
+            for j, eff_disp in enumerate(eff_sigmas):
+                # ITERATE dispersal kernel
+                print('--ell: {} / {}'.format(j, eff_sigmas.shape[0]))
+                params["eff_disp"] = eff_disp
+                for k, rho in enumerate(rhos):
+                    # ITERATE through density values
+                    params["rho"] = rho
+                    results = subgrid_SSTLM.main(settings, params)
+                    mortality_, velocity_, max_d_, run_time_, percolation_ = results
+                    mortality[i, j, k] = mortality_
+                    velocities[i, j, k] = velocity_
+                    max_distances[i, j, k] = max_d_
+                    run_times[i, j, k] = run_time_
+                    percolation_pr[i, j, k] = percolation_
+                    # save results as multi-dimensional arrays
+                    np.save(output_path + "/run_time/" + save_id, run_times)
+                    np.save(output_path + "/mortality/" + save_id, mortality)
+                    np.save(output_path + "/velocity/" + save_id, velocities)
+                    np.save(output_path + "/percolation/" + save_id, percolation_pr)
+                    np.save(output_path + "/max_distance_km/" + save_id, max_distances)
+
+
+    # RUN partial parameter space in high_resolution:
+    # ---- Iterate indices as  ---> [i: ell, j:rho, k:repeats]  # todo run repeat simulations
+    elif sim_type == "-high_res":
+        repeats = 2
+        params["R0"] = 5  # basic reproduction values
+        ell_arr = np.array([50]) / alpha  # dispersal values
+        rhos = np.array([0.001, 0.005, 0.010])  # tree density values
+        velocity_ensemble = np.zeros(shape=[ell_arr.shape[0], rhos.shape[0], repeats])
+        t0 = time.clock()
+        for i, ell in enumerate(ell_arr):
+            print('ell : {} \ {}'.format(i, ell_arr.shape[0]))
+            params["eff_disp"] = ell
+            for j, rho in enumerate(rhos):
+                print('--rho : {} \ {}'.format(j, rhos.shape[0]))
                 params["rho"] = rho
-                results = subgrid_SSTLM.main(settings, params)
-                mortality_, velocity_, max_d_, run_time_, percolation_ = results
-                mortality[i, j, k] = mortality_
-                velocities[i, j, k] = velocity_
-                max_distances[i, j, k] = max_d_
-                run_times[i, j, k] = run_time_
-                percolation_pr[i, j, k] = percolation_
-                # save results as multi-dimensional arrays
-                np.save(output_path + "/run_time/" + save_id, run_times)
-                np.save(output_path + "/mortality/" + save_id, mortality)
-                np.save(output_path + "/velocity/" + save_id, velocities)
-                np.save(output_path + "/percolation/" + save_id, percolation_pr)
-                np.save(output_path + "/max_distance_km/" + save_id, max_distances)
+                for k in range(repeats):
+                    results = subgrid_SSTLM.main(settings, params)
+                    mortality_, velocity_, max_d_, run_time_, percolation_ = results
+                    velocity_ensemble[i, j, k] = velocity_
+                np.save(output_path + "/velocity/" + save_id, velocity_ensemble)
 
     tf = time.clock() - t0
     tf = np.float64(tf / 60)
@@ -122,7 +146,7 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
         params["L"] = lattice_dim
         params["eff_disp"] = eff_dispersal
         params["time_horizon"] = 1000
-        # SET settings & boundary conditions
+        # SET simulation settings & boundary conditions
         settings["anim"] = True
         settings["BCD3"] = True
         settings["verbose"] = True
