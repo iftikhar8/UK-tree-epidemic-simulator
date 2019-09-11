@@ -1,0 +1,75 @@
+## Running job 1400741.77 on host dc3s7b3d.arc3.leeds.ac.uk
+##
+## Resources granted:
+##
+## h_vmem = 1G
+## h_rt   = 48:00:00
+## disk   = 1G
+
+Running HPC simulation
+Start time:  2019-09-10 16:16:18.011272  |  sim :  77
+R0: 0 / 2
+--ell: 0 / 30
+--ell: 1 / 30
+--ell: 2 / 30
+--ell: 3 / 30
+--ell: 4 / 30
+--ell: 5 / 30
+--ell: 6 / 30
+--ell: 7 / 30
+--ell: 8 / 30
+--ell: 9 / 30
+--ell: 10 / 30
+--ell: 11 / 30
+--ell: 12 / 30
+--ell: 13 / 30
+--ell: 14 / 30
+--ell: 15 / 30
+--ell: 16 / 30
+--ell: 17 / 30
+--ell: 18 / 30
+--ell: 19 / 30
+--ell: 20 / 30
+--ell: 21 / 30
+--ell: 22 / 30
+--ell: 23 / 30
+--ell: 24 / 30
+--ell: 25 / 30
+--ell: 26 / 30
+--ell: 27 / 30
+--ell: 28 / 30
+--ell: 29 / 30
+R0: 1 / 2
+--ell: 0 / 30
+--ell: 1 / 30
+--ell: 2 / 30
+--ell: 3 / 30
+--ell: 4 / 30
+--ell: 5 / 30
+--ell: 6 / 30
+--ell: 7 / 30
+--ell: 8 / 30
+--ell: 9 / 30
+--ell: 10 / 30
+--ell: 11 / 30
+--ell: 12 / 30
+--ell: 13 / 30
+--ell: 14 / 30
+--ell: 15 / 30
+--ell: 16 / 30
+--ell: 17 / 30
+--ell: 18 / 30
+--ell: 19 / 30
+--ell: 20 / 30
+--ell: 21 / 30
+--ell: 22 / 30
+--ell: 23 / 30
+--ell: 24 / 30
+--ell: 25 / 30
+--ell: 26 / 30
+--ell: 27 / 30
+--ell: 28 / 30
+--ell: 29 / 30
+End time:  2019-09-10 20:17:19.798225  |  sim :  77
+Time taken:  240.383  (mins)
+Simulations Finished
