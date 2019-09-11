@@ -39,6 +39,13 @@ if mode == "HPC":
     # DEFINE parameters
     alpha = 5  # lattice constant
     params["alpha"] = alpha
+<<<<<<< HEAD
+=======
+    R0_arr = np.array([10, 15])  # Basic reproduction number
+    rhos = np.arange(0.001, 0.031, 0.001)  # Tree density range
+    eff_sigmas = np.linspace(10, 100, rhos.shape[0]) / alpha  # Dispersal distance in comp units (not physical units)
+    dim_ = np.array([R0_arr.shape[0], eff_sigmas.shape[0], rhos.shape[0]])  # parameter space dimension
+>>>>>>> eda18971768d8f25a95d69a651a9236cf780fde9
     if settings["job_id"] == '1':
         # save one copy of parameters & settings in output-directory
         # param output_path; string pointing to saving directory
