@@ -74,25 +74,24 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 
 def param_space_2D(data_arr, label):
     # load in specific array
-    extent = [0, 0.1, 1, 50]
-    dat_flat = data_arr.flatten()
-    nan_ind = np.where(np.isnan(dat_flat))
-    distance = ['50m', '100m', '150m', '200m', '250m', '300m']
+    rhos = np.arange(0.001, 0.031, 0.001)  # Tree density range
+    eff_sigmas = np.linspace(10, 100, rhos.shape[0])
+    extent = [0, rhos[-1], eff_sigmas[0], eff_sigmas[-1]]
+    title_label = ['10', '15']
     for i in range(np.shape(data_arr)[0]):
         fig, ax = plt.subplots()
         data_slice = data_arr[i]
         max_ = np.max(data_slice)
         min_ = np.min(data_slice)
-        im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[min_, max_], cmap=plt.get_cmap('inferno'))
-        ax.set_xlabel(r'$\rho$ (occupational tree density)')
-        ax.set_ylabel(r'$\beta$')
+        im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[min_, max_], interpolation="spline16")
+        ax.set_xlabel(r'$\rho$ (tree density)')
+        ax.set_ylabel(r'$\ell$')
         ax.set_xticks(np.linspace(0, extent[1], 5).round(2))
-        plt.title(r'$\ell = $' + distance[i])
+        plt.title(r'$R_0 = $' + title_label[i])
         cbar = plt.colorbar(im, ax=ax)
         cbar.set_label(label, labelpad=-20, y=1.05, rotation=0)
-        ax.set_aspect(0.002)
+        ax.set_aspect("auto")
         plt.show()
-
     return
 
 
@@ -115,12 +114,7 @@ def param_space_1D(data, label):
 
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
-sim_names = {0: '/08-09-2019-HPC-ell-50',
-             1: '/08-09-2019-HPC',
-             2: '/09-09-2019-HPC_ell_10-50',
-             3: '/09-09-2019-HPC_ell_20-100',
-             4: '/09-09-2019-HPC-ell-repeats',
-             5: '/09-09-2019-HPC-R0-H_L'}
+sim_names = {0: '/10-09-2019-HPC-vel'}
 
 # 2. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation"}
@@ -131,13 +125,13 @@ if True:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_name = 5      # enter the simulate name index
+    sim_name = 0      # enter the simulate name index
     distance = 0      # load and compute distance plots
     runtime = 0       # load and compute runtime plots
     mortality = 0     # load and compute mortality plots
     velocity = 0      # compute velocity and show
     percolation = 1   # load and compute percolation
-    phase_dim = [2, 6, 30]
+    phase_dim = [2, 30, 30]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
 
 
