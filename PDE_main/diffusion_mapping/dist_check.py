@@ -4,15 +4,18 @@ import sys
 import matplotlib.pyplot as plt
 
 
-lim = 0.100
-tree_dat = np.load(os.getcwd() + '/fex-cg-1.npy') * 0.01
+tree_dat = np.load(os.getcwd() + '/Qro-cg-1.npy') * 0.01
 tree_dat = tree_dat.reshape(tree_dat.shape[0] * tree_dat.shape[1])
 tree_dat = np.delete(tree_dat, np.where(np.isnan(tree_dat)))
 tree_dat = np.array(sorted(tree_dat))
+tree_dat = np.round(tree_dat, 4)
+
 print('sum pre = ', tree_dat.sum())
 print('max = ', tree_dat.max())
 print('len = ', tree_dat.shape)
-end_ = np.where(tree_dat > lim)[0][0]
+print(' mean = ', tree_dat.mean())
+lim = 0.0500
+end_ = np.where(tree_dat >= lim)[0][0]
 tree_dat = tree_dat[:end_]
 print('len = ', tree_dat.shape)
 print('sum post = ', tree_dat.sum())
