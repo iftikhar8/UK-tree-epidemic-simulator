@@ -22,7 +22,7 @@ date_time=$(date '+%d-%m-%Y %H:%M:%S')
 #$ -t 1-100
 
 mode="HPC"
-sim_type="-high_res"
+sim_type="-full_param"
 
 
 
