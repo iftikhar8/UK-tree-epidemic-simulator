@@ -47,7 +47,7 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
         label = r"max distance travelled ($km$) "
         save_label = "vel"
     if "percolation" in path:
-        label = r"Percolation (probability)"
+        label = r"Pr"
         save_label = "perc"
     if "run_time" in path:
         label = r"Run time (days)"
@@ -58,7 +58,7 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 
     if show_2D:
         # PLOT ensemble average of 2D phase
-        param_space_2D(data_arr=ensemble_results, label=label)
+        param_space_2D(data_arr=ensemble_results, label=label, save_name=save_label)
 
     if show_1D:
         param_space_1D(data=ensemble_results, label=label)
@@ -75,25 +75,27 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
     return ensemble_results
 
 
-def param_space_2D(data_arr, label):
+def param_space_2D(data_arr, label, save_name):
     # load in specific array
     rhos = np.arange(0.001, 0.031, 0.001)  # Tree density range
     eff_sigmas = np.linspace(10, 100, rhos.shape[0])
     extent = [0, rhos[-1], eff_sigmas[0], eff_sigmas[-1]]
-    title_label = ['10', '15']
+    title_label = ['10', '15', '20']
+    print(save_name)
     for i in range(np.shape(data_arr)[0]):
         fig, ax = plt.subplots()
         data_slice = data_arr[i]
         max_ = np.max(data_slice)
         min_ = np.min(data_slice)
         im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[min_, max_], interpolation="spline16")
-        ax.set_xlabel(r'$\rho$ (tree density)')
-        ax.set_ylabel(r'$\ell$')
+        ax.set_xlabel(r'Tree density $\rho$', size=15)
+        ax.set_ylabel(r'Dispersal distance $\ell$ ', size=15)
         ax.set_xticks(np.linspace(0, extent[1], 5).round(2))
         plt.title(r'$R_0 = $' + title_label[i])
         cbar = plt.colorbar(im, ax=ax)
-        cbar.set_label(label, labelpad=-20, y=1.05, rotation=0)
+        cbar.set_label(label, labelpad=-30, y=1.05, rotation=0)
         ax.set_aspect("auto")
+        plt.savefig(save_name + '-' + 'R0-' + title_label[i])
         plt.show()
     return
 
@@ -117,7 +119,8 @@ def param_space_1D(data, label):
 
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
-sim_names = {0: '/10-09-2019-HPC-vel'}
+sim_names = {0: '/10-09-2019-HPC-vel',
+             1: '/11-09-2019-HPC-full_param'}
 
 # 2. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation", 4: "/velocity"}

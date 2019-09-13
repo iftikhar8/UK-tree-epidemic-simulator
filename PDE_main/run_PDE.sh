@@ -8,11 +8,8 @@
 # sim_name | input a string to append to the output file to identify simulation runs
 
 hpc_switch=0
-Test=1
-sim_name="test"
-L=0 # index of [50, 100, 150, 200, 250, 300]m
-beta=9 #
-
+sim_label="_na"
+date_time=$(date '+%d-%m-%Y %H:%M:%S')
 
 ###########__________Run script__________#############
 if [ "$hpc_switch" == 1 ]
@@ -20,19 +17,19 @@ if [ "$hpc_switch" == 1 ]
 ################ Hpc machine ################
 module load python/3.6.5
 module load python-libs/3.1.0
-date_time=$(date '+%d-%m-%Y %H:%M:%S')
+
 #$ -cwd -V
 #$ -l h_rt=24:00:00
 
 # ######## Run simulation ######## #
-python3 main_PDE.py $sim_name $L $beta $Test
+python3 main_PDE.py $date_time $sim_label
 elif [ "$hpc_switch" == 0 ]
  then
 
 # ######## local machine ######### #
        #### Run simulation ####
 
-python3 main_PDE.py $sim_name $L $beta $Test
+python3 main_PDE.py $date_time $sim_label
 
 fi
 echo "Simulations Finished"

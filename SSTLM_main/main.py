@@ -52,7 +52,6 @@ if mode == "HPC":
             info_file.write("\n" + "______Simulation parameters_______" + "\n")
             for setting in settings:
                 info_file.write(setting + ':' + str(settings[setting]) + '\n')
-
     # save ID : unique to each core used
     if int(job_id) < 10:
         save_id = '00' + str(job_id)

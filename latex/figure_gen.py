@@ -444,8 +444,6 @@ def subgrid_pspace():
 
     return
 
-subgrid_pspace()
-
 
 def phase_line():
     name = 'r-001-010_R0-10-20-30-ell-100-200-300/en200-ps-b-3-r-50-L-3.npy'
@@ -713,28 +711,35 @@ def growth_individual():
     plt.legend()
     plt.show()
 
-
-
     print(popt, 'exp out')
     print(pcov, 'err')
 
 
 def sgm_thresh():
-    # single line percolation threhsold of sub-grid model
-    path = os.getcwd() + '/latex/latex_data/SGM_threshold/ps-b-6-r-30-L-2-perc.npy'
-    data = np.load(path)
-    rhos = np.arange(0.001, 0.031, 0.001)
-    print(data.shape)
-    for i, sigma in enumerate(data):
-        if i == 0:
-            st = '--'
-            color = 'r'
-        else:
-            st = '-'
-            color = 'b'
+    # single line percolation threshold of sub-grid model
+    path = os.getcwd() + '/latex/latex_data/SGM_threshold/11-09-2019-HPC-high_res/velocity/'
+    files = sorted(os.listdir(path))
+    rhos = np.arange(0.0001, 0.0500, 0.0001)
+    ensmemble_av = np.zeros(shape=(len(files) * 10, rhos.shape[0]))
+    for i, file in enumerate(files):
+        data = np.load(path + file)[0].T
+        ensmemble_av[i*10:(i+1)*10] = data
 
-        for R0 in sigma:
-            plt.plot(rhos, R0, ls=st, c=color, alpha=0.5)
+    stdvs = np.zeros(ensmemble_av.shape[1])
+    for col in range(ensmemble_av.shape[1]):
+        stdvs[col] = ensmemble_av[:, col].std()
 
+    stdvs = stdvs / np.sqrt(10 * (i + 1))
+    mean = ensmemble_av.sum(axis=0) / ((i+1)*10)
+    plt.plot(rhos, mean, alpha=0.5, label=r'$\ell = 100,\ R_0 = 10$')
+    plt.ylabel(r'wave speed $km\ yr^2$')
+    plt.xlabel(r'tree density $\rho$')
+    plt.legend()
+    plt.ylim(0, mean.max())
+    plt.grid(True)
+    plt.savefig('hres-vline')
     plt.show()
     return
+
+
+sgm_thresh()

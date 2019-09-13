@@ -2,7 +2,7 @@ import numpy as np
 import os, sys
 
 
-def diffusion_mapping(domain, rho_space, vel_phase_constants, plt_check):
+def diffusion_mapping(domain, rho_space, v_map, plt_check):
     """
     :param domain: the data set of tree-data
     :param rho_space: the range of density values for each point in the data set
@@ -29,31 +29,22 @@ def diffusion_mapping(domain, rho_space, vel_phase_constants, plt_check):
                     grid_boundary = rho_boundaries[rho_box]
                     # If density in the range interval then set map location i,j == phase-velocity
                     if grid_boundary[0] <= d_ij < grid_boundary[1]:
-                        velocity_map[i, j] = vel_phase_constants[rho_box]
+                        velocity_map[i, j] = v_map[rho_box]
                     # CHECK if density bigger than rho space
                     # - for these rare high-value density regions set diffusion velocity to max speed
                     # - 2% of land regions will be hit by this mapping...
-                    elif rho_boundaries[98][1] < d_ij:
-                        velocity_map[i, j] = vel_phase_constants[98]
+                    elif rho_boundaries[497][1] < d_ij:
+                        velocity_map[i, j] = v_map[497]
 
-    diff_map = np.square(velocity_map)   # CONVERT from velocity to diffusion coefficients modified FK-equation
-    diff_map = velocity_map
+    velocity_map = velocity_map / 365
     if plt_check:
         import matplotlib.pyplot as plt
         """
         Use this extract to plot diffusion and velocity maps. The system will exit after use and is only intended
         to perform a quick check before the simulation is run properly.
         """
-        print("Plotting phase maps over UK:")
         fig, ax = plt.subplots(figsize=(7.5, 7.5))
         im = ax.imshow(np.where(velocity_map == 0, np.nan, velocity_map))
-        plt.colorbar(im)
-        plt.title('velocity map')
-        plt.savefig('velocity_map')
-        plt.show()
-        plt.close()
-        fig, ax = plt.subplots(figsize=(7.5, 7.5))
-        im = ax.imshow(np.where(diff_map == 0, np.nan, diff_map))
         cbar = plt.colorbar(im)
         cbar.set_label(r'Velocity ($km\ day^{-1}$)')
         ax.set_xticks([])
@@ -62,41 +53,43 @@ def diffusion_mapping(domain, rho_space, vel_phase_constants, plt_check):
         plt.savefig('diffusion_map')
         plt.show()
         np.save('velocity_map', velocity_map)
-        np.save('diffusion_map', diff_map)
         fig, ax = plt.subplots()
-        nshape = diff_map.shape[0] * diff_map.shape[1]
-        data_flat = np.reshape(diff_map, newshape=nshape)
+        nshape = velocity_map.shape[0] * velocity_map.shape[1]
+        data_flat = np.reshape(velocity_map, newshape=nshape)
         ax.hist(data_flat, bins=25)
         plt.title('distribution of diffusion')
         plt.show()
+        sys.exit()
 
-    return diff_map
+    return velocity_map
 
 
-def main(L, beta, plt_check):
+def main(params, plt_check):
     """
     :param L: user-input dispersal distance
     :param beta: user-input infectivity cases day^-1
     :return: array - diffusion map, used in the modified FK-equation to model heterogeneous spreadding
     """
     # LOAD phase constants
-    # - choose which data is loaded
-    phase_name = ["/diffusion_mapping/ps-b-100-r-100-L-6-vel.npy"]
-    phase_3d = np.load(os.getcwd() + phase_name[0]) * (1/365)   # data saved in 'phase-plots' as km/year, convert to day
-    domain_name = '/diffusion_mapping/Fex-cg-1.npy'
+    # - choose which data is loaded  # data saved in 'phase-plots' as km/year, convert to day
+    vmap_name = params["vmap"] + '.npy'
+    vmap_Dat = np.load(os.getcwd() + '/diffusion_mapping/' + vmap_name)
+    rho_space, v_mapping = vmap_Dat
+    domain_name = '/diffusion_mapping/' + params["domain_name"] + '.npy'
     domain = np.load(os.getcwd() + domain_name)     # LOAD domain map
     domain = 0.01 * domain       # convert to density map hectares/km^2 --> density x 0.01.
-    phase_2d = phase_3d[L]                                  # 1. pick out which value of L through axis - 0
-    param_dim = np.shape(phase_2d)                          # 2. define one rho-line through phase space
-    phase_constants = phase_2d[beta]                        # 3. pick out beta line through axis - 1
+    domain = domain.round(4)
+    number_map = domain * 10**6 / 25  # Estimated tree numbers, assumes each tree at 5 m^2 (Or 25 square m)
+    number_map = np.where(np.isnan(number_map), 0, number_map)
+                       # 3. pick out beta line through axis - 1
     # phase_constants = np.load(os.getcwd() + "/diffusion_mapping/ps-b-100-r-100-L-6-vel.npy")
-    # phase_constants = 1 / phase_constants[:, 0]  # time taken to cross the boundary
-    rho_space = np.linspace(0, 0.099, param_dim[1])         # 4. define rho space
+    # phase_constants = 1 / phase_constants[:, 0]  # time taken to cross the boundary     # 4. define rho space
     """These map a velocity in km/day to a tree density which in turn are mapped to land regions over the UK:
         MAP: {L, beta, rho_ij} ---> vel_ij ---> diff_ij
     """
-    diffusion_map = diffusion_mapping(domain, rho_space, phase_constants, plt_check=plt_check)
-    return diffusion_map
+
+    diffusion_map = diffusion_mapping(domain, rho_space, v_mapping, plt_check=plt_check)
+    return diffusion_map, number_map
 
 
 if __name__ == "__main__":

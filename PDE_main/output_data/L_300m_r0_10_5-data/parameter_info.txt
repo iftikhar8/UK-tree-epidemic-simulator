@@ -1,0 +1,10 @@
+______Parameter settings_______
+T:1000
+epi_c:[690, 700, 550, 560]
+plt_epi:False
+partial:[False, [800, 900, 300, 400]]
+L:5
+R0:10.5
+modified:False
+dim:(964, 597)
+sim_name:L_300m_r0_10_5
