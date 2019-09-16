@@ -103,7 +103,7 @@ if mode == "HPC":
     elif sim_type == "-high_res":
         repeats = 1
         params["R0"] = 10  # basic reproduction values
-        ell_arr = np.array([200]) / alpha  # dispersal values
+        ell_arr = np.array([25, 75]) / alpha  # dispersal values
         rhos = np.arange(0.0001, 0.0500, 0.0001)  # tree density values
         velocity_ensemble = np.zeros(shape=[ell_arr.shape[0], rhos.shape[0], repeats])
         percolation_ensemble = np.zeros(shape=[ell_arr.shape[0], rhos.shape[0], repeats])
