@@ -28,7 +28,7 @@ print("Running PDE : {}".format(vmap_name))
 print("--> save dir :  {} ".format(sim_name))
 
 # GENERATE diffusion map based on input of L, beta and a domain (in this case a map of abundance)
-diffusion_map, species_number_map = diffusion_mapping.main(params, plt_check=False)
+diffusion_map, species_number_map = diffusion_mapping.main(params, plt_figs=True)
 # SET growth to constant value of 1 (non-dimensionalized)
 growth_map = np.ones(shape=diffusion_map.shape) * 1.0
 # maps_ : this is fed into pde_model

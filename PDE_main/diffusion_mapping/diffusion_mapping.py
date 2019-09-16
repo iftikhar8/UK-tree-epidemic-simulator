@@ -2,7 +2,7 @@ import numpy as np
 import os, sys
 
 
-def diffusion_mapping(domain, rho_space, v_map, plt_check):
+def diffusion_mapping(domain, rho_space, v_map, plt_figs):
     """
     :param domain: the data set of tree-data
     :param rho_space: the range of density values for each point in the data set
@@ -37,12 +37,13 @@ def diffusion_mapping(domain, rho_space, v_map, plt_check):
                         velocity_map[i, j] = v_map[497]
 
     velocity_map = velocity_map / 365
-    if plt_check:
+    if plt_figs:
         import matplotlib.pyplot as plt
         """
         Use this extract to plot diffusion and velocity maps. The system will exit after use and is only intended
         to perform a quick check before the simulation is run properly.
         """
+        # Plot velocity map
         fig, ax = plt.subplots(figsize=(7.5, 7.5))
         im = ax.imshow(np.where(velocity_map == 0, np.nan, velocity_map))
         cbar = plt.colorbar(im)
@@ -53,6 +54,7 @@ def diffusion_mapping(domain, rho_space, v_map, plt_check):
         plt.savefig('diffusion_map')
         plt.show()
         np.save('velocity_map', velocity_map)
+        # Plot species distributons
         fig, ax = plt.subplots()
         nshape = velocity_map.shape[0] * velocity_map.shape[1]
         data_flat = np.reshape(velocity_map, newshape=nshape)
@@ -64,7 +66,7 @@ def diffusion_mapping(domain, rho_space, v_map, plt_check):
     return velocity_map
 
 
-def main(params, plt_check):
+def main(params, plt_figs):
     """
     :param L: user-input dispersal distance
     :param beta: user-input infectivity cases day^-1
@@ -88,7 +90,7 @@ def main(params, plt_check):
         MAP: {L, beta, rho_ij} ---> vel_ij ---> diff_ij
     """
 
-    diffusion_map = diffusion_mapping(domain, rho_space, v_mapping, plt_check=plt_check)
+    diffusion_map = diffusion_mapping(domain, rho_space, v_mapping, plt_figs=plt_figs)
     return diffusion_map, number_map
 
 

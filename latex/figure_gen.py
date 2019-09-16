@@ -31,11 +31,12 @@ def en_combine(sim_names, out_name):
     np.save('COMBINED-' + out_name, dat)
 
 
-def uk_vel_diff_map():
+def uk_map():
     """
     Plot the pathogen velocity expected over different regions over the UK
     """
-    domain = np.load(os.getcwd() + '/SSTLM_main/input_domain/Qro-cg-1.npy')
+    dir = os.getcwd() + '/latex/latex_data/input_domain/'
+    domain = np.load(dir + '/Fex-cg-1.npy')
     # vel_map = np.load(os.getcwd() + '/PDE_main/velocity_map_test.npy')
     # diff_map = np.load(os.getcwd() + '/PDE_main/diffusion_map_test.npy')
     # vel_pase = np.load(os.getcwd() + '/PDE_main/diffusion_mapping/vel_km_day_en_size-200.npy')
@@ -45,7 +46,6 @@ def uk_vel_diff_map():
     ax.set_xticks([])
     ax.set_yticks([])
     domain = domain * 0.01
-    domain[np.where(domain > 0.10)] = 0.10
     im = ax.imshow(domain)
     cbar = plt.colorbar(im)
     cbar.set_label(r'Approximate density (%coverage)', size=15)
@@ -57,9 +57,17 @@ def uk_vel_diff_map():
     axins.set_xticks([])
     axins.set_yticks([])
     mark_inset(ax, axins, loc1=2, loc2=4, fc="red", color='r')
-    plt.savefig('Velocity_map', bbox_inches='tight')
+    plt.savefig('fex_domain', bbox_inches='tight')
     plt.show()
 
+
+    domain = domain.reshape(domain.shape[0] * domain.shape[1])
+    
+    print(domain.shape)
+    return
+
+
+uk_map()
 
 def subgird():
     """
@@ -717,29 +725,40 @@ def growth_individual():
 
 def sgm_thresh():
     # single line percolation threshold of sub-grid model
-    path = os.getcwd() + '/latex/latex_data/SGM_threshold/11-09-2019-HPC-high_res/velocity/'
-    files = sorted(os.listdir(path))
-    rhos = np.arange(0.0001, 0.0500, 0.0001)
-    ensmemble_av = np.zeros(shape=(len(files) * 10, rhos.shape[0]))
-    for i, file in enumerate(files):
-        data = np.load(path + file)[0].T
-        ensmemble_av[i*10:(i+1)*10] = data
+    path = os.getcwd() + '/latex/latex_data/SGM_threshold/'
+    dir_label = [r'$\ell = 50m$', r'$\ell = 100m$']
+    metric = ['/percolation/', '/velocity/'][1]
+    c = 0
+    for dir in os.listdir(path):
+        data_dir = path + dir + metric
+        files = sorted(os.listdir(data_dir))
+        rhos = np.arange(0.0001, 0.0500, 0.0001)
+        ensmemble_av = np.zeros(shape=(len(files) * 10, rhos.shape[0]))
+        for i, file in enumerate(files):
+            data = np.load(data_dir + file)[0].T
+            ensmemble_av[i*10:(i+1)*10] = data
 
-    stdvs = np.zeros(ensmemble_av.shape[1])
-    for col in range(ensmemble_av.shape[1]):
-        stdvs[col] = ensmemble_av[:, col].std()
+        stdvs = np.zeros(ensmemble_av.shape[1])
+        for col in range(ensmemble_av.shape[1]):
+            stdvs[col] = ensmemble_av[:, col].std()
 
-    stdvs = stdvs / np.sqrt(10 * (i + 1))
-    mean = ensmemble_av.sum(axis=0) / ((i+1)*10)
-    plt.plot(rhos, mean, alpha=0.5, label=r'$\ell = 100,\ R_0 = 10$')
-    plt.ylabel(r'wave speed $km\ yr^2$')
-    plt.xlabel(r'tree density $\rho$')
-    plt.legend()
-    plt.ylim(0, mean.max())
-    plt.grid(True)
-    plt.savefig('hres-vline')
+        stdvs = stdvs / np.sqrt(10 * (i + 1))
+        mean = ensmemble_av.sum(axis=0) / ((i+1)*10)
+        plt.plot(rhos, mean, alpha=0.5, label=dir_label[c])
+
+        if metric == '/percolation/':
+            plt.ylabel('Survival probability', size=15)
+        elif metric == '/velocity/':
+            plt.ylabel(r'wave speed $km\ yr^2$', size=15)
+        plt.xlabel(r'tree density $\rho$', size=15)
+
+        plt.title(r'$R_0 = 10$')
+        plt.legend()
+        plt.ylim(0, mean.max())
+        plt.grid(True)
+        plt.savefig('hres-vline')
+        c+=1
+
     plt.show()
     return
 
-
-sgm_thresh()

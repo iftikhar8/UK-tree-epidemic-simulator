@@ -58,7 +58,7 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 
     if show_2D:
         # PLOT ensemble average of 2D phase
-        param_space_2D(data_arr=ensemble_results, label=label, save_name=save_label)
+        param_space_2D(data_arr=ensemble_results, label=label, save_name=save_label, save=False)
 
     if show_1D:
         param_space_1D(data=ensemble_results, label=label)
@@ -75,13 +75,12 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
     return ensemble_results
 
 
-def param_space_2D(data_arr, label, save_name):
+def param_space_2D(data_arr, label, save_name, save):
     # load in specific array
     rhos = np.arange(0.001, 0.031, 0.001)  # Tree density range
     eff_sigmas = np.linspace(10, 100, rhos.shape[0])
     extent = [0, rhos[-1], eff_sigmas[0], eff_sigmas[-1]]
-    title_label = ['10', '15', '20']
-    print(save_name)
+    title_label = ['1', '3', '20']
     for i in range(np.shape(data_arr)[0]):
         fig, ax = plt.subplots()
         data_slice = data_arr[i]
@@ -95,7 +94,8 @@ def param_space_2D(data_arr, label, save_name):
         cbar = plt.colorbar(im, ax=ax)
         cbar.set_label(label, labelpad=-30, y=1.05, rotation=0)
         ax.set_aspect("auto")
-        plt.savefig(save_name + '-' + 'R0-' + title_label[i])
+        if save:
+            plt.savefig(save_name + '-' + 'R0-' + title_label[i])
         plt.show()
     return
 
@@ -120,7 +120,8 @@ def param_space_1D(data, label):
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
 sim_names = {0: '/10-09-2019-HPC-vel',
-             1: '/11-09-2019-HPC-full_param'}
+             1: '/11-09-2019-HPC-full_param',
+             2: '/12-09-2019-HPC-full_param'}
 
 # 2. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation", 4: "/velocity"}
@@ -131,15 +132,14 @@ if True:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_name = 0      # enter the simulate name index
+    sim_name = 2      # enter the simulate name index
     distance = 0      # load and compute distance plots
     runtime = 0       # load and compute runtime plots
     mortality = 0     # load and compute mortality plots
     velocity = 1      # compute velocity and show
     percolation = 1   # load and compute percolation
-    phase_dim = [2, 30, 30]
+    phase_dim = [3, 30, 30]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
-
 
     if mortality:
         # GET distance travelled data
