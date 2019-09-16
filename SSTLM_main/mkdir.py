@@ -5,9 +5,9 @@ This script creates directories and subdirectories used for HPC simulations. It 
 """
 
 args = sys.argv
-date, time, mode, sim_name = args[1:]
+date, time, mode, sim_type, sim_name = args[1:]
 # Make output directory /Users/py13jh/PycharmProjects/uk_epi_phase/
-output_path = os.getcwd() + '/output_data/' + date + '-' + mode + sim_name + '/'
+output_path = os.getcwd() + '/output_data/' + date + '-' + mode + sim_type + sim_name + '/'
 try:
     if os.path.exists(output_path):
         # Directory already exists, exit.

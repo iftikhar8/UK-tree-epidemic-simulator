@@ -14,13 +14,15 @@ sys.path.append(os.getcwd()+'/model')
 import subgrid_SSTLM
 
 in_arr = sys.argv  # input parameters from run_script.sh.
-job_id, date, c_time, mode, sim_type = in_arr[1:]
+job_id, date, c_time, mode, sim_type, sim_name = in_arr[1:]
+
 print("Running {} simulation, type {}".format(mode, sim_type))
-output_path = os.getcwd() + '/output_data/' + date + '-' + mode + sim_type # saving data path
+output_path = os.getcwd() + '/output_data/' + date + '-' + mode + sim_type + sim_name # saving data path
 params = {"l_time": 100, "time_horizon": 3650, "L": 200}  # default simulation parameters
 settings = {"out_path": output_path, "date": date, "job_id": job_id, "plt_tseries": False,
             "save_figs": False, "dyn_plots": [False, 1, True], "anim": False, "BCD3": False, "individual": False,
             "verbose": False, "HPC": None, "local_type": "animation", "debug_time": True}  # simulation settings
+
 
 if mode == "HPC":
     settings["HPC"] = mode
@@ -99,11 +101,11 @@ if mode == "HPC":
                     np.save(output_path + "/max_distance_km/" + save_id, max_distances)
 
     # RUN partial parameter space in high_resolution:
-    # ---- Iterate indices as  ---> [i: ell, j:rho, k:repeats]  # todo run repeat simulations
-    elif sim_type == "-high_res":
-        repeats = 1
+    # ---- Iterate indices as  ---> [i: ell, j:rho, k:repeats]
+    elif 'high_res' in sim_type.split('-'):
+        repeats = 10
         params["R0"] = 10  # basic reproduction values
-        ell_arr = np.array([25, 75]) / alpha  # dispersal values
+        ell_arr = np.array([25]) / alpha  # dispersal values
         rhos = np.arange(0.0001, 0.0500, 0.0001)  # tree density values
         velocity_ensemble = np.zeros(shape=[ell_arr.shape[0], rhos.shape[0], repeats])
         percolation_ensemble = np.zeros(shape=[ell_arr.shape[0], rhos.shape[0], repeats])

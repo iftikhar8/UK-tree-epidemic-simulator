@@ -1,446 +1,216 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/latex/figure_gen.py" line="263" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/latex/figure_gen.py" line="258" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41cd1175-b3cd-40f4-a4eb-f755812b0ea8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/latex/latex_data/input_domain/Fex-cg-1.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/parameter_and_settings_info.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/001.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/002.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/003.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/004.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/005.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/006.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/007.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/008.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/009.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/010.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/0100.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/011.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/012.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/013.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/014.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/015.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/016.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/017.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/018.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/019.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/020.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/021.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/022.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/023.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/024.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/025.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/026.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/027.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/028.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/029.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/030.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/031.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/032.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/033.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/034.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/035.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/036.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/037.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/038.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/039.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/040.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/041.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/042.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/043.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/044.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/045.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/046.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/047.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/048.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/049.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/050.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/051.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/052.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/053.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/054.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/055.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/056.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/057.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/058.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/059.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/060.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/061.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/062.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/063.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/064.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/065.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/066.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/067.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/068.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/069.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/070.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/071.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/072.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/073.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/074.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/075.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/076.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/077.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/078.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/079.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/080.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/081.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/082.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/083.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/084.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/085.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/086.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/087.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/088.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/089.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/090.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/091.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/092.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/093.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/094.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/095.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/096.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/097.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/098.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/percolation/099.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/001.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/002.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/003.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/004.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/005.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/006.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/007.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/008.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/009.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/010.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/0100.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/011.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/012.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/013.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/014.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/015.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/016.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/017.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/018.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/019.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/020.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/021.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/022.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/023.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/024.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/025.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/026.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/027.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/028.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/029.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/030.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/031.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/032.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/033.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/034.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/035.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/036.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/037.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/038.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/039.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/040.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/041.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/042.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/043.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/044.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/045.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/046.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/047.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/048.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/049.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/050.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/051.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/052.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/053.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/054.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/055.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/056.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/057.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/058.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/059.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/060.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/061.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/062.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/063.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/064.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/065.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/066.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/067.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/068.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/069.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/070.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/071.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/072.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/073.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/074.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/075.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/076.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/077.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/078.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/079.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/080.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/081.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/082.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/083.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/084.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/085.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/086.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/087.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/088.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/089.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/090.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/091.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/092.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/093.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/094.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/095.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/096.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/097.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/098.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/099.npy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PDE_main/diffusion_mapping/diffusion_mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/PDE_main/diffusion_mapping/diffusion_mapping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PDE_main/diffusion_mapping/species_distribution_checker.py" beforeDir="false" afterPath="$PROJECT_DIR$/PDE_main/diffusion_mapping/species_distribution_checker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PDE_main/main_PDE.py" beforeDir="false" afterPath="$PROJECT_DIR$/PDE_main/main_PDE.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.100" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.13" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.14" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.16" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.18" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.19" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.20" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.21" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.22" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.23" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.24" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.25" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.26" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.27" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.28" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.29" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.30" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.31" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.33" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.34" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.35" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.36" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.37" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.38" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.39" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.41" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.42" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.43" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.44" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.45" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.46" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.47" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.48" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.49" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.50" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.51" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.52" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.53" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.54" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.55" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.56" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.57" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.58" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.59" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.60" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.61" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.62" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.65" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.66" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.67" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.68" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.69" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.70" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.71" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.73" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.74" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.75" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.76" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.77" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.78" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.79" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.80" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.81" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.82" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.83" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.85" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.89" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.91" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.92" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.93" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.94" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.95" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.96" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.97" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.98" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.e1402035.99" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.100" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.13" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.14" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.16" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.18" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.19" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.20" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.21" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.22" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.23" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.24" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.25" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.26" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.27" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.28" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.29" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.30" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.31" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.33" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.34" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.35" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.36" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.37" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.38" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.39" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.41" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.42" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.43" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.44" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.45" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.46" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.47" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.48" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.49" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.50" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.51" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.52" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.53" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.54" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.55" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.56" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.57" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.58" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.59" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.60" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.61" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.62" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.65" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.66" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.67" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.68" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.69" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.70" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.71" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.73" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.74" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.75" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.76" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.77" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.78" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.79" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.80" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.81" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.82" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.83" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.85" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.89" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.91" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.92" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.93" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.94" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.95" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.96" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.97" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.98" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/arcout/run_SSTLM.sh.o1402035.99" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/input_domain/Qro-cg-1.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/input_domain/Qro-cg-1.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/input_domain/Qro-cg-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/input_domain/Qro-cg-10.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/input_domain/Qro_10km.png" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/input_domain/Qro_10km.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/input_domain/density-uk-map.png" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/input_domain/density-uk-map.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/input_domain/domain_density.py" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/input_domain/domain_density.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/input_domain/rand_uk_cg_3/rand_uk_cg_3.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/input_domain/rand_uk_cg_3/rand_uk_cg_3.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/parameter_and_settings_info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/parameter_and_settings_info.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/001.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/001.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/002.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/002.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/003.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/003.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/004.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/004.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/005.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/005.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/006.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/006.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/007.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/007.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/008.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/008.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/009.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/009.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/010.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/010.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/0100.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/0100.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/011.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/011.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/012.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/012.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/013.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/013.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/014.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/014.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/015.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/015.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/016.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/016.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/017.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/017.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/018.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/018.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/019.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/019.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/020.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/020.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/021.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/021.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/022.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/022.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/023.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/023.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/024.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/024.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/025.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/025.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/026.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/026.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/027.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/027.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/028.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/028.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/029.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/029.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/030.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/030.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/031.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/031.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/032.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/032.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/033.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/033.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/034.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/034.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/035.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/035.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/036.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/036.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/037.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/037.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/038.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/038.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/039.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/039.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/040.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/040.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/041.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/041.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/042.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/042.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/043.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/043.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/044.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/044.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/045.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/045.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/046.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/046.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/047.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/047.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/048.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/048.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/049.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/049.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/050.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/050.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/051.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/051.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/052.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/052.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/053.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/053.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/054.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/054.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/055.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/055.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/056.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/056.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/057.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/057.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/058.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/058.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/059.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/059.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/060.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/060.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/061.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/061.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/062.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/062.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/063.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/063.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/064.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/064.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/065.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/065.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/066.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/066.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/067.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/067.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/068.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/068.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/069.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/069.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/070.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/070.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/071.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/071.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/072.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/072.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/073.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/073.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/074.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/074.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/075.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/075.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/076.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/076.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/077.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/077.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/078.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/078.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/079.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/079.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/080.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/080.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/081.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/081.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/082.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/082.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/083.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/083.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/084.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/084.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/085.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/085.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/086.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/086.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/087.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/087.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/088.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/088.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/089.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/089.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/090.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/090.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/091.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/091.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/092.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/092.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/093.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/093.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/094.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/094.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/095.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/095.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/096.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/096.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/097.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/097.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/098.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/098.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/percolation/099.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/percolation/099.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/001.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/001.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/002.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/002.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/003.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/003.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/004.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/004.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/005.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/005.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/006.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/006.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/007.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/007.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/008.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/008.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/009.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/009.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/010.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/010.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/0100.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/0100.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/011.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/011.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/012.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/012.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/013.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/013.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/014.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/014.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/015.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/015.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/016.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/016.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/017.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/017.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/018.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/018.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/019.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/019.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/020.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/020.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/021.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/021.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/022.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/022.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/023.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/023.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/024.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/024.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/025.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/025.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/026.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/026.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/027.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/027.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/028.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/028.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/029.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/029.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/030.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/030.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/031.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/031.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/032.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/032.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/033.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/033.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/034.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/034.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/035.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/035.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/036.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/036.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/037.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/037.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/038.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/038.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/039.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/039.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/040.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/040.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/041.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/041.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/042.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/042.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/043.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/043.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/044.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/044.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/045.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/045.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/046.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/046.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/047.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/047.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/048.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/048.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/049.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/049.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/050.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/050.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/051.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/051.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/052.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/052.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/053.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/053.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/054.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/054.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/055.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/055.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/056.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/056.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/057.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/057.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/058.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/058.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/059.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/059.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/060.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/060.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/061.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/061.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/062.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/062.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/063.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/063.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/064.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/064.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/065.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/065.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/066.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/066.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/067.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/067.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/068.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/068.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/069.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/069.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/070.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/070.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/071.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/071.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/072.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/072.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/073.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/073.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/074.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/074.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/075.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/075.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/076.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/076.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/077.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/077.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/078.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/078.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/079.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/079.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/080.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/080.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/081.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/081.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/082.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/082.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/083.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/083.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/084.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/084.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/085.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/085.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/086.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/086.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/087.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/087.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/088.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/088.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/089.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/089.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/090.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/090.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/091.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/091.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/092.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/092.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/093.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/093.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/094.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/094.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/095.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/095.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/096.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/096.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/097.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/097.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/098.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/098.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/12-09-2019-HPC-high_res/velocity/099.npy" beforeDir="false" afterPath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/velocity/099.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/perc-R0-10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/perc-R0-15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/ps-b-30-r-30-L-2-perc.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/ps-b-30-r-30-L-2-vel.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/vel-R0-10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSTLM_main/output_data/vel-R0-15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hres-vline.png" beforeDir="false" afterPath="$PROJECT_DIR$/hres-vline.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_main/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/mkdir.py" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_main/mkdir.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh" beforeDir="false" afterPath="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/latex/figure_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/latex/figure_gen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/R0_thresholds/perc_ell_30_R0_3.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/R0_thresholds/perc_ell_30_R0_4.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/R0_thresholds/perc_ell_30_R0_6.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/R0_thresholds/perc_ell_30_R0_7.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/R0_thresholds/perc_ell_30_r0_5.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_015_R0_5_r_030.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_020_R0_5_r_030.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_025_R0_5_r_030.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_030_R0_5_r_030.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_040_R0_5_r_030.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_050_R0_5_r_030.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_075_R0_5_r_030.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_100_R0_5_r_030.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/perc_.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latex/latex_data/SGM_threshold/ps-b-6-r-30-L-2-perc.npy" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -463,7 +233,7 @@
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$T_beta_calirate.coverage" NAME="T_beta_calibrate Coverage Results" MODIFIED="1558104962487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/model_calibration_scripts" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$phase_space_plots.coverage" NAME="phase_space_plots Coverage Results" MODIFIED="1564502590691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phase_space_gen/output_data" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$animate__1_.coverage" NAME="animate (1) Coverage Results" MODIFIED="1564568118796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/forecasting_PDE/output_data" />
-    <SUITE FILE_PATH="coverage/hpc_subgrid_model$figure_gen.coverage" NAME="figure_gen Coverage Results" MODIFIED="1568382379444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/hpc_subgrid_model$figure_gen.coverage" NAME="figure_gen Coverage Results" MODIFIED="1568627399131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$pde_model_main.coverage" NAME="pde_model_main Coverage Results" MODIFIED="1556891984430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/forecasting_PDE" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$raster_load.coverage" NAME="raster_load Coverage Results" MODIFIED="1559683173163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../domain_generator" />
     <SUITE FILE_PATH="coverage/hpc_subgrid_model$pde_test.coverage" NAME="pde_test Coverage Results" MODIFIED="1567094059971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PDE_test" />
@@ -498,22 +268,22 @@
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.3" value="4" />
           <entry key="project.open.time.4" value="13" />
-          <entry key="project.open.time.5" value="19" />
+          <entry key="project.open.time.5" value="20" />
           <entry key="project.open.time.6" value="25" />
           <entry key="project.open.time.7" value="8" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="94" />
+          <entry key="project.opened" value="95" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="1" value="1" />
-          <entry key="npy" value="82" />
+          <entry key="npy" value="83" />
           <entry key="png" value="153" />
           <entry key="pstat" value="3" />
-          <entry key="py" value="624" />
-          <entry key="sh" value="104" />
+          <entry key="py" value="629" />
+          <entry key="sh" value="105" />
           <entry key="txt" value="17" />
           <entry key="txt~18e891ee21d39fc7c133741e837701d68fbc105f" value="1" />
           <entry key="txt~HEAD" value="1" />
@@ -522,107 +292,119 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="153" />
-          <entry key="PLAIN_TEXT" value="206" />
+          <entry key="PLAIN_TEXT" value="208" />
           <entry key="Profiler Session" value="3" />
-          <entry key="Python" value="624" />
+          <entry key="Python" value="629" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="2592" />
           <entry key="dummy" value="270" />
-          <entry key="py" value="171807" />
-          <entry key="sh" value="2034" />
+          <entry key="py" value="173114" />
+          <entry key="sh" value="2070" />
           <entry key="txt" value="541" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="2845" />
-          <entry key="Python" value="174399" />
+          <entry key="PLAIN_TEXT" value="2881" />
+          <entry key="Python" value="175706" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/latex/figure_gen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+            <state relative-caret-position="316">
+              <caret line="738" column="39" selection-start-line="738" selection-start-column="39" selection-end-line="738" selection-end-column="39" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
                 <element signature="e#243#353#1" />
                 <element signature="e#397#1052#0" />
                 <element signature="e#397#632#1" />
                 <element signature="e#881#986#0" />
-                <element signature="e#2267#4609#0" />
-                <element signature="e#2267#2362#1" />
-                <element signature="e#2913#3100#0" />
-                <element signature="e#3034#3100#0" />
-                <element signature="e#4635#5877#0" />
-                <element signature="e#4635#4762#1" />
-                <element signature="e#4885#5072#0" />
-                <element signature="e#4971#5072#0" />
-                <element signature="e#5366#5754#0" />
-                <element signature="e#5911#6727#0" />
-                <element signature="e#5911#5967#1" />
-                <element signature="e#6340#6533#0" />
-                <element signature="e#6761#7271#0" />
-                <element signature="e#6761#6818#1" />
-                <element signature="e#7062#7239#0" />
-                <element signature="e#7333#8538#0" />
-                <element signature="e#7333#7537#1" />
-                <element signature="e#7598#8260#0" />
-                <element signature="e#7863#8260#0" />
-                <element signature="e#8569#9812#0" />
-                <element signature="e#8569#8652#1" />
-                <element signature="e#8979#9483#0" />
-                <element signature="e#9125#9483#0" />
-                <element signature="e#9840#10764#0" />
-                <element signature="e#9840#9917#1" />
-                <element signature="e#10177#10249#0" />
-                <element signature="e#10346#10414#0" />
-                <element signature="e#10791#13110#0" />
-                <element signature="e#10807#10948#0" />
-                <element signature="e#10971#11120#0" />
-                <element signature="e#11429#11917#0" />
-                <element signature="e#12235#12895#0" />
-                <element signature="e#13140#14953#0" />
-                <element signature="e#13140#13424#1" />
-                <element signature="e#14982#16468#0" />
-                <element signature="e#15197#15275#0" />
-                <element signature="e#15322#15391#0" />
-                <element signature="e#15603#16456#0" />
-                <element signature="e#15671#15698#0" />
-                <element signature="e#16493#17710#0" />
-                <element signature="e#16936#17440#0" />
-                <element signature="e#17065#17440#0" />
-                <element signature="e#17152#17440#0" />
-                <element signature="e#17749#19108#0" />
-                <element signature="e#18099#18802#0" />
-                <element signature="e#18342#18449#0" />
-                <element signature="e#19131#19752#0" />
-                <element signature="e#19131#19253#1" />
-                <element signature="e#19785#21675#0" />
-                <element signature="e#20649#21576#0" />
-                <element signature="e#21697#22758#0" />
-                <element signature="e#21697#21821#1" />
-                <element signature="e#22316#22499#0" />
-                <element signature="e#22787#24974#0" />
-                <element signature="e#22787#22915#1" />
-                <element signature="e#23282#23445#0" />
-                <element signature="e#23494#24923#0" />
-                <element signature="e#23683#23770#0" />
-                <element signature="e#25000#25887#0" />
-                <element signature="e#25231#25763#0" />
-                <element signature="e#25414#25441#0" />
-                <element signature="e#25919#26523#0" />
-                <element signature="e#25984#26004#0" />
-                <element signature="e#26548#27882#0" />
-                <element signature="e#26813#27855#0" />
-                <element signature="e#27063#27146#0" />
+                <element signature="e#1073#2322#0" />
+                <element signature="e#1073#1159#1" />
+                <element signature="e#1266#1334#0" />
+                <element signature="e#2354#4696#0" />
+                <element signature="e#2354#2449#1" />
+                <element signature="e#3000#3187#0" />
+                <element signature="e#3121#3187#0" />
+                <element signature="e#4722#5964#0" />
+                <element signature="e#4722#4849#1" />
+                <element signature="e#4972#5159#0" />
+                <element signature="e#5058#5159#0" />
+                <element signature="e#5453#5841#0" />
+                <element signature="e#5998#6814#0" />
+                <element signature="e#5998#6054#1" />
+                <element signature="e#6427#6620#0" />
+                <element signature="e#6848#7358#0" />
+                <element signature="e#6848#6905#1" />
+                <element signature="e#7149#7326#0" />
+                <element signature="e#7420#8625#0" />
+                <element signature="e#7420#7624#1" />
+                <element signature="e#7685#8347#0" />
+                <element signature="e#7950#8347#0" />
+                <element signature="e#8656#9899#0" />
+                <element signature="e#8656#8739#1" />
+                <element signature="e#9066#9570#0" />
+                <element signature="e#9212#9570#0" />
+                <element signature="e#9927#10851#0" />
+                <element signature="e#9927#10004#1" />
+                <element signature="e#10264#10336#0" />
+                <element signature="e#10433#10501#0" />
+                <element signature="e#10878#13197#0" />
+                <element signature="e#10894#11035#0" />
+                <element signature="e#11058#11207#0" />
+                <element signature="e#11516#12004#0" />
+                <element signature="e#12322#12982#0" />
+                <element signature="e#13227#15040#0" />
+                <element signature="e#13227#13511#1" />
+                <element signature="e#15069#16555#0" />
+                <element signature="e#15284#15362#0" />
+                <element signature="e#15409#15478#0" />
+                <element signature="e#15690#16543#0" />
+                <element signature="e#15758#15785#0" />
+                <element signature="e#16580#17797#0" />
+                <element signature="e#17023#17527#0" />
+                <element signature="e#17152#17527#0" />
+                <element signature="e#17239#17527#0" />
+                <element signature="e#17836#19195#0" />
+                <element signature="e#18186#18889#0" />
+                <element signature="e#18429#18536#0" />
+                <element signature="e#19218#19839#0" />
+                <element signature="e#19218#19340#1" />
+                <element signature="e#19872#21762#0" />
+                <element signature="e#20736#21663#0" />
+                <element signature="e#21784#22845#0" />
+                <element signature="e#21784#21908#1" />
+                <element signature="e#22403#22586#0" />
+                <element signature="e#22874#25061#0" />
+                <element signature="e#22874#23002#1" />
+                <element signature="e#23369#23532#0" />
+                <element signature="e#23581#25010#0" />
+                <element signature="e#23770#23857#0" />
+                <element signature="e#25087#25974#0" />
+                <element signature="e#25318#25850#0" />
+                <element signature="e#25501#25528#0" />
+                <element signature="e#26006#26610#0" />
+                <element signature="e#26071#26091#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SSTLM_main/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="423">
+              <caret line="105" column="20" lean-forward="true" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+              <folding>
+                <element signature="e#6798#10832#0" />
+                <element signature="e#8730#10832#0" />
               </folding>
             </state>
           </provider>
@@ -723,11 +505,8 @@
         <option value="$PROJECT_DIR$/../parallel_cpu/TEST_process.py" />
         <option value="$PROJECT_DIR$/SSTLM_main/HPC_jobs/HPC_job_gen.py" />
         <option value="$PROJECT_DIR$/SSTLM_main/model/subgrid_SSTLM.py" />
-        <option value="$PROJECT_DIR$/SSTLM_main/mkdir.py" />
         <option value="$PROJECT_DIR$/SSTLM_main/high_res_param.py" />
-        <option value="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh" />
         <option value="$PROJECT_DIR$/PDE_main/diffusion_mapping/dist_check.py" />
-        <option value="$PROJECT_DIR$/SSTLM_main/main.py" />
         <option value="$PROJECT_DIR$/PDE_main/run_PDE.sh" />
         <option value="$PROJECT_DIR$/PDE_main/model/pde_model.py" />
         <option value="$PROJECT_DIR$/SSTLM_main/output_data/param_space_plots.py" />
@@ -735,6 +514,9 @@
         <option value="$PROJECT_DIR$/PDE_main/main_PDE.py" />
         <option value="$PROJECT_DIR$/PDE_main/diffusion_mapping/diffusion_mapping.py" />
         <option value="$PROJECT_DIR$/latex/figure_gen.py" />
+        <option value="$PROJECT_DIR$/SSTLM_main/mkdir.py" />
+        <option value="$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh" />
+        <option value="$PROJECT_DIR$/SSTLM_main/main.py" />
       </list>
     </option>
   </component>
@@ -744,7 +526,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="834" />
     <option name="height" value="1050" />
   </component>
@@ -764,24 +546,6 @@
               <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
               <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
-              <item name="latex" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
-              <item name="latex" type="462c0819:PsiDirectoryNode" />
-              <item name="latex_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hpc-subgrid-model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hpc-subgrid-model" type="462c0819:PsiDirectoryNode" />
-              <item name="latex" type="462c0819:PsiDirectoryNode" />
-              <item name="latex_data" type="462c0819:PsiDirectoryNode" />
-              <item name="input_domain" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -796,19 +560,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/latex/latex_data/SGM_threshold" />
+      <recent name="$PROJECT_DIR$/latex/latex_data" />
+      <recent name="$PROJECT_DIR$/latex" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/PDE_main/diffusion_mapping" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/latex/latex_data/SGM_threshold" />
       <recent name="$PROJECT_DIR$/SSTLM_main/input_domain" />
       <recent name="$PROJECT_DIR$/latex/latex_figs" />
       <recent name="$PROJECT_DIR$/latex/latex_data/sg_pspace" />
       <recent name="$PROJECT_DIR$/latex/sg_param_space" />
-      <recent name="$PROJECT_DIR$/latex/latex_data/SGM_threshold" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/latex/latex_data" />
-      <recent name="$PROJECT_DIR$/latex" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/latex/latex_data/SGM_threshold" />
-      <recent name="$PROJECT_DIR$/PDE_main/diffusion_mapping" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -974,15 +738,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1245" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="1145" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49813664" visible="true" weight="0.24937657" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49813664" visible="true" weight="0.19492294" />
       <window_info id="Structure" order="1" sideWeight="0.50186336" side_tool="true" weight="0.18690096" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4932845" weight="0.32040817" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.50671554" side_tool="true" weight="0.32040817" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.50671554" side_tool="true" weight="0.319802" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4986643" weight="0.24693878" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1049,7 +813,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SSTLM_main/animations_data/temp_frames/0046.png" />
     <entry file="file://$PROJECT_DIR$/SSTLM_main/t_series.png" />
     <entry file="file://$PROJECT_DIR$/SSTLM_main/animations_data/animate.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1067,13 +830,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/perc_.npy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="48" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/perc_.npy" />
     <entry file="file://$PROJECT_DIR$/sgm_perc.png" />
     <entry file="file://$PROJECT_DIR$/SSTLM_main/num_inf_0.png" />
     <entry file="file://$PROJECT_DIR$/SSTLM_main/rt_1.png" />
@@ -1086,22 +843,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_020_R0_5_r_030.npy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/R0_thresholds/perc_ell_30_R0_3.npy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_020_R0_5_r_030.npy" />
+    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/R0_thresholds/perc_ell_30_R0_3.npy" />
     <entry file="file://$PROJECT_DIR$/SSTLM_main/perc_ell_25_R0_5_r_030.npy" />
-    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_050_R0_5_r_030.npy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_100_R0_5_r_030.npy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_075_R0_5_r_030.npy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_050_R0_5_r_030.npy" />
+    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_100_R0_5_r_030.npy" />
+    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/dispersal_thresholds/perc_ell_075_R0_5_r_030.npy" />
     <entry file="file://$PROJECT_DIR$/../parallel_cpu/TEST_process.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1111,17 +858,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SSTLM_main/output_data/09-09-2019-HPC_ell_20-100/parameter_and_settings_info.txt~18e891ee21d39fc7c133741e837701d68fbc105f" />
     <entry file="file://$PROJECT_DIR$/SSTLM_main/output_data/09-09-2019-HPC_ell_20-100/parameter_and_settings_info.txt" />
-    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/ps-b-6-r-30-L-2-perc.npy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/ps-b-6-r-30-L-2-perc.npy" />
     <entry file="file://$PROJECT_DIR$/HPC_jobs/HPC_job_gen.py" />
-    <entry file="file://$PROJECT_DIR$/SSTLM_main/mkdir.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SSTLM_main/high_res_param.py" />
     <entry file="file:///anaconda3/envs/phd/lib/python3.6/site-packages/matplotlib/tight_layout.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1147,13 +885,6 @@
     <entry file="file://$PROJECT_DIR$/latex/latex_data/sg_pspace/sg-vel-slice-0.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PDE_main/response_c.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1164,16 +895,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PDE_main/velocity_map.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/PDE_main/velocity_map.png" />
     <entry file="file://$PROJECT_DIR$/PDE_main/model/pde_model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="753">
           <caret line="133" column="54" selection-start-line="133" selection-start-column="54" selection-end-line="133" selection-end-column="54" />
-          <folding>
-            <element signature="e#5224#5516#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1190,9 +916,7 @@
     <entry file="file://$PROJECT_DIR$/latex/latex_figs/Survival_pr_R0_15.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/SSTLM_main/output_data/perc-R0-10.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/SSTLM_main/output_data/perc-R0-10.png" />
     <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/12-09-2019-HPC-high_res/parameter_and_settings_info.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1206,17 +930,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#211#1" />
-            <element signature="e#312#901#0" />
-            <element signature="e#972#2592#0" />
-            <element signature="e#1518#1582#0" />
-            <element signature="e#1625#1693#0" />
-            <element signature="e#1732#1796#0" />
-            <element signature="e#1832#1886#0" />
-            <element signature="e#1922#1975#0" />
-            <element signature="e#3553#3985#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1224,9 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="30" column="75" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="75" />
-          <folding>
-            <element signature="e#350#368#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1244,95 +954,112 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="248" column="34" lean-forward="true" selection-start-line="248" selection-start-column="34" selection-end-line="248" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latex/latex_data/SGM_threshold/13-09-2019-HPC-high_res/velocity/001.npy">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latex/figure_gen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="738" column="39" selection-start-line="738" selection-start-column="39" selection-end-line="738" selection-end-column="39" />
           <folding>
-            <element signature="e#137#155#0" expanded="true" />
+            <element signature="e#243#353#1" />
+            <element signature="e#397#1052#0" />
+            <element signature="e#397#632#1" />
+            <element signature="e#881#986#0" />
+            <element signature="e#1073#2322#0" />
+            <element signature="e#1073#1159#1" />
+            <element signature="e#1266#1334#0" />
+            <element signature="e#2354#4696#0" />
+            <element signature="e#2354#2449#1" />
+            <element signature="e#3000#3187#0" />
+            <element signature="e#3121#3187#0" />
+            <element signature="e#4722#5964#0" />
+            <element signature="e#4722#4849#1" />
+            <element signature="e#4972#5159#0" />
+            <element signature="e#5058#5159#0" />
+            <element signature="e#5453#5841#0" />
+            <element signature="e#5998#6814#0" />
+            <element signature="e#5998#6054#1" />
+            <element signature="e#6427#6620#0" />
+            <element signature="e#6848#7358#0" />
+            <element signature="e#6848#6905#1" />
+            <element signature="e#7149#7326#0" />
+            <element signature="e#7420#8625#0" />
+            <element signature="e#7420#7624#1" />
+            <element signature="e#7685#8347#0" />
+            <element signature="e#7950#8347#0" />
+            <element signature="e#8656#9899#0" />
+            <element signature="e#8656#8739#1" />
+            <element signature="e#9066#9570#0" />
+            <element signature="e#9212#9570#0" />
+            <element signature="e#9927#10851#0" />
+            <element signature="e#9927#10004#1" />
+            <element signature="e#10264#10336#0" />
+            <element signature="e#10433#10501#0" />
+            <element signature="e#10878#13197#0" />
+            <element signature="e#10894#11035#0" />
+            <element signature="e#11058#11207#0" />
+            <element signature="e#11516#12004#0" />
+            <element signature="e#12322#12982#0" />
+            <element signature="e#13227#15040#0" />
+            <element signature="e#13227#13511#1" />
+            <element signature="e#15069#16555#0" />
+            <element signature="e#15284#15362#0" />
+            <element signature="e#15409#15478#0" />
+            <element signature="e#15690#16543#0" />
+            <element signature="e#15758#15785#0" />
+            <element signature="e#16580#17797#0" />
+            <element signature="e#17023#17527#0" />
+            <element signature="e#17152#17527#0" />
+            <element signature="e#17239#17527#0" />
+            <element signature="e#17836#19195#0" />
+            <element signature="e#18186#18889#0" />
+            <element signature="e#18429#18536#0" />
+            <element signature="e#19218#19839#0" />
+            <element signature="e#19218#19340#1" />
+            <element signature="e#19872#21762#0" />
+            <element signature="e#20736#21663#0" />
+            <element signature="e#21784#22845#0" />
+            <element signature="e#21784#21908#1" />
+            <element signature="e#22403#22586#0" />
+            <element signature="e#22874#25061#0" />
+            <element signature="e#22874#23002#1" />
+            <element signature="e#23369#23532#0" />
+            <element signature="e#23581#25010#0" />
+            <element signature="e#23770#23857#0" />
+            <element signature="e#25087#25974#0" />
+            <element signature="e#25318#25850#0" />
+            <element signature="e#25501#25528#0" />
+            <element signature="e#26006#26610#0" />
+            <element signature="e#26071#26091#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SSTLM_main/run_SSTLM.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SSTLM_main/mkdir.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SSTLM_main/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/latex/figure_gen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+        <state relative-caret-position="423">
+          <caret line="105" column="20" lean-forward="true" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#243#353#1" />
-            <element signature="e#397#1052#0" />
-            <element signature="e#397#632#1" />
-            <element signature="e#881#986#0" />
-            <element signature="e#2267#4609#0" />
-            <element signature="e#2267#2362#1" />
-            <element signature="e#2913#3100#0" />
-            <element signature="e#3034#3100#0" />
-            <element signature="e#4635#5877#0" />
-            <element signature="e#4635#4762#1" />
-            <element signature="e#4885#5072#0" />
-            <element signature="e#4971#5072#0" />
-            <element signature="e#5366#5754#0" />
-            <element signature="e#5911#6727#0" />
-            <element signature="e#5911#5967#1" />
-            <element signature="e#6340#6533#0" />
-            <element signature="e#6761#7271#0" />
-            <element signature="e#6761#6818#1" />
-            <element signature="e#7062#7239#0" />
-            <element signature="e#7333#8538#0" />
-            <element signature="e#7333#7537#1" />
-            <element signature="e#7598#8260#0" />
-            <element signature="e#7863#8260#0" />
-            <element signature="e#8569#9812#0" />
-            <element signature="e#8569#8652#1" />
-            <element signature="e#8979#9483#0" />
-            <element signature="e#9125#9483#0" />
-            <element signature="e#9840#10764#0" />
-            <element signature="e#9840#9917#1" />
-            <element signature="e#10177#10249#0" />
-            <element signature="e#10346#10414#0" />
-            <element signature="e#10791#13110#0" />
-            <element signature="e#10807#10948#0" />
-            <element signature="e#10971#11120#0" />
-            <element signature="e#11429#11917#0" />
-            <element signature="e#12235#12895#0" />
-            <element signature="e#13140#14953#0" />
-            <element signature="e#13140#13424#1" />
-            <element signature="e#14982#16468#0" />
-            <element signature="e#15197#15275#0" />
-            <element signature="e#15322#15391#0" />
-            <element signature="e#15603#16456#0" />
-            <element signature="e#15671#15698#0" />
-            <element signature="e#16493#17710#0" />
-            <element signature="e#16936#17440#0" />
-            <element signature="e#17065#17440#0" />
-            <element signature="e#17152#17440#0" />
-            <element signature="e#17749#19108#0" />
-            <element signature="e#18099#18802#0" />
-            <element signature="e#18342#18449#0" />
-            <element signature="e#19131#19752#0" />
-            <element signature="e#19131#19253#1" />
-            <element signature="e#19785#21675#0" />
-            <element signature="e#20649#21576#0" />
-            <element signature="e#21697#22758#0" />
-            <element signature="e#21697#21821#1" />
-            <element signature="e#22316#22499#0" />
-            <element signature="e#22787#24974#0" />
-            <element signature="e#22787#22915#1" />
-            <element signature="e#23282#23445#0" />
-            <element signature="e#23494#24923#0" />
-            <element signature="e#23683#23770#0" />
-            <element signature="e#25000#25887#0" />
-            <element signature="e#25231#25763#0" />
-            <element signature="e#25414#25441#0" />
-            <element signature="e#25919#26523#0" />
-            <element signature="e#25984#26004#0" />
-            <element signature="e#26548#27882#0" />
-            <element signature="e#26813#27855#0" />
-            <element signature="e#27063#27146#0" />
+            <element signature="e#6798#10832#0" />
+            <element signature="e#8730#10832#0" />
           </folding>
         </state>
       </provider>

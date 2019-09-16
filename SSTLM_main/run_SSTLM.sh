@@ -22,10 +22,11 @@ date_time=$(date '+%d-%m-%Y %H:%M:%S')
 #$ -t 1-100
 
 mode="HPC"
-sim_type="-high_res"  # HPC two sim_types : ['-high_res', '-full_param']
+sim_type="-high_res-"  # HPC two sim_types : ['-high_res', '-full_param']
+sim_name="ell_25"
 
-python3 mkdir.py $date_time $mode $sim_type
-python3 main.py $SGE_TASK_ID $date_time $data_type $mode $sim_type
+python3 mkdir.py $date_time $mode $sim_type $sim_name
+python3 main.py $SGE_TASK_ID $date_time $data_type $mode $sim_type $sim_name
 elif [ "$hpc_switch" == 0 ]
  then
 
@@ -34,8 +35,8 @@ job_id=25
 date_time=$(date '+%d-%m-%Y %H:%M:%S')
 mode="LCL"
 sim_type="-ens"  # LCL two sim_types : ['-anim', '-ens']
-python3 mkdir.py  $date_time $data_type $mode $sim_type
-python3 main.py $job_id $date_time $data_type $mode $sim_type
+python3 mkdir.py  $date_time $data_type $mode $sim_type $sim_name
+python3 main.py $job_id $date_time $data_type $mode $sim_type $sim_name
 
 fi
 echo "Simulations Finished"

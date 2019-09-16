@@ -59,15 +59,10 @@ def uk_map():
     mark_inset(ax, axins, loc1=2, loc2=4, fc="red", color='r')
     plt.savefig('fex_domain', bbox_inches='tight')
     plt.show()
-
-
     domain = domain.reshape(domain.shape[0] * domain.shape[1])
-    
     print(domain.shape)
     return
 
-
-uk_map()
 
 def subgird():
     """
@@ -729,21 +724,33 @@ def sgm_thresh():
     dir_label = [r'$\ell = 50m$', r'$\ell = 100m$']
     metric = ['/percolation/', '/velocity/'][1]
     c = 0
-    for dir in os.listdir(path):
-        data_dir = path + dir + metric
+    rhos = np.arange(0.0001, 0.0500, 0.0001)
+    directories = sorted(os.listdir(path))  # Data directories produced by HPC
+    for dir in directories:
+        data_dir = path + dir + metric  # Locate the metric folder inside the directory
         files = sorted(os.listdir(data_dir))
-        rhos = np.arange(0.0001, 0.0500, 0.0001)
-        ensmemble_av = np.zeros(shape=(len(files) * 10, rhos.shape[0]))
-        for i, file in enumerate(files):
-            data = np.load(data_dir + file)[0].T
-            ensmemble_av[i*10:(i+1)*10] = data
+        shape = np.load(data_dir + files[0]).shape  # Shape of data
+        # ensemble_av : array storing all velocities
+        # size = [ N_ell: N_files * N_repeats: N_rhos]
+        ensemble_av = np.zeros(shape=(shape[0], len(files) * shape[-1], rhos.shape[0]))
+        for i, file in enumerate(files):  # file == 000*.npy
+                data = np.load(data_dir + file)
+                print(data.shape, ' shape data')
+                print(ensemble_av.shape, ' en av shape')
+                for ell in range(shape[0]):
+                    ''
+                    ensemble_av[ell, i * shape[-1]:(i + 1) * shape[-1]] = data
 
-        stdvs = np.zeros(ensmemble_av.shape[1])
-        for col in range(ensmemble_av.shape[1]):
-            stdvs[col] = ensmemble_av[:, col].std()
+                print(data.shape)
+
+
+        sys.exit()
+        stdvs = np.zeros(ensemble_av.shape[1])
+        for col in range(ensemble_av.shape[1]):
+            stdvs[col] = ensemble_av[:, col].std()
 
         stdvs = stdvs / np.sqrt(10 * (i + 1))
-        mean = ensmemble_av.sum(axis=0) / ((i+1)*10)
+        mean = ensemble_av.sum(axis=0) / ((i+1)*10)
         plt.plot(rhos, mean, alpha=0.5, label=dir_label[c])
 
         if metric == '/percolation/':
@@ -757,8 +764,10 @@ def sgm_thresh():
         plt.ylim(0, mean.max())
         plt.grid(True)
         plt.savefig('hres-vline')
-        c+=1
+        np.save('ell_50_100m', np.array([]))
+        c += 1
 
     plt.show()
     return
 
+sgm_thresh()
