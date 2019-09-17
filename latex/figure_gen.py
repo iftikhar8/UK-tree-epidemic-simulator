@@ -36,33 +36,82 @@ def uk_map():
     Plot the pathogen velocity expected over different regions over the UK
     """
     dir = os.getcwd() + '/latex/latex_data/input_domain/'
-    domain = np.load(dir + '/Fex-cg-1.npy')
-    # vel_map = np.load(os.getcwd() + '/PDE_main/velocity_map_test.npy')
-    # diff_map = np.load(os.getcwd() + '/PDE_main/diffusion_map_test.npy')
-    # vel_pase = np.load(os.getcwd() + '/PDE_main/diffusion_mapping/vel_km_day_en_size-200.npy')
-    # sea = np.where(np.isnan(domain))
-    # vel_map[sea] = np.nan
-    fig, ax = plt.subplots(figsize=(10, 10))
-    ax.set_xticks([])
-    ax.set_yticks([])
+    domain = np.load(dir + '/Qro-cg-1.npy')
     domain = domain * 0.01
-    im = ax.imshow(domain)
-    cbar = plt.colorbar(im)
-    cbar.set_label(r'Approximate density (%coverage)', size=15)
-    axins = zoomed_inset_axes(ax, 20, loc=1)
-    axins.imshow(domain)
-    x1, x2, y1, y2 = 420, 430, 800, 810  # specify the limits
-    axins.set_xlim(x1, x2)  # apply the x-limits
-    axins.set_ylim(y1, y2)  # apply the y-limits
-    axins.set_xticks([])
-    axins.set_yticks([])
-    mark_inset(ax, axins, loc1=2, loc2=4, fc="red", color='r')
-    plt.savefig('fex_domain', bbox_inches='tight')
-    plt.show()
-    domain = domain.reshape(domain.shape[0] * domain.shape[1])
-    print(domain.shape)
+
+    if 0:
+        fig, ax = plt.subplots(figsize=(10, 10))
+        ax.set_xticks([])
+        ax.set_yticks([])
+        im = ax.imshow(domain)
+        cbar = plt.colorbar(im)
+        cbar.set_label(r'Approximate density (%coverage)', size=15)
+        axins = zoomed_inset_axes(ax, 20, loc=1)
+        axins.imshow(domain)
+        x1, x2, y1, y2 = 420, 430, 800, 810  # specify the limits
+        axins.set_xlim(x1, x2)  # apply the x-limits
+        axins.set_ylim(y1, y2)  # apply the y-limits
+        axins.set_xticks([])
+        axins.set_yticks([])
+        mark_inset(ax, axins, loc1=2, loc2=4, fc="red", color='r')
+        plt.savefig('fex_domain', bbox_inches='tight')
+        plt.show()
+
+    if 1:
+        shape = domain.shape[0] * domain.shape[1]
+        domain = domain.reshape(shape)
+        domain_flat = np.sort(domain)
+        nan_ind = np.where(np.isnan(domain_flat))
+        domain_flat = np.delete(obj=nan_ind, arr=domain_flat)
+        domain_flat = domain_flat.round(4)
+
+
+
+
+        fig, ax = plt.subplots()
+        x_cut = np.where(domain_flat >= 0.20)[0][0]
+        sns.distplot(domain_flat[:x_cut], ax=ax, kde=False)
+        plt.grid(True)
+        plt.xlabel(r'Tree density $\rho$')
+        plt.ylabel(r'Frequency')
+        plt.xscale('log')
+        plt.yscale('log')
+        plt.title('Ash Tree')
+        plt.savefig('ash_tree_1')
+        plt.show()
+
+
+        sys.exit()
+
+        plt.hist(domain_flat, bins=1000)
+        plt.xscale('log')
+        plt.yscale('log')
+        plt.xlabel(r'tree density $\rho$')
+        plt.ylabel('Frequency')
+
+        plt.grid(True)
+        plt.savefig('fex_low_range')
+        plt.show()
+
+
+
+        plt.plot(domain_flat, alpha=0.5)
+        plt.grid(True)
+        plt.yscale('log')
+        plt.xscale('log')
+        plt.title('Ash tree data')
+        plt.ylabel(r'Tree density $\rho$')
+        plt.xlabel('Data point')
+        plt.savefig('ash_tree_data_plotted')
+        plt.show()
+
+
+
     return
 
+
+
+uk_map()
 
 def subgird():
     """
@@ -700,20 +749,15 @@ def growth_individual():
     t_teries = np.load(path)
     set_ = 5
     rho = np.arange(0.01, 0.055, 0.005)[set_]
-
     rt = t_teries[set_, 0]
     dat_ = t_teries[set_, 1: int(rt)]
     x = np.arange(int(rt) -1)
     popt, pcov = curve_fit(exp, x, dat_)
-
     plt.plot(x, dat_, label='actual')
     plt.plot(x, exp(x, popt), label='fitted')
-
-
     plt.title(r'$\rho = $ {}'.format(round(rho, 3)))
     plt.legend()
     plt.show()
-
     print(popt, 'exp out')
     print(pcov, 'err')
 
@@ -721,53 +765,89 @@ def growth_individual():
 def sgm_thresh():
     # single line percolation threshold of sub-grid model
     path = os.getcwd() + '/latex/latex_data/SGM_threshold/'
-    dir_label = [r'$\ell = 50m$', r'$\ell = 100m$']
+    dir_label = [r'$\ell = 100m$', r'$\ell = 50m$', r'$\ell = 25m$', r'$\ell = 75m$']
     metric = ['/percolation/', '/velocity/'][1]
     c = 0
     rhos = np.arange(0.0001, 0.0500, 0.0001)
-    directories = sorted(os.listdir(path))  # Data directories produced by HPC
+    directories = sorted(os.listdir(path))[1:] # Data directories produced by HPC
     for dir in directories:
+        print('directory = ', dir)
         data_dir = path + dir + metric  # Locate the metric folder inside the directory
         files = sorted(os.listdir(data_dir))
         shape = np.load(data_dir + files[0]).shape  # Shape of data
         # ensemble_av : array storing all velocities
-        # size = [ N_ell: N_files * N_repeats: N_rhos]
-        ensemble_av = np.zeros(shape=(shape[0], len(files) * shape[-1], rhos.shape[0]))
-        for i, file in enumerate(files):  # file == 000*.npy
-                data = np.load(data_dir + file)
-                print(data.shape, ' shape data')
-                print(ensemble_av.shape, ' en av shape')
-                for ell in range(shape[0]):
-                    ''
-                    ensemble_av[ell, i * shape[-1]:(i + 1) * shape[-1]] = data
+        ensemble_av = np.zeros(shape=(shape[0], rhos.shape[0]))     # size = [ N_ell: N_rhos]
+        # ITERATE through files : 000*.npy
+        for i, file in enumerate(files):
+            data = np.load(data_dir + file)
+            for ell in range(shape[0]):
+                dat_t = data[ell].T
+                dat_t = dat_t.sum(axis=0)
+                ensemble_av[ell] = ensemble_av[ell] + dat_t
 
-                print(data.shape)
-
-
-        sys.exit()
-        stdvs = np.zeros(ensemble_av.shape[1])
-        for col in range(ensemble_av.shape[1]):
-            stdvs[col] = ensemble_av[:, col].std()
-
-        stdvs = stdvs / np.sqrt(10 * (i + 1))
-        mean = ensemble_av.sum(axis=0) / ((i+1)*10)
-        plt.plot(rhos, mean, alpha=0.5, label=dir_label[c])
-
+        en_mean = ensemble_av / ((i + 1) * shape[-1])  # find mean result
+        for ell in range(shape[0]):
+            plt.plot(rhos, en_mean[ell], alpha=0.5, label=dir_label[c])  # plot
+            c += 1
+            np.save('vmap_R0_10_L_50m', np.array([rhos, en_mean[ell]]))
+            plt.show()
+            sys.exit()
         if metric == '/percolation/':
             plt.ylabel('Survival probability', size=15)
         elif metric == '/velocity/':
             plt.ylabel(r'wave speed $km\ yr^2$', size=15)
         plt.xlabel(r'tree density $\rho$', size=15)
-
         plt.title(r'$R_0 = 10$')
         plt.legend()
-        plt.ylim(0, mean.max())
         plt.grid(True)
         plt.savefig('hres-vline')
-        np.save('ell_50_100m', np.array([]))
-        c += 1
-
     plt.show()
+
     return
 
-sgm_thresh()
+
+def pde_mortality_curves():
+    # Plot the estimated number of trees number of infected trees with time that get infected.
+    import matplotlib.ticker as mticker
+    path = os.getcwd() + '/latex/latex_data/pde_death_curves/'
+    data_files = os.listdir(path)
+    ells = [r'$\ell = 50m$', r'$\ell = 100m$']
+    for i, curve in enumerate(data_files):
+        print(curve)
+        data = np.load(path + curve)
+        plt.plot(data, label=ells[i])
+    f = mticker.ScalarFormatter(useOffset=False, useMathText=True)
+    g = lambda x, pos: "${}$".format(f._formatSciNotation('%1.10e' % x))
+    plt.gca().yaxis.set_major_formatter(mticker.FuncFormatter(g))
+    plt.ylabel('Infected Count', size=15)
+    plt.grid(True)
+    plt.xlabel('Days', size=15)
+    plt.legend()
+    plt.savefig('pde_death_curves')
+    plt.show()
+
+
+pde_mortality_curves()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,17 @@ class SimInit(object):
         :param domain: array-like, this is the lattice-domain of size n x n, full of floats drawn from a Poison process
         """
         np.random.seed()
-        domain = np.random.uniform(0, 1, size=(parameters["L"], parameters["L"]))
+        if parameters["channel"][0]:
+            # channel geometry
+            print('channel')
+            shape = [parameters["channel"][1][0], parameters["channel"][1][1]]
+            domain = np.random.uniform(0, 1, size=(shape[0], shape[1]))
+        elif not parameters["channel"][0]:
+            # square geometry
+            print('square')
+
+            domain = np.random.uniform(0, 1, size=(parameters["L"], parameters["L"]))
+
         dim = domain.shape
         epi_cx, epi_cy = int(dim[0] / 2), int(dim[1] / 2)
         infected = np.zeros(dim)
@@ -41,7 +51,6 @@ class SimInit(object):
         self.pre_factor = 2 * np.pi * (parameters["eff_disp"]**2)  # the dispersal normalisation constant
         self.R0 = parameters["R0"]  # number of expected infectious cases per day @t=0 due to single infected for rho=1
         self.beta = self.R0 / self.pre_factor
-
         try:
             assert self.beta < 1  # make sure beta arr is a probability array \in [0, 1]
         except:
@@ -51,13 +60,12 @@ class SimInit(object):
             print(self.beta, ' beta')
             print("Unphysical probability")
             sys.exit("exting...")
-
         # INIT distance matrix
-        x, y = np.arange(0, dim[0]), np.arange(0, dim[1])
-        x_arr, y_arr = np.meshgrid(x, y)
+        x_rows, y_cols = np.arange(0, dim[0]), np.arange(0, dim[1])
+        x_arr, y_arr = np.meshgrid(x_rows, y_cols)
         latitude_ar = (x_arr - epi_c[0])
         longitude_ar = (y_arr - epi_c[1])
-        dist_map = np.sqrt(np.square(longitude_ar) + np.square(latitude_ar))
+        dist_map = np.sqrt(np.square(longitude_ar) + np.square(latitude_ar)).T
         self.alpha = parameters["alpha"]
         self.dist_map = dist_map  # the distance map of domain defined from the epicenter
         # INIT metrics
@@ -233,23 +241,29 @@ def main(settings, parameters):
         infected_ind = np.where(p.infected > 0)
         num_infected = len(infected_ind[0])
 
-        #  CHECK boundary conditions (BCDs)
-        if num_infected == 0:  # BCD1 : disease dies, sim ends & percolation taken as negative percolation
+        # ------ CHECK boundary conditions (BCDs) ------ #
+        # BCD1 : disease dies, sim ends & percolation taken as negative percolation
+        if num_infected == 0:
             in_progress = False
             p.percolation = 0
             break
 
-        if time_step == p.time_f:  # BCD2: disease doesnt die but travels slowly & taken as neutral percolation
+        # BCD2: disease doesnt die but travels slowly & taken as neutral percolation
+        if time_step == p.time_f:
             in_progress = False
             p.percolation = 0
             break
 
+        # --- GET metrics --- #
         mean_d, max_d = p.d_metrics(inf_ind=infected_ind)  # GET average and mean distance travelled by pathogen
         ts_mean_d[time_step], ts_max_d[time_step] = [mean_d, max_d]
         growth_[time_step] = growth_[time_step - 1] + len(np.where(new_infected == 2)[0])
-
+        # BCD3 If distance exceeds boundary then take as positive percolation
+        print('max d', max_d, ' lim ', p.dim[1]/2 - 2)
         if settings["BCD3"]:
-            if max_d > (p.dim[0]/2 - 2):  # BCD3 If distance exceeds boundary then take as positive percolation
+            if max_d > (p.dim[1]/2 - 2):
+                print(p.dim[1]/2 - 2)
+                print('Percolation detected')
                 in_progress = False
                 p.percolation = 1
 

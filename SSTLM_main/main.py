@@ -148,13 +148,14 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
         params["alpha"] = alpha
         params["L"] = lattice_dim
         params["eff_disp"] = eff_dispersal
-        params["time_horizon"] = 1000
+        params["time_horizon"] = 2000
+        params["channel"] = [False, [25, 550]]  # todo test channel via anim sims
         # SET simulation settings & boundary conditions
         settings["anim"] = True
         settings["BCD3"] = True
         settings["verbose"] = True
         settings["plt_tseries"] = True
-        settings["dyn_plots"] = [False, 1, True]
+        settings["dyn_plots"] = [True, 1, True]
         # BEGIN
         print("Running: ")
         Results = subgrid_SSTLM.main(settings, params)
@@ -177,9 +178,9 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
         R0 = 10       # R0 cases initial cases per day
         L = 200       # Domain size
         alpha = 5     # lattice constant in (m)
-        sigma = 200   # dispersal distance in (m)
+        sigma = 50   # dispersal distance in (m)
         eff_dispersal = sigma / alpha  # dispersal in computer units
-        rhos = np.arange(0.001, 0.020, 0.001)  # Tree density at t=0
+        rhos = np.arange(0.001, 0.021, 0.001)  # Tree density at t=0
         repeats = 1  # Ensemble size
         params["L"] = L
         params["R0"] = R0
@@ -187,11 +188,13 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
         params["area"] = L * alpha
         params["l_time"] = 100
         params["time_horizon"] = 1000
+
         params["eff_disp"] = eff_dispersal
         settings["BCD3"] = True  # False ==> no percolation BCD
         settings["verbose"] = False  # print time-step information
+        params["channel"] = [True, [25, 500]]  # todo Domain shape and type (Get rid of bool when testing complete)
         vel_results = np.zeros(shape=(rhos.shape[0]))
-        print("Running: ENSEMBLE simulation")
+        print("Running: LCL ENSEMBLE simulation")
         times = np.zeros(rhos.shape[0])
         for i in range(repeats):
             for j, rho in enumerate(rhos):
@@ -210,9 +213,10 @@ elif mode == "LCL":  # LOCAL MACHINE MODE
             vel_results = vel_results / (i + 1)
             import matplotlib.pyplot as plt
             plt.plot(rhos, vel_results)
+            plt.savefig()
             plt.show()
 
-        if True:
+        if False:
             label_ = str(sigma) + '_R0_' + str(R0)
             np.save('perc_ell_' + label_, vel_results)
 

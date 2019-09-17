@@ -26,9 +26,8 @@ params = {"T": 200, "epi_c": [690, 700, 550, 560], "plt_epi": False, "partial": 
 
 print("Running PDE : {}".format(vmap_name))
 print("--> save dir :  {} ".format(sim_name))
-
 # GENERATE diffusion map based on input of L, beta and a domain (in this case a map of abundance)
-diffusion_map, species_number_map = diffusion_mapping.main(params, plt_figs=True)
+diffusion_map, species_number_map = diffusion_mapping.main(params, plt_figs=False)
 # SET growth to constant value of 1 (non-dimensionalized)
 growth_map = np.ones(shape=diffusion_map.shape) * 1.0
 # maps_ : this is fed into pde_model
@@ -44,6 +43,7 @@ t = (t_1 - t_0) / 60
 # Print time elapsed in minutes.
 print("Time elapsed: ", t, ' (mins)')
 plt.plot(inf_tseries)
+np.save(sim_name + '_response_c', inf_tseries)
 plt.savefig('response_c')
 plt.show()
 
