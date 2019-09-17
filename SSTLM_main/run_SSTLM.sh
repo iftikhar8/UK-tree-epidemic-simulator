@@ -23,7 +23,7 @@ date_time=$(date '+%d-%m-%Y %H:%M:%S')
 
 mode="HPC"
 sim_type="-high_res-"  # HPC two sim_types : ['-high_res', '-full_param']
-sim_name="ell_25"
+sim_name="ell_75"
 
 python3 mkdir.py $date_time $mode $sim_type $sim_name
 python3 main.py $SGE_TASK_ID $date_time $data_type $mode $sim_type $sim_name

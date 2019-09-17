@@ -105,13 +105,8 @@ def uk_map():
         plt.savefig('ash_tree_data_plotted')
         plt.show()
 
-
-
     return
 
-
-
-uk_map()
 
 def subgird():
     """
@@ -765,11 +760,11 @@ def growth_individual():
 def sgm_thresh():
     # single line percolation threshold of sub-grid model
     path = os.getcwd() + '/latex/latex_data/SGM_threshold/'
-    dir_label = [r'$\ell = 100m$', r'$\ell = 50m$', r'$\ell = 25m$', r'$\ell = 75m$']
+    dir_label = [r'$\ell = 25m$', r'$\ell = 50m$', r'$\ell = 75m$', r'$\ell = 100m$']
     metric = ['/percolation/', '/velocity/'][1]
     c = 0
     rhos = np.arange(0.0001, 0.0500, 0.0001)
-    directories = sorted(os.listdir(path))[1:] # Data directories produced by HPC
+    directories = sorted(os.listdir(path)) # Data directories produced by HPC
     for dir in directories:
         print('directory = ', dir)
         data_dir = path + dir + metric  # Locate the metric folder inside the directory
@@ -789,9 +784,7 @@ def sgm_thresh():
         for ell in range(shape[0]):
             plt.plot(rhos, en_mean[ell], alpha=0.5, label=dir_label[c])  # plot
             c += 1
-            np.save('vmap_R0_10_L_50m', np.array([rhos, en_mean[ell]]))
-            plt.show()
-            sys.exit()
+
         if metric == '/percolation/':
             plt.ylabel('Survival probability', size=15)
         elif metric == '/velocity/':
@@ -805,6 +798,7 @@ def sgm_thresh():
 
     return
 
+sgm_thresh()
 
 def pde_mortality_curves():
     # Plot the estimated number of trees number of infected trees with time that get infected.
@@ -826,8 +820,6 @@ def pde_mortality_curves():
     plt.savefig('pde_death_curves')
     plt.show()
 
-
-pde_mortality_curves()
 
 
 
