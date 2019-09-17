@@ -19,13 +19,10 @@ class SimInit(object):
         np.random.seed()
         if parameters["channel"][0]:
             # channel geometry
-            print('channel')
             shape = [parameters["channel"][1][0], parameters["channel"][1][1]]
             domain = np.random.uniform(0, 1, size=(shape[0], shape[1]))
         elif not parameters["channel"][0]:
             # square geometry
-            print('square')
-
             domain = np.random.uniform(0, 1, size=(parameters["L"], parameters["L"]))
 
         dim = domain.shape

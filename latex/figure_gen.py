@@ -762,9 +762,10 @@ def sgm_thresh():
     path = os.getcwd() + '/latex/latex_data/SGM_threshold/'
     dir_label = [r'$\ell = 25m$', r'$\ell = 50m$', r'$\ell = 75m$', r'$\ell = 100m$']
     metric = ['/percolation/', '/velocity/'][1]
-    c = 0
+    c = 1
     rhos = np.arange(0.0001, 0.0500, 0.0001)
-    directories = sorted(os.listdir(path)) # Data directories produced by HPC
+    directories = sorted(os.listdir(path))[1:]  # Data directories produced by HPC
+
     for dir in directories:
         print('directory = ', dir)
         data_dir = path + dir + metric  # Locate the metric folder inside the directory
