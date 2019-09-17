@@ -40,6 +40,7 @@ if mode == "HPC":
     """
     # DEFINE parameters
     alpha = 5  # lattice constant
+    params["channel"] = [False, [None, None]]
     params["alpha"] = alpha
     if settings["job_id"] == '1':
         # save one copy of parameters & settings in output-directory
