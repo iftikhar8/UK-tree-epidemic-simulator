@@ -1,0 +1,21 @@
+______Parameter settings_______
+l_time:100
+time_horizon:3650
+L:200
+channel:[False, [None, None]]
+alpha:5
+
+______Simulation parameters_______
+out_path:/nobackup/py13jh/hpc-subgrid-model/SSTLM_main/output_data/17-09-2019-HPC-high_res-ell_25
+date:17-09-2019
+job_id:1
+plt_tseries:False
+save_figs:False
+dyn_plots:[False, 1, True]
+anim:False
+BCD3:True
+individual:False
+verbose:False
+HPC:HPC
+local_type:animation
+debug_time:True

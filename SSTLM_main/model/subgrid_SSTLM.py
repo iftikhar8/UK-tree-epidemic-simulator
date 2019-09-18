@@ -256,7 +256,6 @@ def main(settings, parameters):
         ts_mean_d[time_step], ts_max_d[time_step] = [mean_d, max_d]
         growth_[time_step] = growth_[time_step - 1] + len(np.where(new_infected == 2)[0])
         # BCD3 If distance exceeds boundary then take as positive percolation
-        print('max d', max_d, ' lim ', p.dim[1]/2 - 2)
         if settings["BCD3"]:
             if max_d > (p.dim[1]/2 - 2):
                 print(p.dim[1]/2 - 2)
