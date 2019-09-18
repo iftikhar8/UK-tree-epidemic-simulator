@@ -1,6 +1,6 @@
 """
 This code can generate a phase-space-tensor :  {L, beta, rho}
-the phase space values are then used in "PDE_main" directory
+the phase space values are then used in "Pde_main" directory
 to generate diffusion constants dependant on L,beta, and the land region rho_ij.
 """
 
@@ -125,7 +125,7 @@ sim_names = {0: '/10-09-2019-HPC-vel',
 
 # 2. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/percolation", 4: "/velocity"}
-"SSTLM_main/output_data/lattice/09-07-2019-HPC/max_distance_km"
+"SubGrid_main/output_data/lattice/09-07-2019-HPC/max_distance_km"
 
 mode = ['param_2d', 'param_1D']
 if True:

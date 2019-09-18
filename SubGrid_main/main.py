@@ -11,7 +11,7 @@ import os
 import datetime
 import time
 sys.path.append(os.getcwd()+'/model')
-import subgrid_SSTLM
+import sg_model
 
 in_arr = sys.argv  # input parameters from run_script.sh.
 job_id, date, c_time, mode, sim_type, sim_name = in_arr[1:]
@@ -76,7 +76,7 @@ if mode == "HPC":
                 for k, rho in enumerate(rhos):
                     # ITERATE through density values
                     params["rho"] = rho
-                    results = subgrid_SSTLM.main(settings, params)
+                    results = sg_model.main(settings, params)
                     mortality_, velocity_, max_d_, run_time_, percolation_, population_sz = results
                     mortality[i, j, k] = mortality_
                     velocities[i, j, k] = velocity_
@@ -116,7 +116,7 @@ if mode == "HPC":
                 print('--rho : {} \ {}'.format(j, rhos.shape[0]))
                 params["rho"] = rho
                 for k in range(repeats):
-                    results = subgrid_SSTLM.main(settings, params)
+                    results = sg_model.main(settings, params)
                     mortality_, velocity_, max_d_, run_time_, percolation_, population_sz = results
                     velocity_ensemble[i, j, k] = velocity_
                     percolation_ensemble[i, j, k] = percolation_
@@ -180,7 +180,7 @@ elif mode == "LCL":
         settings["dyn_plots"] = [True, 1, True]
         # BEGIN
         print("Running: ")
-        Results = subgrid_SSTLM.main(settings, params)
+        Results = sg_model.main(settings, params)
         mortality_, velocity_, max_d_, run_time_, percolation_, population_sz = Results
         print("__Finished__")
         # END
@@ -223,7 +223,7 @@ elif mode == "LCL":
             for j, rho in enumerate(rhos):
                 t0 = time.time()
                 params["rho"] = rho
-                Results = subgrid_SSTLM.main(settings, params)
+                Results = sg_model.main(settings, params)
                 mortality_, velocity_, max_d_, run_time_, percolation_, population_sz = Results
                 vel_results[j] = vel_results[j] + velocity_
                 print("rho: {} / {}".format(j, rhos.shape[0]))

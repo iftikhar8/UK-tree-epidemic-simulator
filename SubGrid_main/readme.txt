@@ -2,10 +2,11 @@ DOW: 20-06-19
 Author: John Holden
 email: py13jh@leeds.ac.uk
 
+Sub-grid model directory:
 
------------ Phase_space_gen -----------
+----------- Parameter space -----------
 
-This directory stores code responsible for generating an epidemiological phase-space data in terms of three variable parameters. The phase-space is informed by a lattice model located in the directory "model" as a file "SSTLM.py" in short for "Stochastic-Spatio-Lattice-Model". 
+This directory stores code responsible for generating an epidemiological parameter-space data in terms of three variable parameters. The p-space is informed by a lattice model located in the directory "model" as a file "SSTLM.py" in short for "Stochastic-Spatio-Lattice-Model".
 
 1. Run "run_man.sh" from terminal. This calls mkdir.py and run_main.py. The script is filled with simulation settings, here we control if the program is executed in HPC mode or Local mode. HPC mode is designed as a simple task array to be run on the HPC-arc3.leeds.ac.uk
 
@@ -15,10 +16,3 @@ This directory stores code responsible for generating an epidemiological phase-s
 
 4. SSTLM.py is a modified percolation based model with a programable dispersal kernel such that pathogens can jump to infect non-local nearest neighbours. SSTLM.py is imported into main_SSTLM.py.From SSTLM.py  main_SSTLM.py then imports the function model.main(), this function then runs the propagation algorithm. 
 
-
-
- 
-improvements:
-
-1. think about local vs hpc, is this the best setup
-2. think about feeding beta and rho ito job_gen

@@ -17,7 +17,7 @@ def en_combine(sim_names, out_name):
     :param sim_names: tuple of names. These are the different ensemble results to be combined into one array
     :return: none, however, write to disk outputs
     """
-    path = os.getcwd() + "/latex/latex_data/R0_data/multi_steps/"
+    path = os.getcwd() + "/Latex/latex_data/R0_data/multi_steps/"
     dim = np.load(path + sim_names[0] + '.npy').shape
     dat = np.zeros(dim)
     print(np.load(path + sim_names[0] + '.npy').shape)
@@ -36,7 +36,7 @@ def uk_map():
     Plot the pathogen velocity expected over different regions over the UK
     """
 
-    dir = os.getcwd() + '/latex/latex_data/input_domain/'
+    dir = os.getcwd() + '/Latex/latex_data/input_domain/'
     domain = np.load(dir + '/Qro-cg-1.npy')
     domain = domain * 0.01
     if 1:
@@ -285,7 +285,7 @@ def phase_space_beta():
     Plot phase-space through a single line of beta values.
     :return:
     """
-    data = np.load(os.getcwd() + '/latex/latex_data/ps-100-beta-en-100.npy')
+    data = np.load(os.getcwd() + '/Latex/latex_data/ps-100-beta-en-100.npy')
     data = data * 365
     betas = np.linspace(0.001, 0.1, 100)
     sigmas = np.array([1, 5, 10, 15, 20])
@@ -321,7 +321,7 @@ def secondary_inf():
     plot the number of secondary cases per time step
     :return:
     """
-    comp_r0 = np.load(os.getcwd() + '/latex/latex_data/R0-LT_L_10_r_010_b_0-10_en_10000.npy')
+    comp_r0 = np.load(os.getcwd() + '/Latex/latex_data/R0-LT_L_10_r_010_b_0-10_en_10000.npy')
     sigmas = np.arange(0, 15, 1)
     betas = np.linspace(0, 1, 10)
     analytic_r0 = np.zeros(len(sigmas))
@@ -358,8 +358,8 @@ def vel_t_series():
     for i in range(len(correct_names)):
         correct_data_name = correct_names[i]
         incorrect_data_name = incorrect_names[i]
-        correct_data = np.load(os.getcwd() + '/latex/latex_data/' + correct_data_name) * 0.1
-        incorrect_data = np.load(os.getcwd() + '/latex/latex_data/' + incorrect_data_name) * 0.1
+        correct_data = np.load(os.getcwd() + '/Latex/latex_data/' + correct_data_name) * 0.1
+        incorrect_data = np.load(os.getcwd() + '/Latex/latex_data/' + incorrect_data_name) * 0.1
         ax.plot(correct_data, alpha=0.5, c=color[i], linestyle='--', label=str(labels[i]) + ' (corrected)')
         ax.plot(incorrect_data, alpha=0.5, c=color[i], linestyle='-', label=str(labels[i]) + ' (wrong)')
 
@@ -374,8 +374,8 @@ def vel_t_series():
     for i in range(len(correct_names)):
         correct_data_name = correct_names[i]
         incorrect_data_name = incorrect_names[i]
-        correct_data = np.load(os.getcwd() + '/latex/latex_data/' + correct_data_name) * 0.1
-        incorrect_data = np.load(os.getcwd() + '/latex/latex_data/' + incorrect_data_name) * 0.1
+        correct_data = np.load(os.getcwd() + '/Latex/latex_data/' + correct_data_name) * 0.1
+        incorrect_data = np.load(os.getcwd() + '/Latex/latex_data/' + incorrect_data_name) * 0.1
         v_correct = np.gradient(correct_data)
         v_wrong = np.gradient(incorrect_data)
         ax.plot(v_correct, alpha=0.5, c=color[i], linestyle='--', label=r'$\beta$ = ' + str(labels[i]) + ' (corrected)')
@@ -399,7 +399,7 @@ def phase_space_gen():
     """
     metric = 'vel'
     name = 'COMBINED-ps-b-100-r-100-L-6.npy'
-    ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-figs/' + name)
+    ps_tensor = np.load(os.getcwd() + '/Latex/latex_data/phase-space-figs/' + name)
     ps_tensor = ps_tensor[1]  # select which dispersal distance
 
     if metric == 'vel':
@@ -444,7 +444,7 @@ def phase_space_gen():
 def subgrid_pspace():
     # sub-grid parameter space figures:
     name = "ps-b-30-r-30-L-2-perc.npy"
-    path = os.getcwd() + '/latex/latex_data/sg_pspace/'
+    path = os.getcwd() + '/Latex/latex_data/sg_pspace/'
     pspace_arr = np.load(path + name)
 
     if "vel.npy" in name.split('-'):
@@ -483,7 +483,7 @@ def subgrid_pspace():
 
 def phase_line():
     name = 'r-001-010_R0-10-20-30-ell-100-200-300/en200-ps-b-3-r-50-L-3.npy'
-    ps_tensor = np.load(os.getcwd() + '/latex/latex_data/phase-space-single-lines/' + name)
+    ps_tensor = np.load(os.getcwd() + '/Latex/latex_data/phase-space-single-lines/' + name)
     R0_arr = np.array([10, 20, 30])
     ell_arr = np.array([100, 200, 300])
     rho_arr = np.linspace(0.001, 0.100, 50)
@@ -525,7 +525,7 @@ def domain_size_calibrations():
     c = 0
     ylim_max = 0
     for calibration in calibrations:
-        path = os.getcwd() + '/latex/latex_data/model-scaling/' + calibration
+        path = os.getcwd() + '/Latex/latex_data/model-scaling/' + calibration
         files = os.listdir(path)
         data_arr = np.zeros(len(files))
         var_arr = np.zeros(len(files))
@@ -560,7 +560,7 @@ def R0_phase():
     This shows a re-interpreted beta value vs rho, the phase space of R_0 FOR one infected tree at the origin/
     """
     extent = [1., 10., 0, 1.0]
-    data = np.load(os.getcwd() + '/latex/latex_data/R0_data/' + 'b-v-r-R0-en-1000-L-300m.npy')
+    data = np.load(os.getcwd() + '/Latex/latex_data/R0_data/' + 'b-v-r-R0-en-1000-L-300m.npy')
     fig, ax = plt.subplots()
     im = ax.contourf(data.T, origin='lower', cmap=plt.get_cmap('jet'), extent=extent)
     cbar = plt.colorbar(im)
@@ -575,7 +575,7 @@ def R0_phase():
 
 def time_series_metric():
     "Plot metric evolution in time"
-    path = os.getcwd() + '/latex/latex_data/time-series-data/'
+    path = os.getcwd() + '/Latex/latex_data/time-series-data/'
     name = 'L-200en_sz-10-test-max-distance.npy'
     data = np.load(path + name)
     fig, ax = plt.subplots(figsize=(15, 6), ncols=2, nrows=1)
@@ -621,7 +621,7 @@ def R0_line():
     beta = 20
     rho = 0.25, 0.50, 1.0
     """
-    path = os.getcwd() + '/latex/latex_data/R0_data/'
+    path = os.getcwd() + '/Latex/latex_data/R0_data/'
     data_1 = np.load(path + 'r-025-b-20-a-005-en-100.npy')  # rho = 0.5
     data_2 = np.load(path + 'r-050-b-20-a-005-en-100.npy')
     data_3 = np.load(path + 'r-1-b-20-a-005-en-100.npy')
@@ -653,7 +653,7 @@ def R0_multi_steps():
     dir_names = ['l_50_r_01_r0_10', 'l_150_r_025_r0_20', 'l_250_r_050_r0_30']  # 'l_50_r_01_r0_10', 'l_250_r_050_r0_30'
     colors = ['blue', 'orange', 'red']
     heights = [0.275, 0.15, 0.125]
-    path = os.getcwd() + '/latex/latex_data/R0_data/multi_steps/'
+    path = os.getcwd() + '/Latex/latex_data/R0_data/multi_steps/'
     fig, ax = plt.subplots(ncols=2, figsize=(14, 6))
     label = [r'$\rho = 0.010,\ \beta = 10,\ \ell = 50m$',
              r'$\rho = 0.025,\ \beta = 20,\ \ell = 150m$',
@@ -697,7 +697,7 @@ def R0_multi_steps():
 def growth_comp():
     # Plot all growth rate data
     rhos = np.arange(0.01, 0.055, 0.005)
-    path = os.getcwd() + '/latex/latex_data/growth_rates/g_rates.npy'
+    path = os.getcwd() + '/Latex/latex_data/growth_rates/g_rates.npy'
     t_teries = np.load(path)
     runtime = t_teries[:, 0]
     set_num = 6
@@ -729,7 +729,7 @@ def growth_individual():
     def exp(x, b):
         return np.exp(b * x)
 
-    path = os.getcwd() + '/latex/latex_data/growth_rates/g_rates.npy'
+    path = os.getcwd() + '/Latex/latex_data/growth_rates/g_rates.npy'
     t_teries = np.load(path)
     set_ = 5
     rho = np.arange(0.01, 0.055, 0.005)[set_]
@@ -748,7 +748,7 @@ def growth_individual():
 
 def sgm_thresh():
     # single line percolation threshold of sub-grid model
-    path = os.getcwd() + '/latex/latex_data/SGM_threshold/'
+    path = os.getcwd() + '/Latex/latex_data/SGM_threshold/'
     dir_label = [r'$\ell = 25m$', r'$\ell = 25m - rpt$', r'$\ell = 50m$', r'$\ell = 75m$', r'$\ell = 100m$']
     metric = ['/percolation/', '/velocity/'][1]
     c = 0
@@ -793,7 +793,7 @@ sgm_thresh()
 def pde_mortality_curves():
     # Plot the estimated number of trees number of infected trees with time that get infected.
     import matplotlib.ticker as mticker
-    path = os.getcwd() + '/latex/latex_data/pde_death_curves/'
+    path = os.getcwd() + '/Latex/latex_data/pde_death_curves/'
     data_files = os.listdir(path)
     ells = [r'$\ell = 50m$', r'$\ell = 100m$']
     for i, curve in enumerate(data_files):
