@@ -42,18 +42,6 @@ if mode == "HPC":
     alpha = 5  # lattice constant
     params["channel"] = [False, [None, None]]
     params["alpha"] = alpha
-    if settings["job_id"] == '1':
-        # save one copy of parameters & settings in output-directory
-        # param output_path; string pointing to saving directory
-        output_path = settings["out_path"]
-        with open(os.path.join(output_path, "parameter_and_settings_info.txt"), "w+") as info_file:
-            info_file.write("______Parameter settings_______" + "\n")
-            for parameter in params:
-                info_file.write(parameter + ':' + str(params[parameter]) + '\n')
-
-            info_file.write("\n" + "______Simulation parameters_______" + "\n")
-            for setting in settings:
-                info_file.write(setting + ':' + str(settings[setting]) + '\n')
     # save ID : unique to each core used
     if int(job_id) < 10:
         save_id = '00' + str(job_id)
@@ -62,7 +50,7 @@ if mode == "HPC":
 
     # RUN Full parameter space : R0 | \ell | \rho
     # ---- Iterate indices as  ---> [i: dispersal, j:infectivity, k:tree density]
-    if sim_type == "-full_param":
+    if 'full_param' in sim_type.split('-'):
         R0_arr = np.array([1, 5, 20])  # Basic reproduction number
         rhos = np.arange(0.001, 0.031, 0.001)  # Tree density range
         eff_sigmas = np.linspace(10, 100, rhos.shape[0]) / alpha  # Dispersal distance in comp units (not physical)
@@ -101,12 +89,18 @@ if mode == "HPC":
                     np.save(output_path + "/percolation/" + save_id, percolation_pr)
                     np.save(output_path + "/max_distance_km/" + save_id, max_distances)
 
+        # Range of parameters used in str
+        R0_str = str(R0_arr) + '(m), num = ' + str(len(R0_arr))
+        ell_str = str(eff_sigmas[0] * alpha) + '-' + str(eff_sigmas[-1] * alpha) + '(m), num = ' + str(len(eff_sigmas))
+        rho_str = str(rhos[0].round(4)) + '--' + str(rhos[-1].round(4)) + ', num =' + str(len(rhos))
+    # #### END FULL PARAM SWEEP # ####
+
     # RUN partial parameter space in high_resolution:
     # ---- Iterate indices as  ---> [i: ell, j:rho, k:repeats]
     elif 'high_res' in sim_type.split('-'):
         repeats = 10
         params["R0"] = 10  # basic reproduction values
-        ell_arr = np.array([25]) / alpha  # dispersal values
+        ell_arr = np.array([25]) / alpha  # dispersal values in (m) divide by scale constant
         rhos = np.arange(0.0001, 0.0500, 0.0001)  # tree density values
         velocity_ensemble = np.zeros(shape=[ell_arr.shape[0], rhos.shape[0], repeats])
         percolation_ensemble = np.zeros(shape=[ell_arr.shape[0], rhos.shape[0], repeats])
@@ -126,10 +120,30 @@ if mode == "HPC":
                 np.save(output_path + "/velocity/" + save_id, velocity_ensemble)
                 np.save(output_path + "/percolation/" + save_id, percolation_ensemble)
 
+        # Range of parameters used in str
+        R0_str = str(params["R0"]) + ', num = 1'
+        ell_str = str(ell_arr[0] * alpha) + '(m), num = 1'
+        rho_str = str(rhos[0].round(4)) + '--' + str(rhos[-1].round(4)) + ', num =' + str(rhos.shape[0])
+    # #### END HIGH RES PARAM SWEEP # ####
+
+    # GET time taken
     tf = time.clock() - t0
     tf = np.float64(tf / 60)
     print('End time: {} |  sim : {} '.format(datetime.datetime.now(), str(job_id)))
     print("Time taken: {} (mins)".format(tf.round(3)))
+    # WRITE parameters and settings to file
+    if settings["job_id"] == '1':
+        output_path = settings["out_path"]
+        with open(os.path.join(output_path, "parameter_and_settings_info.txt"), "w+") as info_file:
+            info_file.write("______Simulation Parameters_______" + "\n")
+            for parameter in params:
+                info_file.write(parameter + ':' + str(params[parameter]) + '\n')
+            info_file.write("Density values : " + rho_str + '\n')
+            info_file.write("Dispersal values : " + ell_str + '\n')
+            info_file.write("R0 values : " + R0_str + '\n')
+            info_file.write("\n" + "______Simulation Settings_______" + "\n")
+            for setting in settings:
+                info_file.write(setting + ':' + str(settings[setting]) + '\n')
 
 
 elif mode == "LCL":  # LOCAL MACHINE MODE

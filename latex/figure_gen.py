@@ -35,11 +35,11 @@ def uk_map():
     """
     Plot the pathogen velocity expected over different regions over the UK
     """
+
     dir = os.getcwd() + '/latex/latex_data/input_domain/'
     domain = np.load(dir + '/Qro-cg-1.npy')
     domain = domain * 0.01
-
-    if 0:
+    if 1:
         fig, ax = plt.subplots(figsize=(10, 10))
         ax.set_xticks([])
         ax.set_yticks([])
@@ -57,54 +57,43 @@ def uk_map():
         plt.savefig('fex_domain', bbox_inches='tight')
         plt.show()
 
-    if 1:
+    if 0:
         shape = domain.shape[0] * domain.shape[1]
         domain = domain.reshape(shape)
         domain_flat = np.sort(domain)
         nan_ind = np.where(np.isnan(domain_flat))
         domain_flat = np.delete(obj=nan_ind, arr=domain_flat)
         domain_flat = domain_flat.round(4)
-
-
-
-
+        x_cut = np.where(domain_flat >= 0.002)[0][0]
+        hist_Arr, bins = np.histogram(domain_flat, bins=100)
+        hist_Arr = hist_Arr / 1  # domain_flat.shape[0]
         fig, ax = plt.subplots()
-        x_cut = np.where(domain_flat >= 0.20)[0][0]
-        sns.distplot(domain_flat[:x_cut], ax=ax, kde=False)
-        plt.grid(True)
-        plt.xlabel(r'Tree density $\rho$')
-        plt.ylabel(r'Frequency')
-        plt.xscale('log')
-        plt.yscale('log')
-        plt.title('Ash Tree')
-        plt.savefig('ash_tree_1')
+        ax.scatter(bins[:-1], hist_Arr, s=2, c='r')
+        ax.plot(bins[:-1], hist_Arr, alpha=0.25)
+        for index, line in enumerate(bins[:-1]):
+            y = hist_Arr[index]
+            ax.plot([line, line], [0, y], c='C0', alpha=0.25)
+
+        ax.set_ylabel('Frequency', size=15)
+        ax.set_xlabel(r'$\rho$', size=15)
+        ax.set_ylim(-0.003, hist_Arr.max() + 0.003)
+        ax.set_xlim(-0.003, bins[-1] + 0.003)
+        left, bottom, width, height = [0.375, 0.35, 0.50, 0.45]
+        ax2 = fig.add_axes([left, bottom, width, height])
+        x_cut = np.where(domain_flat >= 0.0100)[0][0]
+        hist_Arr, bins = np.histogram(domain_flat[x_cut:], bins=15)
+        ax2.plot(bins[:-1], hist_Arr, alpha=0.5)
+        ax2.scatter(bins[:-1], hist_Arr, s=2, c='r')
+        ax2.set_xscale('log')
+        ax2.set_yscale('log')
+        for index, line in enumerate(bins[:-1]):
+            y = hist_Arr[index]
+            ax2.plot([line, line], [0, y], c='C0', alpha=0.25)
+        ax2.set_xlabel(r'$log(\rho$)')
+        ax2.set_ylabel(r'$log(Freq)$')
+        ax2.set_title(r'$(log-log)$', size=10)
+        plt.savefig('1_b-density-distribution')
         plt.show()
-
-
-        sys.exit()
-
-        plt.hist(domain_flat, bins=1000)
-        plt.xscale('log')
-        plt.yscale('log')
-        plt.xlabel(r'tree density $\rho$')
-        plt.ylabel('Frequency')
-
-        plt.grid(True)
-        plt.savefig('fex_low_range')
-        plt.show()
-
-
-
-        plt.plot(domain_flat, alpha=0.5)
-        plt.grid(True)
-        plt.yscale('log')
-        plt.xscale('log')
-        plt.title('Ash tree data')
-        plt.ylabel(r'Tree density $\rho$')
-        plt.xlabel('Data point')
-        plt.savefig('ash_tree_data_plotted')
-        plt.show()
-
     return
 
 
@@ -760,12 +749,11 @@ def growth_individual():
 def sgm_thresh():
     # single line percolation threshold of sub-grid model
     path = os.getcwd() + '/latex/latex_data/SGM_threshold/'
-    dir_label = [r'$\ell = 25m$', r'$\ell = 50m$', r'$\ell = 75m$', r'$\ell = 100m$']
+    dir_label = [r'$\ell = 25m$', r'$\ell = 25m - rpt$', r'$\ell = 50m$', r'$\ell = 75m$', r'$\ell = 100m$']
     metric = ['/percolation/', '/velocity/'][1]
-    c = 1
+    c = 0
     rhos = np.arange(0.0001, 0.0500, 0.0001)
-    directories = sorted(os.listdir(path))[1:]  # Data directories produced by HPC
-
+    directories = sorted(os.listdir(path))  # Data directories produced by HPC
     for dir in directories:
         print('directory = ', dir)
         data_dir = path + dir + metric  # Locate the metric folder inside the directory
@@ -796,10 +784,11 @@ def sgm_thresh():
         plt.grid(True)
         plt.savefig('hres-vline')
     plt.show()
-
     return
 
+
 sgm_thresh()
+
 
 def pde_mortality_curves():
     # Plot the estimated number of trees number of infected trees with time that get infected.
