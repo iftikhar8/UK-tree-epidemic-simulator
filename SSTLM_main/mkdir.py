@@ -15,7 +15,8 @@ try:
 
     else:
         os.mkdir(output_path)  # create directory by Date, HPC will store results here.
-        dir_names = ["mortality", "velocity", "max_distance_km", "run_time", "percolation"]  # define sub-directories
+        # DEFINE sub-directories to store simulation data
+        dir_names = ["mortality", "mortality_ratio",  "velocity", "max_distance_km", "run_time", "percolation"]
         for sub_dir in dir_names:
             os.mkdir(output_path + '/' + sub_dir + '/')  # Each metric date will be stored in a sub-directory
 # this is triggered when the else clause is called at the same time by HPC sub-processes

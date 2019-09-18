@@ -17,27 +17,39 @@ class SimInit(object):
         :param domain: array-like, this is the lattice-domain of size n x n, full of floats drawn from a Poison process
         """
         np.random.seed()
-        if parameters["channel"][0]:
-            # channel geometry
-            shape = [parameters["channel"][1][0], parameters["channel"][1][1]]
-            domain = np.random.uniform(0, 1, size=(shape[0], shape[1]))
-        elif not parameters["channel"][0]:
-            # square geometry
-            domain = np.random.uniform(0, 1, size=(parameters["L"], parameters["L"]))
+        # channel geometry
+        dim = parameters["domain_sz"]  # Dimension of domain
+        tree_dist = np.zeros(shape=(dim[0], dim[1]))
+        population_size = int(parameters["rho"] * dim[0] * dim[1])
+        p = 0
+        while p < population_size:
+            rand_x = np.random.randint(0, dim[0])
+            rand_y = np.random.randint(0, dim[1])
+            if tree_dist[rand_x, rand_y] == 1:
+                pass
+            else:
+                tree_dist[rand_x, rand_y] = 1
+                p += 1
+        try:
+            # Check seeded P size == density given P size
+            assert len(np.where(tree_dist == 1)[0]) == population_size
+        except:
+            # Errors
+            print("P actual = ", len(np.where(tree_dist == 1)[0]))
+            print("P theory = ", population_size)
+            sys.exit("error...")
 
-        dim = domain.shape
-        epi_cx, epi_cy = int(dim[0] / 2), int(dim[1] / 2)
+        epi_cx, epi_cy = int(dim[0]/2), int(dim[1]/2)
         infected = np.zeros(dim)
-        tree_dist = np.where(domain < parameters["rho"], 1, 0)
         tree_dist[0], tree_dist[-1], tree_dist[:, 0], tree_dist[:, -1] = [0, 0, 0, 0]  # SET boundary conditions
         infected[epi_cx, epi_cy] = 1   # SET epicenters to infected
         tree_dist[epi_cx, epi_cy] = 0  # REMOVE susceptible trees at epicenter
         epi_c = [epi_cx, epi_cy]
-        population = len(np.where(tree_dist == 1)[0])
+
         self.dim = dim  # dimension of lattice
         self.epi_c = epi_c  # epicenter locations
         self.infected = infected  # array containing the locations of infected trees
-        self.population = population  # the number of trees in the population at T=0
+        self.population = population_size  # the number of trees in the population at T=0
         self.removed = np.zeros(dim)  # the removed field storing locations of all dead trees
         self.susceptible = tree_dist  # the susceptible field containing information of all healthy trees
         self.rho = parameters['rho']  # the Tree density
@@ -49,15 +61,16 @@ class SimInit(object):
         self.R0 = parameters["R0"]  # number of expected infectious cases per day @t=0 due to single infected for rho=1
         self.beta = self.R0 / self.pre_factor
         try:
-            assert self.beta < 1  # make sure beta arr is a probability array \in [0, 1]
+            # Check beta defines a probability \in [0, 1]
+            assert self.beta < 1
         except:
             print(self.eff_disp, ' disp factor')
             print(self.R0, ' r0')
             print(self.pre_factor, ' pre factor')
             print(self.beta, ' beta')
             print("Unphysical probability")
-            sys.exit("exting...")
-        # INIT distance matrix
+            sys.exit("error...")
+        # INIT distance matrix - records pathogens evolution
         x_rows, y_cols = np.arange(0, dim[0]), np.arange(0, dim[1])
         x_arr, y_arr = np.meshgrid(x_rows, y_cols)
         latitude_ar = (x_arr - epi_c[0])
@@ -67,10 +80,9 @@ class SimInit(object):
         self.dist_map = dist_map  # the distance map of domain defined from the epicenter
         # INIT metrics
         self.percolation = 0  # percolation status
-        self.mean_d = np.zeros(parameters["time_horizon"])  # array used to record metric 'mean distance' time series
         self.max_d = np.zeros(parameters["time_horizon"])   # array used to record metric 'max distance' time series
         self.time_debug = np.zeros(parameters["time_horizon"])
-        self.growth = np.zeros(parameters["time_horizon"] + 1)
+        self.num_infected_arr = np.zeros(parameters["time_horizon"] + 1)
         self.population_init = len(np.where(tree_dist == 1)[0]) # number of healthy trees at t = 0
 
     def d_metrics(self, inf_ind):
@@ -80,7 +92,7 @@ class SimInit(object):
                  max_d: float, the maximum distance travelled by the pathogen
         """
         distances = self.dist_map[inf_ind]
-        return distances.mean(), distances.max()
+        return distances.max()
 
     def get_new_infected(self, p_infected, susceptible):
         """
@@ -217,7 +229,7 @@ def main(settings, parameters):
     np.random.seed()
     p = SimInit(parameters)  # p : hold all parameters
     plts = Plots(p.rho, p.beta)
-    ts_mean_d, ts_max_d, growth_, t_debug = [p.mean_d, p.max_d, p.growth, p.time_debug]  # arrays used to record time-series
+    ts_max_d, ts_num_infected, t_debug = [p.max_d, p.num_infected_arr, p.time_debug]  # arrays used to record time-series
     in_progress, time_step, num_infected = [True, 0, 1]
     verbose = settings["verbose"]  # control output print-to-screens
     dyn_plots = settings["dyn_plots"]  # control settings to 'dynamic-plots' .png files are generated and saved
@@ -252,14 +264,13 @@ def main(settings, parameters):
             break
 
         # --- GET metrics --- #
-        mean_d, max_d = p.d_metrics(inf_ind=infected_ind)  # GET average and mean distance travelled by pathogen
-        ts_mean_d[time_step], ts_max_d[time_step] = [mean_d, max_d]
-        growth_[time_step] = growth_[time_step - 1] + len(np.where(new_infected == 2)[0])
+        max_d = p.d_metrics(inf_ind=infected_ind)  # GET average and mean distance travelled by pathogen
+        ts_max_d[time_step] = max_d
+        ts_num_infected[time_step] = num_infected
+
         # BCD3 If distance exceeds boundary then take as positive percolation
         if settings["BCD3"]:
-            if max_d > (p.dim[1]/2 - 2):
-                print(p.dim[1]/2 - 2)
-                print('Percolation detected')
+            if max_d > (p.dim[1]/2 - 25):
                 in_progress = False
                 p.percolation = 1
 
@@ -270,7 +281,7 @@ def main(settings, parameters):
                 np.save(save_path + T, np.array([p.susceptible, p.infected, p.removed]))
             # GET metric time-series data
 
-        if verbose:
+        if verbose:  # Print out step runtime
             t_f = time.clock()
             t_debug[time_step] = t_f - t_0
             print("Time elapsed in loop: {}".format(round(t_f - t_0, 4)))
@@ -279,52 +290,43 @@ def main(settings, parameters):
 
         # __________ITERATION COMPLETE_________ #
     # ________________END ALGORITHM________________ #
-    # ts_mean_d = ts_mean_d * p.alpha
-    # ts_mean_d = ts_mean_d[:time_step]
-    ts_max_d = ts_max_d * p.alpha  # multiply by lattice constant to get a distance in km
-    ts_max_d = ts_max_d[:time_step]
-    max_d_reached = ts_max_d.max()  # maximum distance reached by the pathogen
-    mean_max_d_reached = ts_mean_d.max()
-    num_infected = growth_[:time_step]  # number of infected individuals over the simulation
-    t_debug = t_debug[:time_step]
+
+    ts_num_infected = ts_num_infected[: time_step]
+    ts_max_d = ts_max_d[: time_step] * p.alpha
+    max_d_reached = ts_max_d[time_step - 1]  # Maximum distance reached by the pathogen
+    num_infected = ts_num_infected[time_step - 1]  # I
+    num_removed = len(np.where(p.removed == 1)[0])  # R
+    mortality = (num_infected + num_removed)  # R + I
+
+    if p.percolation == 1:  # If boundary reached then non-zero velocity
+        velocity = max_d_reached / time_step
+    elif p.percolation == 0:  # If boundary not reached then zero velocity
+        velocity = 0
     # GENERATE time series output plots over the simulation
     if settings["plt_tseries"]:
         print('Step: {}, max d = {} (km)'.format(time_step, max_d_reached))
-        print('----: mean max d = {} (km)'.format(mean_max_d_reached))
         plot_cls = Plots(p.beta, p.rho)  # Plots module contains plotting functions
         # Plot max d metric
         label = {'title': "max d distance", 'xlabel': 'days', 'ylabel': 'distance (km)'}
         plot_cls.plot_tseries(metric=ts_max_d, labels=label, fit=False, saves_=[False, None])
-
-        # Plot mean distance metric (uncomment for use)
-        # label = {'title': "mean d distance", 'xlabel': 'days', 'ylabel': 'distance (km)'}
-        # plot_cls.plot_tseries(metric=ts_mean_d, labels=label, fit=False, saves_=[False, None])
-
         # Plot number of infected (SIR)
         label = {'title': "num infected", 'xlabel': 'days', 'ylabel': '# trees'}
-        plot_cls.plot_tseries(metric=num_infected, labels=label, fit=False, saves_=[False, 'num_inf_0'])
-        # Plot physical computer runtime
+        plot_cls.plot_tseries(metric=ts_num_infected, labels=label, fit=False, saves_=[False, 'num_inf_0'])
+        # Plot physical computer runtime stats
+        t_debug = t_debug[:time_step]
         label = {'title': "computer runtime", 'xlabel': 'step', 'ylabel': 'physical runtime'}
         plot_cls.plot_tseries(metric=t_debug, labels=label, fit=False, saves_=[False, 'rt_0'])
-
+        # IF True, save time-series data to file
         save_tseries = False
-        if save_tseries:  # IF True, save time-series data to file
+        if save_tseries:
             plot_cls.save_settings(parameters, settings, save_path)
             beta = round(parameters["beta"], 2)
             name = 'b_' + str(beta).replace('.', '-') + '_r_' + str(parameters["rho"]).replace('.', '-') + \
                    '_L_' + str(parameters["eff_disp"]).replace('.', '-')
             np.save('max_d_' + name, ts_max_d)
 
-    num_removed = len(np.where(p.removed == 1)[0])  # Number of dead trees.
-    mortality = (num_infected[-1] + num_removed)
-
-    if p.percolation == 1:
-        velocity = max_d_reached / time_step
-
-    elif p.percolation == 0:
-        velocity = 0
-
-    return mortality, velocity, max_d_reached, time_step, p.percolation
+    # ##### COMPLETE: Individual realisation complete & metrics gathered # #####
+    return mortality, velocity, max_d_reached, time_step, p.percolation, p.population
 
 if __name__ == "__main__":
     main(param)
