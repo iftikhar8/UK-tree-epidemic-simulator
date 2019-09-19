@@ -17,9 +17,9 @@ def finite_difference_sim(dim, params, d_map, growth_map, uk, saves):
     for time_step in range(T):
         for i in range(dim[0] - 2):
             for j in range(dim[1] - 2):
-                # diff_ij: diffusion component of PDE model: D \grad^2 U)
+                # diff_ij: diffusion component of PDE sgm_model: D \grad^2 U)
                 # advection_ij: advection term in PDE:       \grad D \grad U
-                # growth_ij: growth component of PDE model:  \alpha U(x,t)
+                # growth_ij: growth component of PDE sgm_model:  \alpha U(x,t)
                 diff_ij = (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j])
                 # advection_ij = d_d_map[i, j] * (uk[i + 1, j] + uk[i, j + 1] - uk[i - 1, j] - uk[i, j - 1])
                 # (d_map[i + 1, j] + d_map[i - 1, j] + d_map[i, j + 1] + d_map[i, j - 1])

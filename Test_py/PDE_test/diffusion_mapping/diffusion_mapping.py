@@ -77,7 +77,7 @@ def main(L, beta, plt_check):
     """
     :param L: user-input dispersal distance
     :param beta: user-input infectivity cases day^-1
-    :return: array - diffusion map, used in the modified FK-equation to model heterogeneous spreadding
+    :return: array - diffusion map, used in the modified FK-equation to sgm_model heterogeneous spreadding
     """
     # LOAD phase constants
     # - choose which data is loaded

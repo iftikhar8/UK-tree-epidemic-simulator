@@ -73,7 +73,7 @@ if mdre:
     mdre_arr, dif_sstlm, v_sstlm = pde_velocity(params, mode=mode_)
     np.save("mdre_ts", mdre_arr)
 
-# Compare model behaviours
+# Compare sgm_model behaviours
 if comp:
     vel_sstml = np.arange(10, 60, 10)
     fisher_arr = np.load(os.getcwd() + '/fisher_ts.npy')

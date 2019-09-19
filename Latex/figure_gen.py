@@ -99,7 +99,7 @@ def uk_map():
 
 def subgird():
     """
-    Plot figures of sub-grid model in time, I: infected field, S: susceptible field
+    Plot figures of sub-grid sgm_model in time, I: infected field, S: susceptible field
     """
     I_1 = np.load(os.getcwd() + '/latex_data/I_time_10.npy')
     I_2 = np.load(os.getcwd() + '/latex_data/I_time_15.npy')
@@ -162,7 +162,7 @@ def subgird():
 
 def PDE_UK_sims():
     """
-    Plot simulations of PDE model over the UK based on diffusion coefficients generated in phase-space
+    Plot simulations of PDE sgm_model over the UK based on diffusion coefficients generated in phase-space
     :return:
     """
     data = "?"  # Find data
@@ -525,7 +525,7 @@ def domain_size_calibrations():
     c = 0
     ylim_max = 0
     for calibration in calibrations:
-        path = os.getcwd() + '/Latex/latex_data/model-scaling/' + calibration
+        path = os.getcwd() + '/Latex/latex_data/sgm_model-scaling/' + calibration
         files = os.listdir(path)
         data_arr = np.zeros(len(files))
         var_arr = np.zeros(len(files))
@@ -747,7 +747,7 @@ def growth_individual():
 
 
 def sgm_thresh():
-    # single line percolation threshold of sub-grid model
+    # single line percolation threshold of sub-grid sgm_model
     path = os.getcwd() + '/Latex/latex_data/SGM_threshold/'
     dir_label = [r'$\ell = 25m$', r'$\ell = 25m - rpt$', r'$\ell = 50m$', r'$\ell = 75m$', r'$\ell = 100m$']
     metric = ['/percolation/', '/velocity/'][1]
