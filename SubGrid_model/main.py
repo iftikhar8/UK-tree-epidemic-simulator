@@ -27,7 +27,7 @@ settings = {"out_path": output_path, "date": date, "job_id": job_id, "plt_tserie
 if mode == "HPC":
     settings["HPC"] = mode
     settings["verbose"] = False
-    settings["BCD3"] = False
+    settings["BCD3"] = False  # IF false --> mortality sims
     """                             ----- HPC mode -----
     Run this extract to generate parameter space of a stochastic sub-grid sgm_model of tree disease over 3D: 
     1. rho (tree density)
