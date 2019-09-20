@@ -27,6 +27,23 @@ def en_combine(sim_names):
     return
 
 
+def param_space_1D(data, label):
+    # Plot lines
+    sigmas = np.array([20, 30, 40, 50, 60, 70, 80, 90, 100])
+    rhos = np.arange(0.001, 0.031, 0.001)
+    for i, data in enumerate(data[:-4]):
+        plt.plot(rhos, data[0], label=r'$\ell = ${}'.format(str(sigmas[i])))
+
+    plt.title(r'$R_0 = 5$')
+    plt.ylabel(r'$Percolaiton$')
+    plt.xlabel(r'$\rho$ (tree density)')
+    plt.legend()
+    plt.grid(True)
+    plt.savefig('disp_threshold')
+    plt.show()
+    return
+
+
 def param_space_2D(data_arr, label, save_name, save):
     # load in specific array
     rhos = np.arange(0.001, 0.031, 0.001)  # Tree density range
@@ -52,22 +69,6 @@ def param_space_2D(data_arr, label, save_name, save):
         plt.show()
     return
 
-
-def param_space_1D(data, label):
-    # Plot lines
-    sigmas = np.array([20, 30, 40, 50, 60, 70, 80, 90, 100])
-    rhos = np.arange(0.001, 0.031, 0.001)
-    for i, data in enumerate(data[:-4]):
-        plt.plot(rhos, data[0], label=r'$\ell = ${}'.format(str(sigmas[i])))
-
-    plt.title(r'$R_0 = 5$')
-    plt.ylabel(r'$Percolaiton$')
-    plt.xlabel(r'$\rho$ (tree density)')
-    plt.legend()
-    plt.grid(True)
-    plt.savefig('disp_threshold')
-    plt.show()
-    return
 
 
 def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
@@ -124,7 +125,8 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
 sim_names = {0: '/18-09-2019-HPC-full_param-mortality_ratio',
-             1: '/12-09-2019-HPC-full_param'}
+             1: '/12-09-2019-HPC-full_param',
+             2: '/19-09-2019-HPC-full_param-mortality_ratio'}
 
 # 2. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/mortality_ratio", 4: "/percolation", 5: "/velocity"}
@@ -135,13 +137,13 @@ if True:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_name = 1         # enter the simulate name index
+    sim_name = 2         # enter the simulate name index
     distance = 0         # load and compute distance plots
-    runtime = 0          # load and compute runtime plots
-    mortality = 1        # load and compute mortality plots
+    runtime = 1          # load and compute runtime plots
+    mortality = 0        # load and compute mortality plots
     mortality_ratio = 0  # load mortality ratio,
     velocity = 0         # compute velocity and show
-    percolation = 1      # load and compute percolation
+    percolation = 0      # load and compute percolation
     phase_dim = [1, 30, 30]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
 

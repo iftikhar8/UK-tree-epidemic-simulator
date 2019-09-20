@@ -2,21 +2,21 @@ ______Parameter settings_______
 l_time:100
 time_horizon:3650
 R0:10
-rho:0.005
+rho:0.03
 alpha:5
-eff_disp:10.0
-row_dim:30
-col_dim:550
+eff_disp:14.0
+row_dim:20
+col_dim:200
 
 ______Simulation parameters_______
-out_path:/Users/py13jh/PycharmProjects/hpc-subgrid-model/SubGrid_model/output_data/19-09-2019-LCL-anim-channel_test
-date:19-09-2019
+out_path:/Users/py13jh/PycharmProjects/hpc-subgrid-model/SubGrid_model/output_data/20-09-2019-LCL-anim-channel_test
+date:20-09-2019
 job_id:25
 plt_tseries:True
 save_figs:False
 dyn_plots:[True, 1, True]
 anim:True
-BCD3:True
+BCD3:False
 individual:False
 verbose:True
 HPC:None

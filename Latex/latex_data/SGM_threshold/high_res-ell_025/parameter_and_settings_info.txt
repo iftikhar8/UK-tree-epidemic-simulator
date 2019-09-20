@@ -1,0 +1,27 @@
+______Simulation Parameters_______
+l_time:100
+time_horizon:3650
+L:200
+channel:[False, [None, None]]
+alpha:5
+R0:10
+eff_disp:5.0
+rho:0.0499
+Density values : 0.0001--0.0499, num =499
+Dispersal values : 25.0(m), num = 1
+R0 values : 10, num = 1
+
+______Simulation Settings_______
+out_path:/nobackup/py13jh/hpc-subgrid-model/SSTLM_main/output_data/18-09-2019-HPC-high_res-ell_25
+date:18-09-2019
+job_id:1
+plt_tseries:False
+save_figs:False
+dyn_plots:[False, 1, True]
+anim:False
+BCD3:True
+individual:False
+verbose:False
+HPC:HPC
+local_type:animation
+debug_time:True

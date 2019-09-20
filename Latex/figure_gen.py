@@ -748,8 +748,8 @@ def growth_individual():
 
 def sgm_thresh():
     # single line percolation threshold of sub-grid sgm_model
-    path = os.getcwd() + '/Latex/latex_data/SGM_threshold/'
-    dir_label = [r'$\ell = 25m$', r'$\ell = 25m - rpt$', r'$\ell = 50m$', r'$\ell = 75m$', r'$\ell = 100m$']
+    path = os.getcwd() + '/latex_data/SGM_threshold/'
+    dir_label = [r'$\ell = 25m$', r'$\ell = 50m$', r'$\ell = 75m$', r'$\ell = 100m$']
     metric = ['/percolation/', '/velocity/'][1]
     c = 0
     rhos = np.arange(0.0001, 0.0500, 0.0001)
@@ -782,7 +782,9 @@ def sgm_thresh():
         plt.title(r'$R_0 = 10$')
         plt.legend()
         plt.grid(True)
-        plt.savefig('hres-vline')
+
+    plt.xlim(0, 0.04)
+    plt.savefig('hres-vline')
     plt.show()
     return
 
