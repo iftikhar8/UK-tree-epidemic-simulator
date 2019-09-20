@@ -99,7 +99,7 @@ class SimInit(object):
                  max_d: float, the maximum distance travelled by the pathogen
         """
         distances = self.dist_map[inf_ind]
-        return distances.max()
+        return distances.mean()
 
     def get_new_infected(self, p_infected, susceptible):
         """
@@ -154,7 +154,14 @@ class Plots(object):
         with open(os.path.join(output_path, "parameter_and_settings_info.txt"), "w+") as info_file:
             info_file.write("______Parameter settings_______" + "\n")
             for parameter in parameters:
-                info_file.write(parameter + ':' + str(parameters[parameter]) + '\n')
+                if parameter == "domain_sz":
+                    # Save dimension on two separate lines
+                    sz = parameters[parameter]
+                    info_file.write('row_dim' + ':' + str(sz[0]) + '\n')
+                    info_file.write('col_dim' + ':' + str(sz[1]) + '\n')
+
+                else:
+                    info_file.write(parameter + ':' + str(parameters[parameter]) + '\n')
 
             info_file.write("\n" + "______Simulation parameters_______" + "\n")
             for setting in settings:
@@ -270,6 +277,7 @@ def main(settings, parameters):
             p.percolation = 0
             break
 
+
         # --- GET metrics --- #
         max_d = p.d_metrics(inf_ind=infected_ind)  # GET average and mean distance travelled by pathogen
         ts_max_d[time_step] = max_d
@@ -280,12 +288,15 @@ def main(settings, parameters):
             if p.dim[0] == p.dim[1]:  # Square geometry
                 if max_d > (p.dim[0]/2 - 25) or max_d > (p.dim[1]/2 - 25):
                     # Vertical or Lateral percolation
+                    in_progress = False
                     p.percolation = 1
                     break
+
             else:  # Channel Geometry
                 if max_d > (p.dim[1]/2 - 25):
                     in_progress = False
                     p.percolation = 1
+                    break
 
         if dyn_plots[0]:  # IF TRUE, generate simulation data progression from T=0 at set intervals
             if time_step % dyn_plots[1] == 0:
@@ -305,41 +316,46 @@ def main(settings, parameters):
     # ________________END ALGORITHM________________ #
 
     ts_num_infected = ts_num_infected[: time_step + 1]
-    ts_max_d = ts_max_d[: time_step + 1] * p.alpha
+    ts_max_d = ts_max_d[: time_step] * p.alpha
     max_d_reached = ts_max_d.max()  # Maximum distance reached by the pathogen
     num_infected = ts_num_infected[time_step]  # I @ last step
     num_removed = len(np.where(p.removed == 1)[0])  # R (-1 from initially infected)
     mortality = (num_infected + num_removed - 1)  # I + R
 
     if p.percolation == 1:  # If boundary reached then non-zero velocity
-        velocity = max_d_reached / time_step
+        velocity = max_d_reached / (time_step * 1000)
     elif p.percolation == 0:  # If boundary not reached then zero velocity
         velocity = 0
-    # GENERATE time series output plots over the simulation
-    if settings["plt_tseries"]:
-        print('Step: {}, max d = {} (km)'.format(time_step, max_d_reached))
-        plot_cls = Plots(p.beta, p.rho)  # Plots module contains plotting functions
-        # Plot max d metric
-        label = {'title': "max d distance", 'xlabel': 'days', 'ylabel': 'distance (km)'}
-        plot_cls.plot_tseries(metric=ts_max_d, labels=label, fit=False, saves_=[False, None])
-        # Plot number of infected (SIR)
-        label = {'title': "num infected", 'xlabel': 'days', 'ylabel': '# trees'}
-        plot_cls.plot_tseries(metric=ts_num_infected, labels=label, fit=False, saves_=[False, 'num_inf_0'])
-        # Plot physical computer runtime stats
-        t_debug = t_debug[:time_step]
-        label = {'title': "computer runtime", 'xlabel': 'step', 'ylabel': 'physical runtime'}
-        plot_cls.plot_tseries(metric=t_debug, labels=label, fit=False, saves_=[False, 'rt_0'])
-        # IF True, save time-series data to file
-        save_tseries = False
-        if save_tseries:
-            plot_cls.save_settings(parameters, settings, save_path)
-            beta = round(parameters["beta"], 2)
-            name = 'b_' + str(beta).replace('.', '-') + '_r_' + str(parameters["rho"]).replace('.', '-') + \
-                   '_L_' + str(parameters["eff_disp"]).replace('.', '-')
-            np.save('max_d_' + name, ts_max_d)
+    # GENERATE time series output plots over single simulation run
+    print(settings["out_path"])
+    if "anim" in settings["out_path"]:
+        plot_cls = Plots(p.beta, p.rho)
+        plot_cls.save_settings(parameters, settings, save_path)  # Plots module contains plotting functions
+        if settings["plt_tseries"]:
+            max_pos = round(p.dist_map.max() * 5/1000, 4)
+            max_d_reached = round(max_d_reached/1000, 4)
+            print('Step: {}, max d reached = {} (km), max d possible = {} (km)'.format(time_step, max_d_reached,
+                                                                                       max_pos))
+            # Plot max d metric
+            label = {'title': "max d distance", 'xlabel': 'days', 'ylabel': 'distance (km)'}
+            plot_cls.plot_tseries(metric=ts_max_d, labels=label, fit=False, saves_=[False, None])
+            # Plot number of infected (SIR)
+            label = {'title': "num infected", 'xlabel': 'days', 'ylabel': '# trees'}
+            plot_cls.plot_tseries(metric=ts_num_infected, labels=label, fit=False, saves_=[False, 'num_inf_0'])
+            # Plot physical computer runtime stats
+            t_debug = t_debug[:time_step]
+            label = {'title': "computer runtime", 'xlabel': 'step', 'ylabel': 'physical runtime'}
+            plot_cls.plot_tseries(metric=t_debug, labels=label, fit=False, saves_=[False, 'rt_0'])
+            # IF True, save time-series data to file
+            save_tseries = False
+            if save_tseries:
+                beta = round(parameters["beta"], 2)
+                name = 'b_' + str(beta).replace('.', '-') + '_r_' + str(parameters["rho"]).replace('.', '-') + \
+                       '_L_' + str(parameters["eff_disp"]).replace('.', '-')
+                np.save('max_d_' + name, ts_max_d)
 
     # ##### COMPLETE: Individual realisation complete & metrics gathered # #####
-    return mortality, velocity, max_d_reached, time_step, p.percolation, p.population
+    return mortality, velocity, max_d_reached, time_step, p.percolation, p.population, ts_max_d
 
 if __name__ == "__main__":
     main(param)

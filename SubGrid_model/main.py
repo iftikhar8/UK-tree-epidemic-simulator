@@ -25,9 +25,6 @@ settings = {"out_path": output_path, "date": date, "job_id": job_id, "plt_tserie
 
 
 if mode == "HPC":
-    settings["HPC"] = mode
-    settings["verbose"] = False
-    settings["BCD3"] = False  # IF false --> mortality sims
     """                             ----- HPC mode -----
     Run this extract to generate parameter space of a stochastic sub-grid sgm_model of tree disease over 3D: 
     1. rho (tree density)
@@ -38,6 +35,9 @@ if mode == "HPC":
     output_path as 00**.npy, each core saves results in array form. Results are analysed in the 'output_data/'
     folder using 'param_space_plots.py' file.
     """
+    settings["HPC"] = mode
+    settings["verbose"] = False
+    settings["BCD3"] = False  # IF false --> mortality sims
     # DEFINE parameters
     alpha = 5  # lattice constant
     params["domain_sz"] = [200, 200]
@@ -77,7 +77,7 @@ if mode == "HPC":
                     # ITERATE through density values
                     params["rho"] = rho
                     results = sg_model.main(settings, params)
-                    mortality_, velocity_, max_d_, run_time_, percolation_, population_sz = results
+                    mortality_, velocity_, max_d_, run_time_, percolation_, population_sz, ts_max_d = results
                     mortality[i, j, k] = mortality_
                     velocities[i, j, k] = velocity_
                     max_distances[i, j, k] = max_d_
@@ -117,7 +117,7 @@ if mode == "HPC":
                 params["rho"] = rho
                 for k in range(repeats):
                     results = sg_model.main(settings, params)
-                    mortality_, velocity_, max_d_, run_time_, percolation_, population_sz = results
+                    mortality_, velocity_, max_d_, run_time_, percolation_, population_sz, ts_max_d = results
                     velocity_ensemble[i, j, k] = velocity_
                     percolation_ensemble[i, j, k] = percolation_
                     mortality_ratio_ensmeble[i, j, k] = mortality_ / population_sz
@@ -132,8 +132,7 @@ if mode == "HPC":
         ell_str = str(ell_arr[0] * alpha) + '(m), num = 1'
         rho_str = str(rhos[0].round(4)) + '--' + str(rhos[-1].round(4)) + ', num =' + str(rhos.shape[0])
     # #### END HIGH RES PARAM SWEEP # ####
-
-    tf = time.clock() - t0 # GET time taken
+    tf = time.clock() - t0  # GET time taken
     tf = np.float64(tf / 60)
     print('End time: {} |  sim : {} '.format(datetime.datetime.now(), str(job_id)))
     print("Time taken: {} (mins)".format(tf.round(3)))
@@ -159,19 +158,19 @@ if mode == "HPC":
 elif mode == "LCL":
     # Individual simulation for animation
     if sim_type == "-anim":
-        R0 = float(input('Enter initial-basic-reproduction ratio \in [1, 50]: '))  # number of secondary infections
-        dispersal_ = float(input('Enter target dispersal distance in (m): ')) * 0.001  # average dispersal distance
-        alpha = 5 * 0.001  # Lattice constant
+        R0 = 10  # number of secondary infections
+        dispersal_ = 50  # average dispersal distance in (m)
+        alpha = 5  # Lattice constant in (m)
         eff_dispersal = dispersal_ / alpha  # Convert the dispersal distance from km to computer units
         eff_dispersal = np.round(eff_dispersal, 5)
-        rho = 0.005  # Typically \in [0.001, 0.030]
+        rho = 0.0050  # Typically \in [0.001, 0.030]
         # SET simulation parameters
         params["R0"] = R0
         params["rho"] = rho
         params["alpha"] = alpha
         params["eff_disp"] = eff_dispersal
         params["time_horizon"] = 3650
-        params["domain_sz"] = [200, 200]  # If channel [NxM] where N < M
+        params["domain_sz"] = [30, 550]  # If channel [NxM] where N < M
         # SET simulation settings & boundary conditions
         settings["anim"] = True
         settings["BCD3"] = True  # Percolation condition : if False, simulations will run until pathogen dies
@@ -181,7 +180,7 @@ elif mode == "LCL":
         # BEGIN
         print("Running: ")
         Results = sg_model.main(settings, params)
-        mortality_, velocity_, max_d_, run_time_, percolation_, population_sz = Results
+        mortality_, velocity_, max_d_, run_time_, percolation_, population_sz, ts_max_d = Results
         print("__Finished__")
         # END
         print('percolation = {}'.format(percolation_))
@@ -200,48 +199,48 @@ elif mode == "LCL":
         Use for simple small lines through phase space.
         """
         R0 = 10       # R0 cases initial cases per day
-        L = 200       # Domain size
         alpha = 5     # lattice constant in (m)
-        sigma = 50   # dispersal distance in (m)
+        sigma = 50    # dispersal distance in (m)
         eff_dispersal = sigma / alpha  # dispersal in computer units
-        rhos = np.arange(0.001, 0.021, 0.001)  # Tree density at t=0
-        repeats = 1  # Ensemble size
-        params["L"] = L
+        rhos = np.array([0.0050])       # Tree density at t=0
+        repeats = 100   # Ensemble size
+        domain_sz = [30, 200]
         params["R0"] = R0
         params["alpha"] = alpha
-        params["area"] = L * alpha
         params["l_time"] = 100
         params["time_horizon"] = 1000
         params["eff_disp"] = eff_dispersal
         settings["BCD3"] = True  # False ==> no percolation BCD
         settings["verbose"] = False  # print time-step information
         params["domain_sz"] = [30, 550]
+        settings["plt_tseries"] = True
+        params["area"] = domain_sz[0] * domain_sz[1] * alpha
         vel_results = np.zeros(shape=(rhos.shape[0]))
+        runtime_days = np.zeros(shape=repeats)
+        ts_max_d = np.zeros(shape=params["time_horizon"])
         print("Running: LCL ENSEMBLE simulation")
-        times = np.zeros(rhos.shape[0])
+        import matplotlib.pyplot as plt
         for i in range(repeats):
-            for j, rho in enumerate(rhos):
-                t0 = time.time()
-                params["rho"] = rho
-                Results = sg_model.main(settings, params)
-                mortality_, velocity_, max_d_, run_time_, percolation_, population_sz = Results
-                vel_results[j] = vel_results[j] + velocity_
-                print("rho: {} / {}".format(j, rhos.shape[0]))
-                print('--rho = {}'.format(round(rho, 4)))
-                print('--percolation: {}'.format(percolation_))
-                print('--sim runtime {} (days): '.format(run_time_))
-                t1 = time.time()
-                times[j] = t1 - t0
-                print("--actual runtime time --> {} (s)".format(round(t1 - t0, 4)))
-            vel_results = vel_results / (i + 1)
-            import matplotlib.pyplot as plt
-            plt.plot(rhos, vel_results)
-            plt.savefig('lcl-ens-1')
-            plt.show()
+            params["rho"] = rhos[0]
+            Results = sg_model.main(settings, params)
+            mortality_, velocity_, max_d_, run_time_, percolation_, population_sz, ts_max_d_ = Results
+            runtime_days[i] = run_time_
+            ts_max_d[0: run_time_] = ts_max_d[0: run_time_] + ts_max_d_
+            print('repeat i = ', i)
+            print('--percolation: {}'.format(percolation_))
+            print('--sim runtime {} (days): '.format(run_time_))
 
-        if False:
-            label_ = str(sigma) + '_R0_' + str(R0)
-            np.save('perc_ell_' + label_, vel_results)
+        ts_max_d = ts_max_d /(i + 1)
+        plt.plot(ts_max_d)
+        plt.title('max d raw')
+        plt.show()
+        plt.plot(runtime_days)
+        plt.title('rt days')
+        plt.show()
+        plt.plot(ts_max_d[:int(runtime_days.mean())])
+        plt.title('max d | av rt')
+        plt.show()
+
 
         sys.exit("exiting...")
 

@@ -26,70 +26,20 @@ def en_combine(sim_names):
     np.save('COMBINED-'+save_name, dat)
     return
 
-def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
-    # GENERATE ensemble average phase space tensor
-    # - from a directory of repeats
-    # - sum all results then divide by the number of independent simulations
-    ensemble_results = np.zeros(shape=dim)
-    for i, sim_i in enumerate(sorted(os.listdir(path))):
-        # FIND sum of all data files
-        dat_load = np.load(path + '/' + sim_i)
-        ensemble_results = ensemble_results + dat_load
-
-    print('Number of hpc output files : ', len(os.listdir(path)))
-    # FIND average
-    ensemble_results = ensemble_results / (i+1)
-
-    if "mortality_ratio" in path:
-        label = r"Mortality ratio (# deaths)"
-        save_label = "mortality_ratio"
-    if "mortality" in path:
-        label = r"Mortality (# deaths)"
-        save_label = "mortality"
-    if "max_distance_km" in path:
-        label = r"max distance travelled ($km$) "
-        save_label = "vel"
-    if "percolation" in path:
-        label = r"Pr"
-        save_label = "perc"
-    if "run_time" in path:
-        label = r"Run time (days)"
-        save_label = "perc"
-    if "velocity" in path:
-        label = r'$(km\ yr^{-1})$'
-        save_label = "vel"
-
-    if show_2D:
-        # PLOT ensemble average of 2D phase
-        param_space_2D(data_arr=ensemble_results, label=label, save_name=save_label, save=False)
-
-    if show_1D:
-        param_space_1D(data=ensemble_results, label=label)
-
-
-    # SAVE results to .npy file to be used in diffusion mapping in PDE forecasting
-    if save_Data:
-        name = 'ps-b-100-r-100-L-4-en-' + str(i+1) + "-" + save_label
-        if name + '.npy' in os.listdir(os.getcwd()):
-            print('Error: file already exits, change name!')
-            pass
-        else:
-            np.save(os.path.join(os.getcwd(), name), ensemble_results)
-    return ensemble_results
-
 
 def param_space_2D(data_arr, label, save_name, save):
     # load in specific array
     rhos = np.arange(0.001, 0.031, 0.001)  # Tree density range
     eff_sigmas = np.linspace(10, 100, rhos.shape[0])
     extent = [0, rhos[-1], eff_sigmas[0], eff_sigmas[-1]]
-    title_label = ['1', '3', '20']
+    title_label = ['1', '5', '20']
     for i in range(np.shape(data_arr)[0]):
         fig, ax = plt.subplots()
         data_slice = data_arr[i]
         max_ = np.max(data_slice)
         min_ = np.min(data_slice)
         im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[min_, max_], interpolation="spline16")
+        ax.contour(data_slice, origin='lower', extent=extent, alpha=0.75)
         ax.set_xlabel(r'Tree density $\rho$', size=15)
         ax.set_ylabel(r'Dispersal distance $\ell$ ', size=15)
         ax.set_xticks(np.linspace(0, extent[1], 5).round(2))
@@ -120,9 +70,61 @@ def param_space_1D(data, label):
     return
 
 
+def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
+    # GENERATE ensemble average phase space tensor
+    # - from a directory of repeats
+    # - sum all results then divide by the number of independent simulations
+    ensemble_results = np.zeros(shape=dim)
+    for i, sim_i in enumerate(sorted(os.listdir(path))):
+        # FIND sum of all data files
+        dat_load = np.load(path + '/' + sim_i)
+        ensemble_results = ensemble_results + dat_load
+
+    print('Number of hpc output files : ', len(os.listdir(path)))
+    # FIND average
+    ensemble_results = ensemble_results / (i+1)
+    if "ratio" in path:
+        print('triggered')
+        label = r"Mortality ratio (# deaths)"
+        save_label = "mortality_ratio"
+    if "mortality" in path:
+        label = r"Mortality (# deaths)"
+        save_label = "mortality"
+    if "max_distance_km" in path:
+        label = r"max distance travelled ($km$) "
+        save_label = "vel"
+    if "percolation" in path:
+        label = r"Pr"
+        save_label = "perc"
+    if "run_time" in path:
+        label = r"Run time (days)"
+        save_label = "perc"
+    if "velocity" in path:
+        label = r'$(km\ yr^{-1})$'
+        save_label = "vel"
+
+    if show_2D:
+        # PLOT ensemble average of 2D phase
+        param_space_2D(data_arr=ensemble_results, label=label, save_name=save_label, save=False)
+
+    if show_1D:
+        param_space_1D(data=ensemble_results, label=label)
+
+    # SAVE results to .npy file to be used in diffusion mapping in PDE forecasting
+    if save_Data:
+        name = 'ps-b-100-r-100-L-4-en-' + str(i+1) + "-" + save_label
+        if name + '.npy' in os.listdir(os.getcwd()):
+            print('Error: file already exits, change name!')
+            pass
+        else:
+            np.save(os.path.join(os.getcwd(), name), ensemble_results)
+    return ensemble_results
+
+
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
-sim_names = {0: '/18-09-2019-HPC-full_param-mortality_ratio'}
+sim_names = {0: '/18-09-2019-HPC-full_param-mortality_ratio',
+             1: '/12-09-2019-HPC-full_param'}
 
 # 2. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/mortality_ratio", 4: "/percolation", 5: "/velocity"}
@@ -133,13 +135,13 @@ if True:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_name = 0         # enter the simulate name index
+    sim_name = 1         # enter the simulate name index
     distance = 0         # load and compute distance plots
     runtime = 0          # load and compute runtime plots
-    mortality = 0        # load and compute mortality plots
-    mortality_ratio = 1  # load mortality ratio,
+    mortality = 1        # load and compute mortality plots
+    mortality_ratio = 0  # load mortality ratio,
     velocity = 0         # compute velocity and show
-    percolation = 0       # load and compute percolation
+    percolation = 1      # load and compute percolation
     phase_dim = [1, 30, 30]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
 
@@ -149,7 +151,6 @@ if True:
         path_2_sim = os.getcwd() + sim + metric
         tensor_mortality = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=0, save_Data=0)
         np.save(save_name + '-mortality', tensor_mortality)
-
 
     if mortality_ratio:
         # GET distance travelled data
@@ -172,14 +173,14 @@ if True:
 
     if velocity:
         # GET velocity data
-        sim, metric = [sim_names[sim_name], metrics[4]]
+        sim, metric = [sim_names[sim_name], metrics[5]]
         path_2_sim = os.getcwd() + sim + metric
         tensor_vel = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=False, save_Data=0)
         np.save(save_name + '-vel', tensor_vel )
 
     if percolation:
         # GET percolation data
-        sim, metric = [sim_names[sim_name], metrics[3]]
+        sim, metric = [sim_names[sim_name], metrics[4]]
         path_2_sim = os.getcwd() + sim + metric
         # phase_dim : [sigma, beta, rho]
         tensor_perc = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=True, show_1D=False, save_Data=0)

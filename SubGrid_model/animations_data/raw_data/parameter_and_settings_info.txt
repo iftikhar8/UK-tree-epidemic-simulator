@@ -1,24 +1,24 @@
 ______Parameter settings_______
 l_time:100
 time_horizon:3650
-t_init:[5, 6]
-L:200
-rho:0.01
-beta:0.015915494309189534
-alpha:0.005
+R0:10
+rho:0.005
+alpha:5
 eff_disp:10.0
+row_dim:30
+col_dim:550
 
 ______Simulation parameters_______
-out_path:/Users/py13jh/PycharmProjects/hpc-subgrid-model/SSTLM_main/output_data/lattice/23-08-2019-LCL
-domain_type:lattice
-date:23-08-2019
+out_path:/Users/py13jh/PycharmProjects/hpc-subgrid-model/SubGrid_model/output_data/19-09-2019-LCL-anim-channel_test
+date:19-09-2019
 job_id:25
 plt_tseries:True
 save_figs:False
 dyn_plots:[True, 1, True]
 anim:True
-BCD3:False
+BCD3:True
 individual:False
 verbose:True
 HPC:None
 local_type:animation
+debug_time:True
