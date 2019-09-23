@@ -36,7 +36,6 @@ def diffusion_mapping(domain, rho_space, v_map, plt_figs):
                     elif rho_boundaries[497][1] < d_ij:
                         velocity_map[i, j] = v_map[497]
 
-    velocity_map = velocity_map / 365
     if plt_figs:
         import matplotlib.pyplot as plt
         """
@@ -63,7 +62,8 @@ def diffusion_mapping(domain, rho_space, v_map, plt_figs):
         plt.show()
         sys.exit()
 
-    return velocity_map
+    diffusion_map = np.square(velocity_map) / 4
+    return diffusion_map
 
 
 def main(params, plt_figs):
@@ -74,24 +74,48 @@ def main(params, plt_figs):
     """
     # LOAD phase constants
     # - choose which data is loaded  # data saved in 'phase-plots' as km/year, convert to day
-    vmap_name = params["vmap"] + '.npy'
-    vmap_Dat = np.load(os.getcwd() + '/diffusion_mapping/' + vmap_name)
-    rho_space, v_mapping = vmap_Dat
     domain_name = '/diffusion_mapping/' + params["domain_name"] + '.npy'
-    domain = np.load(os.getcwd() + domain_name)     # LOAD domain map
+    domain = np.load(os.getcwd() + domain_name)  # LOAD domain map
     domain = 0.01 * domain       # convert to density map hectares/km^2 --> density x 0.01.
     domain = domain.round(4)
     number_map = domain * 10**6 / 25  # Estimated tree numbers, assumes each tree at 5 m^2 (Or 25 square m)
     number_map = np.where(np.isnan(number_map), 0, number_map)
-                       # 3. pick out beta line through axis - 1
-    # phase_constants = np.load(os.getcwd() + "/diffusion_mapping/ps-b-100-r-100-L-6-vel.npy")
-    # phase_constants = 1 / phase_constants[:, 0]  # time taken to cross the boundary     # 4. define rho space
-    """These map a velocity in km/day to a tree density which in turn are mapped to land regions over the UK:
-        MAP: {L, beta, rho_ij} ---> vel_ij ---> diff_ij
+    # Diffusion map pre-saved, for either partial sim or full uk sim
+    if params["partial"][0]:
+        diff_name = 'diff-' + params["sim_name"] + '-partial.npy'
+    if not params["partial"][0]:
+        diff_name = 'diff-' + params["sim_name"] + '-uk.npy'
+    # If diff_name in directory, then load data.
+    if diff_name in os.listdir(os.getcwd() + '/diffusion_mapping'):
+        print("Diffusion map loading...")
+        diffusion_map = np.load(os.getcwd() + '/diffusion_mapping/' + diff_name)
+    # If not, then generate the from scratch.
+    else:
+        print('Diffusion map generating...')
+        vmap_name = params["vmap"] + '.npy'
+        vmap_Dat = np.load(os.getcwd() + '/diffusion_mapping/' + vmap_name)
+        rho_space, v_mapping = vmap_Dat
+        v_mapping = np.where(v_mapping < 5, 0, v_mapping)
+        v_mapping = v_mapping / 365
+        diffusion_map = diffusion_mapping(domain, rho_space, v_mapping, plt_figs=plt_figs)
+        np.save(os.getcwd() + '/diffusion_mapping/' + diff_name, diffusion_map)
+
+    growth_map = np.ones(shape=diffusion_map.shape)
+    growth_map = np.where(diffusion_map == 0, 0, growth_map)
+
+    """
+    import matplotlib.pyplot as plt
+    plt.plot(rho_space, v_mapping)
+    plt.show()
+    plt.imshow(growth_map)
+    plt.show()
+    
+    im = plt.imshow(diffusion_map)
+    plt.colorbar(im)
+    plt.show()
     """
 
-    diffusion_map = diffusion_mapping(domain, rho_space, v_mapping, plt_figs=plt_figs)
-    return diffusion_map, number_map
+    return diffusion_map, number_map, growth_map
 
 
 if __name__ == "__main__":

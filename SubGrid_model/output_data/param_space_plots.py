@@ -49,22 +49,23 @@ def param_space_2D(data_arr, label, save_name, save):
     rhos = np.arange(0.001, 0.031, 0.001)  # Tree density range
     eff_sigmas = np.linspace(10, 100, rhos.shape[0])
     extent = [0, rhos[-1], eff_sigmas[0], eff_sigmas[-1]]
-    title_label = ['10', 'na', 'na']
+    title_label = ['5', '15', '10']
     for i in range(np.shape(data_arr)[0]):
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(7.5, 5.5))
         data_slice = data_arr[i]
         max_ = np.max(data_slice)
         min_ = np.min(data_slice)
         im = ax.imshow(data_slice, origin='lower', extent=extent, clim=[min_, max_], interpolation="spline16")
         ax.contour(data_slice, origin='lower', extent=extent, alpha=0.75)
-        ax.set_xlabel(r'Tree density $\rho$', size=15)
-        ax.set_ylabel(r'Dispersal distance $\ell$ ', size=15)
+        ax.set_xlabel(r'Tree density $\rho$', size=14)
+        ax.set_ylabel(r'Dispersal distance $(m)$ ', size=14)
         ax.set_xticks(np.linspace(0, extent[1], 5).round(2))
         plt.title(r'$R_0 = $' + title_label[i])
         cbar = plt.colorbar(im, ax=ax)
         cbar.set_label(label, labelpad=-30, y=1.05, rotation=0)
         ax.set_aspect("auto")
         if save:
+            print(save_name)
             plt.savefig(save_name + '-' + 'R0-' + title_label[i])
         plt.show()
     return
@@ -106,7 +107,7 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 
     if show_2D:
         # PLOT ensemble average of 2D phase
-        param_space_2D(data_arr=ensemble_results, label=label, save_name=save_label, save=False)
+        param_space_2D(data_arr=ensemble_results, label=label, save_name=save_label, save=True)
 
     if show_1D:
         param_space_1D(data=ensemble_results, label=label)
@@ -138,14 +139,14 @@ if True:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_name = 3         # enter the simulate name index
+    sim_name = 1         # enter the simulate name index
     distance = 0         # load and compute distance plots
     runtime = 0          # load and compute runtime plots
     mortality = 0        # load and compute mortality plots
     mortality_ratio = 0  # load mortality ratio,
     velocity = 1         # compute velocity and show
     percolation = 0      # load and compute percolation
-    phase_dim = [1, 30, 30]
+    phase_dim = [3, 30, 30]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
 
     if mortality:

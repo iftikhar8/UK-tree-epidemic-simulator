@@ -748,13 +748,14 @@ def growth_individual():
 
 def sgm_thresh():
     # single line percolation threshold of sub-grid sgm_model
-    path = os.getcwd() + '/latex_data/SGM_threshold/'
+    path = os.getcwd() + '/Latex/latex_data/SGM_threshold/'
     dir_label = [r'$\ell = 25m$', r'$\ell = 50m$', r'$\ell = 75m$', r'$\ell = 100m$']
+    save_label = ['R0_10_ell_25', 'R0_10_ell_50', 'R0_10_ell_75', 'R0_10_ell_100']
     metric = ['/percolation/', '/velocity/'][1]
     c = 0
     rhos = np.arange(0.0001, 0.0500, 0.0001)
     directories = sorted(os.listdir(path))  # Data directories produced by HPC
-    for dir in directories:
+    for N, dir in enumerate(directories):
         print('directory = ', dir)
         data_dir = path + dir + metric  # Locate the metric folder inside the directory
         files = sorted(os.listdir(data_dir))
@@ -770,6 +771,7 @@ def sgm_thresh():
                 ensemble_av[ell] = ensemble_av[ell] + dat_t
 
         en_mean = ensemble_av / ((i + 1) * shape[-1])  # find mean result
+        np.save(save_label[N], [rhos, en_mean[0]])
         for ell in range(shape[0]):
             plt.plot(rhos, en_mean[ell], alpha=0.5, label=dir_label[c])  # plot
             c += 1
@@ -787,9 +789,6 @@ def sgm_thresh():
     plt.savefig('hres-vline')
     plt.show()
     return
-
-
-sgm_thresh()
 
 
 def pde_mortality_curves():
@@ -813,8 +812,30 @@ def pde_mortality_curves():
     plt.show()
 
 
+def hres_pdf():
+    path = os.getcwd() + '/Latex/latex_data/hres_pdf/'
+    data_dir = '20-09-2019-HPC-high_res-rho_v_vel_pdf/'
+    metric = ['mortality_ratio/', 'percolation/', 'velocity/'][2]
+    path_2_dat = path + data_dir + metric
+    rhos = ['0.001', '0.005', '0.010', '0.015', '0.020']
+    ell, R0 = [r'$\ell = 50$, ', r'$R0 = 10$']
+    dir_list = sorted(os.listdir(path_2_dat))
+    shape = np.load(path_2_dat + dir_list[0]).shape
+    n_files = len(dir_list)
+    n_ens, n_rhos = n_files * shape[2], shape[1]
+    ens_av = np.zeros(shape=[n_rhos, n_ens])  # i : total ensemble size, j : number of rho values
+    print("Dir len: ", n_files)
+    for i, file in enumerate(dir_list):
+        dat = np.load(path_2_dat + file)
+        ens_av[:, i*100: (i + 1)*100] = dat[0]
 
+    ens_av = ens_av / (i + 1)
 
+    for i, rho_dat in enumerate(ens_av[1:]):
+        plt.hist(rho_dat, bins=100)
+        plt.show()
+
+    return
 
 
 

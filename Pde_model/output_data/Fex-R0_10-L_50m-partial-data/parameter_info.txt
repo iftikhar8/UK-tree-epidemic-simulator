@@ -3,7 +3,7 @@ T:200
 epi_c:[690, 700, 550, 560]
 plt_epi:False
 partial:[True, [800, 900, 300, 400]]
-vmap:vmap_R0_10_L_50m
+vmap:R0_10_ell_50
 domain_name:Fex-cg-1
 sim_name:Fex-R0_10-L_50m
 modified:False

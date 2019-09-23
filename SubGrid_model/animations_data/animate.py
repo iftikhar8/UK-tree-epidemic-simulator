@@ -70,6 +70,7 @@ for i, frame in enumerate(files[:-1]):
         I2 = np.zeros(I.shape)
         ind_inf = np.where(I > 0)  # infected indicies
         ind_sus = np.where(S > 0)  # susceptible indicies
+        ind_rem = np.where(R > 0)
         I2[ind_inf] = 1
         kernels = gaussian_filter(input=I2, sigma=5, truncate=3.0)  # overlay the visualisation of the dispersal kernel
         #  kernels = np.where(kernels > 0, 1, 0)
@@ -89,10 +90,16 @@ for i, frame in enumerate(files[:-1]):
         for co in zip(ind_inf[0], ind_inf[1]):
             circ = Circle((co[1], co[0]), 2, alpha=0.5, color='r')
             ax.add_patch(circ)
+
+        for co in zip(ind_rem[0], ind_rem[1]):
+            circ = Circle((co[1], co[0]), 2, alpha=0.5, color='saddlebrown')
+            ax.add_patch(circ)
+
         ax.set_xticks([])
         ax.set_yticks([])
         plt.savefig(save_dir + save_nm(c))
         plt.close()
+
         c += 1
     else:
         # Skip frame

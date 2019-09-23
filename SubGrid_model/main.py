@@ -162,21 +162,21 @@ elif mode == "LCL":
     # Individual simulation for animation
     if sim_type == "-anim":
         R0 = 10  # number of secondary infections
-        dispersal_ = 80  # average dispersal distance in (m)
+        dispersal_ = 30  # average dispersal distance in (m)
         alpha = 5  # Lattice constant in (m)
         eff_dispersal = dispersal_ / alpha  # Convert the dispersal distance from km to computer units
         eff_dispersal = np.round(eff_dispersal, 5)
-        rho = 0.030  # Typically \in [0.001, 0.030]
+        rho = 0.010  # Typically \in [0.001, 0.030]
         # SET simulation parameters
         params["R0"] = R0
         params["rho"] = rho
         params["alpha"] = alpha
         params["eff_disp"] = eff_dispersal
-        params["time_horizon"] = 3650
-        params["domain_sz"] = [30, 650]  # If channel [NxM] where N < M
+        params["time_horizon"] = 300
+        params["domain_sz"] = [200, 200]  # If channel [NxM] where N < M
         # SET simulation settings & boundary conditions
         settings["anim"] = True
-        settings["BCD3"] = True  # Percolation condition : if False, simulations will run until pathogen dies
+        settings["BCD3"] = False  # Percolation condition : if False, simulations will run until pathogen dies
         settings["verbose"] = True
         settings["plt_tseries"] = True
         settings["dyn_plots"] = [True, 1, True]
@@ -219,7 +219,7 @@ elif mode == "LCL":
         print("Running: LCL ENSEMBLE simulation")
         import matplotlib.pyplot as plt
         if 0:  # single plots
-            rhos = np.array([0.001, 0.005, 0.010, 0.015, 0.020])
+            rhos = np.array([0.005, 0.010, 0.015, 0.020, 0.025])
             ts_rt = np.zeros(rhos.shape[0])
             ts_max_d = np.zeros(shape=(rhos.shape[0], params["time_horizon"]))
             i = 0
@@ -236,26 +236,27 @@ elif mode == "LCL":
             ts_max_d = ts_max_d / 1000
             np.save('ens_dat', ts_max_d)
             np.save('ens_rt', ts_rt)
-            rhos = np.array([0.001, 0.005, 0.010, 0.015, 0.020])
-            colors = ['#e6194B', '#f58231', '#ffe119', '#bfef45', '#3cb44b']
-            ts_max_d = np.load(os.getcwd() + '/ens_dat.npy')
-            ts_rt = np.load(os.getcwd() + '/ens_rt.npy')
-            fig, ax = plt.subplots(figsize=(7.5, 5.0))
-            for i, arr in enumerate(ts_max_d):
-                label_ = r'$\rho $ = {}'.format(str(rhos[i]))
-                rt = int(ts_rt[i])
-                ax.plot(arr[:rt], label=label_, c=colors[i])
-                ax.plot([rt, rt], [0, arr[rt-1]], c=colors[i], linewidth=0.5, ls='--')
 
-            print(ts_max_d.max(), ' max')
-            ax.plot([0, ts_rt.max()], [ts_max_d.max(), ts_max_d.max()], c='black', linewidth=1)
-            ax.set_ylim(0, 1.6)
-            ax.set_ylabel('Distance (km)')
-            ax.set_xlabel('Time (days)')
+        rhos = np.array([0.005, 0.010, 0.015, 0.020, 0.025])
+        colors = ['#e6194B', '#f58231', '#ffe119', '#bfef45', '#3cb44b']
+        ts_max_d = np.load(os.getcwd() + '/ens_dat.npy')
+        ts_rt = np.load(os.getcwd() + '/ens_rt.npy')
+        fig, ax = plt.subplots(figsize=(6.0, 5.5))
+        for i, arr in enumerate(ts_max_d):
+            label_ = r'$\rho $ = {}'.format(str(rhos[i]))
+            rt = int(ts_rt[i])
+            ax.plot(arr[:rt], label=label_, c=colors[i])
+            ax.plot([rt, rt], [0, arr[rt-1]], c=colors[i], linewidth=0.5, ls='--')
 
-            plt.legend(loc=6)
-            plt.savefig('Time_series')
-            plt.show()
+        print(ts_max_d.max(), ' max')
+        ax.plot([0, ts_rt.max()], [ts_max_d.max(), ts_max_d.max()], c='black', linewidth=1)
+        ax.set_ylim(0, 1.6)
+        ax.set_ylabel('Max infected distance (km)', size=14)
+        ax.set_xlabel('Time (days)', size=14)
+
+        plt.legend(loc=4)
+        plt.savefig('Time_series')
+        plt.show()
 
         if 0: # average
             rhos = np.array([0.001])  # Tree density at t=0

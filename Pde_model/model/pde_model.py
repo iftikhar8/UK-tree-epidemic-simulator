@@ -12,7 +12,10 @@ def finite_difference_sim(dim, params, d_map, g_map, N_map, uk, saves):
     :param saves: if True save else don't
     :return:
     """
-    d_map = np.square(d_map)/4  # convert to a diffusion efficient
+    d_d_map = np.gradient(d_map)
+    d_d_map = d_d_map[0] + d_d_map[1]
+    d_d_map = np.abs(d_d_map)
+    d_map = d_map + d_d_map
     alpha, dim, T = 1, params["dim"], params["T"]
     inf_tseries = np.zeros(T)  # count estimated number of infected trees
     for time_step in range(T):
@@ -22,16 +25,16 @@ def finite_difference_sim(dim, params, d_map, g_map, N_map, uk, saves):
                 # diff_ij: diffusion component of PDE sgm_model: D \grad^2 U)
                 # advection_ij: advection term in PDE:       \grad D_ \grad U
                 # growth_ij: growth component of PDE sgm_model:  \alpha U(x,t)
-                diff_ij = (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j])
+                diff_ij = d_map[i, j] * (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j])
+                # (d_map[i + 1, j] + d_map[i, j + 1] - d_map[i - 1, j] - d_map[i, j - 1])
                 # advection_ij = d_d_map[i, j] * (uk[i + 1, j] + uk[i, j + 1] - uk[i - 1, j] - uk[i, j - 1])
-                # (d_map[i + 1, j] + d_map[i - 1, j] + d_map[i, j + 1] + d_map[i, j - 1])
-                growth_ij = 1 * uk[i, j]
+                growth_ij = g_map[i, j] * uk[i, j] * (1 - uk[i, j])
                 # uk: resultant output: SUM {Growth + diffusion}[1 - U(x, t)]
                 mod = params["modified"]
                 if mod:  # modified custom-made derived equation
                     uk[i, j] = uk[i, j] + d_map[i, j] * (diff_ij + growth_ij) * (1 - uk[i, j])
                 if not mod:  # the off-the shelf Fisher equation.
-                    uk[i, j] = uk[i, j] + d_map[i, j] * diff_ij + g_map[i, j] * growth_ij * (1 - uk[i, j])
+                    uk[i, j] = uk[i, j] + diff_ij + growth_ij  # + advection_ij
 
         # Infected response curve
         inf_tseries[time_step] = (uk * N_map).sum()
@@ -85,9 +88,9 @@ def main(params, maps_):
 
     else:
         name = params["sim_name"] + "-data"
-        print("Full uk simulation data check!")
+        print("Full uk simulation data check")
         if name in path_dir_list:
-            sys.exit("...ERROR: simulation % already exists! " % name)
+            print("...warning: simulation % already exists! " % name)
         else:
             os.mkdir(save_path+name)
 
@@ -127,9 +130,6 @@ def main(params, maps_):
         ax.set_yticks(np.arange(0, uk.shape[0], 100))
         plt.show()
         sys.exit('Plt epi triggered...')
-
-    # d_diffusion_map = np.gradient(diffusion_map)
-    # d_diffusion_map = d_diffusion_map[0] + d_diffusion_map[1]
 
     # ________ BEGIN the finite simulations ________ #
     inf_tseries = finite_difference_sim(dim, params, diffusion_map, growth_map, number_map, uk, saves=[True, save_path])

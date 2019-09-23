@@ -34,7 +34,7 @@ elif [ "$hpc_switch" == 0 ]
 job_id=25
 date_time=$(date '+%d-%m-%Y %H:%M:%S')
 mode="LCL"
-sim_type="-anim"  # LCL --> two sim_types : ['-anim', '-ens']
+sim_type="-ens"  # LCL --> two sim_types : ['-anim', '-ens']
 sim_name="-channel_test"
 python3 mkdir.py  $date_time $data_type $mode $sim_type $sim_name
 python3 main.py $job_id $date_time $data_type $mode $sim_type $sim_name
