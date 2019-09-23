@@ -99,7 +99,7 @@ class SimInit(object):
                  max_d: float, the maximum distance travelled by the pathogen
         """
         distances = self.dist_map[inf_ind]
-        return distances.mean()
+        return distances.max()
 
     def get_new_infected(self, p_infected, susceptible):
         """
@@ -243,7 +243,7 @@ def main(settings, parameters):
     np.random.seed()
     p = SimInit(parameters)  # p : hold all parameters
     plts = Plots(p.rho, p.beta)
-    ts_max_d, ts_num_infected, t_debug = [p.max_d, p.num_infected_arr, p.time_debug]  # arrays used to record time-series
+    ts_max_d, ts_num_infected, t_debug = [p.max_d, p.num_infected_arr, p.time_debug]  # arrays to record time-series
     in_progress, time_step, num_infected = [True, 0, 1]
     verbose = settings["verbose"]  # control output print-to-screens
     dyn_plots = settings["dyn_plots"]  # control settings to 'dynamic-plots' .png files are generated and saved

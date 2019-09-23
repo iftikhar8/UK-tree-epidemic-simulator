@@ -49,7 +49,7 @@ def param_space_2D(data_arr, label, save_name, save):
     rhos = np.arange(0.001, 0.031, 0.001)  # Tree density range
     eff_sigmas = np.linspace(10, 100, rhos.shape[0])
     extent = [0, rhos[-1], eff_sigmas[0], eff_sigmas[-1]]
-    title_label = ['1', '5', '20']
+    title_label = ['10', 'na', 'na']
     for i in range(np.shape(data_arr)[0]):
         fig, ax = plt.subplots()
         data_slice = data_arr[i]
@@ -126,7 +126,8 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 # 1. sim_names : used to generate individual ensemble simulations
 sim_names = {0: '/18-09-2019-HPC-full_param-mortality_ratio',
              1: '/12-09-2019-HPC-full_param',
-             2: '/19-09-2019-HPC-full_param-mortality_ratio'}
+             2: '/19-09-2019-HPC-full_param-mortality_ratio',
+             3: '/20-09-2019-HPC-full_param--ch_geom_test'}
 
 # 2. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/mortality_ratio", 4: "/percolation", 5: "/velocity"}
@@ -137,12 +138,12 @@ if True:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_name = 2         # enter the simulate name index
+    sim_name = 3         # enter the simulate name index
     distance = 0         # load and compute distance plots
-    runtime = 1          # load and compute runtime plots
+    runtime = 0          # load and compute runtime plots
     mortality = 0        # load and compute mortality plots
     mortality_ratio = 0  # load mortality ratio,
-    velocity = 0         # compute velocity and show
+    velocity = 1         # compute velocity and show
     percolation = 0      # load and compute percolation
     phase_dim = [1, 30, 30]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
@@ -172,6 +173,11 @@ if True:
         sim, metric = [sim_names[sim_name], metrics[1]]
         path_2_sim = os.getcwd() + sim + metric
         tensor_runtime = ensemble_generator(path=path_2_sim, dim=phase_dim, show_2D=1, show_1D=False, save_Data=0)
+
+    if distance and runtime:
+        arr = np.divide(tensor_distance, tensor_runtime)
+        param_space_2D(data_arr=arr, label='vel_dist_rt', save_name='na', save=False)
+
 
     if velocity:
         # GET velocity data

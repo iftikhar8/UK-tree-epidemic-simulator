@@ -7,7 +7,7 @@
 # sim_name | input a string to append to the output file to identify simulation runs
 # data_type | currently set to lattice i.e. simple square homogeneous lattice 
 
-hpc_switch=1
+hpc_switch=0
 
 ###########__________Run script__________#############
 if [ "$hpc_switch" == 1 ]
@@ -34,7 +34,7 @@ elif [ "$hpc_switch" == 0 ]
 job_id=25
 date_time=$(date '+%d-%m-%Y %H:%M:%S')
 mode="LCL"
-sim_type="-ens"  # LCL --> two sim_types : ['-anim', '-ens']
+sim_type="-anim"  # LCL --> two sim_types : ['-anim', '-ens']
 sim_name="-channel_test"
 python3 mkdir.py  $date_time $data_type $mode $sim_type $sim_name
 python3 main.py $job_id $date_time $data_type $mode $sim_type $sim_name

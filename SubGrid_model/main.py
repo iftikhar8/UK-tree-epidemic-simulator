@@ -162,7 +162,7 @@ elif mode == "LCL":
     # Individual simulation for animation
     if sim_type == "-anim":
         R0 = 10  # number of secondary infections
-        dispersal_ = 70  # average dispersal distance in (m)
+        dispersal_ = 80  # average dispersal distance in (m)
         alpha = 5  # Lattice constant in (m)
         eff_dispersal = dispersal_ / alpha  # Convert the dispersal distance from km to computer units
         eff_dispersal = np.round(eff_dispersal, 5)
@@ -173,10 +173,10 @@ elif mode == "LCL":
         params["alpha"] = alpha
         params["eff_disp"] = eff_dispersal
         params["time_horizon"] = 3650
-        params["domain_sz"] = [20, 200]  # If channel [NxM] where N < M
+        params["domain_sz"] = [30, 650]  # If channel [NxM] where N < M
         # SET simulation settings & boundary conditions
         settings["anim"] = True
-        settings["BCD3"] = False  # Percolation condition : if False, simulations will run until pathogen dies
+        settings["BCD3"] = True  # Percolation condition : if False, simulations will run until pathogen dies
         settings["verbose"] = True
         settings["plt_tseries"] = True
         settings["dyn_plots"] = [True, 1, True]

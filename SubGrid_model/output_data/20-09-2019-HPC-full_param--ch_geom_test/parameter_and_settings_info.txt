@@ -24,3 +24,6 @@ verbose:False
 HPC:HPC
 local_type:animation
 debug_time:True
+
+
+notes: In the sgm metrics returned the mean distance not the max, this lowered the average velocity.
