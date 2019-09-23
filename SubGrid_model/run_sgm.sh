@@ -7,7 +7,7 @@
 # sim_name | input a string to append to the output file to identify simulation runs
 # data_type | currently set to lattice i.e. simple square homogeneous lattice 
 
-hpc_switch=0
+hpc_switch=1
 
 ###########__________Run script__________#############
 if [ "$hpc_switch" == 1 ]
@@ -23,7 +23,7 @@ date_time=$(date '+%d-%m-%Y %H:%M:%S')
 
 mode="HPC"
 sim_type="-full_param-"  # HPC --> two sim_types : ['-high_res-', '-full_param-']
-sim_name="mortality_ratio"
+sim_name="-ch_geom_test"
 
 python3 mkdir.py $date_time $mode $sim_type $sim_name
 python3 main.py $SGE_TASK_ID $date_time $data_type $mode $sim_type $sim_name

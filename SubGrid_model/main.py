@@ -104,7 +104,7 @@ if mode == "HPC":
     # RUN partial parameter space in high_resolution:
     # ---- Iterate indices as  ---> [i: ell, j:rho, k:repeats]
     elif 'high_res' in sim_type.split('-'):
-        repeats = 10  # Total ensemble size = #repeats * #cores
+        repeats = 100  # Total ensemble size = #repeats * #cores
         params["R0"] = 10  # Basic reproduction number
         ell_arr = np.array([50]) / alpha  # dispersal values in (m) divide by scale constant
         rhos = np.array([0.001, 0.005, 0.010, 0.015, 0.020])  # tree density values
