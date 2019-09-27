@@ -14,25 +14,25 @@ from model import pde_model
 
 in_arr = sys.argv  # Input parameters
 month, current_time, sim_label = in_arr[1:]
-vmap_name = "R0_10_ell_50"       # velocity map name
+vmap_name = "R0_10_ell_100"       # velocity map name
 domain_name = 'Fex-cg-1'         # domain name
-sim_name = "Fex-R0_10-L_50m"     # simulation label
+sim_name = "Fex-R0_10-L_100m"     # simulation label
 
 # DEFINE simulation parameters
 # T : runtime of simulation
 # epi center
 
-params = {"T": 365*10, "epi_c": [690, 700, 550, 560], "plt_epi": False, "partial": [False,  [800, 900, 300, 400]],
+params = {"T": 20, "epi_c": [690, 700, 550, 560], "plt_epi": False, "partial": [False,  [800, 900, 300, 400]],
           "vmap": vmap_name, "domain_name": domain_name, "sim_name": sim_name, "modified": False}
 
 print("Running PDE : {}".format(vmap_name))
 print("--> save dir :  {} ".format(sim_name))
 # GENERATE diffusion map based on input of L, beta and a domain (in this case a map of abundance)
-diffusion_map, species_number_map, growth_map = diffusion_mapping.main(params, plt_figs=False)
+diffusion_map, species_number_map, growth_map, sea_map, uk = diffusion_mapping.main(params, plt_figs=False)
 # SET growth to constant value of 1 (non-dimensionalized)
 # maps_ : this is fed into pde_model
-maps_ = np.zeros(shape=(3, growth_map.shape[0], growth_map.shape[1]))
-maps_[0], maps_[1], maps_[2] = diffusion_map, growth_map, species_number_map
+maps_ = np.zeros(shape=(5, growth_map.shape[0], growth_map.shape[1]))
+maps_[0], maps_[1], maps_[2], maps_[3], maps_[4] = diffusion_map, growth_map, species_number_map, sea_map, uk
 params["dim"] = diffusion_map.shape
 # - epi_center : point of disease introduction
 #   port of Immingham ~= [560, 570, 455, 465]
@@ -44,7 +44,7 @@ t = (t_1 - t_0) / 60
 print("Time elapsed: ", t, ' (mins)')
 plt.plot(inf_tseries)
 np.save(sim_name + '_response_c', inf_tseries)
-plt.savefig('response_c')
+plt.savefig(sim_name + '_response_c')
 plt.show()
 
 

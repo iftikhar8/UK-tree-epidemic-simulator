@@ -1,7 +1,8 @@
+import os, sys
+import numpy as np
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-import numpy as np
-import os, sys
 
 
 def save_name(int_):
@@ -15,73 +16,103 @@ def save_name(int_):
     elif int_ >= 1000:
         return '0' + str(int_)
 
-name = input('Enter name of folder to animate: ')
-mod = input('Which form ? (0=fisher, 1=mod) ')
-if 'test' in name.split('_'):
-    Test = True
 
+name = input('Enter name of folder to animate: ')
 path = os.getcwd() + '/' + name + '/'
-files = sorted(os.listdir(path))[:-1]  # remove last parameters.txt file
-diffusion_map = files[0]
-diffusion_map = np.load(os.path.join(path, diffusion_map))
-diff_flat = diffusion_map.flatten()
+files = sorted(os.listdir(path))
+sim_info = files[-1]
+
+with open(path + sim_info) as f:
+    content = f.readlines()  # Load in simulation parameters file
+
+for line in content:
+    line = line.split(':')
+    if line[0] == "save_freq":  # pde_model saves at given frequency
+        freq = int(line[1])
+
+files = files[:-1]  # remove last parameters.txt file
+diff_map_name, num_map_name, sea_map_name = files[0], files[1], files[2]
+diffusion_map = np.load(os.path.join(path, diff_map_name))
+num_map = np.load(os.path.join(path, num_map_name))
+sea_map = np.load(os.path.join(path, sea_map_name))
+test = True  # plot end travelling metrics
+ulim = num_map.max()
+
 years = [365*i for i in range(10)]
-files = files[2:]
+files = files[3:]
 # GENERATE each individual frame in the animation
 year_elapsed = 0
-R0 = str(input('Enter R0: '))
-disp = str(input('Enter dispersal kernel in (m): '))
-freq = int(input('Enter animate frquency :'))
-c = 0
+R0 = "10"
+disp = "100"
+
+# set upper part of color map - i.e. pathogen spread
+upper = mpl.cm.YlOrRd(np.arange(200))[50:]
+# set lower part i.e. map of land
+# - initialize all entries to 1 to make sure that the alpha channel (4th column) is 1
+green = [0, 0.6, 0, 1]
+lower = np.ones((10, 4))
+for i in range(lower.shape[0]):
+    lower[i] = green
+
+# - modify the first three columns (RGB):
+#   range linearly between green (0,0.8,1) and the first color of the upper colormap
+for i in range(3):
+    green_c = green[i]
+    lower[:, i] = np.linspace(green_c, upper[0, i], lower.shape[0])
+# combine parts of colormap
+cmap = np.vstack((lower, upper))
+# convert to matplotlib colormap
+cmap = mpl.colors.ListedColormap(cmap, name='myColorMap', N=cmap.shape[0])
+yrs = -1
 for i, file in enumerate(files):
-    if i % freq == 0:
-        print('File:', file, i, ' /', len(files))
-        # Get how many years has passed
-        if i in years:
-            year_elapsed = int(i/365)
-        else:
-            pass
-        assert file.split('.')[1] == 'npy'
-        cmap = plt.get_cmap('inferno')
-        dat = np.load(os.path.join(path, file))
-        fig, [ax, ax1] = plt.subplots(nrows=2, figsize=(5, 10))
-        if i + 1 == len(files):
-            if Test:
-                ind = np.where(dat > 0.95)
-                x_min, x_max = ind[0].min(), ind[0].max()
-                over_lay = np.zeros(dat.shape)
-                over_lay[:, x_min], over_lay[:, x_max] = np.nan, np.nan
-                dat = dat + over_lay
-                plt.text(0, 1.1, 'distance: ' + str(x_max -x_min) + 'km end-to-end', size=15)
+    print('File:', file, i, ' /', len(files))
+    # Get how many years has passed
+    assert file.split('.')[1] == 'npy'  # check is numpy file
+    dat = np.load(os.path.join(path, file))
+    fig, ax = plt.subplots(figsize=(5, 5))
+    pathogen_spread = dat * num_map * sea_map
+    im = ax.imshow(pathogen_spread, cmap=cmap, clim=[0, ulim], origin='lower')
+    cbar = plt.colorbar(im)
+    cbar.set_label('Tree deaths')
+    ax.set_title(r'$\ell = {}m,\ R0 = {} $: '.format(disp, R0) + ' days = ' + str(i * freq))
+    name = 'img-' + save_name(i)
+    plt.savefig('frames_2_anim/' + name)
+    plt.close()
 
-        ax.imshow(dat, cmap=cmap)
-        ax.imshow(diffusion_map, alpha=0.5, cmap=plt.get_cmap('Greens'))
-        ax.set_title(r'$\ell = {}m,\ R0 = {} $:  year '.format(disp, R0) + str(year_elapsed) + ' days = ' + str(i % 365))
-        divider = make_axes_locatable(ax1)
-        cax = divider.append_axes("bottom", size="5%", pad=0.05)
-        im1 = ax1.imshow(diffusion_map, cmap=plt.get_cmap('plasma'))  # np.round(diffusion_map, 4)
-        ax1.set_xticks([])
-        ax1.set_yticks([])
-        cbar = plt.colorbar(im1, cax=cax, orientation="horizontal")
-        cbar.set_label(r'$\bar{v}(\rho, R0, \ell)\ (km\ day^{-1})$ ')
-        diff_values = np.unique(diffusion_map.flatten()).round(3)
-        cbar.ax.set_xticklabels(diff_values, rotation=45)
-        name = 'img-' + save_name(c)
-        if int(mod):
-            equation = r'$\frac{\partial U(x,t)}{\partial t} = v(x)( 2U(x,t) + \nabla^{2} U(x,t)) (1 - U(x,t)) $'
-            sz = 13
-        if not int(mod):
-            equation = r'$\frac{\partial U(x,t)}{\partial t} = U(x,t)(1 - U(x,t)) + \nabla D(x) \nabla U(x,t) $ $n  D(x)\nabla^2 U(x,t) $'
-            sz = 9
 
-        plt.text(0, 50, equation, size=sz)
-        plt.savefig('frames_2_anim/' + name)
-        plt.close()
-        c += 1
+if test:
+    epx, epy = int(pathogen_spread.shape[0]/2), int(pathogen_spread.shape[1]/2)
+    fig, ax = plt.subplots(figsize=(8, 8))
+    x, y = np.arange(0, pathogen_spread.shape[0], 1), np.arange(0, pathogen_spread.shape[1], 1)
+    xv, yv = np.meshgrid(x, y)
+    xv, yv = xv - pathogen_spread.shape[0]/2, yv - pathogen_spread.shape[1]/2
+    d_arr = np.sqrt(xv**2 + yv**2)
+    name = 'img-' + save_name(i+1)
+    inf_ind = np.where(dat > 0.01)
+    top_h, low_h = inf_ind[0][-1], inf_ind[0][0]
+    left_v, right_v = np.array(inf_ind[1]).min(), np.array(inf_ind[1]).max()
+    im = ax.imshow(pathogen_spread, cmap=cmap, clim=[0, ulim], origin='lower')
+    cbar = plt.colorbar(im)
+    ax.plot([epy, epy], [epy-20, epy+20], c='b')  # central epi vertical
+    ax.plot([epx-20, epx+20], [epx, epx], c='b')  # central epi horizontal
+    ax.plot([10, pathogen_spread.shape[0]-10], [low_h, low_h],  c='r')     # left most vertical line
+    ax.plot([10, pathogen_spread.shape[0]-10], [top_h, top_h], c='r')  # right most vertical line
+    ax.plot([left_v, left_v], [10, pathogen_spread.shape[1] - 10], c='r')    # upper most horizontal
+    ax.plot([right_v, right_v], [10, pathogen_spread.shape[1] - 10], c='r')    # lower most horizontal
 
-    else:
-        pass
+    text_ = "epi (x,y) = ({}, {})".format(epx, epy)
+    plt.text(x=0, y=pathogen_spread.shape[0] + 50, s=text_)
 
+    text_ = "d left: {}, d right {}, d up: {}, d down: {}".format(left_v, right_v, top_h , low_h)
+    plt.text(x=0, y=pathogen_spread.shape[0] + 30, s=text_)
+
+    text_ = "Dd left: {}, Dd dist right {}, Dd dist up: {}, Dd dist down: {}".format(epx - left_v, right_v - epx, top_h - epy,
+                                                                              epy - low_h)
+    plt.text(x=0, y=pathogen_spread.shape[0] + 10, s=text_)
+    plt.savefig('frames_2_anim/' + name)
+    plt.close()
+
+sys.exit('Done...')
 
 
 

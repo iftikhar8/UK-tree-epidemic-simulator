@@ -838,6 +838,23 @@ def hres_pdf():
     return
 
 
+def pde_deaths():
+
+    path = os.getcwd() + '/latex_data/pde_tot_deaths/'
+    name = 'Fex-R0_10-L_100m_response_c.npy'
+    death_c = np.load(path + name)
+    days = np.linspace(0, 5, death_c.shape[0])
+    plt.plot(days, death_c)
+    plt.xticks(np.array([i for i in range(5)]))
+    plt.ylabel('Total infected trees')
+    plt.xlabel('Years')
+    plt.grid(True, alpha=0.5)
+    plt.savefig('fex-response-ell-100-r0-10')
+    plt.show()
+
+pde_deaths()
+
+
 
 
 
