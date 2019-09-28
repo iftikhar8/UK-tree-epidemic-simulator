@@ -1,0 +1,26 @@
+______Simulation Parameters_______
+l_time:100
+time_horizon:3650
+domain_sz:[30, 650]
+alpha:5
+R0:10
+eff_disp:20.0
+rho:0.03
+Density values : 0.001--0.03, num =30
+Dispersal values : 10.0-100.0(m), num = 30
+R0 values : [10](m), num = 1
+
+______Simulation Settings_______
+out_path:/nobackup/py13jh/hpc-subgrid-model/SubGrid_model/output_data/27-09-2019-HPC-full_param--ch_geom_comp
+date:27-09-2019
+job_id:1
+plt_tseries:False
+save_figs:False
+dyn_plots:[False, 1, True]
+anim:False
+BCD3:True
+individual:False
+verbose:False
+HPC:HPC
+local_type:animation
+debug_time:True

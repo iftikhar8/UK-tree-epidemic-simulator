@@ -22,7 +22,8 @@ sim_name = "Fex-R0_10-L_100m"     # simulation label
 # T : runtime of simulation
 # epi center
 
-params = {"T": 20, "epi_c": [690, 700, 550, 560], "plt_epi": False, "partial": [False,  [800, 900, 300, 400]],
+
+params = {"T": 20000, "epi_c": [690, 700, 550, 560], "plt_epi": False, "partial": [False,  [800, 900, 300, 400]],
           "vmap": vmap_name, "domain_name": domain_name, "sim_name": sim_name, "modified": False}
 
 print("Running PDE : {}".format(vmap_name))
