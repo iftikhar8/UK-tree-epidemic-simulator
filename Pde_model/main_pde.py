@@ -23,7 +23,7 @@ sim_name = "Fex-R0_10-L_100m"     # simulation label
 # epi center
 
 
-params = {"T": 20000, "epi_c": [690, 700, 550, 560], "plt_epi": False, "partial": [False,  [800, 900, 300, 400]],
+params = {"T": 40000, "epi_c": [690, 700, 550, 560], "plt_epi": False, "partial": [False,  [800, 900, 300, 400]],
           "vmap": vmap_name, "domain_name": domain_name, "sim_name": sim_name, "modified": False}
 
 print("Running PDE : {}".format(vmap_name))
@@ -43,9 +43,7 @@ t_1 = time.time()
 t = (t_1 - t_0) / 60
 # Print time elapsed in minutes.
 print("Time elapsed: ", t, ' (mins)')
-plt.plot(inf_tseries)
 np.save(sim_name + '_response_c', inf_tseries)
-plt.savefig(sim_name + '_response_c')
 plt.show()
 
 

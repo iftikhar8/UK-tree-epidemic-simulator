@@ -24,7 +24,7 @@ date_time=$(date '+%d-%m-%Y %H:%M:%S')
 
 mode="HPC"
 sim_type="-full_param-"  # HPC --> two sim_types : ['-high_res-', '-full_param-']
-sim_name="-ch_geom_comp"
+sim_name="-ch_geom_r0-20"
 
 python3 mkdir.py $date_time $mode $sim_type $sim_name
 python3 main.py $SGE_TASK_ID $date_time $data_type $mode $sim_type $sim_name

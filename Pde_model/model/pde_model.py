@@ -31,7 +31,6 @@ def finite_difference_sim(dim, params, d_map, g_map, N_map, sea_map, uk, saves):
         plt.show()
     save_count = 0
     for time_step in range(T):
-        print("Time step: ", time_step)
         for i in range(dim[0] - 2):
             for j in range(dim[1] - 2):
                 # diff_ij: diffusion component of PDE sgm_model: D \grad^2 U)
@@ -128,7 +127,7 @@ def main(params, maps_):
     dim = params["dim"]
     # ________ BEGIN the finite simulations ________ #
     inf_tseries = finite_difference_sim(dim, params, diffusion_map, growth_map, number_map, sea_map,
-                                        uk, saves=[True, 50, save_path])
+                                        uk, saves=[True, 100, save_path])
     return inf_tseries
 
 
