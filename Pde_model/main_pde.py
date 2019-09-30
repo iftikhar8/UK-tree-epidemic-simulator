@@ -22,9 +22,8 @@ sim_name = "Fex-R0_10-L_100m"     # simulation label
 # T : runtime of simulation
 # epi center
 
-
 params = {"T": 20000, "epi_c": [690, 700, 550, 560], "plt_epi": False, "partial": [False,  [800, 900, 300, 400]],
-          "vmap": vmap_name, "domain_name": domain_name, "sim_name": sim_name, "modified": False}
+          "vmap": vmap_name, "domain_name": domain_name, "sim_name": sim_name, "modified": False, "continue_sim": True}
 
 print("Running PDE : {}".format(vmap_name))
 print("--> save dir :  {} ".format(sim_name))
@@ -34,6 +33,7 @@ diffusion_map, species_number_map, growth_map, sea_map, uk = diffusion_mapping.m
 # maps_ : this is fed into pde_model
 maps_ = np.zeros(shape=(5, growth_map.shape[0], growth_map.shape[1]))
 maps_[0], maps_[1], maps_[2], maps_[3], maps_[4] = diffusion_map, growth_map, species_number_map, sea_map, uk
+
 params["dim"] = diffusion_map.shape
 # - epi_center : point of disease introduction
 #   port of Immingham ~= [560, 570, 455, 465]

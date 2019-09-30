@@ -18,7 +18,7 @@ def save_name(int_):
 
 
 name = input('Enter name of folder to animate: ')
-path = os.getcwd() + '/' + name + '/'
+path = os.getcwd() + '/' + name
 files = sorted(os.listdir(path))
 sim_info = files[-1]
 
@@ -32,7 +32,7 @@ for line in content:
 
 files = files[:-1]  # remove last parameters.txt file
 diff_map_name, num_map_name, sea_map_name = files[0], files[1], files[2]
-diffusion_map = np.load(os.path.join(path, diff_map_name))
+#diffusion_map = np.load(os.path.join(path, diff_map_name), allow_pickle=True)
 num_map = np.load(os.path.join(path, num_map_name))
 sea_map = np.load(os.path.join(path, sea_map_name))
 test = True  # plot end travelling metrics
@@ -64,14 +64,14 @@ cmap = np.vstack((lower, upper))
 # convert to matplotlib colormap
 cmap = mpl.colors.ListedColormap(cmap, name='myColorMap', N=cmap.shape[0])
 yrs = -1
-for i, file in enumerate(files):
+for i, file in enumerate(files[390:]):
     print('File:', file, i, ' /', len(files))
     # Get how many years has passed
     assert file.split('.')[1] == 'npy'  # check is numpy file
     dat = np.load(os.path.join(path, file))
     fig, ax = plt.subplots(figsize=(5, 5))
     pathogen_spread = dat * num_map * sea_map
-    im = ax.imshow(pathogen_spread, cmap=cmap, clim=[0, ulim], origin='lower')
+    im = ax.imshow(pathogen_spread, cmap=cmap, clim=[0, ulim])
     cbar = plt.colorbar(im)
     cbar.set_label('Tree deaths')
     ax.set_title(r'$\ell = {}m,\ R0 = {} $: '.format(disp, R0) + ' days = ' + str(i * freq))
@@ -81,7 +81,8 @@ for i, file in enumerate(files):
 
 
 if test:
-    epx, epy = int(pathogen_spread.shape[0]/2), int(pathogen_spread.shape[1]/2)
+    # [690, 700, 550, 560]
+    epi_x, epi_y = 400, 400
     fig, ax = plt.subplots(figsize=(8, 8))
     x, y = np.arange(0, pathogen_spread.shape[0], 1), np.arange(0, pathogen_spread.shape[1], 1)
     xv, yv = np.meshgrid(x, y)
@@ -91,24 +92,24 @@ if test:
     inf_ind = np.where(dat > 0.01)
     top_h, low_h = inf_ind[0][-1], inf_ind[0][0]
     left_v, right_v = np.array(inf_ind[1]).min(), np.array(inf_ind[1]).max()
-    im = ax.imshow(pathogen_spread, cmap=cmap, clim=[0, ulim], origin='lower')
+    im = ax.imshow(pathogen_spread, cmap=cmap, clim=[0, ulim])
     cbar = plt.colorbar(im)
-    ax.plot([epy, epy], [epy-20, epy+20], c='b')  # central epi vertical
-    ax.plot([epx-20, epx+20], [epx, epx], c='b')  # central epi horizontal
-    ax.plot([10, pathogen_spread.shape[0]-10], [low_h, low_h],  c='r')     # left most vertical line
-    ax.plot([10, pathogen_spread.shape[0]-10], [top_h, top_h], c='r')  # right most vertical line
-    ax.plot([left_v, left_v], [10, pathogen_spread.shape[1] - 10], c='r')    # upper most horizontal
-    ax.plot([right_v, right_v], [10, pathogen_spread.shape[1] - 10], c='r')    # lower most horizontal
-
+    # Plot epi line
+    print('Hello my name is johnf')
+    # ax.plot([epi_y, epi_y], [epix-20, epi_x+20], c='b')  # central epi vertical
+    # Plot containment area
+    ax.plot([left_v, right_v], [low_h, low_h],  c='r')     # upper horizontal
+    ax.plot([left_v, right_v], [top_h, top_h], c='r')  # lower horizontal
+    ax.plot([left_v, left_v], [low_h, top_h], c='r')    # left vertical
+    ax.plot([right_v, right_v], [low_h, top_h], c='r')    # right vertical
+    # Plot containment stats
     text_ = "epi (x,y) = ({}, {})".format(epx, epy)
-    plt.text(x=0, y=pathogen_spread.shape[0] + 50, s=text_)
-
+    plt.text(x=0, y=-80, s=text_)
     text_ = "d left: {}, d right {}, d up: {}, d down: {}".format(left_v, right_v, top_h , low_h)
-    plt.text(x=0, y=pathogen_spread.shape[0] + 30, s=text_)
-
+    plt.text(x=0, y=-45, s=text_)
     text_ = "Dd left: {}, Dd dist right {}, Dd dist up: {}, Dd dist down: {}".format(epx - left_v, right_v - epx, top_h - epy,
                                                                               epy - low_h)
-    plt.text(x=0, y=pathogen_spread.shape[0] + 10, s=text_)
+    plt.text(x=0, y=-10, s=text_)
     plt.savefig('frames_2_anim/' + name)
     plt.close()
 
