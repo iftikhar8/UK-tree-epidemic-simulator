@@ -14,16 +14,18 @@ from model import pde_model
 
 in_arr = sys.argv  # Input parameters
 month, current_time, sim_label = in_arr[1:]
-vmap_name = "R0_10_ell_100"       # velocity map name
-domain_name = 'Fex-cg-1'         # domain name
-sim_name = "Fex-R0_10-L_100m"     # simulation label
+ell = {1: "25", 2: "50", 3: "75", 4: "100"}
+ell_ = ell[3]   # Choose value of dispersal distance
+domain_name = 'Fex-cg-1'   # Domain name
+vmap_name = "R0_10_ell_{}".format(ell_)       # Velocity map name
+sim_name = "Fex-R0_10-L_{}m".format(ell_)     # Simulation save label
 
 # DEFINE simulation parameters
 # T : runtime of simulation
 # epi center
 
-params = {"T": 20000, "epi_c": [690, 700, 550, 560], "plt_epi": False, "partial": [False,  [800, 900, 300, 400]],
-          "vmap": vmap_name, "domain_name": domain_name, "sim_name": sim_name, "modified": False, "continue_sim": True}
+params = {"T": 50000, "epi_c": [690, 700, 550, 560], "plt_epi": False, "partial": [False,  [800, 900, 300, 400]],
+          "vmap": vmap_name, "domain_name": domain_name, "sim_name": sim_name, "modified": False, "save_freq": 100}
 
 print("Running PDE : {}".format(vmap_name))
 print("--> save dir :  {} ".format(sim_name))
@@ -41,11 +43,10 @@ t_0 = time.time()
 inf_tseries = pde_model.main(params, maps_)
 t_1 = time.time()
 t = (t_1 - t_0) / 60
+np.save(sim_name + '_response_c', inf_tseries)
+print(sim_name + '_response_c : saved...')
 # Print time elapsed in minutes.
 print("Time elapsed: ", t, ' (mins)')
-plt.plot(inf_tseries)
-np.save(sim_name + '_response_c', inf_tseries)
-plt.savefig(sim_name + '_response_c')
 plt.show()
 
 

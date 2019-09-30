@@ -7,7 +7,7 @@
 # hpc_mode | flips between local machine and HPC
 # sim_name | input a string to append to the output file to identify simulation runs
 
-hpc_switch=1
+hpc_switch=0
 sim_label="_na"
 date_time=$(date '+%d-%m-%Y %H:%M:%S')
 

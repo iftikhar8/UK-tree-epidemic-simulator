@@ -161,7 +161,7 @@ if mode == "HPC":
 elif mode == "LCL":
     # Individual simulation for animation
     if sim_type == "-anim":
-        R0 = 10  # number of secondary infections
+        R0 = 20  # number of secondary infections
         dispersal_ = 30  # average dispersal distance in (m)
         alpha = 5  # Lattice constant in (m)
         eff_dispersal = dispersal_ / alpha  # Convert the dispersal distance from km to computer units
