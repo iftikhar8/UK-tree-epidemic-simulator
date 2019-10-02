@@ -84,7 +84,7 @@ def main(params, plt_figs):
         vmap_Dat = np.load(os.getcwd() + '/diffusion_mapping/' + vmap_name)
         rho_space, v_mapping = vmap_Dat
         v_mapping = np.where(v_mapping < 10, 0, v_mapping)
-        v_mapping = v_mapping / 365
+        v_mapping = 1000 * v_mapping / 365  # units of m/day
         diffusion_map = diffusion_mapping(domain, rho_space, v_mapping, plt_figs=plt_figs)
         np.save(os.getcwd() + '/diffusion_mapping/' + diff_name, diffusion_map)
 

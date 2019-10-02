@@ -29,6 +29,7 @@ def finite_difference_sim(dim, params, d_map, g_map, N_map, sea_map, uk, saves):
         im = plt.imshow(g_map, origin='lower')
         plt.colorbar(im)
         plt.show()
+    dt, dx = params["dt"], params["dx"]
     save_count = 0
     for time_step in range(T):
         for i in range(dim[0] - 2):
@@ -44,8 +45,8 @@ def finite_difference_sim(dim, params, d_map, g_map, N_map, sea_map, uk, saves):
                 if mod:  # modified custom-made derived equation
                     uk[i, j] = uk[i, j] + d_map[i, j] * (diff_ij + growth_ij) * (1 - uk[i, j])
                 if not mod:  # the off-the shelf Fisher equation.
-                    uk[i, j] = uk[i, j] + 0.01 * ((diff_ij + advect_ij) / 0.005 + growth_ij)  # + advection_ij
-
+                    uk[i, j] = uk[i, j] + dt * (diff_ij/dx**2 + growth_ij)   # + advect_ij/2*dx
+                    # dt = 0.01, dx^2 = 0.005
         # Infected response curve
         inf_tseries[time_step] = (uk * N_map).sum()
         # SAVE frame to file
@@ -62,7 +63,6 @@ def finite_difference_sim(dim, params, d_map, g_map, N_map, sea_map, uk, saves):
                 if save_count > 10000:
                     save_label = str(save_count)
                 name = saves[2] + '/dat-' + save_label
-
                 np.save(name, uk)
                 save_count += 1
 

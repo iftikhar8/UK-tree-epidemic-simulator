@@ -15,17 +15,18 @@ from model import pde_model
 in_arr = sys.argv  # Input parameters
 month, current_time, sim_label = in_arr[1:]
 ell = {1: "25", 2: "50", 3: "75", 4: "100"}
-ell_ = ell[3]   # Choose value of dispersal distance
+ell_ = ell[4]   # Choose value of dispersal distance
 domain_name = 'Fex-cg-1'   # Domain name
 vmap_name = "R0_10_ell_{}".format(ell_)       # Velocity map name
-sim_name = "Fex-R0_10-L_{}m".format(ell_)     # Simulation save label
+sim_name = "test-Fex-R0_10-L_{}m".format(ell_)     # Simulation save label
 
 # DEFINE simulation parameters
 # T : runtime of simulation
 # epi center
 
-params = {"T": 50000, "epi_c": [690, 700, 550, 560], "plt_epi": False, "partial": [False,  [800, 900, 300, 400]],
-          "vmap": vmap_name, "domain_name": domain_name, "sim_name": sim_name, "modified": False, "save_freq": 100}
+params = {"T": 200, "epi_c": [690, 700, 550, 560], "plt_epi": False, "partial": [False,  [800, 900, 300, 400]],
+          "vmap": vmap_name, "domain_name": domain_name, "sim_name": sim_name, "modified": False, "save_freq": 5,
+          "dt": 1, "dx": 1000}
 
 print("Running PDE : {}".format(vmap_name))
 print("--> save dir :  {} ".format(sim_name))

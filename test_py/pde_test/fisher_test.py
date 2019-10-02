@@ -12,8 +12,8 @@ sim_name = "test"     # simulation label
 # DEFINE simulation parameters
 # T : runtime of simulation
 # epi center
-params = {"T": 2000, "epi_c": [690, 700, 550, 560], "plt_epi": True, "partial": [False,  [800, 900, 300, 400]],
-          "vmap": vmap_name, "domain_name": domain_name, "sim_name": sim_name, "modified": False}
+params = {"T": 150, "epi_c": [690, 700, 550, 560], "plt_epi": True, "partial": [False,  [800, 900, 300, 400]],
+          "vmap": vmap_name, "domain_name": domain_name, "sim_name": sim_name, "modified": False, 'save_freq': 1}
 
 print("Running PDE : {}".format(vmap_name))
 print("--> save dir :  {} ".format(sim_name))
@@ -23,7 +23,7 @@ sz = 100  # size of domain
 ep = int(sz/2)
 x, y = np.linspace(0, 1, sz), np.ones(sz)  # x = diff grad, y = grow grad
 diffusion_map, growth_map = np.meshgrid(x, y)
-diffusion_map, growth_map = np.ones(shape=(sz, sz))*0.001, np.ones(shape=(sz, sz))
+diffusion_map, growth_map = np.ones(shape=(sz, sz))*0.1, np.ones(shape=(sz, sz))
 diffusion_map[0:2], diffusion_map[-2:], diffusion_map[:, 0:2], diffusion_map[:, -2:] = [0, 0, 0, 0]
 growth_map[0:2], growth_map[-2:], growth_map[:, 0:2], growth_map[:, -2:] = [0, 0, 0, 0]
 sea_map, species_number_map, uk = np.zeros(growth_map.shape), np.ones(growth_map.shape), np.zeros(growth_map.shape)

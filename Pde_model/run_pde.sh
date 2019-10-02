@@ -19,7 +19,7 @@ module load python/3.6.5
 module load python-libs/3.1.0
 
 #$ -cwd -V
-#$ -l h_rt=24:00:00
+#$ -l h_rt=48:00:00
 
 # ######## Run simulation ######## #
 python3 main_pde.py $date_time $sim_label
