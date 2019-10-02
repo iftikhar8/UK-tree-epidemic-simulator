@@ -1,0 +1,11 @@
+______Parameter settings_______
+T:50000
+epi_c:[690, 700, 550, 560]
+plt_epi:False
+partial:[False, [800, 900, 300, 400]]
+vmap:R0_10_ell_25
+domain_name:Fex-cg-1
+sim_name:Fex-R0_10-L_25m
+modified:False
+save_freq:100
+dim:(964, 597)

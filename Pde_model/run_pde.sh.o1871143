@@ -1,0 +1,16 @@
+## Running job 1871143.1 on host dc1s0b1a.arc3.leeds.ac.uk
+##
+## Resources granted:
+##
+## h_vmem = 1G
+## h_rt   = 48:00:00
+## disk   = 1G
+
+Running PDE : R0_10_ell_100
+--> save dir :  Fex-R0_10-L_100m 
+Diffusion map loading...
+Full uk simulation data check
+...warning: simulation 'Fex-R0_10-L_100m-data'lready exists! 
+Fex-R0_10-L_100m_response_c : saved...
+Time elapsed:  1958.0819067796072  (mins)
+Simulations Finished
