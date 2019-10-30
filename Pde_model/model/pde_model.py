@@ -13,9 +13,6 @@ def finite_difference_sim(dim, params, d_map, g_map, N_map, sea_map, uk, saves):
     :return:
     """
 
-    d_d_map = np.gradient(d_map)
-    d_d_map = d_d_map[0] + d_d_map[1]
-    d_d_map = np.abs(d_d_map)
     alpha, dim, T = 1, params["dim"], params["T"]
     inf_tseries = np.zeros(T)  # count estimated number of infected trees
     if 0:
@@ -31,6 +28,7 @@ def finite_difference_sim(dim, params, d_map, g_map, N_map, sea_map, uk, saves):
         plt.show()
     dt, dx = params["dt"], params["dx"]
     save_count = 0
+    BCD = np.where(np.isnan(sea_map))  # Boundary conditions set
     for time_step in range(T):
         for i in range(dim[0] - 2):
             for j in range(dim[1] - 2):
@@ -39,14 +37,17 @@ def finite_difference_sim(dim, params, d_map, g_map, N_map, sea_map, uk, saves):
                 # growth_ij: growth component of PDE sgm_model:  \alpha U(x,t)
                 diff_ij = d_map[i, j] * (uk[i + 1, j] + uk[i - 1, j] + uk[i, j + 1] + uk[i, j - 1] - 4 * uk[i, j])
                 growth_ij = g_map[i, j] * uk[i, j] * (1 - uk[i, j])
-                advect_ij = d_d_map[i, j] * (uk[i + 1, j] + uk[i, j + 1] - 2*uk[i, j])
+                # advect_ij = (d_map[i + 1, j] + d_map[i, j + 1] - d_map[i - 1, j] - d_map[i, j - 1]) * \
+                #             (uk[i + 1, j] + uk[i, j + 1] - uk[i - 1, j] - uk[i, j - 1])
                 # uk: resultant output: SUM {Growth + diffusion}[1 - U(x, t)]
                 mod = params["modified"]
                 if mod:  # modified custom-made derived equation
                     uk[i, j] = uk[i, j] + d_map[i, j] * (diff_ij + growth_ij) * (1 - uk[i, j])
                 if not mod:  # the off-the shelf Fisher equation.
-                    uk[i, j] = uk[i, j] + dt * (diff_ij/dx**2 + growth_ij)   # + advect_ij/2*dx
+                    uk[i, j] = uk[i, j] + dt * (diff_ij/(dx**2) + growth_ij)  # advect_ij/(4*dx**2)
                     # dt = 0.01, dx^2 = 0.005
+
+        uk[BCD] = 0
         # Infected response curve
         inf_tseries[time_step] = (uk * N_map).sum()
         # SAVE frame to file
@@ -75,6 +76,8 @@ def finite_difference_sim(dim, params, d_map, g_map, N_map, sea_map, uk, saves):
                 params["save_freq"] = saves[1]
                 for parameter in params:
                     info_file.write(parameter + ':' + str(params[parameter]) + '\n')
+
+
     return inf_tseries
 
 
@@ -131,4 +134,5 @@ def main(params, maps_):
 
 
 if __name__ == '__main__':
+
     main(params, diffusion_map)

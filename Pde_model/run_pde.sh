@@ -7,8 +7,7 @@
 # hpc_mode | flips between local machine and HPC
 # sim_name | input a string to append to the output file to identify simulation runs
 
-hpc_switch=0
-sim_label="_na"
+hpc_switch=1
 date_time=$(date '+%d-%m-%Y %H:%M:%S')
 
 ###########__________Run script__________#############
@@ -22,14 +21,14 @@ module load python-libs/3.1.0
 #$ -l h_rt=48:00:00
 
 # ######## Run simulation ######## #
-python3 main_pde.py $date_time $sim_label
+python3 main_pde.py $date_time $hpc_switch
 elif [ "$hpc_switch" == 0 ]
  then
 
 # ######## local machine ######### #
        #### Run simulation ####
 
-python3 main_pde.py $date_time $sim_label
+python3 main_pde.py $date_time $hpc_switch
 
 fi
 echo "Simulations Finished"

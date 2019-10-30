@@ -399,7 +399,7 @@ def phase_space_gen():
     """
     metric = 'vel'
     name = 'COMBINED-ps-b-100-r-100-L-6.npy'
-    ps_tensor = np.load(os.getcwd() + '/Latex/latex_data/phase-space-figs/' + name)
+    ps_tensor = np.load(os.getcwd() + '/Latex/latex_data/phase-space-FD_calibration_err_figs/' + name)
     ps_tensor = ps_tensor[1]  # select which dispersal distance
 
     if metric == 'vel':

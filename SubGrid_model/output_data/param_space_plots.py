@@ -127,7 +127,7 @@ def ensemble_generator(path, dim, show_2D, show_1D, save_Data):
 # DEFINE
 # 1. sim_names : used to generate individual ensemble simulations
 sim_names = {0: '/27-09-2019-HPC-full_param--ch_geom_r0-10',
-             1: '/28-09-2019-HPC-full_param--ch_geom_r0-10'}
+             1: '/30-09-2019-HPC-full_param--ch_geom_r0-20'}
 
 # 2. the different metrics used
 metrics = {0: '/max_distance_km', 1: '/run_time', 2: "/mortality", 3: "/mortality_ratio", 4: "/percolation", 5: "/velocity"}
@@ -138,12 +138,12 @@ if True:
     # PLOT & SAVE phase-space tensor
     # phase_dim : [sigma, beta, rho]
     # GET distance reached tensor
-    sim_name = 1         # enter the simulate name index
+    sim_name = 0      # enter the simulate name index
     distance = 0         # load and compute distance plots
     runtime = 0          # load and compute runtime plots
     mortality = 0        # load and compute mortality plots
     mortality_ratio = 0  # load mortality ratio,
-    velocity = 0         # compute velocity and show
+    velocity = 1         # compute velocity and show
     percolation = 1      # load and compute percolation
     phase_dim = [1, 30, 30]
     save_name = "ps-b-" + str(phase_dim[1]) + "-r-" + str(phase_dim[2]) + "-L-" + str(phase_dim[0])
