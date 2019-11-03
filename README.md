@@ -2,12 +2,26 @@
 
 SubGrid_model:
 
-1) SubGrid dir contains main script: main.py which is run via a bash script run_sgm.sh
-  run_sgm.sh needs to be run either on local machine for small simulations or HPC for big ensemble simulations
-    (HPC in a task array ~100 cores @ ARC3)
+- SubGrid dir contains main script: main.py which is run via a bash script run_sgm.sh
+  run_sgm.sh needs to be run either on local machine for small simulations or HPC for:
+  
+  
+ 1) Big ensemble simulations (HPC in a task array ~100 cores @ ARC3)
+    - Scripts submittd to HPC via run_sgm.sh with HPC=True (requires SSH'ing into externeal HPC facility)
+    - HPC generates results and saves as .npy file 
+    - data processed in SubGrid/output_data/ directory 
+    - Output is a function mapping tree density (and other epidemic parameters) to expected wave-speed of pathogen.
+    - Output data is further processed, visualsed and saved in a .npy file via running output_data/param_space_plots.py 
     
-2) Output is a function mapping tree density (and other epidemic parameters) to expected wave-speed of pathogen.
-3) Output data is further processed, visualsed and saved in a .npy file via running output_data/param_space_plots.py 
+ 2) small local machine ensemble simulations
+    - run via run_sgm.sh on local machine
+    - main.py calls model/sgm.py simulates disease spread over small scale for given parameters
+    - animations generated in subGrid/animations_data/ via running animations.sh 
+ 3) local simulations producing individual animations
+    - programable segmets for small parameter-space/ensemble simulations
+    - e.g. useful for time-series and generaing Latex figs etc.
+ 
+
 
 pde_model:
 
