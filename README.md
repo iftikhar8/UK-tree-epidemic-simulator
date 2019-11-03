@@ -3,7 +3,7 @@
 SubGrid:
 
 1) SubGrid dir contains main script: main.py which is run via a bash script run_sgm.sh
-  - run_sgm.sh needs to be run either on local machine for small simulations or HPC for big ensemble simulations
+  run_sgm.sh needs to be run either on local machine for small simulations or HPC for big ensemble simulations
     (HPC in a task array ~100 cores @ ARC3)
     
 2) Output is a function mapping tree density (and other epidemic parameters) to expected wave-speed of pathogen.
