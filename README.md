@@ -1,6 +1,6 @@
 # UK-tree-epidemic-simulator
 
-SubGrid:
+SubGrid_model:
 
 1) SubGrid dir contains main script: main.py which is run via a bash script run_sgm.sh
   run_sgm.sh needs to be run either on local machine for small simulations or HPC for big ensemble simulations
